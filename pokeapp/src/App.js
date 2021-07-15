@@ -1,9 +1,13 @@
+import React, {useEffect} from 'react';
+import {Brain} from './Brain'
+
+const App = () =>  {
 
 
-function App() {
+ 
   return (
     <div className="App">
-      
+      <Brain/>
     </div>
   );
 }
