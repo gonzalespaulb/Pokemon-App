@@ -1,4 +1,4 @@
-
+import './styling/main.scss';
 
 function App() {
   return (

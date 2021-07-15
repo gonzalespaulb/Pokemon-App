@@ -1,0 +1,16 @@
+// ........................................................... General
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+// ........................................................... Components
+
+@import './components/filterbar';
+@import './components/navigation';
+@import './components/pokemon-grid';
+@import './components/sidebar';
+
