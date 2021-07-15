@@ -3,32 +3,38 @@ import { getAllPokemon, getPokemonWeakness } from "./utilities/ApiCall";
 
 export const Brain = () => {
   const [allPokemon, setAllPokemon] = useState([]);
-  const [weaknesses, setWeaknesses] = useState([]);
 
+  const resolvePokeList = async (pokeList) => {
+    return Promise.all(pokeList);
+  };
 
-
-  const getPokeInfo = () => {
-    getAllPokemon().then((pokeList) =>
-      pokeList.map(async (pokemon) => {
-        await fetch(pokemon.url)
-          .then((response) => response.json())
-          .then((pokemon) =>
-            setAllPokemon((currentPokemon) => [...currentPokemon, pokemon])
-          );
-      })
-    );
+  const getPokeInfo = async () => {
+    const pokemonListUrls = await getAllPokemon();
+    //Generates a list of promises
+    //Each promise contains information about each Pokemon
+    const pokemonList = await pokemonListUrls.map(async (pokemon) => {
+      return await fetch(pokemon.url).then((response) => response.json());
+    });
+    //Wait for all promises to resolve by using resolvePokeList function
+    const resolvedList = await resolvePokeList(pokemonList);
+    //Grab the weakness info
+    const weaknessInfo = await getWeaknessInfo();
+    //Enrich each object with custom properties
+    const updatedPokemonList = updatePokeInfo(resolvedList, weaknessInfo);
+    //Save the completed list and complete initialization
+    setAllPokemon(updatedPokemonList);
   };
 
   const getWeaknessInfo = async () => {
     const pokemonWeaknesses = await getPokemonWeakness().then((types) =>
-    types.map((type) => {
+      types.map((type) => {
         return {
           name: type.name,
           weakness: type.damage_relations.double_damage_from,
         };
       })
     );
-    setWeaknesses(pokemonWeaknesses);
+    return pokemonWeaknesses;
   };
 
   /**
@@ -37,7 +43,7 @@ export const Brain = () => {
    * @param {Array} types - Current pokemon's types
    * @returns {Array} - List of unique weaknesses
    */
-  const weaknessChecker = (types) => {
+  const weaknessChecker = (types, weaknesses) => {
     const mergedWeaknesses = [];
     //Examines a pokemon's types to aquire the weakness classes
     const foundWeaknesses = types.map((type) => {
@@ -65,9 +71,9 @@ export const Brain = () => {
     return mergedWeaknesses;
   };
 
-  const updatePokeInfo = () => {
-    const updatedPokeInfo = allPokemon.map((pokemon) => {
-      const weaknessInfo = weaknessChecker(pokemon.types)
+  const updatePokeInfo = (pokemonList, weaknessList) => {
+    const updatedPokeInfo = pokemonList.map((pokemon) => {
+      const weaknessInfo = weaknessChecker(pokemon.types, weaknessList);
       return {
         ...pokemon,
         picture: pokemon.sprites.front_default,
@@ -79,25 +85,25 @@ export const Brain = () => {
           weaknessInfo.length +
           pokemon.weight +
           pokemon.height,
-        weaknesses:weaknessInfo,
+        weaknesses: weaknessInfo,
         types: pokemon.types,
         abilities: pokemon.abilities,
         games: pokemon.game_indices,
       };
     });
-    setAllPokemon(updatedPokeInfo);
+    return updatedPokeInfo;
   };
 
-
   useEffect(() => {
-    getPokeInfo();
-    getWeaknessInfo();
-    updatePokeInfo();
+    async function init() {
+      await getPokeInfo();
+    }
+    init();
   }, []);
 
   return (
     <div>
-     
+      <button onClick={() => console.log(allPokemon)}> Log </button>
     </div>
   );
 };
