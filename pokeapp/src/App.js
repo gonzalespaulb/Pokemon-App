@@ -1,15 +1,14 @@
-import React, {useEffect} from 'react';
-import {Brain} from './Brain'
+import './styling/main.scss';
+import React, { useEffect } from "react";
+import { Brain } from "./Brain";
 
-const App = () =>  {
 
-
- 
+const App = () => {
   return (
     <div className="App">
-      <Brain/>
+      <Brain />
     </div>
   );
-}
+};
 
 export default App;
