@@ -103,7 +103,7 @@ export const Brain = () => {
 
   return (
     <div>
-      <button onClick={() => console.log(allPokemon)}> Log </button>
+      <button> Log </button>
     </div>
   );
 };
