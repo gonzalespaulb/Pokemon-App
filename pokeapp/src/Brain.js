@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getAllPokemon, getPokemonWeakness } from "./utilities/ApiCall";
+import FilterBar from './components/FilterBar';
 
 export const Brain = () => {
   const [allPokemon, setAllPokemon] = useState([]);
@@ -103,7 +104,9 @@ export const Brain = () => {
 
   return (
     <div>
+      {/* Using this to test filtering */}
       <button onClick={()=> console.log(allPokemon)}> Log </button>
+      <FilterBar allPokemon={allPokemon} setAllPokemon={setAllPokemon}/>
     </div>
   );
 };
