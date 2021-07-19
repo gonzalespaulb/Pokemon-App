@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getAllPokemon, getPokemonWeakness } from "./utilities/ApiCall";
+import FilterBar from "./components/FilterBar";
 
 export const Brain = () => {
   const [allPokemon, setAllPokemon] = useState([]);
+  const [allPokemonFiltered, setAllPokemonFiltered] = useState([]);
 
   const resolvePokeList = async (pokeList) => {
     return Promise.all(pokeList);
@@ -23,6 +25,7 @@ export const Brain = () => {
     const updatedPokemonList = updatePokeInfo(resolvedList, weaknessInfo);
     //Save the completed list and complete initialization
     setAllPokemon(updatedPokemonList);
+    setAllPokemonFiltered(updatedPokemonList);
   };
 
   const getWeaknessInfo = async () => {
@@ -103,7 +106,7 @@ export const Brain = () => {
 
   return (
     <div>
-      <button onClick={()=> console.log(allPokemon)}> Log </button>
+      <FilterBar allPokemon={allPokemon} setAllPokemonFiltered={setAllPokemonFiltered} />
     </div>
   );
 };
