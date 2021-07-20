@@ -1,0 +1,12 @@
+@import '../colorschemes/colors';
+@import '../typography/fonts';
+
+.main-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: $base-color;
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    grid-template-rows: 100px 50px 1fr;
+}
+

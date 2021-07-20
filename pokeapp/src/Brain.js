@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getAllPokemon, getPokemonWeakness } from "./utilities/apiCall";
 import FilterBar from "./components/FilterBar";
+import DigitalCardBinder from "./components/DigitalCardBinder";
+import Navigation from "./components/Navigation";
+import SideBar from "./components/Sidebar";
+import Layout from './components/Layout';
+
 
 export const Brain = () => {
   const [allPokemon, setAllPokemon] = useState([]);
@@ -106,10 +111,16 @@ export const Brain = () => {
 
   return (
     <div>
-      <FilterBar
-        allPokemon={allPokemon}
-        setAllPokemonFiltered={setAllPokemonFiltered}
+ 
+      <Layout 
+        Navigation={<Navigation/>} 
+        FilterBar={<FilterBar 
+          allPokemon={allPokemon}
+          setAllPokemonFiltered={setAllPokemonFiltered}/>} 
+        SideBar={<SideBar/>}
+        DigitalCardBinder={<DigitalCardBinder/>}
       />
+      
     </div>
   );
 };

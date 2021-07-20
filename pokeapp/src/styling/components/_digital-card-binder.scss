@@ -1,8 +1,8 @@
 @import '../colorschemes/colors';
 @import '../typography/fonts';
 
-.navigation {
+.digital-card-binder {
     background-color: $component-container;
-    grid-area: 1 / 1 / 2 / 3;
+    grid-area: 3 / 2 / 4 /3;
     border: 1px solid black;
 }
