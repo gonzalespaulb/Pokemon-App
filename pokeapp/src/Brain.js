@@ -104,14 +104,12 @@ export const Brain = () => {
     init();
   }, []);
 
-
   return (
     <div>
       <FilterBar
         allPokemon={allPokemon}
         setAllPokemonFiltered={setAllPokemonFiltered}
       />
-
     </div>
   );
 };
