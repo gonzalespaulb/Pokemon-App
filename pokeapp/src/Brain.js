@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getAllPokemon, getPokemonWeakness } from "./utilities/ApiCall";
+import { getAllPokemon, getPokemonWeakness } from "./utilities/apiCall";
 import FilterBar from "./components/FilterBar";
 
 export const Brain = () => {
@@ -104,9 +104,14 @@ export const Brain = () => {
     init();
   }, []);
 
+
   return (
     <div>
-      <FilterBar allPokemon={allPokemon} setAllPokemonFiltered={setAllPokemonFiltered} />
+      <FilterBar
+        allPokemon={allPokemon}
+        setAllPokemonFiltered={setAllPokemonFiltered}
+      />
+
     </div>
   );
 };

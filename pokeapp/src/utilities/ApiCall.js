@@ -4,6 +4,7 @@ const P = new Pokedex.Pokedex();
 const interval = {
   offset: 0,
   limit: 1119,
+  cache: true,
 };
 
 export const getAllPokemon = async () => {
@@ -15,7 +16,7 @@ export const getAllPokemon = async () => {
 
 export const getPokemonWeakness = async () => {
   const types = [
-    "grass",
+    "grass", 
     "fire",
     "ground",
     "flying",
