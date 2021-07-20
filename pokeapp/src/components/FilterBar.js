@@ -153,7 +153,9 @@ const FilterBar = ({
   };
 
   return (
-    <div>
+    <div className="filter-bar">
+      Filter bar
+
       <div>
         <label>Low to High</label>
         {radioEl(SortTypes.ID_LOW_TO_HIGH)}

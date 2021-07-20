@@ -1,2 +1,8 @@
 @import '../colorschemes/colors';
 @import '../typography/fonts';
+
+.sidebar {
+    background-color: $component-container;
+    grid-area: 2 / 1 / 4 / 2;
+    border: 1px solid black;
+}

@@ -14,3 +14,9 @@
     background-color: #fdfdfd;
     border: 1px solid black;
 }
+
+.filter-bar {
+    background-color: $component-container;
+    grid-area: 2 / 2 / 3 / 3;
+    border: 1px solid black;
+}
