@@ -1,5 +1,5 @@
 import "./styling/main.scss";
-import React, { useEffect } from "react";
+import React from "react";
 import { Brain } from "./Brain";
 
 const App = () => {
