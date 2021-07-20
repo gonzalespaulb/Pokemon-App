@@ -1,7 +1,6 @@
-import './styling/main.scss';
+import "./styling/main.scss";
 import React, { useEffect } from "react";
 import { Brain } from "./Brain";
-
 
 const App = () => {
   return (
