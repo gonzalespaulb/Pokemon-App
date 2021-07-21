@@ -1,11 +1,21 @@
 const Pokedex = require("pokeapi-js-wrapper");
-const P = new Pokedex.Pokedex();
 
 const interval = {
   offset: 0,
   limit: 1119,
-  cache: true,
 };
+
+const customOptions = {
+  protocol: "http",
+  //switch to https when hosting on firebase
+  versionPath: "/api/v2/",
+  cache: true,
+  timeout: 5 * 1000, // 5s
+  cacheImages: true
+}
+
+
+const P = new Pokedex.Pokedex(customOptions);
 
 export const getAllPokemon = async () => {
   const results = await P.getPokemonsList(interval).then(
