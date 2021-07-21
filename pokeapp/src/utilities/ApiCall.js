@@ -1,11 +1,16 @@
 const Pokedex = require("pokeapi-js-wrapper");
-const P = new Pokedex.Pokedex();
 
 const interval = {
   offset: 0,
   limit: 1119,
-  cache: true,
 };
+
+const customOptions = {
+  cache: true,
+}
+
+
+const P = new Pokedex.Pokedex(customOptions);
 
 export const getAllPokemon = async () => {
   const results = await P.getPokemonsList(interval).then(
