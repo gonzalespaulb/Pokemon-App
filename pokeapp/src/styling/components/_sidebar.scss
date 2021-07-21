@@ -4,5 +4,9 @@
 .sidebar {
     background-color: $component-container;
     grid-area: 2 / 1 / 4 / 2;
-    border: 1px solid black;
+    margin: 0 0 .8em .8em;
+    border-radius: 10px;
+    color: $font-color;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
 }

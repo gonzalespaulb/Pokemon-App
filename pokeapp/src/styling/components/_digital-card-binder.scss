@@ -4,5 +4,9 @@
 .digital-card-binder {
     background-color: $component-container;
     grid-area: 3 / 2 / 4 /3;
-    border: 1px solid black;
+    border-radius: 10px;
+    margin: .8em;
+    color: $font-color;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
 }

@@ -15,7 +15,7 @@
 
 
     &-logo {
-
+        margin: 1em;
     }
 
     &-links {
@@ -34,11 +34,11 @@
 }
 
 .coin-link {
-    margin-left: 15px;
+    margin-left: 1em;
     display: flex;
     border-radius: 10px;
     background-color: $pokedollar-color;
-    color: #fff;
+    color: $font-color;
     align-items: baseline;
     font-family: 'Poppins', sans-serif;
 
@@ -47,7 +47,7 @@
     }
     
     &-earn {
-        background-color: #fff;
+        background-color: $font-color;
         color: $pokedollar-color;
         border-radius: 8.2px;
         padding: 0 5px;
