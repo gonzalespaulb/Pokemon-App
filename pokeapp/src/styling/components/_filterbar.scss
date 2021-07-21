@@ -18,5 +18,19 @@
 .filter-bar {
     background-color: $component-container;
     grid-area: 2 / 2 / 3 / 3;
-    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0 10px;
+    color: $font-color;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    
+    &-icon {
+        margin: 1em;
+    }
+
+    &-text {
+        margin: .7em;
+    }
 }
