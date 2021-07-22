@@ -118,7 +118,9 @@ export const Brain = () => {
           allPokemon={allPokemon}
           setAllPokemonFiltered={setAllPokemonFiltered}/>} 
         SideBar={<SideBar/>}
-        DigitalCardBinder={<DigitalCardBinder/>}
+        DigitalCardBinder={<DigitalCardBinder
+          allPokemonFiltered={allPokemonFiltered} 
+        />}
       />
       
     </div>
