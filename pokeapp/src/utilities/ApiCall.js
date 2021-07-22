@@ -6,7 +6,7 @@ const interval = {
 };
 
 const customOptions = {
-  protocol: "http",
+  protocol: "https",
   //switch to https when hosting on firebase
   versionPath: "/api/v2/",
   cache: true,

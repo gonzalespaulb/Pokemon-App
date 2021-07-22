@@ -8,6 +8,16 @@ const PokemonCard = ({ name, id, types, picture, pokemon, setSelectedPokemon }) 
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
+  const cardImage = {
+    backgroundImage: `url(${picture})`,
+    backgroundSize: `50%`,
+    backgroundColor: `hsl(0, 0%, 11%)`,
+    backgroundRepeat: `no-repeat`,
+    backgroundPosition: `center`,
+    width: `100%`,
+    height: `75%`,
+    borderRadius: `10px`,
+  }
   const pokemonPicker = (pokemon) => {
     setSelectedPokemon(pokemon);
   };
@@ -15,35 +25,38 @@ const PokemonCard = ({ name, id, types, picture, pokemon, setSelectedPokemon }) 
   return (
     <div className="card" onClick={()=> pokemonPicker(pokemon)}>
       <div className="card-header">
-        <div className="card-header-left">
-          <p> {makeUpperCase(name)} </p>
+        <div className="name">
+          <h3>{makeUpperCase(name)}</h3>
         </div>
-        <div className="card-header-right">
-          <ToolTip content={types[0].type.name}>
-          <img
-            src={typeIconMaker(types[0].type.name)}
-            className="card-type-image"
-          />
-          </ToolTip>
-         
-          {types.length > 1 ? (
-             <ToolTip content={types[1].type.name}>
+  
+      </div>
+      <div style={cardImage}>
+        
+      </div>
+      <div className="type-id">
+        <div>
+        <ToolTip content={types[0].type.name}>
             <img
-              src={typeIconMaker(types[1].type.name)}
-              className="card-type-image"
+              src={typeIconMaker(types[0].type.name)}
+              className="pokemon-type"
             />
             </ToolTip>
-          ) : null}
           
-          
-          <p>#{id}</p>
+            {types.length > 1 ? (
+              <ToolTip content={types[1].type.name}>
+              <img
+                src={typeIconMaker(types[1].type.name)}
+                className="pokemon-type"
+              />
+              </ToolTip>
+            ) : null}
         </div>
-      </div>
-
-      <div className="img-container">
-        <img src={picture} className="img" />
-      </div>
+      
+            <h3>#{id}</h3>
+        </div>
     </div>
+
+    
 
   );
 };
