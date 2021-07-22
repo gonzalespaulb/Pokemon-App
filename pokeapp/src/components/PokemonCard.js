@@ -10,7 +10,7 @@ const PokemonCard = ({ name, id, types, picture }) => {
 
 
   return (
-    <div key={id} className="card">
+    <div className="card">
       <div className="card-header">
         <div className="card-header-left">
           <p> {makeUpperCase(name)} </p>
