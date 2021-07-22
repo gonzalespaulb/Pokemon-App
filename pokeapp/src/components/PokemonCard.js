@@ -2,7 +2,7 @@ import {typeIconMaker} from "../utilities/pokemonIcon";
 import ToolTip from "./ToolTip";
 
 
-const PokemonCard = ({ name, id, types, picture }) => {
+const PokemonCard = ({ name, id, types, picture, pokemon, setSelectedPokemon }) => {
   
   const makeUpperCase = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -18,9 +18,12 @@ const PokemonCard = ({ name, id, types, picture }) => {
     height: `75%`,
     borderRadius: `10px`,
   }
+  const pokemonPicker = (pokemon) => {
+    setSelectedPokemon(pokemon);
+  };
 
   return (
-    <div key={id} className="card">
+    <div className="card" onClick={()=> pokemonPicker(pokemon)}>
       <div className="card-header">
         <div className="name">
           <h3>{makeUpperCase(name)}</h3>
