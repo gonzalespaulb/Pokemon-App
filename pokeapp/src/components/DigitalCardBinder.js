@@ -9,6 +9,7 @@ const DigitalCardBinder = ({ allPokemonFiltered }) => {
     return allPokemonFiltered.map((pokemon) => {
       return (
         <PokemonCard
+          key={pokemon.id}
           name={pokemon.name}
           id={pokemon.id}
           picture={pokemon.picture}
