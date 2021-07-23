@@ -153,6 +153,7 @@ export const Brain = () => {
             isPokeList={isPokeList}
             setIsPokeList={setIsPokeList}
             setAllPokemonFiltered={setAllPokemonFiltered}
+            setMyPokeList={setMyPokeList}
           />
         }
       />
