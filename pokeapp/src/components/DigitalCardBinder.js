@@ -1,10 +1,14 @@
 import React from "react";
 import PokemonCard from "./PokemonCard";
 
-
-const DigitalCardBinder = ({ allPokemonFiltered, setSelectedPokemon, myPokeList, setMyPokeList, isPokeList, setIsPokeList, setAllPokemonFiltered }) => {
-
-
+const DigitalCardBinder = ({
+  allPokemonFiltered,
+  setSelectedPokemon,
+  myPokeList,
+  setMyPokeList,
+  isPokeList,
+  setAllPokemonFiltered,
+}) => {
   const pokedexCardPrinter = () => {
     return allPokemonFiltered.map((pokemon) => {
       return (
@@ -18,16 +22,16 @@ const DigitalCardBinder = ({ allPokemonFiltered, setSelectedPokemon, myPokeList,
           setSelectedPokemon={setSelectedPokemon}
           setMyPokeList={setMyPokeList}
           setAllPokemonFiltered={setAllPokemonFiltered}
+          myPokeList={myPokeList}
         />
       );
     });
   };
 
-
   const myPokeListCardPrinter = () => {
-    return myPokeList?.map((pokemon)=>{
+    return myPokeList?.map((pokemon) => {
       return (
-        <PokemonCard           
+        <PokemonCard
           key={pokemon.id}
           pokemon={pokemon}
           name={pokemon.name}
@@ -36,15 +40,14 @@ const DigitalCardBinder = ({ allPokemonFiltered, setSelectedPokemon, myPokeList,
           types={pokemon.types}
           setSelectedPokemon={setSelectedPokemon}
           setMyPokeList={setMyPokeList}
-          isPokeList={isPokeList}/>
-         
-      )
-    })
+          isPokeList={isPokeList}
+        />
+      );
+    });
   };
 
   return (
     <div className="digital-card-binder">
-      {/* {allPokemonFiltered ? pokedexCardPrinter() : null} */}
       {isPokeList ? myPokeListCardPrinter() : pokedexCardPrinter()}
     </div>
   );

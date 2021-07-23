@@ -7,7 +7,6 @@ const Layout = ({ Navigation, FilterBar, SideBar, DigitalCardBinder }) => {
       {FilterBar}
       {SideBar}
       {DigitalCardBinder}
-    
     </div>
   );
 };

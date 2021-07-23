@@ -10,8 +10,8 @@ const PokemonCard = ({
   setSelectedPokemon,
   setMyPokeList,
   isPokeList,
+  myPokeList,
 }) => {
-  
   const makeUpperCase = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
@@ -31,15 +31,26 @@ const PokemonCard = ({
   };
 
   const myPokePicker = (pokemon) => {
-    setMyPokeList((prevState) => [...prevState, pokemon]);
+    console.log("hello");
+    const pokeIndex = myPokeList.findIndex(
+      (element) => element.id === pokemon.id
+    );
+    if (pokeIndex !== -1) {
+      let tempPokeList = [...myPokeList];
+      tempPokeList[pokeIndex].quantity++;
+      setMyPokeList(tempPokeList);
+    } else {
+      let tempPokemon = pokemon;
+      tempPokemon.quantity++;
+      setMyPokeList([...myPokeList, tempPokemon]);
+    }
   };
-
 
   return (
     <div className="card" onClick={() => pokemonPicker(pokemon)}>
       <div className="card-header">
         <div className="name">
-          <h3>{name}</h3>
+          <h3>{makeUpperCase(name)}</h3>
         </div>
       </div>
       <div style={cardImage}></div>
@@ -71,7 +82,7 @@ const PokemonCard = ({
           </button>
         ) : null}
         <h3>#{id}</h3>
-        <p>{pokemon.quantity}</p>
+        {pokemon.quantity > 0 ? <p>{pokemon.quantity}</p> : ""}
       </div>
     </div>
   );
