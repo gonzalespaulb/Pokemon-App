@@ -12,6 +12,7 @@ export const Brain = () => {
   const [selectedPokemon, setSelectedPokemon] = useState({});
   const [myPokeList, setMyPokeList] = useState([]);
   const [isPokeList, setIsPokeList] = useState(false);
+  const [pokeDollars, setPokeDollars] = useState(10000);
 
   const resolvePokeList = async (pokeList) => {
     return Promise.all(pokeList);
@@ -137,7 +138,7 @@ export const Brain = () => {
   return (
     <div>
       <Layout
-        Navigation={<Navigation setIsPokeList={setIsPokeList} />}
+        Navigation={<Navigation setIsPokeList={setIsPokeList} pokeDollars={pokeDollars}/>}
         FilterBar={
           <FilterBar
             allPokemon={allPokemon}
@@ -154,6 +155,7 @@ export const Brain = () => {
             setIsPokeList={setIsPokeList}
             setAllPokemonFiltered={setAllPokemonFiltered}
             setMyPokeList={setMyPokeList}
+            setPokeDollars={setPokeDollars}
           />
         }
       />
