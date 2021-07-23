@@ -11,9 +11,15 @@ const PokemonCard = ({
   setMyPokeList,
   isPokeList,
   myPokeList,
+  setPokeDollars
 }) => {
+
   const makeUpperCase = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  const subtractPokeDollars = (pokemon) => {
+    setPokeDollars((currentAmount) => currentAmount - pokemon.value)
   };
 
   const cardImage = {
@@ -26,6 +32,7 @@ const PokemonCard = ({
     height: `75%`,
     borderRadius: `10px`,
   };
+  
   const pokemonPicker = (pokemon) => {
     setSelectedPokemon(pokemon);
   };
@@ -75,6 +82,7 @@ const PokemonCard = ({
           <button
             onClick={() => {
               myPokePicker(pokemon);
+              subtractPokeDollars(pokemon);
             }}
           >
             Buy

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navigation = ({ setIsPokeList }) => {
+const Navigation = ({ setIsPokeList, pokeDollars }) => {
   return (
     <nav className="navigation">
       <div className="navigation-logo">
@@ -13,7 +13,7 @@ const Navigation = ({ setIsPokeList }) => {
         </div>
         <div className="coin-link">
           <div className="coin-link-total">
-            <h4>$1,357</h4>
+            <h4>${pokeDollars}</h4>
           </div>
           <div className="coin-link-earn">
             <h4>Earn Coins</h4>
