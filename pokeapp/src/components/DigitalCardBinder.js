@@ -13,9 +13,11 @@ const DigitalCardBinder = ({ allPokemonFiltered }) => {
           id={pokemon.id}
           picture={pokemon.picture}
           types={pokemon.types}
+         
         />
       );
     });
+ 
   };
 
   return (

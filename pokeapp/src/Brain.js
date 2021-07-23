@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { getAllPokemon, getPokemonWeakness } from "./utilities/ApiCall";
+import { getAllPokemon, getPokemonWeakness } from "./utilities/apiCall";
 import FilterBar from "./components/FilterBar";
 import DigitalCardBinder from "./components/DigitalCardBinder";
 import Navigation from "./components/Navigation";
 import SideBar from "./components/Sidebar";
 import Layout from './components/Layout';
+ 
 
 
 export const Brain = () => {
@@ -121,6 +122,7 @@ export const Brain = () => {
         DigitalCardBinder={<DigitalCardBinder
           allPokemonFiltered={allPokemonFiltered} 
         />}
+      
       />
       
     </div>

@@ -1,13 +1,12 @@
 import {typeIconMaker} from "../utilities/pokemonIcon";
 import ToolTip from "./ToolTip";
 
-
 const PokemonCard = ({ name, id, types, picture }) => {
-  
+
   const makeUpperCase = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-
+  
 
   return (
     <div key={id} className="card">
@@ -28,11 +27,10 @@ const PokemonCard = ({ name, id, types, picture }) => {
             <img
               src={typeIconMaker(types[1].type.name)}
               className="card-type-image"
+        
             />
             </ToolTip>
           ) : null}
-          
-          
           <p>#{id}</p>
         </div>
       </div>
@@ -40,6 +38,7 @@ const PokemonCard = ({ name, id, types, picture }) => {
       <div className="img-container">
         <img src={picture} className="img" />
       </div>
+      <button>ADD</button>
     </div>
 
   );
