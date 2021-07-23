@@ -11,9 +11,19 @@ const PokemonCard = ({
   setMyPokeList,
   isPokeList,
   myPokeList,
+  setPokeDollars
 }) => {
+
   const makeUpperCase = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  const subtractPokeDollars = (pokemon) => {
+    setPokeDollars((currentAmount) => currentAmount - pokemon.value)
+  };
+
+  const addPokeDollars = (pokemon) => {
+    setPokeDollars((currentAmount) => currentAmount + pokemon.value)
   };
 
   const cardImage = {
@@ -26,6 +36,7 @@ const PokemonCard = ({
     height: `75%`,
     borderRadius: `10px`,
   };
+
   const pokemonPicker = (pokemon) => {
     setSelectedPokemon(pokemon);
   };
@@ -53,7 +64,27 @@ const PokemonCard = ({
         </div>
       </div>
       <div style={cardImage}></div>
+      
       <div className="type-id">
+      {!isPokeList ? (
+          <button
+            onClick={() => {
+              myPokePicker(pokemon);
+              subtractPokeDollars(pokemon);
+            }}
+          >
+            Buy
+          </button>
+        ) : null}
+           {!isPokeList && pokemon.quantity > 0 ? (
+          <button
+            onClick={() => {
+              addPokeDollars(pokemon);
+            }}
+          >
+            Sell
+          </button>
+        ) : null}
         <div>
           <ToolTip content={types[0].type.name}>
             <img
@@ -71,15 +102,6 @@ const PokemonCard = ({
             </ToolTip>
           ) : null}
         </div>
-        {!isPokeList ? (
-          <button
-            onClick={() => {
-              myPokePicker(pokemon);
-            }}
-          >
-            Buy
-          </button>
-        ) : null}
         <h3>#{id}</h3>
         {pokemon.quantity > 0 ? <p>{pokemon.quantity}</p> : ""}
       </div>

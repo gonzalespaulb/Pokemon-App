@@ -8,7 +8,10 @@ const DigitalCardBinder = ({
   setMyPokeList,
   isPokeList,
   setAllPokemonFiltered,
+  setPokeDollars, 
+
 }) => {
+
   const pokedexCardPrinter = () => {
     return allPokemonFiltered.map((pokemon) => {
       return (
@@ -23,6 +26,7 @@ const DigitalCardBinder = ({
           setMyPokeList={setMyPokeList}
           setAllPokemonFiltered={setAllPokemonFiltered}
           myPokeList={myPokeList}
+          setPokeDollars={setPokeDollars}
         />
       );
     });
