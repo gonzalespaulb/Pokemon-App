@@ -4,13 +4,16 @@ import FilterBar from "./components/FilterBar";
 import DigitalCardBinder from "./components/DigitalCardBinder";
 import Navigation from "./components/Navigation";
 import SideBar from "./components/Sidebar";
-import Layout from './components/Layout';
- 
-
+import Layout from "./components/Layout";
 
 export const Brain = () => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [allPokemonFiltered, setAllPokemonFiltered] = useState([]);
+  const [selectedPokemon, setSelectedPokemon] = useState({});
+  const [myPokeList, setMyPokeList] = useState([]);
+  const [isPokeList, setIsPokeList] = useState(false);
+
+  console.log(myPokeList);
 
   const resolvePokeList = async (pokeList) => {
     return Promise.all(pokeList);
@@ -98,6 +101,9 @@ export const Brain = () => {
         types: pokemon.types,
         abilities: pokemon.abilities,
         games: pokemon.game_indices,
+        height: Math.round(10 * (pokemon.height / 3.04)) / 10 + "ft",
+        weight: Math.round(10 * (pokemon.weight / 4.536)) / 10 + "lbs",
+        quantity: 0,
       };
     });
     return updatedPokeInfo;
@@ -112,19 +118,36 @@ export const Brain = () => {
 
   return (
     <div>
- 
-      <Layout 
-        Navigation={<Navigation/>} 
-        FilterBar={<FilterBar 
-          allPokemon={allPokemon}
-          setAllPokemonFiltered={setAllPokemonFiltered}/>} 
-        SideBar={<SideBar/>}
-        DigitalCardBinder={<DigitalCardBinder
-          allPokemonFiltered={allPokemonFiltered} 
-        />}
-      
+      <Layout
+
+        Navigation={
+          <Navigation 
+            setIsPokeList={setIsPokeList}
+          />
+        }
+
+        FilterBar={
+          <FilterBar
+            allPokemon={allPokemon}
+            setAllPokemonFiltered={setAllPokemonFiltered}
+          />
+        }
+        
+        SideBar={<SideBar selectedPokemon={selectedPokemon} />}
+
+        DigitalCardBinder={
+          <DigitalCardBinder
+            allPokemonFiltered={allPokemonFiltered}
+            setSelectedPokemon={setSelectedPokemon}
+            myPokeList={myPokeList}
+            setMyPokeList={setMyPokeList}
+            isPokeList={isPokeList} 
+            setIsPokeList={setIsPokeList}
+            setAllPokemonFiltered={setAllPokemonFiltered}
+          />
+        }
+
       />
-      
     </div>
   );
 };

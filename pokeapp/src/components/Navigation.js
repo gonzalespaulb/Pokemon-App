@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Navigation = () => {
+const Navigation = ({setIsPokeList}) => {
 
     return(
         
@@ -11,8 +11,8 @@ const Navigation = () => {
                </div>
                 <div className="navigation-links">
                     <div className="card-links">
-                        <h4>Pokedex</h4>
-                        <h4>MyPoke</h4>
+                        <h4 onClick={() => setIsPokeList(false) }>Pokedex</h4>
+                        <h4 onClick={() => setIsPokeList(true) }>MyPoke</h4>
                     </div> 
                     <div className="coin-link">
                         <div className="coin-link-total">
