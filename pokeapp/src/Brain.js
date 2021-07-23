@@ -15,6 +15,21 @@ export const Brain = () => {
     return Promise.all(pokeList);
   };
 
+  const getWeight = (weight) => {
+    const weightInHectograms = weight; 
+    const weightInPounds = `${Math.round(10*(weightInHectograms/4.536)) / 10} lbs`;
+    return weightInPounds;
+  };
+
+  const getHeight = (height) => {
+    const initialHeight = Math.round(10 * (height / 3.04)) / 10;
+    const feet = Math.floor(initialHeight);
+    const decimal = (initialHeight - feet) * 10;
+    const inches = decimal !== 0 ? Math.floor(12 / decimal) : 0;
+    const finalHeight = inches !== 0 ? `${feet}' ${inches}"` : `${feet}'`;
+    return finalHeight;
+  };
+
   const getPokeInfo = async () => {
     const pokemonListUrls = await getAllPokemon();
     //Generates a list of promises
@@ -82,6 +97,9 @@ export const Brain = () => {
   const updatePokeInfo = (pokemonList, weaknessList) => {
     const updatedPokeInfo = pokemonList.map((pokemon) => {
       const weaknessInfo = weaknessChecker(pokemon.types, weaknessList);
+      const updatedHeight = getHeight(pokemon.height);
+      const updatedWeight = getWeight(pokemon.weight);
+
       return {
         ...pokemon,
         picture: pokemon.sprites.front_default,
@@ -97,8 +115,8 @@ export const Brain = () => {
         types: pokemon.types,
         abilities: pokemon.abilities,
         games: pokemon.game_indices,
-        height: Math.round(10*(pokemon.height/3.04))/10 + 'ft',
-        weight: Math.round(10*(pokemon.weight/4.536))/10 + 'lbs',
+        height: updatedHeight,
+        weight: updatedWeight,
       };
     });
     return updatedPokeInfo;
