@@ -10,14 +10,18 @@ export const Brain = () => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [allPokemonFiltered, setAllPokemonFiltered] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState({});
+  const [myPokeList, setMyPokeList] = useState([]);
+  const [isPokeList, setIsPokeList] = useState(false);
 
   const resolvePokeList = async (pokeList) => {
     return Promise.all(pokeList);
   };
 
   const getWeight = (weight) => {
-    const weightInHectograms = weight; 
-    const weightInPounds = `${Math.round(10*(weightInHectograms/4.536)) / 10} lbs`;
+    const weightInHectograms = weight;
+    const weightInPounds = `${
+      Math.round(10 * (weightInHectograms / 4.536)) / 10
+    } lbs`;
     return weightInPounds;
   };
 
@@ -117,6 +121,7 @@ export const Brain = () => {
         games: pokemon.game_indices,
         height: updatedHeight,
         weight: updatedWeight,
+        quantity: 0,
       };
     });
     return updatedPokeInfo;
@@ -132,7 +137,7 @@ export const Brain = () => {
   return (
     <div>
       <Layout
-        Navigation={<Navigation />}
+        Navigation={<Navigation setIsPokeList={setIsPokeList} />}
         FilterBar={
           <FilterBar
             allPokemon={allPokemon}
@@ -144,6 +149,11 @@ export const Brain = () => {
           <DigitalCardBinder
             allPokemonFiltered={allPokemonFiltered}
             setSelectedPokemon={setSelectedPokemon}
+            myPokeList={myPokeList}
+            isPokeList={isPokeList}
+            setIsPokeList={setIsPokeList}
+            setAllPokemonFiltered={setAllPokemonFiltered}
+            setMyPokeList={setMyPokeList}
           />
         }
       />

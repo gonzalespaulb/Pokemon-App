@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { SortTypes, ElementTypes } from "../utilities/enums";
 
-const FilterBar = ({
-  allPokemon,
-  setAllPokemonFiltered,
-}) => {
+const FilterBar = ({ allPokemon, setAllPokemonFiltered }) => {
   const [sortType, setSortType] = useState(SortTypes.ID_LOW_TO_HIGH);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [type, setType] = useState(false);
@@ -114,7 +111,6 @@ const FilterBar = ({
     filterPokemon();
   }, [sortType, type, selectedTypes]);
 
-
   const addRemoveTypeFilter = (elementType) => {
     if (!selectedTypes.includes(elementType)) {
       // If its not in the array add it to the array
@@ -155,9 +151,7 @@ const FilterBar = ({
   return (
     <div className="filter-bar">
       <h4 className="filter-bar-text">Filter Pokemon</h4>
-      <div className="filter-bar-icon">
-        Icon
-      </div>
+      <div className="filter-bar-icon">Icon</div>
     </div>
   );
 };
