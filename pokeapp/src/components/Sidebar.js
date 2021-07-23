@@ -47,7 +47,6 @@ const SideBar = ({ selectedPokemon }) => {
       )
   }
 
-  console.log(selectedPokemon);
   return (
     <div className="sidebar">
         {selectedPokemon.types ? renderPokemonInfo() : <p>Side Bar</p>}
