@@ -5,6 +5,7 @@ import DigitalCardBinder from "./components/DigitalCardBinder";
 import Navigation from "./components/Navigation";
 import SideBar from "./components/Sidebar";
 import Layout from "./components/Layout";
+import GamePage from "./components/GamePage";
 
 export const Brain = () => {
   const [allPokemon, setAllPokemon] = useState([]);

@@ -31,7 +31,6 @@ const PokemonCard = ({
   };
 
   const myPokePicker = (pokemon) => {
-    console.log("hello");
     const pokeIndex = myPokeList.findIndex(
       (element) => element.id === pokemon.id
     );
