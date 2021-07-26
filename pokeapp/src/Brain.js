@@ -159,6 +159,7 @@ export const Brain = () => {
             setPokeDollars={setPokeDollars}
           />
         }
+        GamePage={<GamePage/>}
       />
     </div>
   );
