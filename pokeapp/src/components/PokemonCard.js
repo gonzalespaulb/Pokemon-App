@@ -127,7 +127,6 @@ const PokemonCard = ({
         <h3>#{id}</h3>
         {pokemon.quantity > 0 ? <p>{pokemon.quantity}</p> : ""}
       </div>
-      <button onClick={() => console.log(myPokeList)}> mypokeList</button>
     </div>
   );
 };
