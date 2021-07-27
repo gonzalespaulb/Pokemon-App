@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import SideBar from "./components/Sidebar";
 import Layout from "./components/Layout";
 
+
 export const Brain = () => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [allPokemonFiltered, setAllPokemonFiltered] = useState([]);
@@ -158,6 +159,7 @@ export const Brain = () => {
             setPokeDollars={setPokeDollars}
           />
         }
+  
       />
     </div>
   );
