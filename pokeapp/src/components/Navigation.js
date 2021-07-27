@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = ({ setIsPokeList, pokeDollars }) => {
   return (
     <nav className="navigation">
       <div className="navigation-logo">
-        <div>Logo</div>
+        <Link to="/" style={{textDecoration: "none"}}> <div>Home</div> </Link>
       </div>
       <div className="navigation-links">
         <div className="card-links">
@@ -16,7 +17,9 @@ const Navigation = ({ setIsPokeList, pokeDollars }) => {
             <h4>${pokeDollars}</h4>
           </div>
           <div className="coin-link-earn">
-            <h4>Earn Coins</h4>
+            <Link style={{textDecoration: "none"}} to="/GamePage">
+              <h4>Earn Coins</h4>
+            </Link>
           </div>
         </div>
       </div>
