@@ -1,13 +1,12 @@
 import React from "react";
 
-const Layout = ({ Navigation, FilterBar, SideBar, DigitalCardBinder, GamePage }) => {
+const Layout = ({ Navigation, FilterBar, SideBar, DigitalCardBinder }) => {
   return (
     <div className="main-container">
       {Navigation}
       {FilterBar}
       {SideBar}
       {DigitalCardBinder}
-      {GamePage}
     </div>
   );
 };

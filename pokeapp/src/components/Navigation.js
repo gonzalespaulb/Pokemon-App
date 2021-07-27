@@ -1,11 +1,10 @@
 import React from "react";
-import GamePage from "./GamePage";
 
 const Navigation = ({ setIsPokeList, pokeDollars }) => {
   return (
     <nav className="navigation">
       <div className="navigation-logo">
-        <div onClick={() => GamePage() }>Logo</div>
+        <div>Logo</div>
       </div>
       <div className="navigation-links">
         <div className="card-links">
