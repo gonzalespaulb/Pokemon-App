@@ -6,12 +6,14 @@ import Navigation from "./components/Navigation";
 import SideBar from "./components/Sidebar";
 import Layout from "./components/Layout";
 
+
 export const Brain = () => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [allPokemonFiltered, setAllPokemonFiltered] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState({});
   const [myPokeList, setMyPokeList] = useState([]);
   const [isPokeList, setIsPokeList] = useState(false);
+  const [pokeDollars, setPokeDollars] = useState(10000);
 
   const resolvePokeList = async (pokeList) => {
     return Promise.all(pokeList);
@@ -139,7 +141,7 @@ export const Brain = () => {
   return (
     <div>
       <Layout
-        Navigation={<Navigation setIsPokeList={setIsPokeList} />}
+        Navigation={<Navigation setIsPokeList={setIsPokeList} pokeDollars={pokeDollars}/>}
         FilterBar={
           <FilterBar
             allPokemon={allPokemon}
@@ -156,8 +158,10 @@ export const Brain = () => {
             setIsPokeList={setIsPokeList}
             setAllPokemonFiltered={setAllPokemonFiltered}
             setMyPokeList={setMyPokeList}
+            setPokeDollars={setPokeDollars}
           />
         }
+  
       />
     </div>
   );

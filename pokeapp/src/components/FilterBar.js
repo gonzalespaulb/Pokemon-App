@@ -150,8 +150,8 @@ const FilterBar = ({ allPokemon, setAllPokemonFiltered }) => {
 
   return (
     <div className="filter-bar">
-      <h4 className="filter-bar-text">Filter Pokemon</h4>
-      <div className="filter-bar-icon">Icon</div>
+      <h4 className="filter-bar-text" >Filter Pokemon</h4>
+      <div className="filter-bar-icon" >Icon</div>
     </div>
   );
 };
