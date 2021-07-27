@@ -136,7 +136,7 @@ export const Brain = () => {
     init();
   }, []);
 
-  // console.log(selectedPokemon);
+
 
   return (
     <div>
