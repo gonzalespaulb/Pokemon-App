@@ -53,6 +53,7 @@ const DigitalCardBinder = ({
   return (
     <div className="digital-card-binder">
       {isPokeList ? myPokeListCardPrinter() : pokedexCardPrinter()}
+      
     </div>
   );
 };
