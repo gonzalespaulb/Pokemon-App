@@ -26,6 +26,7 @@ const PokemonCard = ({
     height: `75%`,
     borderRadius: `10px`,
   };
+  
   const pokemonPicker = (pokemon) => {
     setSelectedPokemon(pokemon);
   };
