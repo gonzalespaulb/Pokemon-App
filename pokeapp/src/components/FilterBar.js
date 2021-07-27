@@ -142,7 +142,7 @@ const FilterBar = ({ allPokemon, setAllPokemonFiltered }) => {
         name={sortTypeEnum}
         onClick={() => addRemoveTypeFilter(sortTypeEnum)}
         className={selectedTypes.includes(sortTypeEnum) ? "active" : "inactive"}
-      >hello
+      >
         {type}
       </div>
     );
