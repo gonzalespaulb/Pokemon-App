@@ -5,7 +5,8 @@ import DigitalCardBinder from "./components/DigitalCardBinder";
 import Navigation from "./components/Navigation";
 import SideBar from "./components/Sidebar";
 import Layout from "./components/Layout";
-
+import GamePage from "./components/GamePage";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 export const Brain = () => {
   const [allPokemon, setAllPokemon] = useState([]);
@@ -139,30 +140,41 @@ export const Brain = () => {
 
 
   return (
-    <div>
-      <Layout
-        Navigation={<Navigation setIsPokeList={setIsPokeList} pokeDollars={pokeDollars}/>}
-        FilterBar={
-          <FilterBar
-            allPokemon={allPokemon}
-            setAllPokemonFiltered={setAllPokemonFiltered}
+    <Router>
+      <div>
+        <Route exact path="/">
+          <Layout
+            Navigation={
+              <Navigation
+                setIsPokeList={setIsPokeList}
+                pokeDollars={pokeDollars}
+              />
+            }
+            FilterBar={
+              <FilterBar
+                allPokemon={allPokemon}
+                setAllPokemonFiltered={setAllPokemonFiltered}
+              />
+            }
+            SideBar={<SideBar selectedPokemon={selectedPokemon} />}
+            DigitalCardBinder={
+              <DigitalCardBinder
+                allPokemonFiltered={allPokemonFiltered}
+                setSelectedPokemon={setSelectedPokemon}
+                myPokeList={myPokeList}
+                isPokeList={isPokeList}
+                setIsPokeList={setIsPokeList}
+                setAllPokemonFiltered={setAllPokemonFiltered}
+                setMyPokeList={setMyPokeList}
+                setPokeDollars={setPokeDollars}
+              />
+            }
           />
-        }
-        SideBar={<SideBar selectedPokemon={selectedPokemon} />}
-        DigitalCardBinder={
-          <DigitalCardBinder
-            allPokemonFiltered={allPokemonFiltered}
-            setSelectedPokemon={setSelectedPokemon}
-            myPokeList={myPokeList}
-            isPokeList={isPokeList}
-            setIsPokeList={setIsPokeList}
-            setAllPokemonFiltered={setAllPokemonFiltered}
-            setMyPokeList={setMyPokeList}
-            setPokeDollars={setPokeDollars}
-          />
-        }
-  
-      />
-    </div>
+        </Route>
+        <Route path="/GamePage">
+          <GamePage />
+        </Route>
+      </div>
+    </Router>
   );
 };
