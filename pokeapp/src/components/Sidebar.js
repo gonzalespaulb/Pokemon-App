@@ -48,33 +48,6 @@ const SideBar = ({
     });
   };
 
-  // ---------- Still being used for reference ----------------------------------
-
-  // const renderPokemonInfo = () => {
-  //     return(
-  //       <>
-  //       <div>{iconMapper(selectedPokemon.types)}</div>
-  //       <p>{selectedPokemon.name}</p>
-  //       <img src={selectedPokemon.picture} alt={selectedPokemon.name} />
-  //       <p>{selectedPokemon.id}</p>
-  //       <img src={PokeDollarIcon} alt="Currency Icon" style={{height: '16px'}}/>
-  //       <p>{selectedPokemon.value}</p>
-  //       <div>{typeMapper(selectedPokemon.types)}</div>
-  //       <div>{weaknessMapper(selectedPokemon.weaknesses)}</div>
-  //       <div>{abilityMapper(selectedPokemon.abilities)}</div>
-  //       <button> Buy </button>
-  //       <button> Sell </button>
-  //       <button> More Information </button>
-  //       <p>{selectedPokemon.height}</p>
-  //       <p>{selectedPokemon.weight}</p>
-  //       <div>{gameMapper(selectedPokemon.games)}</div>
-
-  //       </>
-  //     )
-  // }
-
-  // ---------- Still being used for reference ----------------------------------
-
   const sidebarInformation = () => {
     const sideBarImageURL = {
       backgroundImage: `url(${selectedPokemon.picture})`,

@@ -42,6 +42,7 @@ const DigitalCardBinder = ({
           setSelectedPokemon={setSelectedPokemon}
           isPokeList={isPokeList}
           makeUpperCase={makeUpperCase}
+          setIsMoreInfo={setIsMoreInfo}
         />
       );
     });
