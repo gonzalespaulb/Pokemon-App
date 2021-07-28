@@ -1,29 +1,22 @@
 import { typeIconMaker } from "../utilities/pokemonIcon";
 import ToolTip from "./ToolTip";
-
+import { useSelector, useDispatch } from "react-redux";
+import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
 
 const PokemonCard = ({
-  name,
   id,
-  types,
-  picture,
-  pokemon,
   setSelectedPokemon,
-  setMyPokeList,
   isPokeList,
-  myPokeList,
-  setPokeDollars,
-  addToPokeList, 
-  subtractPokeDollars, 
-  addPokeDollars, 
-  makeUpperCase, 
-  removeFromPokeList,
+  makeUpperCase,
   setIsMoreInfo,
-
 }) => {
+  const pokemon = useSelector((state) =>
+    state.pokemon.allPokemon.find((pokemon) => pokemon.id === id)
+  );
+  const dispatch = useDispatch();
 
   const cardImage = {
-    backgroundImage: `url(${picture})`,
+    backgroundImage: `url(${pokemon?.picture})`,
     backgroundSize: `50%`,
     backgroundColor: `hsl(0, 0%, 11%)`,
     backgroundRepeat: `no-repeat`,
@@ -32,20 +25,22 @@ const PokemonCard = ({
     height: `75%`,
     borderRadius: `10px`,
   };
-  
+
   const pokemonPicker = (pokemon) => {
     setSelectedPokemon(pokemon);
   };
 
-
   return (
-    <div className="card" onClick={() => {
-      pokemonPicker(pokemon)
-      setIsMoreInfo(false);
-      }}>
+    <div
+      className="card"
+      onClick={() => {
+        pokemonPicker(pokemon);
+        setIsMoreInfo(false);
+      }}
+    >
       <div className="card-header">
         <div className="name">
-          <h3>{makeUpperCase(name)}</h3>
+          <h3>{makeUpperCase(pokemon.name)}</h3>
         </div>
       </div>
       <div style={cardImage}></div>
@@ -54,8 +49,7 @@ const PokemonCard = ({
         {!isPokeList ? (
           <button
             onClick={() => {
-              addToPokeList(pokemon);
-              subtractPokeDollars(pokemon);
+              dispatch(buyPokemon(pokemon));
             }}
           >
             Buy
@@ -63,27 +57,25 @@ const PokemonCard = ({
         ) : null}
         {!isPokeList && pokemon.quantity > 0 ? (
           <button
-            value={pokemon.id}
-            onClick={(e) => {
-              addPokeDollars(pokemon);
-              removeFromPokeList(pokemon, e);
+            onClick={() => {
+              dispatch(sellPokemon(pokemon));
             }}
           >
             Sell
           </button>
         ) : null}
         <div>
-          <ToolTip content={types[0].type.name}>
+          <ToolTip content={pokemon.types[0].type.name}>
             <img
-              src={typeIconMaker(types[0].type.name)}
+              src={typeIconMaker(pokemon.types[0].type.name)}
               className="pokemon-type"
             />
           </ToolTip>
 
-          {types.length > 1 ? (
-            <ToolTip content={types[1].type.name}>
+          {pokemon.types.length > 1 ? (
+            <ToolTip content={pokemon.types[1].type.name}>
               <img
-                src={typeIconMaker(types[1].type.name)}
+                src={typeIconMaker(pokemon.types[1].type.name)}
                 className="pokemon-type"
               />
             </ToolTip>

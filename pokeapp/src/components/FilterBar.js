@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { SortTypes, ElementTypes } from "../utilities/enums";
+import { useSelector } from "react-redux";
 
-const FilterBar = ({ allPokemon, setAllPokemonFiltered }) => {
+const FilterBar = ({ setAllPokemonFiltered }) => {
+  const allPokemon = useSelector((state) => state.pokemon.allPokemon);
+
   const [sortType, setSortType] = useState(SortTypes.ID_LOW_TO_HIGH);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [type, setType] = useState(false);
@@ -150,8 +153,8 @@ const FilterBar = ({ allPokemon, setAllPokemonFiltered }) => {
 
   return (
     <div className="filter-bar">
-      <h4 className="filter-bar-text" >Filter Pokemon</h4>
-      <div className="filter-bar-icon" >Icon</div>
+      <h4 className="filter-bar-text">Filter Pokemon</h4>
+      <div className="filter-bar-icon">Icon</div>
     </div>
   );
 };

@@ -1,12 +1,14 @@
 import "./styling/main.scss";
 import React from "react";
 import { Brain } from "./Brain";
+import store from "./redux/store";
+import { Provider } from "react-redux";
 
 const App = () => {
   return (
-    <div className="App">
+    <Provider store={store}>
       <Brain />
-    </div>
+    </Provider>
   );
 };
 

@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const Navigation = ({ setIsPokeList, pokeDollars }) => {
+const Navigation = ({ setIsPokeList }) => {
+  const pokeDollars = useSelector((state) => state.pokemon.pokeDollars);
   return (
     <nav className="navigation">
       <div className="navigation-logo">
-        <Link to="/" style={{textDecoration: "none"}}> <div>Home</div> </Link>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <div>Home</div>
+        </Link>
       </div>
       <div className="navigation-links">
         <div className="card-links">
@@ -17,7 +21,7 @@ const Navigation = ({ setIsPokeList, pokeDollars }) => {
             <h4>${pokeDollars}</h4>
           </div>
           <div className="coin-link-earn">
-            <Link to="/GamePage" style={{textDecoration: "none"}}>
+            <Link to="/GamePage" style={{ textDecoration: "none" }}>
               <h4>Earn Coins</h4>
             </Link>
           </div>
