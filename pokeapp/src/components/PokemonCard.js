@@ -46,16 +46,15 @@ const PokemonCard = ({
       <div style={cardImage}></div>
 
       <div className="type-id">
-        {!isPokeList ? (
-          <button
-            onClick={() => {
-              dispatch(buyPokemon(pokemon));
-            }}
-          >
-            Buy
-          </button>
-        ) : null}
-        {!isPokeList && pokemon.quantity > 0 ? (
+        <button
+          onClick={() => {
+            dispatch(buyPokemon(pokemon));
+          }}
+        >
+          Buy
+        </button>
+
+        {pokemon.quantity > 0 ? (
           <button
             onClick={() => {
               dispatch(sellPokemon(pokemon));
