@@ -6,7 +6,6 @@ import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
 const PokemonCard = ({
   id,
   setSelectedPokemon,
-  isPokeList,
   makeUpperCase,
   setIsMoreInfo,
 }) => {
