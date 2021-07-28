@@ -8,6 +8,7 @@ import Layout from "./components/Layout";
 import GamePage from "./components/GamePage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+
 export const Brain = () => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [allPokemonFiltered, setAllPokemonFiltered] = useState([]);
@@ -15,9 +16,14 @@ export const Brain = () => {
   const [myPokeList, setMyPokeList] = useState([]);
   const [isPokeList, setIsPokeList] = useState(false);
   const [pokeDollars, setPokeDollars] = useState(10000);
+  const [isMoreInfo, setIsMoreInfo] = useState(false);
 
   const resolvePokeList = async (pokeList) => {
     return Promise.all(pokeList);
+  };
+
+  const makeUpperCase = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
   const getWeight = (weight) => {
@@ -130,14 +136,56 @@ export const Brain = () => {
     return updatedPokeInfo;
   };
 
+  const addToPokeList = (pokemon) => {
+    const pokeIndex = myPokeList.findIndex(
+      (element) => element.id === pokemon.id
+    );
+    if (pokeIndex !== -1) {
+      let tempPokeList = [...myPokeList];
+      tempPokeList[pokeIndex].quantity++;
+      setMyPokeList(tempPokeList);
+    } else {
+      let tempPokemon = pokemon;
+      tempPokemon.quantity++;
+      setMyPokeList([...myPokeList, tempPokemon]);
+    }
+  };
+  //Not wokring on the SideBar
+  const removeFromPokeList = (pokemon, e) => {
+    //Finds the index of pokemon in the array that matches the id of the pokemon being added to the array
+    const pokeIndex = myPokeList.findIndex(
+      (element) => element.id === pokemon.id
+    );
+    let tempPokeList = [...myPokeList];
+
+    //If the pokemon is already in the array
+    if (pokeIndex !== -1) {
+      if (tempPokeList[pokeIndex].quantity > 1) {
+        tempPokeList[pokeIndex].quantity--;
+      } else if (tempPokeList[pokeIndex].quantity === 1) {
+        tempPokeList[pokeIndex].quantity--;
+        tempPokeList = tempPokeList.filter(
+          (pokemon) => pokemon.id !== parseInt(e.target.value)
+        );
+        setMyPokeList(tempPokeList);
+      }
+    }
+  };
+
+  const subtractPokeDollars = (pokemon) => {
+    setPokeDollars((currentAmount) => currentAmount - pokemon.value);
+  };
+
+  const addPokeDollars = (pokemon) => {
+    setPokeDollars((currentAmount) => currentAmount + pokemon.value);
+  };
+
   useEffect(() => {
     async function init() {
       await getPokeInfo();
     }
     init();
   }, []);
-
-
 
   return (
     <Router>
@@ -156,7 +204,19 @@ export const Brain = () => {
                 setAllPokemonFiltered={setAllPokemonFiltered}
               />
             }
-            SideBar={<SideBar selectedPokemon={selectedPokemon} />}
+            SideBar={
+            <SideBar 
+              selectedPokemon={selectedPokemon} 
+              addToPokeList={addToPokeList}
+              setMyPokeList={setMyPokeList}
+              subtractPokeDollars={subtractPokeDollars}
+              addPokeDollars={addPokeDollars}
+              makeUpperCase={makeUpperCase}
+              removeFromPokeList={removeFromPokeList}
+              isMoreInfo={isMoreInfo}
+              setIsMoreInfo={setIsMoreInfo}
+            />}
+
             DigitalCardBinder={
               <DigitalCardBinder
                 allPokemonFiltered={allPokemonFiltered}
@@ -167,6 +227,12 @@ export const Brain = () => {
                 setAllPokemonFiltered={setAllPokemonFiltered}
                 setMyPokeList={setMyPokeList}
                 setPokeDollars={setPokeDollars}
+                addToPokeList={addToPokeList}
+                subtractPokeDollars={subtractPokeDollars}
+                addPokeDollars={addPokeDollars}
+                makeUpperCase={makeUpperCase}
+                removeFromPokeList={removeFromPokeList}
+                setIsMoreInfo={setIsMoreInfo}
               />
             }
           />

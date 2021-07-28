@@ -17,7 +17,7 @@ const Navigation = ({ setIsPokeList, pokeDollars }) => {
             <h4>${pokeDollars}</h4>
           </div>
           <div className="coin-link-earn">
-            <Link style={{textDecoration: "none"}} to="/GamePage">
+            <Link to="/GamePage" style={{textDecoration: "none"}}>
               <h4>Earn Coins</h4>
             </Link>
           </div>
