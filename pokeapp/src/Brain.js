@@ -172,7 +172,10 @@ export const Brain = () => {
           />
         </Route>
         <Route path="/GamePage">
-          <GamePage />
+          <GamePage 
+          allPokemon={allPokemon}
+          myPokeList={myPokeList}
+          setMyPokeList={setMyPokeList} />
         </Route>
       </div>
     </Router>
