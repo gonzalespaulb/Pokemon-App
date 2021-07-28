@@ -2,17 +2,17 @@ import React from "react";
 import PokeDollarIcon from "../assets/pokeDollar.svg";
 import { typeIconMaker } from "../utilities/pokemonIcon";
 import ToolTip from "./ToolTip";
+import { useDispatch } from "react-redux";
+import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
 
 const SideBar = ({
   selectedPokemon,
-  addToPokeList,
-  subtractPokeDollars,
-  addPokeDollars,
   makeUpperCase,
-  removeFromPokeList,
   isMoreInfo,
   setIsMoreInfo,
 }) => {
+  const dispatch = useDispatch();
+
   const abilityMapper = (abilities) => {
     return abilities?.map((abilityObject, index) => {
       return <p key={index}>{abilityObject.ability.name}</p>;
@@ -111,18 +111,15 @@ const SideBar = ({
             <button
               className="buy-btn"
               onClick={() => {
-                addToPokeList(selectedPokemon);
-                subtractPokeDollars(selectedPokemon);
+                dispatch(buyPokemon(selectedPokemon));
               }}
             >
               <h4>Buy</h4>
             </button>
             <button
-              value={selectedPokemon.id}
               className="sell-btn"
-              onClick={(e) => {
-                removeFromPokeList(selectedPokemon, e);
-                addPokeDollars(selectedPokemon);
+              onClick={() => {
+                dispatch(sellPokemon(selectedPokemon));
               }}
             >
               <h4>Sell</h4>
@@ -159,8 +156,8 @@ const SideBar = ({
             ) : null}
           </div>
           <div>
-            {isMoreInfo ? <p>{selectedPokemon.height}</p>: null}
-            {isMoreInfo ? <p>{selectedPokemon.weight}</p>: null}
+            {isMoreInfo ? <p>{selectedPokemon.height}</p> : null}
+            {isMoreInfo ? <p>{selectedPokemon.weight}</p> : null}
           </div>
         </div>
       </div>

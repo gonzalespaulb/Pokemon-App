@@ -7,15 +7,16 @@ import SideBar from "./components/Sidebar";
 import Layout from "./components/Layout";
 import GamePage from "./components/GamePage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
+import { setPokeList } from "./redux/pokemonSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 export const Brain = () => {
-  const [allPokemon, setAllPokemon] = useState([]);
+  const allPokemon = useSelector((state) => state.pokemon.allPokemon);
+  const dispatch = useDispatch();
+
   const [allPokemonFiltered, setAllPokemonFiltered] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState({});
-  const [myPokeList, setMyPokeList] = useState([]);
   const [isPokeList, setIsPokeList] = useState(false);
-  const [pokeDollars, setPokeDollars] = useState(10000);
   const [isMoreInfo, setIsMoreInfo] = useState(false);
 
   const resolvePokeList = async (pokeList) => {
@@ -57,7 +58,7 @@ export const Brain = () => {
     //Enrich each object with custom properties
     const updatedPokemonList = updatePokeInfo(resolvedList, weaknessInfo);
     //Save the completed list and complete initialization
-    setAllPokemon(updatedPokemonList);
+    dispatch(setPokeList(updatedPokemonList));
     setAllPokemonFiltered(updatedPokemonList);
   };
 
@@ -136,50 +137,6 @@ export const Brain = () => {
     return updatedPokeInfo;
   };
 
-  const addToPokeList = (pokemon) => {
-    const pokeIndex = myPokeList.findIndex(
-      (element) => element.id === pokemon.id
-    );
-    if (pokeIndex !== -1) {
-      let tempPokeList = [...myPokeList];
-      tempPokeList[pokeIndex].quantity++;
-      setMyPokeList(tempPokeList);
-    } else {
-      let tempPokemon = pokemon;
-      tempPokemon.quantity++;
-      setMyPokeList([...myPokeList, tempPokemon]);
-    }
-  };
-  //Not wokring on the SideBar
-  const removeFromPokeList = (pokemon, e) => {
-    //Finds the index of pokemon in the array that matches the id of the pokemon being added to the array
-    const pokeIndex = myPokeList.findIndex(
-      (element) => element.id === pokemon.id
-    );
-    let tempPokeList = [...myPokeList];
-
-    //If the pokemon is already in the array
-    if (pokeIndex !== -1) {
-      if (tempPokeList[pokeIndex].quantity > 1) {
-        tempPokeList[pokeIndex].quantity--;
-      } else if (tempPokeList[pokeIndex].quantity === 1) {
-        tempPokeList[pokeIndex].quantity--;
-        tempPokeList = tempPokeList.filter(
-          (pokemon) => pokemon.id !== parseInt(e.target.value)
-        );
-        setMyPokeList(tempPokeList);
-      }
-    }
-  };
-
-  const subtractPokeDollars = (pokemon) => {
-    setPokeDollars((currentAmount) => currentAmount - pokemon.value);
-  };
-
-  const addPokeDollars = (pokemon) => {
-    setPokeDollars((currentAmount) => currentAmount + pokemon.value);
-  };
-
   useEffect(() => {
     async function init() {
       await getPokeInfo();
@@ -192,12 +149,7 @@ export const Brain = () => {
       <div>
         <Route exact path="/">
           <Layout
-            Navigation={
-              <Navigation
-                setIsPokeList={setIsPokeList}
-                pokeDollars={pokeDollars}
-              />
-            }
+            Navigation={<Navigation setIsPokeList={setIsPokeList} />}
             FilterBar={
               <FilterBar
                 allPokemon={allPokemon}
@@ -205,33 +157,21 @@ export const Brain = () => {
               />
             }
             SideBar={
-            <SideBar 
-              selectedPokemon={selectedPokemon} 
-              addToPokeList={addToPokeList}
-              setMyPokeList={setMyPokeList}
-              subtractPokeDollars={subtractPokeDollars}
-              addPokeDollars={addPokeDollars}
-              makeUpperCase={makeUpperCase}
-              removeFromPokeList={removeFromPokeList}
-              isMoreInfo={isMoreInfo}
-              setIsMoreInfo={setIsMoreInfo}
-            />}
-
+              <SideBar
+                selectedPokemon={selectedPokemon}
+                makeUpperCase={makeUpperCase}
+                isMoreInfo={isMoreInfo}
+                setIsMoreInfo={setIsMoreInfo}
+              />
+            }
             DigitalCardBinder={
               <DigitalCardBinder
                 allPokemonFiltered={allPokemonFiltered}
                 setSelectedPokemon={setSelectedPokemon}
-                myPokeList={myPokeList}
                 isPokeList={isPokeList}
                 setIsPokeList={setIsPokeList}
                 setAllPokemonFiltered={setAllPokemonFiltered}
-                setMyPokeList={setMyPokeList}
-                setPokeDollars={setPokeDollars}
-                addToPokeList={addToPokeList}
-                subtractPokeDollars={subtractPokeDollars}
-                addPokeDollars={addPokeDollars}
                 makeUpperCase={makeUpperCase}
-                removeFromPokeList={removeFromPokeList}
                 setIsMoreInfo={setIsMoreInfo}
               />
             }
