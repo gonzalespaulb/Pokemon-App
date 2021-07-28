@@ -2,12 +2,17 @@ import React from 'react';
 import Navigation from './Navigation';
 import SlotIcon from '../assets/slots.svg';
 import PokemonCard from './PokemonCard';
+import { useSelector } from 'react-redux';
 
-const GamePage = ({allPokemon}) => {
 
+const GamePage = ({makeUpperCase}) => {
+    
+    const gamepokemon = useSelector((state) =>
+    state.pokemon.allPokemon.filter((pokemon) => pokemon.quantity > 0)
+  );
 
     const gamePagePokemons = () => {
-        return allPokemon.map((pokemon) => {
+        return gamepokemon.map((pokemon) => {
           return (
             <PokemonCard
               key={pokemon.id}
@@ -15,6 +20,7 @@ const GamePage = ({allPokemon}) => {
               name={pokemon.name}
               id={pokemon.id}
               picture={pokemon.picture}
+              makeUpperCase={makeUpperCase}
               types={pokemon.types}
             />
           );
@@ -22,9 +28,9 @@ const GamePage = ({allPokemon}) => {
       };
 
     return (
-        <div>
+        <div gamepage-container>
             <Navigation />
-            <div>
+            <div className="slot-image">
                  <img src= {SlotIcon} alt="slot machine" />
             </div>
             <div className="gamecard-container">
