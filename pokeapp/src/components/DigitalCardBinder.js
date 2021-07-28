@@ -1,32 +1,29 @@
 import React from "react";
 import PokemonCard from "./PokemonCard";
+import { useSelector } from "react-redux";
 
 const DigitalCardBinder = ({
   allPokemonFiltered,
   setSelectedPokemon,
-  myPokeList,
-  setMyPokeList,
   isPokeList,
   setAllPokemonFiltered,
-  setPokeDollars, 
-
+  makeUpperCase,
+  setIsMoreInfo,
 }) => {
+  const myPokeList = useSelector((state) =>
+    state.pokemon.allPokemon.filter((pokemon) => pokemon.quantity > 0)
+  );
 
   const pokedexCardPrinter = () => {
     return allPokemonFiltered.map((pokemon) => {
       return (
         <PokemonCard
           key={pokemon.id}
-          pokemon={pokemon}
-          name={pokemon.name}
           id={pokemon.id}
-          picture={pokemon.picture}
-          types={pokemon.types}
           setSelectedPokemon={setSelectedPokemon}
-          setMyPokeList={setMyPokeList}
           setAllPokemonFiltered={setAllPokemonFiltered}
-          myPokeList={myPokeList}
-          setPokeDollars={setPokeDollars}
+          makeUpperCase={makeUpperCase}
+          setIsMoreInfo={setIsMoreInfo}
         />
       );
     });
@@ -43,8 +40,8 @@ const DigitalCardBinder = ({
           picture={pokemon.picture}
           types={pokemon.types}
           setSelectedPokemon={setSelectedPokemon}
-          setMyPokeList={setMyPokeList}
           isPokeList={isPokeList}
+          makeUpperCase={makeUpperCase}
         />
       );
     });
@@ -53,7 +50,6 @@ const DigitalCardBinder = ({
   return (
     <div className="digital-card-binder">
       {isPokeList ? myPokeListCardPrinter() : pokedexCardPrinter()}
-      
     </div>
   );
 };

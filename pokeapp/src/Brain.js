@@ -7,17 +7,24 @@ import SideBar from "./components/Sidebar";
 import Layout from "./components/Layout";
 import GamePage from "./components/GamePage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { setPokeList } from "./redux/pokemonSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 export const Brain = () => {
-  const [allPokemon, setAllPokemon] = useState([]);
+  const allPokemon = useSelector((state) => state.pokemon.allPokemon);
+  const dispatch = useDispatch();
+
   const [allPokemonFiltered, setAllPokemonFiltered] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState({});
-  const [myPokeList, setMyPokeList] = useState([]);
   const [isPokeList, setIsPokeList] = useState(false);
-  const [pokeDollars, setPokeDollars] = useState(10000);
+  const [isMoreInfo, setIsMoreInfo] = useState(false);
 
   const resolvePokeList = async (pokeList) => {
     return Promise.all(pokeList);
+  };
+
+  const makeUpperCase = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
   const getWeight = (weight) => {
@@ -51,7 +58,7 @@ export const Brain = () => {
     //Enrich each object with custom properties
     const updatedPokemonList = updatePokeInfo(resolvedList, weaknessInfo);
     //Save the completed list and complete initialization
-    setAllPokemon(updatedPokemonList);
+    dispatch(setPokeList(updatedPokemonList));
     setAllPokemonFiltered(updatedPokemonList);
   };
 
@@ -137,36 +144,35 @@ export const Brain = () => {
     init();
   }, []);
 
-
-
   return (
     <Router>
       <div>
         <Route exact path="/">
           <Layout
-            Navigation={
-              <Navigation
-                setIsPokeList={setIsPokeList}
-                pokeDollars={pokeDollars}
-              />
-            }
+            Navigation={<Navigation setIsPokeList={setIsPokeList} />}
             FilterBar={
               <FilterBar
                 allPokemon={allPokemon}
                 setAllPokemonFiltered={setAllPokemonFiltered}
               />
             }
-            SideBar={<SideBar selectedPokemon={selectedPokemon} />}
+            SideBar={
+              <SideBar
+                selectedPokemon={selectedPokemon}
+                makeUpperCase={makeUpperCase}
+                isMoreInfo={isMoreInfo}
+                setIsMoreInfo={setIsMoreInfo}
+              />
+            }
             DigitalCardBinder={
               <DigitalCardBinder
                 allPokemonFiltered={allPokemonFiltered}
                 setSelectedPokemon={setSelectedPokemon}
-                myPokeList={myPokeList}
                 isPokeList={isPokeList}
                 setIsPokeList={setIsPokeList}
                 setAllPokemonFiltered={setAllPokemonFiltered}
-                setMyPokeList={setMyPokeList}
-                setPokeDollars={setPokeDollars}
+                makeUpperCase={makeUpperCase}
+                setIsMoreInfo={setIsMoreInfo}
               />
             }
           />
