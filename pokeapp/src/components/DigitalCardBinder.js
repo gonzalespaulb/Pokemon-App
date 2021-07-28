@@ -9,7 +9,12 @@ const DigitalCardBinder = ({
   isPokeList,
   setAllPokemonFiltered,
   setPokeDollars, 
-
+  addToPokeList,
+  subtractPokeDollars,
+  addPokeDollars,
+  makeUpperCase, 
+  removeFromPokeList, 
+  setIsMoreInfo, 
 }) => {
 
   const pokedexCardPrinter = () => {
@@ -27,6 +32,12 @@ const DigitalCardBinder = ({
           setAllPokemonFiltered={setAllPokemonFiltered}
           myPokeList={myPokeList}
           setPokeDollars={setPokeDollars}
+          addToPokeList={addToPokeList}
+          subtractPokeDollars={subtractPokeDollars}
+          addPokeDollars={addPokeDollars}
+          makeUpperCase={makeUpperCase}
+          removeFromPokeList={removeFromPokeList}
+          setIsMoreInfo={setIsMoreInfo}
         />
       );
     });
@@ -45,6 +56,7 @@ const DigitalCardBinder = ({
           setSelectedPokemon={setSelectedPokemon}
           setMyPokeList={setMyPokeList}
           isPokeList={isPokeList}
+          makeUpperCase={makeUpperCase}
         />
       );
     });

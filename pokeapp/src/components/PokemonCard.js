@@ -1,6 +1,7 @@
 import { typeIconMaker } from "../utilities/pokemonIcon";
 import ToolTip from "./ToolTip";
 
+
 const PokemonCard = ({
   name,
   id,
@@ -12,18 +13,14 @@ const PokemonCard = ({
   isPokeList,
   myPokeList,
   setPokeDollars,
+  addToPokeList, 
+  subtractPokeDollars, 
+  addPokeDollars, 
+  makeUpperCase, 
+  removeFromPokeList,
+  setIsMoreInfo,
+
 }) => {
-  const makeUpperCase = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
-
-  const subtractPokeDollars = (pokemon) => {
-    setPokeDollars((currentAmount) => currentAmount - pokemon.value);
-  };
-
-  const addPokeDollars = (pokemon) => {
-    setPokeDollars((currentAmount) => currentAmount + pokemon.value);
-  };
 
   const cardImage = {
     backgroundImage: `url(${picture})`,
@@ -40,44 +37,12 @@ const PokemonCard = ({
     setSelectedPokemon(pokemon);
   };
 
-  const addToPokeList = (pokemon) => {
-    const pokeIndex = myPokeList.findIndex(
-      (element) => element.id === pokemon.id
-    );
-    if (pokeIndex !== -1) {
-      let tempPokeList = [...myPokeList];
-      tempPokeList[pokeIndex].quantity++;
-      setMyPokeList(tempPokeList);
-    } else {
-      let tempPokemon = pokemon;
-      tempPokemon.quantity++;
-      setMyPokeList([...myPokeList, tempPokemon]);
-    }
-  };
-
-  const removeFromPokeList = (pokemon, e) => {
-    //Finds the index of pokemon in the array that matches the id of the pokemon being added to the array
-    const pokeIndex = myPokeList.findIndex(
-      (element) => element.id === pokemon.id
-    );
-    let tempPokeList = [...myPokeList];
-
-    //If the pokemon is already in the array
-    if (pokeIndex !== -1) {
-      if (tempPokeList[pokeIndex].quantity > 1) {
-        tempPokeList[pokeIndex].quantity--;
-      } else if (tempPokeList[pokeIndex].quantity === 1) {
-        tempPokeList[pokeIndex].quantity--;
-        tempPokeList = tempPokeList.filter(
-          (pokemon) => pokemon.id !== parseInt(e.target.value)
-        );
-        setMyPokeList(tempPokeList);
-      }
-    }
-  };
 
   return (
-    <div className="card" onClick={() => pokemonPicker(pokemon)}>
+    <div className="card" onClick={() => {
+      pokemonPicker(pokemon)
+      setIsMoreInfo(false);
+      }}>
       <div className="card-header">
         <div className="name">
           <h3>{makeUpperCase(name)}</h3>
