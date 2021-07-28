@@ -16,8 +16,8 @@ export const Brain = () => {
 
   const [allPokemonFiltered, setAllPokemonFiltered] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState({});
-  const [isPokeList, setIsPokeList] = useState(false);
   const [isMoreInfo, setIsMoreInfo] = useState(false);
+  const [isPokeList, setIsPokeList] = useState(false); 
 
   const resolvePokeList = async (pokeList) => {
     return Promise.all(pokeList);
@@ -168,11 +168,10 @@ export const Brain = () => {
               <DigitalCardBinder
                 allPokemonFiltered={allPokemonFiltered}
                 setSelectedPokemon={setSelectedPokemon}
-                isPokeList={isPokeList}
-                setIsPokeList={setIsPokeList}
                 setAllPokemonFiltered={setAllPokemonFiltered}
                 makeUpperCase={makeUpperCase}
                 setIsMoreInfo={setIsMoreInfo}
+                isPokeList={isPokeList}
               />
             }
           />

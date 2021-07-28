@@ -40,7 +40,6 @@ const DigitalCardBinder = ({
           picture={pokemon.picture}
           types={pokemon.types}
           setSelectedPokemon={setSelectedPokemon}
-          isPokeList={isPokeList}
           makeUpperCase={makeUpperCase}
           setIsMoreInfo={setIsMoreInfo}
         />
