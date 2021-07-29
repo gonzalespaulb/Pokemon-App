@@ -1,7 +1,6 @@
-import { typeIconMaker } from "../utilities/pokemonIcon";
-import ToolTip from "./ToolTip";
 import { useSelector, useDispatch } from "react-redux";
 import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
+import { typeIconMapper } from "../utilities/mappers";
 
 const PokemonCard = ({
   id,
@@ -64,23 +63,7 @@ const PokemonCard = ({
             Sell
           </button>
         ) : null}
-        <div>
-          <ToolTip content={pokemon.types[0].type.name}>
-            <img
-              src={typeIconMaker(pokemon.types[0].type.name)}
-              className="pokemon-type"
-            />
-          </ToolTip>
-
-          {pokemon.types.length > 1 ? (
-            <ToolTip content={pokemon.types[1].type.name}>
-              <img
-                src={typeIconMaker(pokemon.types[1].type.name)}
-                className="pokemon-type"
-              />
-            </ToolTip>
-          ) : null}
-        </div>
+        <div>{typeIconMapper(pokemon.types)}</div>
         <h3>#{id}</h3>
         {pokemon.quantity > 0 ? <p>{pokemon.quantity}</p> : ""}
       </div>
