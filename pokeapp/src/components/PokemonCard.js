@@ -46,7 +46,8 @@ const PokemonCard = ({
 
       <div className="type-id">
         <button
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation();
             dispatch(buyPokemon(pokemon));
           }}
         >
@@ -55,7 +56,8 @@ const PokemonCard = ({
 
         {pokemon.quantity > 0 ? (
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               dispatch(sellPokemon(pokemon));
             }}
           >
