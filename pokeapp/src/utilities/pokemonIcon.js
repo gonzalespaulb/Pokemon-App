@@ -17,6 +17,7 @@ import FightingIcon from "../assets/fighting.svg";
 import GrassIcon from "../assets/grass.svg";
 import PoisonIcon from "../assets/poison.svg";
 
+
 export const typeIconMaker = (type) => {
     switch (type) {
       case "fire":
@@ -57,3 +58,4 @@ export const typeIconMaker = (type) => {
         return SteelIcon;
     }
   };
+
