@@ -28,7 +28,7 @@ const GamePage = ({makeUpperCase}) => {
       };
 
     return (
-        <div gamepage-container>
+        <div>
             <Navigation />
             <div className="slot-image">
                  <img src= {SlotIcon} alt="slot machine" />
