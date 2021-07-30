@@ -5,7 +5,7 @@ import PokemonCard from './PokemonCard';
 import { useSelector } from 'react-redux';
 
 
-const GamePage = ({makeUpperCase}) => {
+const GamePage = ({makeUpperCase, setIsPokeList}) => {
     
     const gamepokemon = useSelector((state) =>
     state.pokemon.allPokemon.filter((pokemon) => pokemon.quantity > 0)
@@ -29,7 +29,7 @@ const GamePage = ({makeUpperCase}) => {
 
     return (
         <div gamepage-container>
-            <Navigation />
+            <Navigation setIsPokeList={setIsPokeList} />
             <div className="slot-image">
                  <img src= {SlotIcon} alt="slot machine" />
             </div>
