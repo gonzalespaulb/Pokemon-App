@@ -1,6 +1,5 @@
 import React from 'react';
 import Navigation from './Navigation';
-import SlotIcon from '../assets/slots.svg';
 import PokemonCard from './PokemonCard';
 import { useSelector } from 'react-redux';
 
@@ -31,7 +30,6 @@ const GamePage = ({makeUpperCase, setIsPokeList}) => {
         <div gamepage-container>
             <Navigation setIsPokeList={setIsPokeList} />
             <div className="slot-image">
-                 <img src= {SlotIcon} alt="slot machine" />
             </div>
             <div className="gamecard-container">
                 <div className='gamepage-card '>{gamePagePokemons()}</div>
