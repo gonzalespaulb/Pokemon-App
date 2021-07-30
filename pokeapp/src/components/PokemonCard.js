@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
 import { typeIconMapper } from "../utilities/mappers";
+import { useState } from "react";
 
 const PokemonCard = ({
   id,
@@ -12,6 +13,12 @@ const PokemonCard = ({
     state.pokemon.allPokemon.find((pokemon) => pokemon.id === id)
   );
   const dispatch = useDispatch();
+
+  const [isSelected, setIsSelected] = useState(false);
+
+  const applyTypeColor = (type) => {
+    return `card-${type}`;
+  }
 
   const cardImage = {
     backgroundImage: `url(${pokemon?.picture})`,
@@ -30,11 +37,13 @@ const PokemonCard = ({
 
   return (
     <div
-      className="card"
+      className={!isSelected ? "card" : applyTypeColor(pokemon.types[0].type.name)}
       onClick={() => {
         pokemonPicker(pokemon);
         setIsMoreInfo(false);
       }}
+      onMouseEnter={() => setIsSelected(true)}
+      onMouseLeave={() => setIsSelected(false)}
     >
       <div className="card-header">
         <div className="name">
