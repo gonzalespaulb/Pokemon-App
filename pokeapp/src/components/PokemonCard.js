@@ -1,7 +1,7 @@
-import { typeIconMaker } from "../utilities/pokemonIcon";
-import ToolTip from "./ToolTip";
 import { useSelector, useDispatch } from "react-redux";
 import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
+import { typeIconMapper } from "../utilities/mappers";
+import { useState } from "react";
 
 const PokemonCard = ({
   id,
@@ -13,6 +13,12 @@ const PokemonCard = ({
     state.pokemon.allPokemon.find((pokemon) => pokemon.id === id)
   );
   const dispatch = useDispatch();
+
+  const [isSelected, setIsSelected] = useState(false);
+
+  const applyTypeColor = (type) => {
+    return `card-${type}`;
+  }
 
   const cardImage = {
     backgroundImage: `url(${pokemon?.picture})`,
@@ -31,11 +37,13 @@ const PokemonCard = ({
 
   return (
     <div
-      className="card"
+      className={!isSelected ? "card" : applyTypeColor(pokemon.types[0].type.name)}
       onClick={() => {
         pokemonPicker(pokemon);
         setIsMoreInfo(false);
       }}
+      onMouseEnter={() => setIsSelected(true)}
+      onMouseLeave={() => setIsSelected(false)}
     >
       <div className="card-header">
         <div className="name">
@@ -64,23 +72,7 @@ const PokemonCard = ({
             Sell
           </button>
         ) : null}
-        <div>
-          <ToolTip content={pokemon.types[0].type.name}>
-            <img
-              src={typeIconMaker(pokemon.types[0].type.name)}
-              className="pokemon-type"
-            />
-          </ToolTip>
-
-          {pokemon.types.length > 1 ? (
-            <ToolTip content={pokemon.types[1].type.name}>
-              <img
-                src={typeIconMaker(pokemon.types[1].type.name)}
-                className="pokemon-type"
-              />
-            </ToolTip>
-          ) : null}
-        </div>
+        <div>{typeIconMapper(pokemon.types)}</div>
         <h3>#{id}</h3>
         {pokemon.quantity > 0 ? <p>{pokemon.quantity}</p> : ""}
       </div>

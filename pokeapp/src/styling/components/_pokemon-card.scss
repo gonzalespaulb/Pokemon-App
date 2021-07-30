@@ -13,6 +13,117 @@
         justify-content: space-between;
         align-items: baseline;
     }
+
+    &-fire {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $fire;
+    }
+    &-water {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $water;
+    }
+    &-bug {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $bug;
+    }
+    &-grass {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $grass;
+    }
+    &-fairy {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $fairy;
+    }
+    &-fighting {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $fighting;
+    }
+    &-dark {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $dark;
+    }
+    &-ice {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $ice;
+    }
+    &-normal {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $normal;
+    }
+    &-poison {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $poison;
+    }
+    &-electric {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $electric;
+    }
+    &-steel {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $steel;
+    }
+    &-dragon {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $dragon;
+    }
+    &-ghost {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $ghost;
+    }
+    &-psychic {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $psychic;
+    }
+    &-rock {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $rock;
+    }
+    &-flying {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $flying;
+    }
+    &-ground {    
+        background-color: $card-color;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 5px 5px 5px $ground;
+    }
+    
+
 }
 
 .type-id {

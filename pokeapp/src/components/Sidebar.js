@@ -1,7 +1,11 @@
 import React from "react";
 import PokeDollarIcon from "../assets/pokeDollar.svg";
-import { typeIconMaker } from "../utilities/pokemonIcon";
-import ToolTip from "./ToolTip";
+import {
+  typeIconMapper,
+  abilityMapper,
+  gameMapper,
+  weaknessIconMapper,
+} from "../utilities/mappers";
 import { useDispatch } from "react-redux";
 import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
 
@@ -12,41 +16,6 @@ const SideBar = ({
   setIsMoreInfo,
 }) => {
   const dispatch = useDispatch();
-
-  const abilityMapper = (abilities) => {
-    return abilities?.map((abilityObject, index) => {
-      return <p key={index}>{abilityObject.ability.name}</p>;
-    });
-  };
-
-  const gameMapper = (games) => {
-    return games?.map((gameObject, index) => {
-      return <p key={index}>{gameObject.version.name}</p>;
-    });
-  };
-
-  const typeIconMapper = (types) => {
-    return types?.map((typeObject, index) => {
-      return (
-        <ToolTip key={index} content={typeObject.type.name}>
-          <img
-            className="type-icons"
-            src={typeIconMaker(typeObject.type.name)}
-          />
-        </ToolTip>
-      );
-    });
-  };
-
-  const weaknessIconMapper = (weaknesses) => {
-    return weaknesses?.map((weakness, index) => {
-      return (
-        <ToolTip content={weakness.name} key={index}>
-          <img className="type-icons" src={typeIconMaker(weakness.name)} />
-        </ToolTip>
-      );
-    });
-  };
 
   const sidebarInformation = () => {
     const sideBarImageURL = {

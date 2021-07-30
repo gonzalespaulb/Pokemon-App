@@ -180,6 +180,7 @@ export const Brain = () => {
           <GamePage 
           allPokemon={allPokemon}
           makeUpperCase={makeUpperCase}
+          setIsPokeList={setIsPokeList}
           />
         </Route>
       </div>
