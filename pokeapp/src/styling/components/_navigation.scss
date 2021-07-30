@@ -1,58 +1,56 @@
-@import '../colorschemes/colors';
-@import '../typography/fonts';
+@import "../colorschemes/colors";
+@import "../typography/fonts";
 
 .navigation {
-    background-color: $component-container;
-    grid-area: 1 / 1 / 2 / 3;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    border-radius: 10px;
+  background-color: $component-container;
+  grid-area: 1 / 1 / 2 / 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 10px;
+  color: $font-color;
+
+  &-logo {
+    margin: 1em;
     color: $font-color;
 
-
-    &-logo {
-        margin: 1em;
+    h4{
+        color: $font-color;
     }
+  }
 
-    &-links {
-        display: flex;
-        align-items: center;
-        
-    }
+  &-links {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .card-links {
-    display: flex;
+  display: flex;
 
-    h4 {
-        margin-left: 10px;
-    }
+  h4 {
+    margin-left: 10px;
+    color: $font-color;
+  }
 }
 
 .coin-link {
-    margin-left: 1em;
-    display: flex;
-    border-radius: 10px;
-    background-color: $pokedollar-color;
-    color: $font-color;
-    align-items: baseline;
+  margin-left: 1em;
+  display: flex;
+  border-radius: 10px;
+  background-color: $pokedollar-color;
+  color: $font-color;
+  align-items: baseline;
 
-    &-total{
-        padding: 0 10px;
-    }
-    
-    &-earn {
-        background-color: $font-color;
-        color: $pokedollar-color;
-        border-radius: 8.2px;
-        padding: 0 5px;
-    }
+  &-total {
+    padding: 0 10px;
+  }
+
+  &-earn {
+    background-color: $font-color;
+    color: $pokedollar-color;
+    border-radius: 8.2px;
+    padding: 0 5px;
+  }
 }
-
-
-
-
-
-
