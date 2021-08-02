@@ -30,6 +30,12 @@
         border-radius: 10px; 
     }
 
+    .dropdown-items {
+        width: 100%;
+        background-color: $component-container;
+        border-radius: 10px;
+    }
+
     .close-btn {
         width: 10%;
         height: 90%;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PokeDollarIcon from "../assets/pokeDollar.svg";
 import {
   typeIconMapper,
@@ -6,8 +6,17 @@ import {
   gameMapper,
   weaknessIconMapper,
 } from "../utilities/mappers";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
+
+const sortAtoZ = (list) => {
+  const sortedAtoZ = list.sort((name1, name2) => {
+    if (name1 <  name2) return -1;
+    if (name1 >  name2) return 1;
+    return 0;
+  });
+  return sortedAtoZ;
+};
 
 const SideBar = ({
   selectedPokemon,
@@ -15,18 +24,48 @@ const SideBar = ({
   isMoreInfo,
   setIsMoreInfo,
 }) => {
+  const [showPokemon, setShowPokemon] = useState(false);
+  const [pokeNameList, setPokeNameList] = useState([]);
+
+  const allPokemon = useSelector((state) => state.pokemon.allPokemon);
   const dispatch = useDispatch();
+
+  useEffect(()=> {
+    getPokenames(allPokemon)
+  },[allPokemon]);
+
+  const getPokenames = (pokeList) => {
+    const names = pokeList.map((pokemon) => {
+      return pokemon.name;
+    });
+    setPokeNameList(sortAtoZ(names))
+  };
+
+  const renderPokenames = (nameList) => {
+    return nameList.map((name)=> {
+      return  <div key={name}>{name}</div>
+    })
+  }
 
   const sidebarInformation = () => {
     const sideBarImageURL = {
       backgroundImage: `url(${selectedPokemon.picture})`,
     };
-
+  
     return (
       <div className="sidebar-container">
         <div className="sidebar-dropdown">
-          <div className="dropdown"></div>
-          <div className="close-btn"></div>
+          <div
+            className="dropdown"
+            onClick={() => {
+              setShowPokemon(!showPokemon);
+            }}
+          >
+            <div className="dropdown-items">
+               {showPokemon && renderPokenames(pokeNameList)}
+            </div>
+          </div>
+          <div className="close-btn">x</div>
         </div>
 
         <div className="sidebar-image" style={sideBarImageURL}></div>
