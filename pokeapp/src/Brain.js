@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { setPokeList } from "./redux/pokemonSlice";
 import { useSelector, useDispatch } from "react-redux";
 
+
 export const Brain = () => {
   const allPokemon = useSelector((state) => state.pokemon.allPokemon);
   const dispatch = useDispatch();
@@ -162,6 +163,7 @@ export const Brain = () => {
                 makeUpperCase={makeUpperCase}
                 isMoreInfo={isMoreInfo}
                 setIsMoreInfo={setIsMoreInfo}
+                setSelectedPokemon={setSelectedPokemon}
               />
             }
             DigitalCardBinder={
