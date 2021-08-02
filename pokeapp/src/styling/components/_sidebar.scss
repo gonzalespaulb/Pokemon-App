@@ -8,6 +8,7 @@
     color: $font-color;
     text-align: center;
     padding: 10px;
+    overflow-y: scroll;
 
     &-container {
         position: relative;
@@ -130,4 +131,10 @@
     padding: 10px;
     margin-top: 5px;
     color: $base-color;
+}
+
+.progress-bars {
+ background-color: aqua;
+ margin: 5%;
+ padding: 5%;
 }

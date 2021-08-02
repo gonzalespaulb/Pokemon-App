@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { allBadges2 } from "../components/badges/bagdeIcon";
 
 export const pokemonSlice = createSlice({
   name: "pokemon",
@@ -6,6 +7,7 @@ export const pokemonSlice = createSlice({
   initialState: {
     allPokemon: [],
     pokeDollars: 10000,
+    allBadges: allBadges2,
   },
   //The reducers are the functions that change our state
   reducers: {
