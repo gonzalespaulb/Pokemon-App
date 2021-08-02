@@ -11,6 +11,7 @@ import { setPokeList } from "./redux/pokemonSlice";
 import { useSelector, useDispatch } from "react-redux";
 import BadgeSideBar from "./components/BadgeSideBar";
 
+
 export const Brain = () => {
   const allPokemon = useSelector((state) => state.pokemon.allPokemon);
   const dispatch = useDispatch();
@@ -166,6 +167,7 @@ export const Brain = () => {
                 makeUpperCase={makeUpperCase}
                 isMoreInfo={isMoreInfo}
                 setIsMoreInfo={setIsMoreInfo}
+                setSelectedPokemon={setSelectedPokemon}
               />
             }
             DigitalCardBinder={

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { SortTypes, ElementTypes } from "../utilities/enums";
 
-const FilterDropDown = ({allPokemon, setAllPokemonFiltered}) => {
-
+const FilterDropDown = ({ allPokemon, setAllPokemonFiltered }) => {
   const [sortType, setSortType] = useState(SortTypes.ID_LOW_TO_HIGH);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [type, setType] = useState(false);
@@ -114,7 +113,6 @@ const FilterDropDown = ({allPokemon, setAllPokemonFiltered}) => {
 
   useEffect(() => {
     filterPokemon();
-
   }, [sortType, type, selectedTypes]);
 
   const checkboxEl = (sortTypeEnum, type) => {
@@ -122,10 +120,11 @@ const FilterDropDown = ({allPokemon, setAllPokemonFiltered}) => {
       <div
         name={sortTypeEnum}
         onClick={() => addRemoveTypeFilter(sortTypeEnum)}
-        className={`filter-checkbox ${selectedTypes.includes(sortTypeEnum) ? " active" : " inactive"}`}
+        className={`filter-checkbox ${
+          selectedTypes.includes(sortTypeEnum) ? " active" : " inactive"
+        }`}
       >
-          <h4>{type}</h4>
-
+        <h4>{type}</h4>
       </div>
     );
   };
@@ -145,71 +144,71 @@ const FilterDropDown = ({allPokemon, setAllPokemonFiltered}) => {
     }
   };
 
-
   const sortTypeOption = () => {
-    return <div>{combo1()}</div>
-  }
+    return <div>{combo1()}</div>;
+  };
 
   const combo1 = () => {
-
-    if(aToZ) {
+    if (aToZ) {
       return (
         <div className="sort-option-container">
-          <div 
+          <div
             className="sort-option-btn"
             onClick={() => setSortType(SortTypes.A_TO_Z)}
           >
             <h4>A-Z</h4>
           </div>
-          <div 
+          <div
             className="sort-option-btn"
             onClick={() => setSortType(SortTypes.Z_TO_A)}
           >
             <h4>Z-A</h4>
           </div>
         </div>
-      )
+      );
     }
-    
-    if(pokeDollarValue) {
+
+    if (pokeDollarValue) {
       return (
         <div className="sort-option-container">
-          <div 
+          <div
             className="sort-option-btn"
             onClick={() => setSortType(SortTypes.VALUE_LOW_TO_HIGH)}
           >
             <h4>Low to high</h4>
           </div>
-          <div 
+          <div
             className="sort-option-btn"
             onClick={() => setSortType(SortTypes.VALUE_HIGH_TO_LOW)}
           >
             <h4>High to low</h4>
           </div>
         </div>
-      )
+      );
     }
 
-    if(pokeID) {
+    if (pokeID) {
       return (
         <div className="sort-option-container">
-          <div className="sort-option-btn"
-          onClick={() => setSortType(SortTypes.ID_LOW_TO_HIGH)}>
+          <div
+            className="sort-option-btn"
+            onClick={() => setSortType(SortTypes.ID_LOW_TO_HIGH)}
+          >
             <h4>Low to high</h4>
           </div>
-          <div className="sort-option-btn"
-          onClick={() => setSortType(SortTypes.ID_HIGH_TO_LOW)}>
+          <div
+            className="sort-option-btn"
+            onClick={() => setSortType(SortTypes.ID_HIGH_TO_LOW)}
+          >
             <h4>High to low</h4>
           </div>
         </div>
-      )
+      );
     }
-
-  }
+  };
 
   return (
     <div className="filter-bar-dropdown">
-      
       <div className="checkbox-type">
         {checkboxEl(ElementTypes.FIRE, `Fire`)}
         {checkboxEl(ElementTypes.WATER, `Water`)}
@@ -231,54 +230,44 @@ const FilterDropDown = ({allPokemon, setAllPokemonFiltered}) => {
         {checkboxEl(ElementTypes.ROCK, `Rock`)}
       </div>
 
-        <div className="sort-container">
-
-          <div className="sort-type-container">
-            <div 
-              className="sort-btn"
-              onClick={
-                () => {
-                  setPokeDollarValue(false)
-                  setAToZ(true)
-                  setPokeID(false)
-                }
-              }
-            >
-                <h4>Alphabetical</h4>
-            </div>
-
-            <div 
-              className="sort-btn"
-              onClick={
-                () => {
-                  setPokeDollarValue(true)
-                  setAToZ(false)
-                  setPokeID(false)
-                }
-              }
-            >
-                <h4>Value</h4>
-            </div>
-
-            <div 
-              className="sort-btn"
-              onClick={
-                () => {
-                  setPokeDollarValue(false)
-                  setAToZ(false)
-                  setPokeID(true)
-                }
-              }
-            >
-                <h4>ID</h4>
-            </div>
+      <div className="sort-container">
+        <div className="sort-type-container">
+          <div
+            className="sort-btn"
+            onClick={() => {
+              setPokeDollarValue(false);
+              setAToZ(true);
+              setPokeID(false);
+            }}
+          >
+            <h4>Alphabetical</h4>
           </div>
 
-          {sortTypeOption()}
-          
+          <div
+            className="sort-btn"
+            onClick={() => {
+              setPokeDollarValue(true);
+              setAToZ(false);
+              setPokeID(false);
+            }}
+          >
+            <h4>Value</h4>
+          </div>
+
+          <div
+            className="sort-btn"
+            onClick={() => {
+              setPokeDollarValue(false);
+              setAToZ(false);
+              setPokeID(true);
+            }}
+          >
+            <h4>ID</h4>
+          </div>
         </div>
 
-
+        {sortTypeOption()}
+      </div>
     </div>
   );
 };
