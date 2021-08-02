@@ -60,6 +60,7 @@ const SideBar = ({
     for (const pokemon of pokemonList) {
       if (searchValue[0] === pokemon.name) {
         setSelectedPokemon(pokemon);
+        break;
       }
     }
   };
