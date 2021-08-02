@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Navigation = ({ setIsPokeList }) => {
+const Navigation = ({ setIsPokeList, setIsBadgeSideBar }) => {
   const pokeDollars = useSelector((state) => state.pokemon.pokeDollars);
   return (
     <nav className="navigation">
@@ -19,6 +19,7 @@ const Navigation = ({ setIsPokeList }) => {
           <Link to="/" style={{textDecoration:"none"}}>
           <h4 onClick={() => setIsPokeList(true)}>MyPoke</h4>
           </Link>
+          <h4 onClick={() => setIsBadgeSideBar(true)}>Badge Sidebar</h4>
         </div>
         <div className="coin-link">
           <div className="coin-link-total">

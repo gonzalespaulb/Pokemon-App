@@ -1,5 +1,7 @@
+
 import React, { useState, useEffect } from "react";
 import PokeDollarIcon from "../assets/pokeDollar.svg";
+
 import {
   typeIconMapper,
   abilityMapper,
