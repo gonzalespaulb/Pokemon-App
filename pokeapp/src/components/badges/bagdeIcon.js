@@ -131,12 +131,25 @@ import ZephyrBadge from "../../assets/badges/Zephyrbadge.png";
 //  "ZephyrBadge", 
 // ]
 
+/**
+ * Badge Model:
+ * name: string,
+ * icon: string,
+ * progressTarget: number, 
+ * currentProgress: number,
+ * objectives: object,
+ */
 export const allBadges = [
   {
     name: "BasicBadge",
     icon: BasicBadge,
     progressTarget: 1,
     currentProgress: 0,
+    objectives: {
+      bulblsaurOwned: false,
+      squirtleOwned: false,
+      charmanderOwned: false,
+    }
   },
   {
     name: "GlacierBadge",

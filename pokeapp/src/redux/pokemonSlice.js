@@ -2,27 +2,27 @@ import { createSlice } from "@reduxjs/toolkit";
 import { allBadges } from "../components/badges/bagdeIcon";
 
 // <<----------------------------Badge Update Funtctions Start------------------------------>>
-const shouldUpdateBasicBadge = (pokemonList, purchasedPokemon) => {
-  const foundBulbasaur = pokemonList.find((pokemon) => pokemon.id === 1);
-  const foundSquirtle = pokemonList.find((pokemon) => pokemon.id === 7);
-  const foundCharmander = pokemonList.find((pokemon) => pokemon.id === 4);
+// const shouldUpdateBasicBadge = (pokemonList, purchasedPokemon) => {
+// const foundBulbasaur = pokemonList.find((pokemon) => pokemon.id === 1);
+// const foundSquirtle = pokemonList.find((pokemon) => pokemon.id === 7);
+// const foundCharmander = pokemonList.find((pokemon) => pokemon.id === 4);
 
-  let starterIds = [];
-  if (foundBulbasaur.quantity > 0) {
-    starterIds.push(foundBulbasaur.id);
-  }
-  if (foundSquirtle.quantity > 0) {
-    starterIds.push(foundSquirtle.id);
-  }
-  if (foundCharmander.quantity > 0) {
-    starterIds.push(foundCharmander.id);
-  }
-  if (!starterIds.includes(purchasedPokemon.id)) {
-    starterIds.push(purchasedPokemon.id);
-  }
+// let starterIds = [];
+// if (foundBulbasaur.quantity > 0) {
+//   starterIds.push(foundBulbasaur.id);
+// }
+// if (foundSquirtle.quantity > 0) {
+//   starterIds.push(foundSquirtle.id);
+// }
+// if (foundCharmander.quantity > 0) {
+//   starterIds.push(foundCharmander.id);
+// }
+// if (!starterIds.includes(purchasedPokemon.id) && ((purchasedPokemon.name === "bulbasaur") || (purchasedPokemon.name === "charmander") || (purchasedPokemon.name === "squirtle"))) {
+//   starterIds.push(purchasedPokemon.id);
+// }
 
-  return starterIds.length === 3;
-};
+// return starterIds.length === 3;
+// };
 
 const shouldUpdateBoulderBadge = (pokemonList, purchasedPokemon) => {
   const foundGraveler = pokemonList.find((pokemon) => pokemon.id === 75);
@@ -120,20 +120,38 @@ export const pokemonSlice = createSlice({
         }
 
         // <<----------------------------Badge Reducer Logic Start------------------------------>>
-
+        // <<----------------------------------------------------------------------------------->>
         const basicBadgeIndex = state.allBadges.findIndex(
           (badge) => badge.name === "BasicBadge"
         );
-
+          const basicBadge = state.allBadges[basicBadgeIndex];
         if (
-          state.allBadges[basicBadgeIndex].currentProgress !==
-          state.allBadges[basicBadgeIndex].progressTarget
+          basicBadge.currentProgress !==
+          basicBadge.progressTarget
         ) {
-          if (shouldUpdateBasicBadge(state.allPokemon, action.payload)) {
-            state.allBadges[basicBadgeIndex].currentProgress =
-              state.allBadges[basicBadgeIndex].progressTarget;
+          switch (action.payload.name) {
+            case "bulbasaur":
+              basicBadge.objectives.bulblsaurOwned = true;
+              break;
+            case "squirtle":
+              basicBadge.objectives.squirtleOwned = true;
+              break;
+            case "charmander":
+              basicBadge.objectives.charmanderOwned = true;
+              break;
+            default:
+              break;
+          }
+
+          if (
+            basicBadge.objectives.bulblsaurOwned &&
+            basicBadge.objectives.squirtleOwned &&
+            basicBadge.objectives.charmanderOwned
+          ) {
+            basicBadge.currentProgress = basicBadge.progressTarget;
           }
         }
+        // <<----------------------------------------------------------------------------------->>
 
         const boulderBadgeIndex = state.allBadges.findIndex(
           (badge) => badge.name === "BoulderBadge"
