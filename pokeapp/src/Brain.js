@@ -166,6 +166,7 @@ export const Brain = () => {
                 makeUpperCase={makeUpperCase}
                 isMoreInfo={isMoreInfo}
                 setIsMoreInfo={setIsMoreInfo}
+                setSelectedPokemon={setSelectedPokemon}
               />
             }
             DigitalCardBinder={
