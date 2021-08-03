@@ -68,70 +68,108 @@ import zapdos from './zapdos.png';
 
 // -------------------------------------------------------------------------------
 
-export const aerodactyl  
-export const articuno  
+export const slotMachinePokemon = (pokemon) => {
+    switch (pokemon) {
+        case `aerodactyl`:
+            return aerodactyl;
+        case `articuno`:
+            return articuno;
+        case `bellsprout`:
+            return bellsprout;
+        case `bidoof`:
+            return bidoof;
+        case `aerodactyl`:
+            return aerodactyl;
+        case `bulbasaur`:
+            return bulbasaur;
+        case `charizard`:
+            return charizard;
+        case `charmander`:
+            return charmander;
+        case `claydol`:
+            return claydol;
+        case `diglett`:
+            return diglett;
+        case `ditto`:
+            return ditto;
+        case `dragonite`:
+            return dragonite;
+        case `dratini`:
+            return dratini;
+        case `eevee`:
+            return eevee;
+        case `ekans`:
+            return ekans;
+        case `flareon`:
+            return flareon;
+        case `girafarig`:
+            return girafarig;
+        case `hoothoot`:
+            return hoothoot;
+        case `jolteon`:
+            return jolteon;
+        case `kabuto`:
+            return kabuto;
+        case `kabutops`:
+            return kabutops;
+        case `lapras`:
+            return lapras;
+        case `ledyba`:
+            return ledyba;
+        case `lickitung`:
+            return lickitung;
+        case `meowth`:
+            return meowth;
+        case `mew`:
+            return mew;
+        case `mewtwo`:
+            return mewtwo;
+        case `misdreavus`:
+            return misdreavus;
+        case `moltres`:
+            return moltres;
+        case `mrmime`:
+            return mrmime;
+        case `omanyte`:
+            return omanyte;
+        case `onix`:
+            return onix;
+        case `pancham`:
+            return pancham;
+        case `pikachu`:
+            return pikachu;
+        case `piplup`:
+            return piplup;
+        case `porygon`:
+            return porygon;
+        case `psyduck`:
+            return psyduck;
+        case `sentret`:
+            return sentret;
+        case `skitty`:
+            return skitty;
+        case `slowpoke`:
+            return slowpoke;
+        case `snorlax`:
+            return snorlax;
+        case `spiritomb`:
+            return spiritomb;
+        case `squirtle`:
+            return squirtle;
+        case `tangela`:
+            return tangela;
+        case `vaporeon`:
+            return vaporeon;
+        case `voltorb`:
+            return voltorb;
+        case `weezing`:
+            return weezing;
+        case `wobbuffet`:
+            return wobbuffet;
+        case `zangoose`:
+            return zangoose;
+        case `zapdos`:
+            return zapdos;
+    }
+}
 
-export const bellsprout  
-export const bidoof  
-export const bulbasaur  
-
-export const charizard  
-export const charmander  
-export const claydol  
-
-export const diglett  
-export const ditto  
-export const dragonite  
-export const dratini  
-
-export const eevee  
-export const ekans  
-
-export const flareon  
-
-export const girafarig  
-
-export const hoothoot  
-
-export const jolteon  
-
-export const kabuto  
-export const kabutops 
-
-export const lapras  
-export const ledyba  
-export const lickitung  
-
-export const meowth  
-export const mew  
-export const mewtwo  
-export const misdreavus 
-export const moltres  
-export const mrmime  
-
-export const omanyte  
-export const onix  
-
-export const pancham  
-export const pikachu 
-export const piplup  
-export const porygon  
-export const psyduck 
-
-export const sentret 
-export const skitty  
-export const slowpoke 
-export const snorlax  
-export const spiritomb 
-export const squirtle  
-
-export const tangela  
-
-export const vaporeon 
-export const voltorb  
-
-export const weezing  
-export const wobbuffet  
-
-export const zangoose  
-export const zapdos  
