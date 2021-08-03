@@ -27,6 +27,7 @@ const SideBar = ({
   isMoreInfo,
   setIsMoreInfo,
   setSelectedPokemon,
+  setIsBadgeSideBar,
 }) => {
   const [showPokemon, setShowPokemon] = useState(false);
   const [pokeNameList, setPokeNameList] = useState([]);
@@ -70,6 +71,8 @@ const SideBar = ({
     };
 
     return (
+      <>
+      <button onClick={() => setIsBadgeSideBar(true)}>Badges</button>
       <div className="sidebar-container">
         <div className="sidebar-dropdown">
           <div
@@ -181,6 +184,7 @@ const SideBar = ({
           </div>
         </div>
       </div>
+      </>
     );
   };
 

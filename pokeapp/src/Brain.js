@@ -177,6 +177,7 @@ export const Brain = () => {
                 isMoreInfo={isMoreInfo}
                 setIsMoreInfo={setIsMoreInfo}
                 setSelectedPokemon={setSelectedPokemon}
+                setIsBadgeSideBar={setIsBadgeSideBar}
               />
             }
             DigitalCardBinder={
