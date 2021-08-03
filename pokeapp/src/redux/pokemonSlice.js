@@ -31,28 +31,63 @@ const shouldUpdateBoulderBadge = (pokemonList, purchasedPokemon) => {
   const foundKabutops = pokemonList.find((pokemon) => pokemon.id === 141);
   const foundOnix = pokemonList.find((pokemon) => pokemon.id === 95);
 
-  let starterIds = [];
+  let brocksPokeIds = [];
   if (foundGraveler.quantity > 0) {
-    starterIds.push(foundGraveler.id);
+    brocksPokeIds.push(foundGraveler.id);
   }
   if (foundRhyhorn.quantity > 0) {
-    starterIds.push(foundRhyhorn.id);
+    brocksPokeIds.push(foundRhyhorn.id);
   }
   if (foundOmastar.quantity > 0) {
-    starterIds.push(foundOmastar.id);
+    brocksPokeIds.push(foundOmastar.id);
   }
   if (foundKabutops.quantity > 0) {
-    starterIds.push(foundKabutops.id);
+    brocksPokeIds.push(foundKabutops.id);
   }
   if (foundOnix.quantity > 0) {
-    starterIds.push(foundOnix.id);
+    brocksPokeIds.push(foundOnix.id);
   }
 
-  if (!starterIds.includes(purchasedPokemon.id)) {
-    starterIds.push(purchasedPokemon.id);
+  if (!brocksPokeIds.includes(purchasedPokemon.id)) {
+    brocksPokeIds.push(purchasedPokemon.id);
   }
 
-  return starterIds.length === 5;
+  return brocksPokeIds.length === 5;
+};
+
+const shouldUpdateGlacierBadge = (pokemonList, purchasedPokemon) => {
+  const foundMamoswine = pokemonList.find((pokemon) => pokemon.id === 473);
+  const foundJynx = pokemonList.find((pokemon) => pokemon.id === 124);
+  const foundDewgong = pokemonList.find((pokemon) => pokemon.id === 87);
+  const foundCloyster = pokemonList.find((pokemon) => pokemon.id === 91);
+  const foundLapras = pokemonList.find((pokemon) => pokemon.id === 131);
+  const foundWeavile = pokemonList.find((pokemon) => pokemon.id === 461);
+
+  let prycesPokeIds = [];
+  if (foundMamoswine.quantity > 0) {
+    prycesPokeIds.push(foundMamoswine.id);
+  }
+  if (foundJynx.quantity > 0) {
+    prycesPokeIds.push(foundJynx.id);
+  }
+  if (foundDewgong.quantity > 0) {
+    prycesPokeIds.push(foundDewgong.id);
+  }
+  if (foundCloyster.quantity > 0) {
+    prycesPokeIds.push(foundCloyster.id);
+  }
+  if (foundLapras.quantity > 0) {
+    prycesPokeIds.push(foundLapras.id);
+  }
+  if (foundWeavile.quantity > 0) {
+    prycesPokeIds.push(foundWeavile.id);
+  }
+
+  if (!prycesPokeIds.includes(purchasedPokemon.id)) {
+    prycesPokeIds.push(purchasedPokemon.id);
+  }
+
+  return prycesPokeIds.length === 6;
 };
 
 // <<----------------------------Badge Update Funtctions End------------------------------>>
@@ -111,6 +146,20 @@ export const pokemonSlice = createSlice({
           if (shouldUpdateBoulderBadge(state.allPokemon, action.payload)) {
             state.allBadges[boulderBadgeIndex].currentProgress =
               state.allBadges[boulderBadgeIndex].progressTarget;
+          }
+        }
+
+        const GlacierBadgeIndex = state.allBadges.findIndex(
+          (badge) => badge.name === "GlacierBadge"
+        );
+
+        if (
+          state.allBadges[GlacierBadgeIndex].currentProgress !==
+          state.allBadges[GlacierBadgeIndex].progressTarget
+        ) {
+          if (shouldUpdateGlacierBadge(state.allPokemon, action.payload)) {
+            state.allBadges[GlacierBadgeIndex].currentProgress =
+              state.allBadges[GlacierBadgeIndex].progressTarget;
           }
         }
 

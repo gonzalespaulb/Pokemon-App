@@ -265,14 +265,14 @@ export const badgeIconMaker = (badge) => {
 
 export const allBadges = [
   {
-    name: "BalanceBadge",
-    icon: BalanceBadge,
-    progressTarget: 0,
+    name: "BasicBadge",
+    icon: BasicBadge,
+    progressTarget: 1,
     currentProgress: 0,
   },
   {
-    name: "BasicBadge",
-    icon: BasicBadge,
+    name: "GlacierBadge",
+    icon: GlacierBadge,
     progressTarget: 1,
     currentProgress: 0,
   },
