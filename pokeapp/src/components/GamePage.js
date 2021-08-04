@@ -50,10 +50,10 @@ const GamePage = ({makeUpperCase, setIsPokeList}) => {
         if (reel1) {
           for (let current = 1; current <= NUMBER_OF_REEL_FACES; current++ ) {
             reelStrip.push(
-              <>
-              <div style={rollerStyle} className="roller-img roller-ani"/>
-              <div style={rollerStyle2} className="roller-img roller-ani"/>
-              </>
+              <React.Fragment key={current}>
+                <div style={rollerStyle} className="roller-img roller-ani"/>
+                <div style={rollerStyle2} className="roller-img roller-ani"/>
+              </React.Fragment>
             )
           }  
         } else {
@@ -72,10 +72,10 @@ const GamePage = ({makeUpperCase, setIsPokeList}) => {
         if (reel2) {
           for (let current = 1; current <= NUMBER_OF_REEL_FACES; current++ ) {
             reelStrip.push(
-              <>
-              <div style={rollerStyle} className="roller-img roller-ani"/>
-              <div style={rollerStyle2} className="roller-img roller-ani"/>
-              </>
+              <React.Fragment key={current}>
+                <div style={rollerStyle} className="roller-img roller-ani"/>
+                <div style={rollerStyle2} className="roller-img roller-ani"/>
+              </React.Fragment>
             )
           }
         }else {
@@ -94,10 +94,10 @@ const GamePage = ({makeUpperCase, setIsPokeList}) => {
         if (reel3) {
           for (let current = 1; current <= NUMBER_OF_REEL_FACES; current++ ) {
             reelStrip.push(
-              <>
-              <div style={rollerStyle} className="roller-img roller-ani"/>
-              <div style={rollerStyle2} className="roller-img roller-ani"/>
-              </>
+              <React.Fragment key={current}>
+                <div style={rollerStyle} className="roller-img roller-ani"/>
+                <div style={rollerStyle2} className="roller-img roller-ani"/>
+              </React.Fragment>
             )
           }
         }else {
