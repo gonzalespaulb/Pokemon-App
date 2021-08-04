@@ -8,7 +8,7 @@ import {
 } from "../utilities/mappers";
 import { useDispatch, useSelector } from "react-redux";
 import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
-import { Typeahead } from "react-bootstrap-typeahead";
+import { ClearButton,Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 
 const sortAtoZ = (list) => {
@@ -75,15 +75,13 @@ const SideBar = ({
             onClick={() => {
               setShowPokemon(!showPokemon);
             }}
+            onKeyPress={(e) => {
+              enterSubmit(e);
+            }}
           >
-
-            <div
-              className="sidebar-dropdown-new"
-              onKeyPress={(e) => {
-                enterSubmit(e);
-              }}
-            >
+            <div className="sidebar-dropdown-new">
               <Typeahead
+                className="typeahead"
                 id="basic-typeahead-single"
                 labelKey="name"
                 options={pokeNameList}
@@ -91,14 +89,15 @@ const SideBar = ({
                 selected={pokeSearch}
                 onChange={setPokeSearch}
                 clearButton
-              />
-
+              >
+              </Typeahead>
               <button
+                className="dropdown-submit"
                 onClick={() => {
                   updateSidebarPokemon(allPokemon, pokeSearch);
                 }}
               >
-                Submit
+                <img src="./assets/down-arrow.svg" alt="" />
               </button>
             </div>
           </div>
