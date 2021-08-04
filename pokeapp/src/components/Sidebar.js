@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PokeDollarIcon from "../assets/pokeDollar.svg";
+import PokeDollarIcon from "../assets/uiIcons/pokeDollar.svg";
 import {
   typeIconMapper,
   abilityMapper,
@@ -58,6 +58,7 @@ const SideBar = ({
     for (const pokemon of pokemonList) {
       if (searchValue[0] === pokemon.name) {
         setSelectedPokemon(pokemon);
+        break;
       }
     }
   };

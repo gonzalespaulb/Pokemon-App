@@ -9,7 +9,7 @@ import GamePage from "./components/GamePage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { setPokeList } from "./redux/pokemonSlice";
 import { useSelector, useDispatch } from "react-redux";
-
+import BadgeSideBar from "./components/BadgeSideBar";
 
 export const Brain = () => {
   const allPokemon = useSelector((state) => state.pokemon.allPokemon);
@@ -18,7 +18,8 @@ export const Brain = () => {
   const [allPokemonFiltered, setAllPokemonFiltered] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState({});
   const [isMoreInfo, setIsMoreInfo] = useState(false);
-  const [isPokeList, setIsPokeList] = useState(false); 
+  const [isPokeList, setIsPokeList] = useState(false);
+  const [isBadgeSideBar, setIsBadgeSideBar] = useState(false);
 
   const resolvePokeList = async (pokeList) => {
     return Promise.all(pokeList);
@@ -150,13 +151,15 @@ export const Brain = () => {
       <div>
         <Route exact path="/">
           <Layout
-            Navigation={<Navigation setIsPokeList={setIsPokeList} />}
+            isBadgeSideBar={isBadgeSideBar}
+            Navigation={<Navigation setIsPokeList={setIsPokeList} setIsBadgeSideBar={setIsBadgeSideBar} />}
             FilterBar={
               <FilterBar
                 allPokemon={allPokemon}
                 setAllPokemonFiltered={setAllPokemonFiltered}
               />
             }
+            BadgeSideBar={<BadgeSideBar setIsBadgeSideBar={setIsBadgeSideBar} />}
             SideBar={
               <SideBar
                 selectedPokemon={selectedPokemon}
@@ -179,10 +182,10 @@ export const Brain = () => {
           />
         </Route>
         <Route path="/GamePage">
-          <GamePage 
-          allPokemon={allPokemon}
-          makeUpperCase={makeUpperCase}
-          setIsPokeList={setIsPokeList}
+          <GamePage
+            allPokemon={allPokemon}
+            makeUpperCase={makeUpperCase}
+            setIsPokeList={setIsPokeList}
           />
         </Route>
       </div>
