@@ -10,9 +10,9 @@
     background-color: $base-color;
     grid-gap:0.8em;
     grid-template-columns: 200px 1fr;
-    grid-template-rows: 100px 1fr 0.5fr;
+    grid-template-rows: 100px 500px minmax(300px, 1fr);
     position: fixed;
     padding: 0.8em;
-}
+} 
 
 
