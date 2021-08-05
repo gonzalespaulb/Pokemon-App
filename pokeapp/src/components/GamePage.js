@@ -185,11 +185,11 @@ const GamePage = ({makeUpperCase, setIsPokeList}) => {
               </div>
 
             </div>
-            <div className="gamecard-container">
-                <div className="gamepage-card">
-                  {wonPokemon.length ? renderWonPokemons(wonPokemon) : null}
-                </div>
+            
+            <div className="gamepage-card">
+              {wonPokemon.length ? renderWonPokemons(wonPokemon) : null}
             </div>
+
         </div>
     )
 }
