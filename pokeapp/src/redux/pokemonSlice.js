@@ -9,6 +9,7 @@ export const pokemonSlice = createSlice({
     pokeDollars: 1000000,
     allBadges: allBadges,
     heatBadgeCount: 0,
+    knuckleBadgeCount: 0,
   },
   //The reducers are the functions that change our state
   reducers: {
@@ -99,6 +100,90 @@ export const pokemonSlice = createSlice({
         }
 
         // <<----------------------------Boulder Badge Logic End------------------------------->>
+        // <<----------------------------Knuckle Badge Logic Start------------------------------->>
+        const knuckleBadgeIndex = state.allBadges.findIndex(
+          (badge) => badge.name === "KnuckleBadge"
+        );
+
+        const knuckleBadge = state.allBadges[knuckleBadgeIndex];
+
+        if (knuckleBadge.currentProgress !== knuckleBadge.progressTarget) {
+          if (
+            action.payload.types.length > 1
+              ? action.payload.types[0].type.name === "fighting" ||
+                action.payload.types[1].type.name === "fighting"
+              : action.payload.types[0].type.name === "fighting"
+          ) {
+            
+            state.knuckleBadgeCount++;
+            console.log(state.knuckleBadgeCount)
+            switch (state.knuckleBadgeCount) {
+              case 10:
+                knuckleBadge.objectives.tenFightingPokemonOwned = true;
+                break;
+              case 20:
+                knuckleBadge.objectives.twentyFightingPokemonOwned = true;
+                break;
+              case 30:
+                knuckleBadge.objectives.thirtyFightingPokemonOwned = true;
+                break;
+              case 40:
+                knuckleBadge.objectives.fortyFightingPokemonOwned = true;
+                break;
+              case 50:
+                knuckleBadge.objectives.fiftyFightingPokemonOwned = true;
+                break;
+              case 60:
+                knuckleBadge.objectives.sixtyFightingPokemonOwned = true;
+                break;
+              case 70:
+                knuckleBadge.objectives.seventyFightingPokemonOwned = true;
+                break;
+              case 80:
+                knuckleBadge.objectives.eightyFightingPokemonOwned = true;
+                break;
+              case 90:
+                knuckleBadge.objectives.ninetyFightingPokemonOwned = true;
+                break;
+              case 100:
+                knuckleBadge.objectives.hundredFightingPokemonOwned = true;
+                break;
+              default:
+                break;
+            }
+            if (knuckleBadge.objectives.tenFightingPokemonOwned) {
+              knuckleBadge.currentProgress = 1;
+            }
+            if (knuckleBadge.objectives.twentyFightingPokemonOwned) {
+              knuckleBadge.currentProgress = 2;
+            }
+            if (knuckleBadge.objectives.thirtyFightingPokemonOwned) {
+              knuckleBadge.currentProgress = 3;
+            }
+            if (knuckleBadge.objectives.fortyFightingPokemonOwned) {
+              knuckleBadge.currentProgress = 4;
+            }
+            if (knuckleBadge.objectives.fiftyFightingPokemonOwned) {
+              knuckleBadge.currentProgress = 5;
+            }
+            if (knuckleBadge.objectives.sixtyFightingPokemonOwned) {
+              knuckleBadge.currentProgress = 6;
+            }
+            if (knuckleBadge.objectives.seventyFightingPokemonOwned) {
+              knuckleBadge.currentProgress = 7;
+            }
+            if (knuckleBadge.objectives.eightyFightingPokemonOwned) {
+              knuckleBadge.currentProgress = 8;
+            }
+            if (knuckleBadge.objectives.ninetyFightingPokemonOwned) {
+              knuckleBadge.currentProgress = 9;
+            }
+            if (knuckleBadge.objectives.hundredFightingPokemonOwned) {
+              knuckleBadge.currentProgress = 10;
+            }
+           }
+        }
+        // <<----------------------------Knuckle Badge Logic End------------------------------->>
         // <<----------------------------Glacier Badge Logic Start------------------------------->>
 
         const glacierBadgeIndex = state.allBadges.findIndex(
@@ -156,7 +241,6 @@ export const pokemonSlice = createSlice({
               : action.payload.types[0].type.name === "fire"
           ) {
             state.heatBadgeCount++;
-            console.log(state.heatBadgeCount);
             switch (state.heatBadgeCount) {
               case 10:
                 heatBadge.objectives.tenFirePokemonOwned = true;

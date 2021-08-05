@@ -223,10 +223,22 @@ export const allBadges = [
     },
   },
   {
-    name: "BugBadge",
-    icon: BugBadge,
-    progressTarget: 0,
+    name: "KnuckleBadge",
+    icon: KnuckleBadge,
+    progressTarget: 10,
     currentProgress: 0,
+    objectives: {
+      tenFightingPokemonOwned: false,
+      twentyFightingPokemonOwned: false,
+      thirtyFightingPokemonOwned: false,
+      fortyFightingPokemonOwned: false,
+      fiftyFightingPokemonOwned: false,
+      sixtyFightingPokemonOwned: false,
+      seventyFightingPokemonOwned: false,
+      eightyFightingPokemonOwned: false,
+      ninetyFightingPokemonOwned: false,
+      hundrenFightingPokemonOwned: false, 
+    }
   },
   {
     name: "CascadeBadge",
