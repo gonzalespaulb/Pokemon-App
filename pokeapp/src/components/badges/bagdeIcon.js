@@ -192,10 +192,22 @@ export const allBadges = [
     },
   },
   {
-    name: "BoltBadge",
-    icon: BoltBadge,
-    progressTarget: 0,
+    name: "HeatBadge",
+    icon: HeatBadge,
+    progressTarget: 10,
     currentProgress: 0,
+    objectives: {
+      tenFirePokemonOwned: false,
+      twentyFirePokemonOwned: false,
+      thirtyFirePokemonOwned: false,
+      fortyFirePokemonOwned: false,
+      fiftyFirePokemonOwned: false,
+      sixtyFirePokemonOwned: false,
+      seventyFirePokemonOwned: false,
+      eightyFirePokemonOwned: false,
+      ninetyFirePokemonOwned: false,
+      hundrenFirePokemonOwned: false, 
+    }
   },
   {
     name: "BoulderBadge",

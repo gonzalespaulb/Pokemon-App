@@ -6,8 +6,9 @@ export const pokemonSlice = createSlice({
   //initialize states
   initialState: {
     allPokemon: [],
-    pokeDollars: 100000,
+    pokeDollars: 1000000,
     allBadges: allBadges,
+    heatBadgeCount: 0,
   },
   //The reducers are the functions that change our state
   reducers: {
@@ -15,6 +16,7 @@ export const pokemonSlice = createSlice({
     setPokeList: (state, action) => {
       state.allPokemon = action.payload;
     },
+
     buyPokemon: (state, action) => {
       if (state.pokeDollars - action.payload.value > 0) {
         //Finds the index of pokemon in the array that matches the id of the pokemon being updated
@@ -139,97 +141,178 @@ export const pokemonSlice = createSlice({
           }
         }
         // <<----------------------------Glacier Badge Logic End------------------------------->>
-              // <<----------------------------Rainbow Badge Logic Start------------------------------->>
-              const rainbowBadgeIndex = state.allBadges.findIndex(
-                (badge) => badge.name === "RainbowBadge"
-              );
-              const rainbowBadge = state.allBadges[rainbowBadgeIndex];
-              if (rainbowBadge.currentProgress !== rainbowBadge.progressTarget) {
-                switch (action.payload.types[0].type.name) {
-                  case "fighting":
-                    rainbowBadge.objectives.typeFightingOwned = true;
-                    break;
-                  case "water":
-                    rainbowBadge.objectives.typeWaterOwned = true;
-                    break;
-                  case "ice":
-                    rainbowBadge.objectives.typeIceOwned = true;
-                    break;
-                  case "grass":
-                    rainbowBadge.objectives.typeGrassOwned = true;
-                    break;
-                  case "dark":
-                    rainbowBadge.objectives.typeDarkOwned = true;
-                    break;
-                  case "fairy":
-                    rainbowBadge.objectives.typeFairyOwned = true;
-                    break;
-                    case "normal":
-                      rainbowBadge.objectives.typeNormalOwned = true;
-                      break;
-                    case "ground":
-                      rainbowBadge.objectives.typeGroundOwned = true;
-                      break;
-                    case "steel":
-                      rainbowBadge.objectives.typeSteelOwned = true;
-                      break;
-                    case "ghost":
-                      rainbowBadge.objectives.typeGhostOwned = true;
-                      break;
-                    case "poison":
-                      rainbowBadge.objectives.typePoisonOwned = true;
-                      break;
-                    case "rock":
-                      rainbowBadge.objectives.typeRockOwned = true;
-                      break;
-                      case "bug":
-                        rainbowBadge.objectives.typeBugOwned = true;
-                        break;
-                      case "psychic":
-                        rainbowBadge.objectives.typePsychicOwned = true;
-                        break;
-                      case "electric":
-                        rainbowBadge.objectives.typeElectricOwned = true;
-                        break;
-                      case "flying":
-                        rainbowBadge.objectives.typeFlyingOwned = true;
-                        break;
-                      case "dragon":
-                        rainbowBadge.objectives.typeDragonOwned = true;
-                        break;
-                      case "fire":
-                        rainbowBadge.objectives.typeFireOwned = true;
-                        break;
-                  default:
-                    break;
-                }
-      
-                if (
-                  rainbowBadge.objectives.typeFightingOwned &&
-                  rainbowBadge.objectives.typeDragonOwned &&
-                  rainbowBadge.objectives.typeFlyingOwned &&
-                  rainbowBadge.objectives.typeElectricOwned &&
-                  rainbowBadge.objectives.typePsychicOwned &&
-                  rainbowBadge.objectives.typeBugOwned && 
+        // <<----------------------------Heat Badge Logic Start------------------------------->>
+        const heatBadgeIndex = state.allBadges.findIndex(
+          (badge) => badge.name === "HeatBadge"
+        );
 
-                  rainbowBadge.objectives.typeRockOwned &&
-                  rainbowBadge.objectives.typePoisonOwned &&
-                  rainbowBadge.objectives.typeGhostOwned &&
-                  rainbowBadge.objectives.typeSteelOwned &&
-                  rainbowBadge.objectives.typeGroundOwned &&
-                  rainbowBadge.objectives.typeNormalOwned && 
+        const heatBadge = state.allBadges[heatBadgeIndex];
 
-                  rainbowBadge.objectives.typeFairyOwned &&
-                  rainbowBadge.objectives.typeDarkOwned &&
-                  rainbowBadge.objectives.typeGrassOwned &&
-                  rainbowBadge.objectives.typeIceOwned &&
-                  rainbowBadge.objectives.typeWaterOwned &&
-                  rainbowBadge.objectives.typeFireOwned
-                ) {
-                  rainbowBadge.currentProgress = rainbowBadge.progressTarget;
-                }
-              }
-              // <<----------------------------Rainbow Badge Logic End------------------------------->>
+        if (heatBadge.currentProgress !== heatBadge.progressTarget) {
+          if (
+            action.payload.types.length > 1
+              ? action.payload.types[0].type.name === "fire" ||
+                action.payload.types[1].type.name === "fire"
+              : action.payload.types[0].type.name === "fire"
+          ) {
+            state.heatBadgeCount++;
+            console.log(state.heatBadgeCount);
+            switch (state.heatBadgeCount) {
+              case 10:
+                heatBadge.objectives.tenFirePokemonOwned = true;
+                break;
+              case 20:
+                heatBadge.objectives.twentyFirePokemonOwned = true;
+                break;
+              case 30:
+                heatBadge.objectives.thirtyFirePokemonOwned = true;
+                break;
+              case 40:
+                heatBadge.objectives.fortyFirePokemonOwned = true;
+                break;
+              case 50:
+                heatBadge.objectives.fiftyFirePokemonOwned = true;
+                break;
+              case 60:
+                heatBadge.objectives.sixtyFirePokemonOwned = true;
+                break;
+              case 70:
+                heatBadge.objectives.seventyFirePokemonOwned = true;
+                break;
+              case 80:
+                heatBadge.objectives.eightyFirePokemonOwned = true;
+                break;
+              case 90:
+                heatBadge.objectives.ninetyFirePokemonOwned = true;
+                break;
+              case 100:
+                heatBadge.objectives.hundredFirePokemonOwned = true;
+                break;
+              default:
+                break;
+            }
+            if (heatBadge.objectives.tenFirePokemonOwned) {
+              heatBadge.currentProgress = 1;
+            }
+            if (heatBadge.objectives.twentyFirePokemonOwned) {
+              heatBadge.currentProgress = 2;
+            }
+            if (heatBadge.objectives.thirtyFirePokemonOwned) {
+              heatBadge.currentProgress = 3;
+            }
+            if (heatBadge.objectives.fortyFirePokemonOwned) {
+              heatBadge.currentProgress = 4;
+            }
+            if (heatBadge.objectives.fiftyFirePokemonOwned) {
+              heatBadge.currentProgress = 5;
+            }
+            if (heatBadge.objectives.sixtyFirePokemonOwned) {
+              heatBadge.currentProgress = 6;
+            }
+            if (heatBadge.objectives.seventyFirePokemonOwned) {
+              heatBadge.currentProgress = 7;
+            }
+            if (heatBadge.objectives.eightyFirePokemonOwned) {
+              heatBadge.currentProgress = 8;
+            }
+            if (heatBadge.objectives.ninetyFirePokemonOwned) {
+              heatBadge.currentProgress = 9;
+            }
+            if (heatBadge.objectives.hundredFirePokemonOwned) {
+              heatBadge.currentProgress = 10;
+            }
+          }
+        }
+        // <<----------------------------Heat Badge Logic End------------------------------->>
+        // <<----------------------------Rainbow Badge Logic Start------------------------------->>
+        const rainbowBadgeIndex = state.allBadges.findIndex(
+          (badge) => badge.name === "RainbowBadge"
+        );
+        const rainbowBadge = state.allBadges[rainbowBadgeIndex];
+        if (rainbowBadge.currentProgress !== rainbowBadge.progressTarget) {
+          switch (action.payload.types[0].type.name) {
+            case "fighting":
+              rainbowBadge.objectives.typeFightingOwned = true;
+              break;
+            case "water":
+              rainbowBadge.objectives.typeWaterOwned = true;
+              break;
+            case "ice":
+              rainbowBadge.objectives.typeIceOwned = true;
+              break;
+            case "grass":
+              rainbowBadge.objectives.typeGrassOwned = true;
+              break;
+            case "dark":
+              rainbowBadge.objectives.typeDarkOwned = true;
+              break;
+            case "fairy":
+              rainbowBadge.objectives.typeFairyOwned = true;
+              break;
+            case "normal":
+              rainbowBadge.objectives.typeNormalOwned = true;
+              break;
+            case "ground":
+              rainbowBadge.objectives.typeGroundOwned = true;
+              break;
+            case "steel":
+              rainbowBadge.objectives.typeSteelOwned = true;
+              break;
+            case "ghost":
+              rainbowBadge.objectives.typeGhostOwned = true;
+              break;
+            case "poison":
+              rainbowBadge.objectives.typePoisonOwned = true;
+              break;
+            case "rock":
+              rainbowBadge.objectives.typeRockOwned = true;
+              break;
+            case "bug":
+              rainbowBadge.objectives.typeBugOwned = true;
+              break;
+            case "psychic":
+              rainbowBadge.objectives.typePsychicOwned = true;
+              break;
+            case "electric":
+              rainbowBadge.objectives.typeElectricOwned = true;
+              break;
+            case "flying":
+              rainbowBadge.objectives.typeFlyingOwned = true;
+              break;
+            case "dragon":
+              rainbowBadge.objectives.typeDragonOwned = true;
+              break;
+            case "fire":
+              rainbowBadge.objectives.typeFireOwned = true;
+              break;
+            default:
+              break;
+          }
+
+          if (
+            rainbowBadge.objectives.typeFightingOwned &&
+            rainbowBadge.objectives.typeDragonOwned &&
+            rainbowBadge.objectives.typeFlyingOwned &&
+            rainbowBadge.objectives.typeElectricOwned &&
+            rainbowBadge.objectives.typePsychicOwned &&
+            rainbowBadge.objectives.typeBugOwned &&
+            rainbowBadge.objectives.typeRockOwned &&
+            rainbowBadge.objectives.typePoisonOwned &&
+            rainbowBadge.objectives.typeGhostOwned &&
+            rainbowBadge.objectives.typeSteelOwned &&
+            rainbowBadge.objectives.typeGroundOwned &&
+            rainbowBadge.objectives.typeNormalOwned &&
+            rainbowBadge.objectives.typeFairyOwned &&
+            rainbowBadge.objectives.typeDarkOwned &&
+            rainbowBadge.objectives.typeGrassOwned &&
+            rainbowBadge.objectives.typeIceOwned &&
+            rainbowBadge.objectives.typeWaterOwned &&
+            rainbowBadge.objectives.typeFireOwned
+          ) {
+            rainbowBadge.currentProgress = rainbowBadge.progressTarget;
+          }
+        }
+        // <<----------------------------Rainbow Badge Logic End------------------------------->>
       }
     },
     // <<----------------------------Badge Reducer Logic End------------------------------>>
