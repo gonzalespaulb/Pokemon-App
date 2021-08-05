@@ -13,6 +13,14 @@ export const pokemonSlice = createSlice({
     setPokeList: (state, action) => {
       state.allPokemon = action.payload;
     },
+
+    winPokemon: (state, action) => {
+      const pokeIndex = state.allPokemon.findIndex(
+        (element) => element.id === action.payload.id
+      );
+
+      state.allPokemon[pokeIndex].quantity++;
+    },
     buyPokemon: (state, action) => {
       if (state.pokeDollars - action.payload.value > 0) {
         //Finds the index of pokemon in the array that matches the id of the pokemon being updated
@@ -47,6 +55,6 @@ export const pokemonSlice = createSlice({
   },
 });
 
-export const { buyPokemon, sellPokemon, setPokeList } = pokemonSlice.actions;
+export const { winPokemon, buyPokemon, sellPokemon, setPokeList } = pokemonSlice.actions;
 
 export default pokemonSlice.reducer;
