@@ -121,9 +121,7 @@ export const pokemonSlice = createSlice({
                 action.payload.types[1].type.name === "fighting"
               : action.payload.types[0].type.name === "fighting"
           ) {
-            
             state.knuckleBadgeCount++;
-            console.log(state.knuckleBadgeCount)
             switch (state.knuckleBadgeCount) {
               case 10:
                 knuckleBadge.objectives.tenFightingPokemonOwned = true;
@@ -188,7 +186,7 @@ export const pokemonSlice = createSlice({
             if (knuckleBadge.objectives.hundredFightingPokemonOwned) {
               knuckleBadge.currentProgress = 10;
             }
-           }
+          }
         }
         // <<----------------------------Knuckle Badge Logic End------------------------------->>
         // <<----------------------------Glacier Badge Logic Start------------------------------->>
@@ -426,6 +424,7 @@ export const pokemonSlice = createSlice({
   },
 });
 
-export const { winPokemon, buyPokemon, sellPokemon, setPokeList } = pokemonSlice.actions;
+export const { winPokemon, buyPokemon, sellPokemon, setPokeList } =
+  pokemonSlice.actions;
 
 export default pokemonSlice.reducer;
