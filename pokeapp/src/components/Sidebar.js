@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
+import arrowIcon from "../assets/uiIcons/down-arrow.svg";
 
 const sortAtoZ = (list) => {
   const sortedAtoZ = list.sort((name1, name2) => {
@@ -63,6 +64,10 @@ const SideBar = ({
     }
   };
 
+  const menuStyles = {
+    color: "#333333",
+  };
+
   const sidebarInformation = () => {
     const sideBarImageURL = {
       backgroundImage: `url(${selectedPokemon.picture})`,
@@ -76,30 +81,29 @@ const SideBar = ({
             onClick={() => {
               setShowPokemon(!showPokemon);
             }}
+            onKeyPress={(e) => {
+              enterSubmit(e);
+            }}
           >
-
-            <div
-              className="sidebar-dropdown-new"
-              onKeyPress={(e) => {
-                enterSubmit(e);
-              }}
-            >
+            <div className="sidebar-dropdown-new">
               <Typeahead
+                className="typeahead rbt-menu"
                 id="basic-typeahead-single"
                 labelKey="name"
                 options={pokeNameList}
                 placeholder={selectedPokemon.name}
                 selected={pokeSearch}
                 onChange={setPokeSearch}
-                clearButton
+                highlightOnlyResult={true}
+                dropup={false}
               />
-
               <button
+                className="dropdown-arrow"
                 onClick={() => {
                   updateSidebarPokemon(allPokemon, pokeSearch);
                 }}
               >
-                Submit
+                <img src={arrowIcon} alt="dropdown arrow" />
               </button>
             </div>
           </div>
