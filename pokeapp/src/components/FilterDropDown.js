@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { SortTypes, ElementTypes } from "../utilities/enums";
 
-const FilterDropDown = ({ allPokemon, setAllPokemonFiltered }) => {
+const FilterDropDown = ({
+  allPokemon,
+  setAllPokemonFiltered,
+  active,
+  firstClick,
+}) => {
   const [sortType, setSortType] = useState(SortTypes.ID_LOW_TO_HIGH);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [type, setType] = useState(false);
@@ -9,6 +14,17 @@ const FilterDropDown = ({ allPokemon, setAllPokemonFiltered }) => {
   const [aToZ, setAToZ] = useState(false);
   const [pokeDollarValue, setPokeDollarValue] = useState(false);
   const [pokeID, setPokeID] = useState(false);
+
+  // Sets a new classname
+  const applyStyles = (className) => {
+    let currStyle = `${className}`;
+
+    if (firstClick) {
+      if (active) return (currStyle = currStyle + ` ${className}-active`);
+      if (!active) return (currStyle = currStyle + ` ${className}-inactive`);
+    }
+    return currStyle;
+  };
 
   //Sorting Alphabetical
   const sortAtoZ = (list) => {
@@ -208,26 +224,26 @@ const FilterDropDown = ({ allPokemon, setAllPokemonFiltered }) => {
   };
 
   return (
-    <div className="filter-bar-dropdown">
+    <div className={applyStyles(`filter-bar-dropdown`)}>
       <div className="checkbox-type">
-        {checkboxEl(ElementTypes.FIRE, `Fire`)}
-        {checkboxEl(ElementTypes.WATER, `Water`)}
-        {checkboxEl(ElementTypes.ICE, `Ice`)}
-        {checkboxEl(ElementTypes.GRASS, `Grass`)}
-        {checkboxEl(ElementTypes.GHOST, `Ghost`)}
-        {checkboxEl(ElementTypes.GROUND, `Ground`)}
-        {checkboxEl(ElementTypes.FLYING, `Flying`)}
         {checkboxEl(ElementTypes.BUG, `Bug`)}
         {checkboxEl(ElementTypes.DARK, `Dark`)}
         {checkboxEl(ElementTypes.DRAGON, `Dragon`)}
         {checkboxEl(ElementTypes.ELECTRIC, `Electric`)}
         {checkboxEl(ElementTypes.FAIRY, `Fairy`)}
-        {checkboxEl(ElementTypes.POISON, `Poison`)}
+        {checkboxEl(ElementTypes.FLYING, `Flying`)}
         {checkboxEl(ElementTypes.FIGHTING, `Fighting`)}
-        {checkboxEl(ElementTypes.STEEL, `Steel`)}
-        {checkboxEl(ElementTypes.PSYCHIC, `Psychic`)}
+        {checkboxEl(ElementTypes.FIRE, `Fire`)}
+        {checkboxEl(ElementTypes.GHOST, `Ghost`)}
+        {checkboxEl(ElementTypes.GRASS, `Grass`)}
+        {checkboxEl(ElementTypes.GROUND, `Ground`)}
+        {checkboxEl(ElementTypes.ICE, `Ice`)}
         {checkboxEl(ElementTypes.NORMAL, `Normal`)}
+        {checkboxEl(ElementTypes.POISON, `Poison`)}
+        {checkboxEl(ElementTypes.PSYCHIC, `Psychic`)}
         {checkboxEl(ElementTypes.ROCK, `Rock`)}
+        {checkboxEl(ElementTypes.STEEL, `Steel`)}
+        {checkboxEl(ElementTypes.WATER, `Water`)}
       </div>
 
       <div className="sort-container">
