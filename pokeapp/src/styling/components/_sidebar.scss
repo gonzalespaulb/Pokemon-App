@@ -1,5 +1,5 @@
-@import '../colorschemes/colors';
-@import '../typography/fonts';
+@import "../colorschemes/colors";
+@import "../typography/fonts";
 
 .sidebar {
     background-color: $component-container;
@@ -16,111 +16,179 @@
     }
 }
 
-
 .sidebar-dropdown {
-    width: 100%;
-    height: 50px;
-    border-radius: 10px; 
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .dropdown {
+    width: 88%;
+    height: 90%;
+    background-color: aliceblue;
+    border-radius: 10px;
+  }
+
+
+  .sidebar-dropdown-new {
     display: flex;
-    justify-content: space-between;
+    height: 100%;
+  }
+
+  .typeahead {
+    width: 100%;
     align-items: center;
+    display: flex;
+    cursor: pointer;
 
-    .dropdown {
-        width: 88%;
-        height: 90%;
-        background-color: aliceblue;
-        border-radius: 10px; 
+    ::-webkit-scrollbar {
+      width: 10px;
     }
 
-    .dropdown-items {
-        width: 100%;
-        background-color: $component-container;
-        border-radius: 10px;
+    /* Track */
+    ::-webkit-scrollbar-track {
+
+      border-radius: 10px;
     }
 
-    .close-btn {
-        width: 10%;
-        height: 90%;
-        background-color: antiquewhite;
-        border-radius: 10px; 
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
     }
+  }
+
+  .typeahead input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px 0px 0px 10px;
+    padding-left: 10px;
+    border: none;
+  }
+
+  #basic-typeahead-single {
+    background-color: #fff;
+    text-align: left;
+    color: $base-color;
+    display: block;
+    position: absolute;
+    border-radius: 10px;
+    overflow-y: scroll;
+  }
+
+  .rbt-menu {
+    margin-bottom: 2px;
+
+    & > .dropdown-item {
+      text-overflow: inherit;
+      text-decoration: none;
+      padding: 0px 10px;
+      color: #262626;
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .dropdown-item:hover {
+    color: #000;
+  }
+
+  .dropdown-arrow {
+    border-radius: 0px 10px 10px 0px;
+    width: 50px;
+    border: none;
+  }
+
+  .dropdown-arrow img {
+    height: 30%;
+    transform: rotate(-90deg);
+  }
+
+  .close-btn {
+    width: 10%;
+    height: 90%;
+    background-color: antiquewhite;
+    border-radius: 10px;
+  }
 }
 
 .sidebar-image {
-    width: 100%;
-    height: 325px;
-    border-radius: 10px; 
-    margin-top: 20px;
-    background-color: hsl(0, 0%, 11%);
-    background-size: 70%;
-    background-repeat: no-repeat;
-    background-position: center;
+  width: 100%;
+  height: 325px;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: hsl(0, 0%, 11%);
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .sidebar-name-id {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-top: 5px;
-    padding: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 5px;
+  padding: 5px;
 }
 
 .type-weakness {
-    display: flex;
-    width: 100%;
-    margin-top: 15px;
+  display: flex;
+  width: 100%;
+  margin-top: 15px;
 }
 
 .sidebar-type,
 .sidebar-weakness {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 5px;
 }
 
 .sidebar-weakness {
-    margin-left: 40px;
+  margin-left: 40px;
 }
 
 .type-icons {
-    width: 20px;
-    margin-right: 10px;
-    margin-top: 10px;
+  width: 20px;
+  margin-right: 10px;
+  margin-top: 10px;
 }
 
 .btn-container {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .buy-sell-container {
+  display: flex;
+  justify-content: space-between;
+
+  .buy-btn,
+  .sell-btn {
+    padding: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    width: 49%;
+    border-radius: 10px;
+    border: none;
+  }
 
-    .buy-btn, 
-    .sell-btn {
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 49%;
-        border-radius: 10px;
-        border: none;
-    }
+  .buy-btn {
+    background-color: $buy-btn;
+  }
 
-    .buy-btn {
-        background-color: $buy-btn;
-    }
-
-    .sell-btn {
-        background-color: $sell-btn;
-    }
+  .sell-btn {
+    background-color: $sell-btn;
+  }
 }
 
 .more-info-btn {
@@ -143,6 +211,4 @@
         border-radius: 10px;
        }
 }
-
-
 

@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
+import arrowIcon from "../assets/uiIcons/down-arrow.svg";
 
 const sortAtoZ = (list) => {
   const sortedAtoZ = list.sort((name1, name2) => {
@@ -63,6 +64,10 @@ const SideBar = ({
         break;
       }
     }
+  };
+
+  const menuStyles = {
+    color: "#333333",
   };
 
   const sidebarInformation = () => {
