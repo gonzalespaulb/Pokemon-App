@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import Navigation from './Navigation';
 import PokemonCard from './PokemonCard';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {slotMachinePokemon} from '../assets/pokemons/index';
 import pikachu from '../assets/rollers/pikachu-roller.png';
 import pokeball from '../assets/rollers/pokeball-roller.png';
+import {randomPoke} from '../utilities/randomizer';
+import { winPokemon } from '../redux/pokemonSlice';
 
 const NUMBER_OF_REEL_FACES = 20; 
 
 const GamePage = ({makeUpperCase, setIsPokeList}) => {
 
-  const [reel1, setActive] = useState(false);
-  const [reel2, setReel2] =useState(false);
-  const [reel3, setReel3] =useState(false);
-    
-    const gamepokemon = useSelector((state) =>
-    state.pokemon.allPokemon.filter((pokemon) => pokemon.quantity > 0)
-  );
+// ------------------------------------------------------------------------------------------------RANDOMIZER LOGIC START
 
-    const gamePagePokemons = () => {
-        return gamepokemon.map((pokemon) => {
+  const [wonPokemon, setWonPokemon] = useState([]);
+
+  const dispatch = useDispatch();
+
+  const pokedex = useSelector((state) => state.pokemon.allPokemon);
+
+    const renderWonPokemons = (wonPokemons) => {
+        return wonPokemons?.map((pokemon) => {
           return (
             <PokemonCard
               key={pokemon.id}
@@ -34,7 +36,23 @@ const GamePage = ({makeUpperCase, setIsPokeList}) => {
         });
       };
 
+  const winAPokemon = (pokeList) => {
+    if(!reel1) {
+      let randomPokemon = randomPoke(pokeList);
+      setWonPokemon([...wonPokemon, randomPokemon])
+      dispatch(winPokemon(randomPokemon))
+    } else {
+      return;
+    }
+  }
+
+// ------------------------------------------------------------------------------------------------RANDOMIZER LOGIC END
+
 // ------------------------------------------------------------------------------------------------SLOT MACHINE LOGIC START
+
+  const [reel1, setActive] = useState(false);
+  const [reel2, setReel2] =useState(false);
+  const [reel3, setReel3] =useState(false);
 
       const rollerStyle = {
         backgroundImage: `url(${pikachu})`,
@@ -145,11 +163,9 @@ const GamePage = ({makeUpperCase, setIsPokeList}) => {
                 <div className="slot-machine-arm">
                   <div className="lever-sub-base"></div>
                   <div className="lever-base">
-                    <div 
-                      className={pullLever(`hole`)}
-        
-                    >
-                    </div>
+                    
+                    <div className={pullLever(`hole`)}/>
+
                     <div className={pullLever(`stick`)}>
                       <div 
                         className="lever-ball"
@@ -157,20 +173,23 @@ const GamePage = ({makeUpperCase, setIsPokeList}) => {
                           setActive(!reel1)
                           setTimeout(() => setReel2(!reel2), 200);
                           setTimeout(() => setReel3(!reel3), 400);
+                          setTimeout(() => winAPokemon(pokedex), 3400);
                         }}
-                      ></div>
+                      >
+                      </div>
                     </div>
+
                   </div>
 
                 </div>
               </div>
 
             </div>
-            <div className="gamecard-container">
-                <div className="gamepage-card">
-                  {gamePagePokemons()}
-                </div>
+            
+            <div className="gamepage-card">
+              {wonPokemon.length ? renderWonPokemons(wonPokemon) : null}
             </div>
+
         </div>
     )
 }

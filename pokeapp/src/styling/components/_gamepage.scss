@@ -12,12 +12,6 @@
     position: relative;
 }
 
-.gamecard-container {
-    grid-area: 3 / 1 / 4 / 3;
-    background-color: $component-container;
-    border-radius: 10px;
-}
-
 // ------------------------------------------------------------------------------------------------SLOT MACHINE PARENT CONTAINER
 
 .slot-machine {
@@ -121,6 +115,21 @@
         transform: translateY(-100%) translateX(-35%);
     }
 }
+
+// ------------------------------------------------------------------------------------------------WON POKEMON GRID
+.gamepage-card {
+    background-color: $component-container;
+    grid-area: 3 / 1 / 4 / 3;
+    border-radius: 10px;
+    color: $font-color;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 300px;
+    grid-gap: 10px;
+    padding: 10px;
+    overflow: scroll;
+}
+
 
 // ------------------------------------------------------------------------------------------------ANIMATION CONTROLS
 
