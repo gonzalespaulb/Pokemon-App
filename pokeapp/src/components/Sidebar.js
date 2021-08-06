@@ -104,6 +104,7 @@ const SideBar = ({
                 />
 
                 <button
+                className="dropdown-arrow"
                   onClick={() => {
                     updateSidebarPokemon(allPokemon, pokeSearch);
                   }}
