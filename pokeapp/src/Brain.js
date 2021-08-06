@@ -9,7 +9,7 @@ import GamePage from "./components/GamePage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { setPokeList } from "./redux/pokemonSlice";
 import { useSelector, useDispatch } from "react-redux";
-import BadgeSideBar from "./components/BadgeSideBar";
+import BadgeSideBar from "./components/badges/BadgeSideBar";
 
 export const Brain = () => {
   const allPokemon = useSelector((state) => state.pokemon.allPokemon);
@@ -152,14 +152,24 @@ export const Brain = () => {
         <Route exact path="/">
           <Layout
             isBadgeSideBar={isBadgeSideBar}
-            Navigation={<Navigation setIsPokeList={setIsPokeList} setIsBadgeSideBar={setIsBadgeSideBar} />}
+            Navigation={
+              <Navigation
+                setIsPokeList={setIsPokeList}
+                setIsBadgeSideBar={setIsBadgeSideBar}
+              />
+            }
             FilterBar={
               <FilterBar
                 allPokemon={allPokemon}
                 setAllPokemonFiltered={setAllPokemonFiltered}
               />
             }
-            BadgeSideBar={<BadgeSideBar setIsBadgeSideBar={setIsBadgeSideBar} />}
+            BadgeSideBar={
+              <BadgeSideBar
+                setIsBadgeSideBar={setIsBadgeSideBar}
+                isBadgeSideBar={isBadgeSideBar}
+              />
+            }
             SideBar={
               <SideBar
                 selectedPokemon={selectedPokemon}
@@ -167,6 +177,7 @@ export const Brain = () => {
                 isMoreInfo={isMoreInfo}
                 setIsMoreInfo={setIsMoreInfo}
                 setSelectedPokemon={setSelectedPokemon}
+                setIsBadgeSideBar={setIsBadgeSideBar}
               />
             }
             DigitalCardBinder={
