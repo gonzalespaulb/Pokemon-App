@@ -17,45 +17,45 @@ import FightingIcon from "../assets/types/fighting.svg";
 import GrassIcon from "../assets/types/grass.svg";
 import PoisonIcon from "../assets/types/poison.svg";
 
-
 export const typeIconMaker = (type) => {
-    switch (type) {
-      case "fire":
-        return FireIcon;
-      case "water":
-        return WaterIcon;
-      case "bug":
-        return BugIcon;
-      case "dark":
-        return DarkIcon;
-      case "dragon":
-        return DragonIcon;
-      case "electric":
-        return ElectricIcon;
-      case "fairy":
-        return FairyIcon;
-      case "fighting":
-        return FightingIcon;
-      case "flying":
-        return FlyingIcon;
-      case "ghost":
-        return GhostIcon;
-      case "grass":
-        return GrassIcon;
-      case "ground":
-        return GroundIcon;
-      case "ice":
-        return IceIcon;
-      case "normal":
-        return NormalIcon;
-      case "poison":
-        return PoisonIcon;
-      case "psychic":
-        return PsychicIcon;
-      case "rock":
-        return RockIcon;
-      case "steel":
-        return SteelIcon;
-    }
-  };
-
+  switch (type) {
+    case "fire":
+      return FireIcon;
+    case "water":
+      return WaterIcon;
+    case "bug":
+      return BugIcon;
+    case "dark":
+      return DarkIcon;
+    case "dragon":
+      return DragonIcon;
+    case "electric":
+      return ElectricIcon;
+    case "fairy":
+      return FairyIcon;
+    case "fighting":
+      return FightingIcon;
+    case "flying":
+      return FlyingIcon;
+    case "ghost":
+      return GhostIcon;
+    case "grass":
+      return GrassIcon;
+    case "ground":
+      return GroundIcon;
+    case "ice":
+      return IceIcon;
+    case "normal":
+      return NormalIcon;
+    case "poison":
+      return PoisonIcon;
+    case "psychic":
+      return PsychicIcon;
+    case "rock":
+      return RockIcon;
+    case "steel":
+      return SteelIcon;
+    default:
+      break;
+  }
+};
