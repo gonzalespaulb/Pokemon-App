@@ -1,0 +1,13 @@
+.digital-card-binder {
+  background-color: #333333;
+  grid-area: 3/2/4/3;
+  border-radius: 10px;
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 300px;
+  grid-gap: 10px;
+  padding: 10px;
+  min-height: 75vh;
+  overflow: scroll;
+}

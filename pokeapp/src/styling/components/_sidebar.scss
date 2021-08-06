@@ -33,7 +33,6 @@
   .sidebar-dropdown-new {
     display: flex;
     height: 100%;
-    list-style: none;
   }
 
   .typeahead {
@@ -41,34 +40,68 @@
     align-items: center;
     display: flex;
     cursor: pointer;
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+    }
   }
 
   .typeahead input {
     display: flex;
     align-items: center;
     width: 100%;
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px 0px 0px 10px;
     padding-left: 10px;
-  }
-
-  .typeahead button {
-    display: flex;
-    width: 55px;
-    height: 43px;
-    align-items: center;
+    border: none;
   }
 
   #basic-typeahead-single {
-    background-color: $card-background;
-    width: 100%;
+    background-color: #fff;
     text-align: left;
-    padding-left: 10px;
     color: $base-color;
+    display: block;
+    position: absolute;
+    border-radius: 10px;
+    overflow-y: scroll;
   }
 
-  .dropdown-submit {
-    border-radius: 0 10px 10px 0;
-    box-shadow: none;
+  .rbt-menu {
+    margin-bottom: 2px;
+
+    & > .dropdown-item {
+      text-overflow: inherit;
+      text-decoration: none;
+      padding: 0px 10px;
+      color: #262626;
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .dropdown-item:hover {
+    color: #000;
+  }
+
+  .dropdown-arrow {
+    border-radius: 0px 10px 10px 0px;
+    width: 50px;
+    border: none;
+  }
+
+  .dropdown-arrow img {
+    height: 30%;
+    transform: rotate(-90deg);
   }
 
   .close-btn {
