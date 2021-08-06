@@ -140,7 +140,7 @@ export const allBadges = [
       seventyFirePokemonOwned: false,
       eightyFirePokemonOwned: false,
       ninetyFirePokemonOwned: false,
-      hundrenFirePokemonOwned: false,
+      hundredFirePokemonOwned: false,
     },
   },
   {
@@ -171,7 +171,7 @@ export const allBadges = [
       seventyFightingPokemonOwned: false,
       eightyFightingPokemonOwned: false,
       ninetyFightingPokemonOwned: false,
-      hundrenFightingPokemonOwned: false,
+      hundredFightingPokemonOwned: false,
     },
   },
   {
