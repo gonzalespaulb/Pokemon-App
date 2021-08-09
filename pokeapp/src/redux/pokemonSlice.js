@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { allBadges } from "../components/badges/bagdeIcon";
+import { updateBadgeProgress } from "../components/badges/utils/allTypesHelper";
 
 export const pokemonSlice = createSlice({
   name: "pokemon",
@@ -71,7 +72,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Boulder Badge Logic Start------------------------------->>
 
         const boulderBadgeIndex = state.allBadges.findIndex(
-          (badge) => badge.name === "BoulderBadge"
+          (badge) => badge?.name === "BoulderBadge"
         );
         const boulderBadge = state.allBadges[boulderBadgeIndex];
         if (boulderBadge.currentProgress !== boulderBadge.progressTarget) {
@@ -112,82 +113,16 @@ export const pokemonSlice = createSlice({
           (badge) => badge.name === "KnuckleBadge"
         );
 
-        const knuckleBadge = state.allBadges[knuckleBadgeIndex];
+        let knuckleBadge = state.allBadges[knuckleBadgeIndex];
 
-        if (knuckleBadge.currentProgress !== knuckleBadge.progressTarget) {
-          if (
-            action.payload.types.length > 1
-              ? action.payload.types[0].type.name === "fighting" ||
-                action.payload.types[1].type.name === "fighting"
-              : action.payload.types[0].type.name === "fighting"
-          ) {
-            state.knuckleBadgeCount++;
-            switch (state.knuckleBadgeCount) {
-              case 10:
-                knuckleBadge.objectives.tenFightingPokemonOwned = true;
-                break;
-              case 20:
-                knuckleBadge.objectives.twentyFightingPokemonOwned = true;
-                break;
-              case 30:
-                knuckleBadge.objectives.thirtyFightingPokemonOwned = true;
-                break;
-              case 40:
-                knuckleBadge.objectives.fortyFightingPokemonOwned = true;
-                break;
-              case 50:
-                knuckleBadge.objectives.fiftyFightingPokemonOwned = true;
-                break;
-              case 60:
-                knuckleBadge.objectives.sixtyFightingPokemonOwned = true;
-                break;
-              case 70:
-                knuckleBadge.objectives.seventyFightingPokemonOwned = true;
-                break;
-              case 80:
-                knuckleBadge.objectives.eightyFightingPokemonOwned = true;
-                break;
-              case 90:
-                knuckleBadge.objectives.ninetyFightingPokemonOwned = true;
-                break;
-              case 100:
-                knuckleBadge.objectives.hundredFightingPokemonOwned = true;
-                break;
-              default:
-                break;
-            }
-            if (knuckleBadge.objectives.tenFightingPokemonOwned) {
-              knuckleBadge.currentProgress = 1;
-            }
-            if (knuckleBadge.objectives.twentyFightingPokemonOwned) {
-              knuckleBadge.currentProgress = 2;
-            }
-            if (knuckleBadge.objectives.thirtyFightingPokemonOwned) {
-              knuckleBadge.currentProgress = 3;
-            }
-            if (knuckleBadge.objectives.fortyFightingPokemonOwned) {
-              knuckleBadge.currentProgress = 4;
-            }
-            if (knuckleBadge.objectives.fiftyFightingPokemonOwned) {
-              knuckleBadge.currentProgress = 5;
-            }
-            if (knuckleBadge.objectives.sixtyFightingPokemonOwned) {
-              knuckleBadge.currentProgress = 6;
-            }
-            if (knuckleBadge.objectives.seventyFightingPokemonOwned) {
-              knuckleBadge.currentProgress = 7;
-            }
-            if (knuckleBadge.objectives.eightyFightingPokemonOwned) {
-              knuckleBadge.currentProgress = 8;
-            }
-            if (knuckleBadge.objectives.ninetyFightingPokemonOwned) {
-              knuckleBadge.currentProgress = 9;
-            }
-            if (knuckleBadge.objectives.hundredFightingPokemonOwned) {
-              knuckleBadge.currentProgress = 10;
-            }
-          }
-        }
+        let { updatedBadge, count } = updateBadgeProgress(
+          knuckleBadge,
+          action.payload,
+          "fighting",
+          state.knuckleBadgeCount
+        );
+        state.allBadges[knuckleBadgeIndex] = updatedBadge;
+        state.knuckleBadgeCount = count;
         // <<----------------------------Knuckle Badge Logic End------------------------------->>
         // <<----------------------------Glacier Badge Logic Start------------------------------->>
 
@@ -232,86 +167,20 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Glacier Badge Logic End------------------------------->>
         // <<----------------------------Heat Badge Logic Start------------------------------->>
-        const heatBadgeIndex = state.allBadges.findIndex(
-          (badge) => badge.name === "HeatBadge"
-        );
+        // const heatBadgeIndex = state.allBadges.findIndex(
+        //   (badge) => badge.name === "HeatBadge"
+        // );
 
-        const heatBadge = state.allBadges[heatBadgeIndex];
+        // let heatBadge = state.allBadges[heatBadgeIndex];
 
-        if (heatBadge.currentProgress !== heatBadge.progressTarget) {
-          if (
-            action.payload.types.length > 1
-              ? action.payload.types[0].type.name === "fire" ||
-                action.payload.types[1].type.name === "fire"
-              : action.payload.types[0].type.name === "fire"
-          ) {
-            state.heatBadgeCount++;
-            switch (state.heatBadgeCount) {
-              case 10:
-                heatBadge.objectives.tenFirePokemonOwned = true;
-                break;
-              case 20:
-                heatBadge.objectives.twentyFirePokemonOwned = true;
-                break;
-              case 30:
-                heatBadge.objectives.thirtyFirePokemonOwned = true;
-                break;
-              case 40:
-                heatBadge.objectives.fortyFirePokemonOwned = true;
-                break;
-              case 50:
-                heatBadge.objectives.fiftyFirePokemonOwned = true;
-                break;
-              case 60:
-                heatBadge.objectives.sixtyFirePokemonOwned = true;
-                break;
-              case 70:
-                heatBadge.objectives.seventyFirePokemonOwned = true;
-                break;
-              case 80:
-                heatBadge.objectives.eightyFirePokemonOwned = true;
-                break;
-              case 90:
-                heatBadge.objectives.ninetyFirePokemonOwned = true;
-                break;
-              case 100:
-                heatBadge.objectives.hundredFirePokemonOwned = true;
-                break;
-              default:
-                break;
-            }
-            if (heatBadge.objectives.tenFirePokemonOwned) {
-              heatBadge.currentProgress = 1;
-            }
-            if (heatBadge.objectives.twentyFirePokemonOwned) {
-              heatBadge.currentProgress = 2;
-            }
-            if (heatBadge.objectives.thirtyFirePokemonOwned) {
-              heatBadge.currentProgress = 3;
-            }
-            if (heatBadge.objectives.fortyFirePokemonOwned) {
-              heatBadge.currentProgress = 4;
-            }
-            if (heatBadge.objectives.fiftyFirePokemonOwned) {
-              heatBadge.currentProgress = 5;
-            }
-            if (heatBadge.objectives.sixtyFirePokemonOwned) {
-              heatBadge.currentProgress = 6;
-            }
-            if (heatBadge.objectives.seventyFirePokemonOwned) {
-              heatBadge.currentProgress = 7;
-            }
-            if (heatBadge.objectives.eightyFirePokemonOwned) {
-              heatBadge.currentProgress = 8;
-            }
-            if (heatBadge.objectives.ninetyFirePokemonOwned) {
-              heatBadge.currentProgress = 9;
-            }
-            if (heatBadge.objectives.hundredFirePokemonOwned) {
-              heatBadge.currentProgress = 10;
-            }
-          }
-        }
+        // let { updatedHeatBadge, heatBadgecount } = updateBadgeProgress(
+        //   heatBadge,
+        //   action.payload,
+        //   "fire",
+        //   state.heatBadgeCount
+        // );
+        // state.allBadges[heatBadgeIndex] = updatedHeatBadge;
+        // state.heatBadgeCount = heatBadgecount;
         // <<----------------------------Heat Badge Logic End------------------------------->>
         // <<----------------------------Rainbow Badge Logic Start------------------------------->>
         const rainbowBadgeIndex = state.allBadges.findIndex(

@@ -7,8 +7,8 @@ const BadgeSideBar = ({ setIsBadgeSideBar, isBadgeSideBar }) => {
   const renderBadges = (badges) => {
     return badges?.map((badge) => {
       return (
-        <div className="progress-bars" key={badge.name}>
-          <Badge key={badge.name} badge={badge} />
+        <div className="progress-bars" key={badge?.name}>
+          <Badge key={badge?.name} badge={badge} />
         </div>
       );
     });
