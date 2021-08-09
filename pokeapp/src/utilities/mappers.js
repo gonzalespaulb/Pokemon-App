@@ -1,12 +1,13 @@
 import ToolTip from "../components/ToolTip";
 import { typeIconMaker } from "./pokemonIcon";
+import { gameIndices } from "./pokemonGames";
 
 export const typeIconMapper = (types) => {
   return types?.map((typeObject, index) => {
     return (
       <ToolTip key={index} content={typeObject.type.name}>
         <img
-          className="pokemon-type"
+          className="type-icons"
           src={typeIconMaker(typeObject.type.name)}
         />
       </ToolTip>
@@ -16,13 +17,26 @@ export const typeIconMapper = (types) => {
 
 export const abilityMapper = (abilities) => {
   return abilities?.map((abilityObject, index) => {
-    return <p key={index}>{abilityObject.ability.name}</p>;
+    return <h5 key={index}>{abilityObject.ability.name}</h5>;
   });
 };
 
-export const gameMapper = (games) => {
+export const gameMapper = (games, setVideoGame) => {
   return games?.map((gameObject, index) => {
-    return <p key={index}>{gameObject.version.name}</p>;
+
+    const { title, url } = gameIndices(gameObject.version.name);
+    const indicesURL = {backgroundImage: `url(${url})`}
+    return (
+      <div value={title} 
+            key={index} 
+            style={indicesURL} 
+            className="indices"
+            onMouseEnter={() => setVideoGame(title)}
+            onMouseLeave={() => setVideoGame(`No Game Selected`)}
+      >
+            
+      </div>
+    )
   });
 };
 
