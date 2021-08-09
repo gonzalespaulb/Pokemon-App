@@ -1,30 +1,24 @@
-@import "../colorschemes/colors";
-@import "../typography/fonts";
-
 .filter-bar {
-  background-color: $component-container;
-  grid-area: 2 / 2 / 3 / 3;
+  background-color: #333333;
+  grid-area: 2/2/3/3;
   border-radius: 10px;
-  color: $font-color;
+  color: #ffffff;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   position: relative;
-
-  &-icon {
-    margin: 1em;
-  }
-
-  &-text {
-    margin: 0.7em;
-  }
+}
+.filter-bar-icon {
+  margin: 1em;
+}
+.filter-bar-text {
+  margin: 0.7em;
 }
 
-//--------------------------------------------------------------DROPDOWN ANIMATION START
 .filter-bar-dropdown,
 .filter-bar-dropdown-active,
 .filter-bar-dropdown-inactive {
-  background-color: $secondary-color;
+  background-color: #e3dac9;
   position: absolute;
   top: 100%;
   right: 0;
@@ -32,8 +26,8 @@
   border-radius: 10px;
   padding: 10px;
   overflow: hidden;
-  //     border: 1px solid $pokedollar-color;
 }
+
 .filter-bar-dropdown {
   transform: scaleY(0);
   overflow: hidden;
@@ -55,81 +49,74 @@
     transform: scale(0);
     opacity: 0;
   }
-
   100% {
     transform: scale(1);
     opacity: 1;
   }
 }
-
 @keyframes filter-dropdown-inactive {
   0% {
     transform: scale(1);
     opacity: 1;
   }
-
   100% {
     transform: scale(0);
     opacity: 0;
   }
 }
-//---------------------------------------------------------------DROPDOWN ANIMATION END
-
-.active {
-  &-Fire {
-    background-color: $fire;
-  }
-  &-Water {
-    background-color: $water;
-  }
-  &-Bug {
-    background-color: $bug;
-  }
-  &-Grass {
-    background-color: $grass;
-  }
-  &-Fairy {
-    background-color: $fairy;
-  }
-  &-Fighting {
-    background-color: $fighting;
-  }
-  &-Dark {
-    background-color: $dark;
-  }
-  &-Ice {
-    background-color: $ice;
-  }
-  &-Normal {
-    background-color: $normal;
-  }
-  &-Poison {
-    background-color: $poison;
-  }
-  &-Electric {
-    background-color: $electric;
-  }
-  &-Steel {
-    background-color: $steel;
-  }
-  &-Dragon {
-    background-color: $dragon;
-  }
-  &-Ghost {
-    background-color: $ghost;
-  }
-  &-Psychic {
-    background-color: $psychic;
-  }
-  &-Rock {
-    background-color: $rock;
-  }
-  &-Flying {
-    background-color: $flying;
-  }
-  &-Ground {
-    background-color: $ground;
-  }
+.active-Fire {
+  background-color: #FBA54C;
+}
+.active-Water {
+  background-color: #539DDF;
+}
+.active-Bug {
+  background-color: #92BC2C;
+}
+.active-Grass {
+  background-color: #5FBD58;
+}
+.active-Fairy {
+  background-color: #EE90E6;
+}
+.active-Fighting {
+  background-color: #D3425F;
+}
+.active-Dark {
+  background-color: #595761;
+}
+.active-Ice {
+  background-color: #57D6C1;
+}
+.active-Normal {
+  background-color: #A0A29F;
+}
+.active-Poison {
+  background-color: #B763CF;
+}
+.active-Electric {
+  background-color: #F2D94E;
+}
+.active-Steel {
+  background-color: #539DDF;
+}
+.active-Dragon {
+  background-color: #0C69C8;
+}
+.active-Ghost {
+  background-color: #5F6DBC;
+}
+.active-Psychic {
+  background-color: #FA8581;
+}
+.active-Rock {
+  background-color: #539DDF;
+}
+.active-Flying {
+  background-color: #A1BBEC;
+}
+.active-Ground {
+  background-color: #DA7C4D;
 }
 
 .inactive {
@@ -139,12 +126,12 @@
 .filter-checkbox,
 .sort-btn,
 .sort-option-btn {
-  color: $component-container;
+  color: #333333;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5px 10px;
-  border: 2px solid $component-container;
+  border: 2px solid #333333;
   border-radius: 10px;
   margin-right: 5px;
   margin-bottom: 5px;
