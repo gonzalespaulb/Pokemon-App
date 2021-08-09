@@ -1,80 +1,128 @@
-@import '../colorschemes/colors';
-@import '../typography/fonts';
+@import "../colorschemes/colors";
+@import "../typography/fonts";
 
 .filter-bar {
-    background-color: $component-container;
-    grid-area: 2 / 2 / 3 / 3;
-    border-radius: 10px;
-    color: $font-color;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: relative;
-    
-    &-icon {
-        margin: 1em; 
-    }
+  background-color: $component-container;
+  grid-area: 2 / 2 / 3 / 3;
+  border-radius: 10px;
+  color: $font-color;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
 
-    &-text {
-        margin: .7em;
-    }
+  &-icon {
+    margin: 1em;
+  }
+
+  &-text {
+    margin: 0.7em;
+  }
+}
+
+//--------------------------------------------------------------DROPDOWN ANIMATION START
+.filter-bar-dropdown,
+.filter-bar-dropdown-active,
+.filter-bar-dropdown-inactive {
+  background-color: $component-container;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 30;
+  border-radius: 10px;
+  padding: 10px;
+  overflow: hidden;
 }
 
 .filter-bar-dropdown {
-    background-color: $component-container;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    z-index: 30;
-    border-radius: 10px;
-    padding: 10px;
+  transform: scaleY(0);
+  overflow: hidden;
+  opacity: 0;
 }
 
+.filter-bar-dropdown-active {
+  transform-origin: top;
+  animation: 0.7s ease 0s 1 normal forwards running filter-dropdown-active;
+}
+
+.filter-bar-dropdown-inactive {
+  transform-origin: top;
+  animation-name: filter-dropdown-inactive;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  animation: 0.7s ease 0s 1 normal forwards running filter-dropdown-inactive;
+}
+
+@keyframes filter-dropdown-active {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes filter-dropdown-inactive {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+//---------------------------------------------------------------DROPDOWN ANIMATION END
+
 .active {
-    background-color: red;
+  background-color: red;
 }
 
 .inactive {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .filter-checkbox,
 .sort-btn,
 .sort-option-btn {
-    color: $secondary-color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 10px;
-    border: 2px solid $secondary-color;
-    border-radius: 10px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    cursor: pointer;
+  color: $secondary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  border: 2px solid $secondary-color;
+  border-radius: 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .checkbox-type {
-    width: 500px;
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
+  width: 500px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .sort-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 20px;
 }
 
 .sort-type-container {
-    display: flex;
+  display: flex;
 }
 
 .sort-option-btn {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .sort-option-container {
-    display: flex;
+  display: flex;
 }

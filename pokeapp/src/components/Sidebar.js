@@ -92,22 +92,24 @@ const SideBar = ({
                   enterSubmit(e);
                 }}
               >
-                <Typeahead
+                <Typeahead className="typeahead rbt-item"
                   id="basic-typeahead-single"
                   labelKey="name"
                   options={pokeNameList}
                   placeholder={selectedPokemon.name}
                   selected={pokeSearch}
                   onChange={setPokeSearch}
-                  clearButton
+                  highlightOnlyResult={true}
+                  dropup={false}
                 />
 
                 <button
+                className="dropdown-arrow"
                   onClick={() => {
                     updateSidebarPokemon(allPokemon, pokeSearch);
                   }}
                 >
-                  Submit
+                   <img src={arrowIcon} alt="dropdown arrow" />
                 </button>
               </div>
             </div>
