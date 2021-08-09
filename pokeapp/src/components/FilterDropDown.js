@@ -131,14 +131,22 @@ const FilterDropDown = ({
     filterPokemon();
   }, [sortType, type, selectedTypes]);
 
+  // apply color to selected checkbox types
+  const applyTypeColor = (type) => {
+    return `${type}`;
+  };
+
   const checkboxEl = (sortTypeEnum, type) => {
     return (
       <div
         name={sortTypeEnum}
         onClick={() => addRemoveTypeFilter(sortTypeEnum)}
-        className={`filter-checkbox ${
-          selectedTypes.includes(sortTypeEnum) ? " active" : " inactive"
-        }`}
+        className={`filter-checkbox${
+          selectedTypes.includes(sortTypeEnum)
+            ? ` active-${applyTypeColor(type)}`
+            : " inactive"
+        } 
+          `}
       >
         <h4>{type}</h4>
       </div>
