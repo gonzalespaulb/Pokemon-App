@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
-import { typeIconMapper } from "../utilities/mappers";
+import { gameMapper, typeIconMapper } from "../utilities/mappers";
 import { useState } from "react";
 
 const PokemonCard = ({
