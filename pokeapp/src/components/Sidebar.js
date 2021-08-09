@@ -33,6 +33,9 @@ const SideBar = ({
   const [showPokemon, setShowPokemon] = useState(false);
   const [pokeNameList, setPokeNameList] = useState([]);
 
+  const [videoGame, setVideoGame] = useState(`No Game Selected`);
+
+
   // Endpoint. This is the string that will be used by the type ahead
   const [pokeSearch, setPokeSearch] = useState([]);
 
@@ -66,10 +69,6 @@ const SideBar = ({
     }
   };
 
-  const menuStyles = {
-    color: "#333333",
-  };
-
   const sidebarInformation = () => {
     const sideBarImageURL = {
       backgroundImage: `url(${selectedPokemon.picture})`,
@@ -77,8 +76,11 @@ const SideBar = ({
 
     return (
       <>
-        <button onClick={() => setIsBadgeSideBar(true)}>Badges</button>
         <div className="sidebar-container">
+          <button onClick={() => setIsBadgeSideBar(true)}>Badges</button>
+
+{/* ---------------------------------------------------------------------------------------------DROPDOWN */}
+
           <div className="sidebar-dropdown">
             <div
               className="dropdown"
@@ -116,26 +118,74 @@ const SideBar = ({
             <div className="close-btn">x</div>
           </div>
 
-          <div className="sidebar-image" style={sideBarImageURL}></div>
+{/* ---------------------------------------------------------------------------------------------IMAGE */}
+
+          <div className="sidebar-image" style={sideBarImageURL}>
+            <div className="sidebar-value">
+              <h3>${selectedPokemon.value}</h3>
+            </div>
+          </div>
+
+{/* ---------------------------------------------------------------------------------------------NAME AND ID */}
 
           <div className="sidebar-name-id">
             <h3>{makeUpperCase(selectedPokemon.name)}</h3>
             <h4>#{selectedPokemon.id}</h4>
           </div>
 
+{/* ---------------------------------------------------------------------------------------------TYPE AND WEAKNESS */}
+
           <div className="type-weakness">
             <div className="sidebar-type">
-              <h4>Type</h4>
+              <h4>Type:</h4>
               <div>{typeIconMapper(selectedPokemon.types)}</div>
             </div>
 
             <div className="sidebar-weakness">
-              <h4>Weakness</h4>
+              <h4>Weaknesses:</h4>
               <div>{weaknessIconMapper(selectedPokemon.weaknesses)}</div>
             </div>
           </div>
 
-          <div className="btn-container">
+{/* ---------------------------------------------------------------------------------------------HEIGHT AND WEIGHT */}
+
+          <div className="height-weight">
+                <div className="height">
+                  <h4>Height:</h4>
+                  <h5>{selectedPokemon.height}</h5>
+                </div>
+                <div className="weight">
+                  <h4>Weight:</h4>
+                  <h5>{selectedPokemon.weight}</h5>
+                </div>
+          </div>
+
+{/* ---------------------------------------------------------------------------------------------ABILITIES */}
+
+          <div className="abilities">
+              <h4>Abilities:</h4>
+              {abilityMapper(selectedPokemon.abilities)}
+          </div>
+
+
+{/* ---------------------------------------------------------------------------- MORE INFO START */}
+
+          <div className="indices-container">
+            <div>
+              <h4>Game Indices:</h4>
+              <h5>{videoGame}</h5>
+            </div>
+            <div className="indices-grid">
+                {isMoreInfo ? gameMapper(selectedPokemon.games, setVideoGame) : null}
+                {!selectedPokemon.games.length && isMoreInfo ? (
+                  <p>This Pokemon has not been in any games</p>
+                ) : null}
+            </div>
+          </div>
+
+{/* ---------------------------------------------------------------------------- BUY, SELL, AND MORE INFO BUTTON */}
+
+          <div className={!isMoreInfo ? "btn-container" : "btn-container-more-info"}>
             <div className="buy-sell-container">
               <button
                 className="buy-btn"
@@ -175,19 +225,6 @@ const SideBar = ({
               )}
             </div>
 
-            <div>
-              {isMoreInfo ? abilityMapper(selectedPokemon.abilities) : null}
-            </div>
-            <div>
-              {isMoreInfo ? gameMapper(selectedPokemon.games) : null}
-              {!selectedPokemon.games.length && isMoreInfo ? (
-                <p>This Pokemon has not been in any games</p>
-              ) : null}
-            </div>
-            <div>
-              {isMoreInfo ? <p>{selectedPokemon.height}</p> : null}
-              {isMoreInfo ? <p>{selectedPokemon.weight}</p> : null}
-            </div>
           </div>
         </div>
       </>
