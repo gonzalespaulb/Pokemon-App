@@ -26,9 +26,7 @@ import WaterBadge from "../../assets/badges/WaterBadge.png";
 // import BeaconBadge from "../../assets/badges/Beaconbadge.png";
 // import CoralEyeBadge from "../../assets/badges/Coral-Eye_Badge.png";
 // import DynamoBadge from "../../assets/badges/Dynamobadge.png";
-
 // import FenBadge from "../../assets/badges/Fenbadge.png";
-
 // import FogBadge from "../../assets/badges/Fogbadge.png";
 // import ForestBadge from "../../assets/badges/Forestbadge.png";
 // import FreedomBadge from "../../assets/badges/Freedom_Badge.png";
@@ -41,19 +39,15 @@ import WaterBadge from "../../assets/badges/WaterBadge.png";
 // import LegendBadge from "../../assets/badges/Legendbadge.png";
 // import MarshBadge from "../../assets/badges/Marshbadge.png";
 // import MineBadge from "../../assets/badges/Minebadge.png";
-
 // import PatienceBadge from "../../assets/badges/Patience_Badge.png";
-
 // import PlantBadge from "../../assets/badges/Plant_Badge.png";
 // import PrideBadge from "../../assets/badges/Pride_Badge.png";
-
 // import QuakeBadge from "../../assets/badges/Quakebadge.png";
 // import RainBadge from "../../assets/badges/Rainbadge.png";
 // import RelicBadge from "../../assets/badges/Relicbadge.png";
 // import RisingBadge from "../../assets/badges/Risingbadge.png";
 // import RumbleBadge from "../../assets/badges/Rumble_Badge.png";
 // import SeaRubyBadge from "../../assets/badges/SeaRuby_Badge.png";
-
 // import SpikeShellBadge from "../../assets/badges/SpikeShell_Badge.png";
 // import StoneBadge from "../../assets/badges/Stonebadge.png";
 // import StormBadge from "../../assets/badges/Stormbadge.png";
@@ -62,6 +56,7 @@ import WaterBadge from "../../assets/badges/WaterBadge.png";
 // import TrioBadge from "../../assets/badges/Triobadge.png";
 // import VolcanoBadge from "../../assets/badges/Volcanobadge.png";
 // import ZephyrBadge from "../../assets/badges/Zephyrbadge.png";
+
 
 /**
  * Badge Model:

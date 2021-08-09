@@ -76,57 +76,75 @@
 
 .active {
   &-Fire {
+    color: white !important;
     background-color: $fire;
   }
   &-Water {
+    color: white !important;
     background-color: $water;
   }
   &-Bug {
+    color: white !important;
     background-color: $bug;
   }
   &-Grass {
+    color: white !important;
     background-color: $grass;
   }
   &-Fairy {
+    color: white !important;
     background-color: $fairy;
   }
   &-Fighting {
+    color: white !important;
     background-color: $fighting;
   }
   &-Dark {
+    color: white !important;
     background-color: $dark;
   }
   &-Ice {
+    color: white !important;
     background-color: $ice;
   }
   &-Normal {
+    color: white !important;
     background-color: $normal;
   }
   &-Poison {
+    color: white !important;
     background-color: $poison;
   }
   &-Electric {
+    color: white !important;
     background-color: $electric;
   }
   &-Steel {
+    color: white !important;
     background-color: $steel;
   }
   &-Dragon {
+    color: white !important;
     background-color: $dragon;
   }
   &-Ghost {
+    color: white !important;
     background-color: $ghost;
   }
   &-Psychic {
+    color: white !important;
     background-color: $psychic;
   }
   &-Rock {
+    color: white !important;
     background-color: $rock;
   }
   &-Flying {
+    color: white !important;
     background-color: $flying;
   }
   &-Ground {
+    color: white !important;
     background-color: $ground;
   }
 }
@@ -136,7 +154,6 @@
 }
 
 .filter-checkbox,
-.sort-btn,
 .sort-option-btn {
   color: $component-container;
   display: flex;
@@ -148,6 +165,25 @@
   margin-right: 5px;
   margin-bottom: 5px;
   cursor: pointer;
+}
+
+.sort-btn {
+  color: $component-container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  border: 2px solid $component-container;
+  border-radius: 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.option-clicked,
+.clicked {
+  background-color: $card !important;
+  color: white !important;
 }
 
 .checkbox-type {
@@ -171,6 +207,8 @@
 .sort-option-btn {
   margin-top: 20px;
 }
+
+
 
 .sort-option-container {
   display: flex;
