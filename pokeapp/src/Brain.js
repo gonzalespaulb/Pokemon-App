@@ -115,10 +115,10 @@ export const Brain = () => {
       const weaknessInfo = weaknessChecker(pokemon.types, weaknessList);
       const updatedHeight = getHeight(pokemon.height);
       const updatedWeight = getWeight(pokemon.weight);
-
+      console.log(pokemon.sprites)
       return {
         ...pokemon,
-        picture: pokemon.sprites.front_default,
+        picture: pokemon.sprites.other["official-artwork"].front_default,
         value:
           pokemon.base_experience +
           pokemon.abilities.length * 10 +
