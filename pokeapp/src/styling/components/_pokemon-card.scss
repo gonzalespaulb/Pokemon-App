@@ -126,16 +126,94 @@
 
 }
 
-.type-id {
+.type-id-container {
     display: flex;
     align-items: baseline;
-    justify-content: flex-end;
-    margin-top: 10px;
+    justify-content: space-between;
+
 }
 
+.type-id {
+    display: flex;
+    align-items: center;
+}
 
 .pokemon-type {
     width: 15px;
     margin-right: 5px;
 } 
 
+.card-btns-container {
+    overflow: hidden;
+}
+
+.card-btn {
+    height: 25px;
+    width: 100px;
+    background-color: yellow;
+    margin-bottom: 1px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transform: translateX(-100%);
+}
+
+.poke-value-btn {
+    animation-delay: 0s;
+    background-color: yellow;
+}
+
+.poke-buy-btn {
+    animation-delay: 0.1s;
+    background-color: green;
+}
+
+.poke-sell-btn {
+    animation-delay: 0.2s;
+    background-color: red;
+}
+
+.poke-value-btn,
+.poke-buy-btn,
+.poke-sell-btn {
+    animation-name: slide-in;
+    transform: translateX(-100%);
+    opacity: 0;
+
+}
+
+.card-btn-active {
+    animation-name: slide-in;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+.card-btn-inactive {
+    animation-name: slide-out;
+    animation-duration: 0.5s;
+    animation-fill-mode: backwards;
+
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
