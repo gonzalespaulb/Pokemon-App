@@ -10,10 +10,13 @@ const FilterDropDown = ({
   const [sortType, setSortType] = useState(SortTypes.ID_LOW_TO_HIGH);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [type, setType] = useState(false);
-
+  
   const [aToZ, setAToZ] = useState(false);
   const [pokeDollarValue, setPokeDollarValue] = useState(false);
   const [pokeID, setPokeID] = useState(false);
+
+  const [isOption1, setIsOption1] = useState(false);
+  const [isOption2, setIsOption2] = useState(false);
 
   // Sets a new classname
   const applyStyles = (className) => {
@@ -177,14 +180,22 @@ const FilterDropDown = ({
       return (
         <div className="sort-option-container">
           <div
-            className="sort-option-btn"
-            onClick={() => setSortType(SortTypes.A_TO_Z)}
+            className={isOption1 ? "sort-option-btn option-clicked" : "sort-option-btn"}
+            onClick={() => {
+              setSortType(SortTypes.A_TO_Z)
+              setIsOption1(true);
+              setIsOption2(false);
+            }}
           >
             <h4>A-Z</h4>
           </div>
           <div
-            className="sort-option-btn"
-            onClick={() => setSortType(SortTypes.Z_TO_A)}
+            className={isOption2 ? "sort-option-btn option-clicked" : "sort-option-btn"}
+            onClick={() => {
+              setSortType(SortTypes.Z_TO_A)
+              setIsOption1(false);
+              setIsOption2(true);
+            }}
           >
             <h4>Z-A</h4>
           </div>
@@ -196,14 +207,21 @@ const FilterDropDown = ({
       return (
         <div className="sort-option-container">
           <div
-            className="sort-option-btn"
-            onClick={() => setSortType(SortTypes.VALUE_LOW_TO_HIGH)}
+            className={isOption1 ? "sort-option-btn option-clicked" : "sort-option-btn"}
+            onClick={() => {
+              setIsOption1(true);
+              setIsOption2(false);
+              setSortType(SortTypes.VALUE_LOW_TO_HIGH)
+            }}
           >
             <h4>Low to high</h4>
           </div>
           <div
-            className="sort-option-btn"
-            onClick={() => setSortType(SortTypes.VALUE_HIGH_TO_LOW)}
+            className={isOption2 ? "sort-option-btn option-clicked" : "sort-option-btn"}
+            onClick={() => {
+              setIsOption1(false);
+              setIsOption2(true);
+              setSortType(SortTypes.VALUE_HIGH_TO_LOW)}}
           >
             <h4>High to low</h4>
           </div>
@@ -215,14 +233,22 @@ const FilterDropDown = ({
       return (
         <div className="sort-option-container">
           <div
-            className="sort-option-btn"
-            onClick={() => setSortType(SortTypes.ID_LOW_TO_HIGH)}
+           className={isOption1 ? "sort-option-btn option-clicked" : "sort-option-btn"}
+            onClick={() => {
+              setSortType(SortTypes.ID_LOW_TO_HIGH)
+              setIsOption1(true);
+              setIsOption2(false);
+            }}
           >
             <h4>Low to high</h4>
           </div>
           <div
-            className="sort-option-btn"
-            onClick={() => setSortType(SortTypes.ID_HIGH_TO_LOW)}
+         className={isOption2 ? "sort-option-btn option-clicked" : "sort-option-btn"}
+            onClick={() => {
+              setSortType(SortTypes.ID_HIGH_TO_LOW)
+              setIsOption1(false);
+              setIsOption2(true);
+            }}
           >
             <h4>High to low</h4>
           </div>
@@ -257,33 +283,39 @@ const FilterDropDown = ({
       <div className="sort-container">
         <div className="sort-type-container">
           <div
-            className="sort-btn"
+            className={aToZ ? "sort-btn clicked" : "sort-btn"}
             onClick={() => {
               setPokeDollarValue(false);
               setAToZ(true);
               setPokeID(false);
+              setIsOption1(false);
+              setIsOption2(false);
             }}
           >
             <h4>Alphabetical</h4>
           </div>
 
           <div
-            className="sort-btn"
+            className={pokeDollarValue ? "sort-btn clicked" : "sort-btn"}
             onClick={() => {
               setPokeDollarValue(true);
               setAToZ(false);
               setPokeID(false);
+              setIsOption1(false);
+              setIsOption2(false);
             }}
           >
             <h4>Value</h4>
           </div>
 
           <div
-            className="sort-btn"
+            className={pokeID ? "sort-btn clicked" : "sort-btn"}
             onClick={() => {
               setPokeDollarValue(false);
               setAToZ(false);
               setPokeID(true);
+              setIsOption1(false);
+              setIsOption2(false);
             }}
           >
             <h4>ID</h4>
