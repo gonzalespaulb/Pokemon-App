@@ -5,7 +5,13 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+        width: 0;
+      }
 }
+
+
 
 
 // ........................................................... Components
