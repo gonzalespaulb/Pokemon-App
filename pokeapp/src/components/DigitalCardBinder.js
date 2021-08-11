@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const DigitalCardBinder = ({
   allPokemonFiltered,
   setSelectedPokemon,
-  isPokeList,
+  isMyPoke,
   setAllPokemonFiltered,
   makeUpperCase,
   setIsMoreInfo,
@@ -49,7 +49,7 @@ const DigitalCardBinder = ({
 
   return (
     <div className="digital-card-binder">
-      {isPokeList ? myPokeListCardPrinter() : pokedexCardPrinter()}
+      {isMyPoke ? myPokeListCardPrinter() : pokedexCardPrinter()}
     </div>
   );
 };
