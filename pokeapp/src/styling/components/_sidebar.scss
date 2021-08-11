@@ -2,18 +2,18 @@
 @import "../typography/fonts";
 
 .sidebar {
-    background-color: $component-container;
-    grid-area: 2 / 1 / 4 / 2;
-    border-radius: 10px;
-    color: $font-color;
-    padding: 10px;
-    overflow-y: auto;
+  background-color: $component-container;
+  grid-area: 2 / 1 / 4 / 2;
+  border-radius: 10px;
+  color: $font-color;
+  padding: 10px;
+  overflow-y: auto;
 
-    &-container {
-        position: relative;
-        height: 100%;
-    }
-} 
+  &-container {
+    position: relative;
+    height: 100%;
+  }
+}
 
 //---------------------------------------------------------------------------DROPDOWN AND TYPEAHEAD
 
@@ -41,21 +41,6 @@
     align-items: center;
     display: flex;
     cursor: pointer;
-
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar-track {
-
-      border-radius: 10px;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-    }
   }
 
   .typeahead input {
@@ -113,7 +98,7 @@
   }
 }
 
-//---------------------------------------------------------------------------IMAGE AND VALUE 
+//---------------------------------------------------------------------------IMAGE AND VALUE
 
 .sidebar-image {
   width: 100%;
@@ -128,12 +113,20 @@
 }
 
 .sidebar-value {
-  padding: 5px;
   background-color: $pokedollar-color;
   width: 20%;
-  text-align: end;
+  height: auto;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  justify-content: center;
+  padding: 10px 5px;
+  display: flex;
+}
+
+.sidebar-value img {
+  width: 14px;
+  margin-right: 5px;
+  margin-bottom: -2px;
 }
 
 //---------------------------------------------------------------------------NAME AND ID
@@ -253,12 +246,12 @@
 }
 
 .more-info-btn {
-    width: 100%;
-    border-radius: 10px;
-    background-color: $more-info-btn;
-    padding: 10px;
-    margin-top: 5px;
-    color: $base-color;
+  width: 100%;
+  border-radius: 10px;
+  background-color: $more-info-btn;
+  padding: 10px;
+  margin-top: 5px;
+  color: $base-color;
 }
 
 //---------------------------------------------------------------------------GAME INDICES
@@ -297,13 +290,10 @@
 //---------------------------------------------------------------------------BADGES
 
 .badge-containter {
-
-
-    .progress-bars {
-        background-color: #0000004b;
-        margin: 2%;
-        padding: 4% 8%;
-        border-radius: 10px;
-       }
+  .progress-bars {
+    background-color: #0000004b;
+    margin: 2%;
+    padding: 4% 8%;
+    border-radius: 10px;
+  }
 }
-
