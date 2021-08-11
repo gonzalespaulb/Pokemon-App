@@ -148,28 +148,36 @@
 }
 
 .card-btn {
-    height: 25px;
-    width: 100px;
-    background-color: yellow;
+    height: auto;
+    width: 70px;
     margin-bottom: 1px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
     transform: translateX(-100%);
+    font-weight: 700;
+    padding: 0 10px;
 }
 
 .poke-value-btn {
     animation-delay: 0s;
-    background-color: yellow;
+    background-color: $pokedollar-color;
+    display: flex;
+    align-items: center;
+}
+
+.card-btns-container img {
+    width: 12px;
+    margin-right: 5px;
 }
 
 .poke-buy-btn {
     animation-delay: 0.1s;
-    background-color: green;
+    background-color: $buy-btn;
 }
 
 .poke-sell-btn {
     animation-delay: 0.2s;
-    background-color: red;
+    background-color: $sell-btn;
 }
 
 .poke-value-btn,
@@ -178,7 +186,7 @@
     animation-name: slide-in;
     transform: translateX(-100%);
     opacity: 0;
-
+    cursor: pointer;
 }
 
 .card-btn-active {
