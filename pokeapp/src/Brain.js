@@ -18,7 +18,8 @@ export const Brain = () => {
   const [allPokemonFiltered, setAllPokemonFiltered] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState({});
   const [isMoreInfo, setIsMoreInfo] = useState(false);
-  const [isPokeList, setIsPokeList] = useState(false);
+  const [isMyPoke, setIsMyPoke] = useState(false);
+  const [isPokeDex, setIsPokeDex] = useState(true);
   const [isBadgeSideBar, setIsBadgeSideBar] = useState(false);
   const [badgeBtnActive1, setbadgeBtnActive1] = useState(false);
   const [badgeBtnActive2, setbadgeBtnActive2] = useState(false);
@@ -107,7 +108,6 @@ export const Brain = () => {
           //Will only add a weakness to the mergedweakness array if it is not already in there
           mergedWeaknesses.push(weakness);
         }
-        
       });
     });
     return mergedWeaknesses;
@@ -156,10 +156,10 @@ export const Brain = () => {
             isBadgeSideBar={isBadgeSideBar}
             Navigation={
               <Navigation
-                setIsPokeList={setIsPokeList}
-                setIsBadgeSideBar={setIsBadgeSideBar}
-                setbadgeBtnActive1={setbadgeBtnActive1}
-                setbadgeBtnActive2={setbadgeBtnActive2}
+                setIsMyPoke={setIsMyPoke}
+                setIsPokeDex={setIsPokeDex}
+                isPokeDex={isPokeDex}
+                isMyPoke={isMyPoke}
               />
             }
             FilterBar={
@@ -190,7 +190,6 @@ export const Brain = () => {
                 setbadgeBtnActive2={setbadgeBtnActive2}
                 badgeBtnActive1={badgeBtnActive1}
                 badgeBtnActive2={badgeBtnActive2}
-
               />
             }
             DigitalCardBinder={
@@ -200,7 +199,8 @@ export const Brain = () => {
                 setAllPokemonFiltered={setAllPokemonFiltered}
                 makeUpperCase={makeUpperCase}
                 setIsMoreInfo={setIsMoreInfo}
-                isPokeList={isPokeList}
+                isMyPoke={isMyPoke}
+                isPokeDex={isPokeDex}
               />
             }
           />
@@ -209,10 +209,10 @@ export const Brain = () => {
           <GamePage
             allPokemon={allPokemon}
             makeUpperCase={makeUpperCase}
-            setIsPokeList={setIsPokeList}
-            setbadgeBtnActive1={setbadgeBtnActive1}
-            setbadgeBtnActive2={setbadgeBtnActive2}
-            setIsBadgeSideBar={setIsBadgeSideBar}
+            setIsMyPoke={setIsMyPoke}
+            setIsPokeDex={setIsPokeDex}
+            isPokeDex={isPokeDex}
+            isMyPoke={isMyPoke}
           />
         </Route>
       </div>

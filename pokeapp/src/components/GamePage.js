@@ -12,7 +12,8 @@ const NUMBER_OF_REEL_FACES = 20;
 
 const GamePage = ({
   makeUpperCase,
-  setIsPokeList,
+  setIsMyPoke,
+  setIsPokeDex,
   setbadgeBtnActive1,
   setbadgeBtnActive2,
   setIsBadgeSideBar,
@@ -144,7 +145,8 @@ const GamePage = ({
   return (
     <div className="gamepage-container">
       <Navigation
-        setIsPokeList={setIsPokeList}
+        setIsMyPoke={setIsMyPoke}
+        setIsPokeDex={setIsPokeDex}
         setbadgeBtnActive1={setbadgeBtnActive1}
         setbadgeBtnActive2={setbadgeBtnActive2}
         setIsBadgeSideBar={setIsBadgeSideBar}
