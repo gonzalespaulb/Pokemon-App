@@ -43,6 +43,13 @@ export const pokemonSlice = createSlice({
       state.allPokemon[pokeIndex].quantity++;
     },
     buyPokemon: (state, action) => {
+      let type1 = action.payload.types[0].type.name; 
+      let type2 = null; 
+
+      if(action.payload.types.length > 1){
+        type2 = action.payload.types[1].type.name;
+      }
+ 
       if (state.pokeDollars - action.payload.value > 0) {
         //Finds the index of pokemon in the array that matches the id of the pokemon being updated
         const pokeIndex = state.allPokemon.findIndex(
@@ -125,7 +132,7 @@ export const pokemonSlice = createSlice({
 
         // <<----------------------------Boulder Badge Logic End------------------------------->>
         // <<----------------------------Bug Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "bug" || action.payload?.types[1].type.name === "bug") {
+        if (type1 === "bug" || type2 === "bug") {
           const bugBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "BugBadge"
           );
@@ -143,7 +150,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Bug Badge Logic End------------------------------->>
         // <<----------------------------Dark Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "dark" || action.payload?.types[1].type.name === "dark") {
+        if (type1 === "dark" || type2 === "dark") {
           const darkBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "DarkBadge"
           );
@@ -161,7 +168,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Dark Badge Logic End------------------------------->>
         // <<----------------------------Dragon Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "dragon" || action.payload?.types[1].type.name === "dragon") {
+        if (type1 === "dragon" || type2 === "dragon") {
           const dragonBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "DragonBadge"
           );
@@ -179,7 +186,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Dragon Badge Logic End------------------------------->>
         // <<----------------------------Earth Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "ground" || action.payload?.types[1].type.name === "ground") {
+        if (type1 === "ground" || type2 === "ground") {
           const earthBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "EarthBadge"
           );
@@ -197,7 +204,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Earth Badge Logic End------------------------------->>
         // <<----------------------------Fairy Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "fairy" || action.payload?.types[1].type.name === "fairy") {
+        if (type1 === "fairy" || type2 === "fairy") {
           const fairyBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "FairyBadge"
           );
@@ -215,7 +222,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Fairy Badge Logic End------------------------------->>
         // <<----------------------------Feather Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "flying" || action.payload?.types[1].type.name === "flying") {
+        if (type1 === "flying" || type2 === "flying") {
           const featherBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "FeatherBadge"
           );
@@ -233,7 +240,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Feather Badge Logic End------------------------------->>
         // <<----------------------------Fighting Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "fighting" || action.payload?.types[1].type.name === "fighting") {
+        if (type1 === "fighting" || type2 === "fighting") {
           const fightingBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "FightingBadge"
           );
@@ -251,7 +258,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Fighting Badge Logic End------------------------------->>
         // <<----------------------------Fire Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "fire" || action.payload?.types[1].type.name === "fire") {
+        if (type1 === "fire" || type2 === "fire") {
           const fireBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "FireBadge"
           );
@@ -269,7 +276,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Fire Badge Logic End------------------------------->>
         // <<----------------------------Freeze Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "ice" || action.payload?.types[1].type.name === "ice") {
+        if (type1 === "ice" || type2 === "ice") {
           const freezeBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "FreezeBadge"
           );
@@ -329,7 +336,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Glacier Badge Logic End------------------------------->>
         // <<----------------------------Grass Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "grass" || action.payload?.types[1].type.name === "grass") {
+        if (type1 === "grass" || type2 === "grass") {
           const grassBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "GrassBadge"
           );
@@ -347,7 +354,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Grass Badge Logic End------------------------------->>
         // <<----------------------------Mineral Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "steel" || action.payload?.types[1].type.name === "steel") {
+        if (type1 === "steel" || type2 === "steel") {
           const mineralBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "MineralBadge"
           );
@@ -365,7 +372,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Mineral Badge Logic End------------------------------->>
         // <<----------------------------Plain Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "normal" || action.payload?.types[1].type.name === "normal") {
+        if (type1 === "normal" || type2 === "normal") {
           const plainBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "PlainBadge"
           );
@@ -383,7 +390,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Plain Badge Logic End------------------------------->>
         // <<----------------------------Psychic Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "psychic" || action.payload?.types[1].type.name === "psychic") {
+        if (type1 === "psychic" || type2 === "psychic") {
           const psychicBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "PsychicBadge"
           );
@@ -490,7 +497,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Rainbow Badge Logic End------------------------------->>
         // <<----------------------------Rock Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "rock" || action.payload?.types[1].type.name === "rock") {
+        if (type1 === "rock" || type2 === "rock") {
           const rockBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "RockBadge"
           );
@@ -508,7 +515,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Rock Badge Logic End------------------------------->>
         // <<----------------------------Soul Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "ghost" || action.payload?.types[1].type.name === "ghost") {
+        if (type1 === "ghost" || type2 === "ghost") {
           const soulBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "SoulBadge"
           );
@@ -526,7 +533,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Soul Badge Logic End------------------------------->>
         // <<----------------------------Toxic Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "poison" || action.payload?.types[1].type.name === "poison") {
+        if (type1 === "poison" || type2 === "poison") {
           const toxicBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "ToxicBadge"
           );
@@ -544,7 +551,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Toxic Badge Logic End------------------------------->>
         // <<----------------------------Voltage Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "electric" || action.payload?.types[1].type.name === "electric") {
+        if (type1 === "electric" || type2 === "electric") {
           const voltageBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "VoltageBadge"
           );
@@ -562,7 +569,7 @@ export const pokemonSlice = createSlice({
         }
         // <<----------------------------Voltage Badge Logic End------------------------------->>
         // <<----------------------------Water Badge Logic Start------------------------------->>
-        if (action.payload.types[0].type.name === "water" || action.payload?.types[1].type.name === "water") {
+        if (type1 === "water" || type2 === "water") {
           const waterBadgeIndex = state.allBadges.findIndex(
             (badge) => badge.name === "WaterBadge"
           );
