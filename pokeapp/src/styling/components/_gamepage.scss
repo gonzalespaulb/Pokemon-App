@@ -20,6 +20,7 @@
     background-color: $secondary-color;
     position: relative;
 
+
     &-rollers {
         height: 100%;
         width: 100%;
@@ -38,7 +39,54 @@
         justify-content: flex-start;
         align-items: center;
     }
+
+    &-left, 
+    &-top,
+    &-bottom {
+        position: absolute;
+        background-color: red;
+        // opacity: 0.6;
+        z-index: 5;
+    }
+
+    &-left {
+        left: 0;
+        height: 300px;
+        width: 100px;
+        transform: translateX(-100%);
+    }
+
+    &-top {
+        top: 0;
+        width: 800px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        transform: translateY(-100%);
+
+        img {
+            margin-left: -75px;
+            height: 110%;
+            transform: translateX(40%) translateY(10%);
+        }
+
+        .translate-down {
+            transform: translateX(40%) translateY(23%);
+        }
+    }
+
+    &-bottom {
+        bottom: 0;
+        width: 800px;
+        height: 100px;
+        transform: translateY(100%);
+    }
 }
+
+// ------------------------------------------------------------------------------------------------SURROUNDING POKEMON
+
+
+
 
 // ------------------------------------------------------------------------------------------------REEL STYLING
 
@@ -47,6 +95,7 @@
     height: 90%;
     background-color: #333333;
     overflow: hidden;
+    z-index: 10; //
 }
 
 .roller-img {

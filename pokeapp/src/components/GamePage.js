@@ -144,7 +144,57 @@ const GamePage = ({makeUpperCase, setIsPokeList}) => {
         <div className="gamepage-container">
             <Navigation setIsPokeList={setIsPokeList} />
             <div className="game">
-              <div className="slot-machine">
+              <div className="slot-machine"> 
+
+                <div className="slot-machine-left"></div>
+                <div className="slot-machine-top">
+                    <img src={slotMachinePokemon(`aerodactyl`)} alt="pokemon-image" />
+                    <img src={slotMachinePokemon(`articuno`)} alt="pokemon-image" />
+                    <img className="translate-down" src={slotMachinePokemon(`bellsprout`)} alt="pokemon-image" />
+                    <img src={slotMachinePokemon(`bidoof`)} alt="pokemon-image" />
+                    <img className="translate-down" src={slotMachinePokemon(`bulbasaur`)} alt="pokemon-image" />
+                    <img src={slotMachinePokemon(`charizard`)} alt="pokemon-image" />
+                    <img className="translate-down" src={slotMachinePokemon(`charmander`)} alt="pokemon-image" />
+                    <img src={slotMachinePokemon(`claydol`)} alt="pokemon-image" />
+                    <img className="translate-down" src={slotMachinePokemon(`diglett`)} alt="pokemon-image" />
+                    <img className="translate-down" src={slotMachinePokemon(`ditto`)} alt="pokemon-image" />
+                    <img src={slotMachinePokemon(`dragonite`)} alt="pokemon-image" />
+                    <img className="translate-down" src={slotMachinePokemon(`dratini`)} alt="pokemon-image" />
+                    <img className="translate-down" src={slotMachinePokemon(`eevee`)} alt="pokemon-image" />
+                    <img className="translate-down" src={slotMachinePokemon(`ekans`)} alt="pokemon-image" />
+                    <img className="translate-down" src={slotMachinePokemon(`flareon`)} alt="pokemon-image" />
+                    <img src={slotMachinePokemon(`girafarig`)} alt="pokemon-image" />
+                    <img className="translate-down" src={slotMachinePokemon(`hoothoot`)} alt="pokemon-image" />
+                    <img className="translate-down" src={slotMachinePokemon(`jolteon`)} alt="pokemon-image" />
+                    <img className="translate-down" src={slotMachinePokemon(`kabuto`)} alt="pokemon-image" />
+                    <img src={slotMachinePokemon(`kabutops`)} alt="pokemon-image" />
+                    <img src={slotMachinePokemon(`lapras`)} alt="pokemon-image" />
+                </div>
+
+                <div className="slot-machine-bottom">
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                </div>
 
                 <div className="slot-machine-rollers">
                   <div className="roller">
