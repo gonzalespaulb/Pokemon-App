@@ -27,7 +27,18 @@ const Navigation = ({ setIsPokeList, setIsBadgeSideBar, setbadgeBtnActive1, setb
               setIsBadgeSideBar(true);
             }}
           >
-            Badge Sidebar
+            Badges 
+          </h4>
+          </Link>
+          <Link to="/" style={{ textDecoration: "none" }}>
+          <h4
+            onClick={() => {
+              setbadgeBtnActive1(false);
+              setbadgeBtnActive2(true);
+              setIsBadgeSideBar(false);
+            }}
+          >
+            PokeInfo 
           </h4>
           </Link>
         </div>
