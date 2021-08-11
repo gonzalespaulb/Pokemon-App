@@ -97,7 +97,7 @@ export const Brain = () => {
     //Combine all weaknesses into one array and remove duplicates
     foundWeaknesses.map((weaknessArray) => {
       //Maps over each weakness class
-      weaknessArray.map((weakness) => {
+      return weaknessArray.map((weakness) => {
         //Checking to see if the current weakness is already in the mergedweakness array
         if (
           !mergedWeaknesses.find(
@@ -107,6 +107,7 @@ export const Brain = () => {
           //Will only add a weakness to the mergedweakness array if it is not already in there
           mergedWeaknesses.push(weakness);
         }
+        
       });
     });
     return mergedWeaknesses;

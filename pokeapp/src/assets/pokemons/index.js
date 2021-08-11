@@ -78,8 +78,6 @@ export const slotMachinePokemon = (pokemon) => {
             return bellsprout;
         case `bidoof`:
             return bidoof;
-        case `aerodactyl`:
-            return aerodactyl;
         case `bulbasaur`:
             return bulbasaur;
         case `charizard`:
@@ -170,6 +168,7 @@ export const slotMachinePokemon = (pokemon) => {
             return zangoose;
         case `zapdos`:
             return zapdos;
+        default: break;
     }
 }
 

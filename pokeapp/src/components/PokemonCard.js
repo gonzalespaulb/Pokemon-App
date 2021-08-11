@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
-import { gameMapper, typeIconMapper } from "../utilities/mappers";
+import { typeIconMapper } from "../utilities/mappers";
 import { useState } from "react";
 
 const PokemonCard = ({
@@ -63,6 +63,7 @@ const PokemonCard = ({
       className={!isSelected ? "card" : applyTypeColor(pokemon.types[0].type.name)}
       onClick={() => {
         pokemonPicker(pokemon);
+        setIsMoreInfo(false);
       }}
       onMouseEnter={() => {
         setIsSelected(true);
