@@ -17,6 +17,8 @@ const GamePage = ({
   setbadgeBtnActive1,
   setbadgeBtnActive2,
   setIsBadgeSideBar,
+  setSelectedPokemon,
+  setIsMoreInfo,
 }) => {
   // ------------------------------------------------------------------------------------------------RANDOMIZER LOGIC START
 
@@ -37,6 +39,19 @@ const GamePage = ({
           picture={pokemon.picture}
           makeUpperCase={makeUpperCase}
           types={pokemon.types}
+          setSelectedPokemon={setSelectedPokemon}
+          setIsMoreInfo={setIsMoreInfo}
+          setIsBadgeSideBar={setIsBadgeSideBar}
+          setbadgeBtnActive1={setbadgeBtnActive1}
+          setbadgeBtnActive2={setbadgeBtnActive2}
+          onClick={() => {
+            setbadgeBtnActive1(false);
+            setbadgeBtnActive2(true);
+            setSelectedPokemon(pokemon);
+            setIsBadgeSideBar(false);
+            setIsPokeDex(false);
+            setIsMyPoke(true);
+          }}
         />
       );
     });
