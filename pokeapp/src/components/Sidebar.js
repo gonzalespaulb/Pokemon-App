@@ -12,6 +12,7 @@ import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import arrowIcon from "../assets/uiIcons/down-arrow.svg";
+import { SidebarNav } from "./SidebarNav";
 
 const sortAtoZ = (list) => {
   const sortedAtoZ = list.sort((name1, name2) => {
@@ -80,27 +81,15 @@ const SideBar = ({
     return (
       <>
         <div className="sidebar-container">
-          <div
-            className={badgeBtnActive1 ? "btn active" : "btn"}
-            onClick={() => {
-              setbadgeBtnActive1(true);
-              setbadgeBtnActive2(false);
-              setIsBadgeSideBar(true);
-            }}
-          >
-            Badges
-          </div>
-          <div
-            className={badgeBtnActive2 ? "btn active" : "btn"}
-            onClick={() => {
-              setbadgeBtnActive1(false);
-              setbadgeBtnActive2(true);
-              setIsBadgeSideBar(false);
-            }}
-          >
-            Poke Info
-          </div>
-
+          <div className="button-container">
+          <SidebarNav
+            setIsBadgeSideBar={setIsBadgeSideBar}
+            setbadgeBtnActive1={setbadgeBtnActive1}
+            setbadgeBtnActive2={setbadgeBtnActive2}
+            badgeBtnActive1={badgeBtnActive1}
+            badgeBtnActive2={badgeBtnActive2}
+          />
+        </div>
           {/* ---------------------------------------------------------------------------------------------DROPDOWN */}
 
           <div className="sidebar-dropdown">
@@ -145,7 +134,10 @@ const SideBar = ({
 
           <div className="sidebar-image" style={sideBarImageURL}>
             <div className="sidebar-value">
-              <h3><img src={PokeDollarIcon} alt="poke dollar image" />{selectedPokemon.value}</h3>
+              <h3>
+                <img src={PokeDollarIcon} alt="poke dollar image" />
+                {selectedPokemon.value}
+              </h3>
             </div>
           </div>
 
