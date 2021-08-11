@@ -145,7 +145,7 @@ const SideBar = ({
 
           <div className="sidebar-image" style={sideBarImageURL}>
             <div className="sidebar-value">
-              <h3>${selectedPokemon.value}</h3>
+              <h3><img src={PokeDollarIcon} alt="poke dollar image" />{selectedPokemon.value}</h3>
             </div>
           </div>
 
