@@ -9,6 +9,9 @@ const PokemonCard = ({
   setSelectedPokemon,
   makeUpperCase,
   setIsMoreInfo,
+  setIsBadgeSideBar,
+  setbadgeBtnActive1,
+  setbadgeBtnActive2,
 }) => {
   const pokemon = useSelector((state) =>
     state.pokemon.allPokemon.find((pokemon) => pokemon.id === id)
@@ -65,6 +68,9 @@ const PokemonCard = ({
       onClick={() => {
         pokemonPicker(pokemon);
         setIsMoreInfo(false);
+        setIsBadgeSideBar(false);
+        setbadgeBtnActive1(false);
+        setbadgeBtnActive2(true);
       }}
       onMouseEnter={() => {
         setIsSelected(true);

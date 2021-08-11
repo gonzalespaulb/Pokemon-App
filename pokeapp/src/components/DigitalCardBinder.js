@@ -9,6 +9,9 @@ const DigitalCardBinder = ({
   setAllPokemonFiltered,
   makeUpperCase,
   setIsMoreInfo,
+  setIsBadgeSideBar,
+  setbadgeBtnActive1,
+  setbadgeBtnActive2,
 }) => {
   const myPokeList = useSelector((state) =>
     state.pokemon.allPokemon.filter((pokemon) => pokemon.quantity > 0)
@@ -24,6 +27,9 @@ const DigitalCardBinder = ({
           setAllPokemonFiltered={setAllPokemonFiltered}
           makeUpperCase={makeUpperCase}
           setIsMoreInfo={setIsMoreInfo}
+          setIsBadgeSideBar={setIsBadgeSideBar}
+          setbadgeBtnActive1={setbadgeBtnActive1}
+          setbadgeBtnActive2={setbadgeBtnActive2}
         />
       );
     });
@@ -42,6 +48,9 @@ const DigitalCardBinder = ({
           setSelectedPokemon={setSelectedPokemon}
           makeUpperCase={makeUpperCase}
           setIsMoreInfo={setIsMoreInfo}
+          setIsBadgeSideBar={setIsBadgeSideBar}
+          setbadgeBtnActive1={setbadgeBtnActive1}
+          setbadgeBtnActive2={setbadgeBtnActive2}
         />
       );
     });
