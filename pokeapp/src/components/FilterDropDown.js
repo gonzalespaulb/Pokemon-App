@@ -9,7 +9,6 @@ const FilterDropDown = ({
 }) => {
   const [sortType, setSortType] = useState(SortTypes.ID_LOW_TO_HIGH);
   const [selectedTypes, setSelectedTypes] = useState([]);
-  const [type, setType] = useState(false);
   
   const [aToZ, setAToZ] = useState(false);
   const [pokeDollarValue, setPokeDollarValue] = useState(false);
@@ -132,7 +131,7 @@ const FilterDropDown = ({
 
   useEffect(() => {
     filterPokemon();
-  }, [sortType, type, selectedTypes]);
+  }, [sortType, selectedTypes]);
 
   // apply color to selected checkbox types
   const applyTypeColor = (type) => {
