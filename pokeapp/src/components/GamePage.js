@@ -146,54 +146,68 @@ const GamePage = ({makeUpperCase, setIsPokeList}) => {
             <div className="game">
               <div className="slot-machine"> 
 
-                <div className="slot-machine-left"></div>
+                <div className="blinker">
+                  <div className="blinker-1 blinker-ani"></div>
+                  <div className="blinker-2 blinker-ani"></div>
+                  <div className="blinker-3 blinker-ani"></div>
+                </div>
+
+                <div className="slot-machine-left">
+                  <img className="translate-weezing left-1" src={slotMachinePokemon(`weezinggmax`)} alt="pokemon" />
+                  <img className="left-1" src={slotMachinePokemon(`vaporeon`)} alt="pokemon" />
+                  <img className="left-2"  src={slotMachinePokemon(`voltorb`)} alt="pokemon" />
+                  <img className="left-2"  src={slotMachinePokemon(`weezing`)} alt="pokemon" />
+                  <img className="left-1"  src={slotMachinePokemon(`wobbuffet`)} alt="pokemon" />
+                  <img className="left-1"  src={slotMachinePokemon(`zangoose`)} alt="pokemon" />
+                  <img className="translate-up left-2" src={slotMachinePokemon(`zapdos`)} alt="pokemon" />
+                </div>
+
                 <div className="slot-machine-top">
-                    <img src={slotMachinePokemon(`aerodactyl`)} alt="pokemon-image" />
-                    <img src={slotMachinePokemon(`articuno`)} alt="pokemon-image" />
-                    <img className="translate-down" src={slotMachinePokemon(`bellsprout`)} alt="pokemon-image" />
-                    <img src={slotMachinePokemon(`bidoof`)} alt="pokemon-image" />
-                    <img className="translate-down" src={slotMachinePokemon(`bulbasaur`)} alt="pokemon-image" />
-                    <img src={slotMachinePokemon(`charizard`)} alt="pokemon-image" />
-                    <img className="translate-down" src={slotMachinePokemon(`charmander`)} alt="pokemon-image" />
-                    <img src={slotMachinePokemon(`claydol`)} alt="pokemon-image" />
-                    <img className="translate-down" src={slotMachinePokemon(`diglett`)} alt="pokemon-image" />
-                    <img className="translate-down" src={slotMachinePokemon(`ditto`)} alt="pokemon-image" />
-                    <img src={slotMachinePokemon(`dragonite`)} alt="pokemon-image" />
-                    <img className="translate-down" src={slotMachinePokemon(`dratini`)} alt="pokemon-image" />
-                    <img className="translate-down" src={slotMachinePokemon(`eevee`)} alt="pokemon-image" />
-                    <img className="translate-down" src={slotMachinePokemon(`ekans`)} alt="pokemon-image" />
-                    <img className="translate-down" src={slotMachinePokemon(`flareon`)} alt="pokemon-image" />
-                    <img src={slotMachinePokemon(`girafarig`)} alt="pokemon-image" />
-                    <img className="translate-down" src={slotMachinePokemon(`hoothoot`)} alt="pokemon-image" />
-                    <img className="translate-down" src={slotMachinePokemon(`jolteon`)} alt="pokemon-image" />
-                    <img className="translate-down" src={slotMachinePokemon(`kabuto`)} alt="pokemon-image" />
-                    <img src={slotMachinePokemon(`kabutops`)} alt="pokemon-image" />
-                    <img src={slotMachinePokemon(`lapras`)} alt="pokemon-image" />
+                    <img className="top-1" src={slotMachinePokemon(`aerodactyl`)} alt="pokemon" />
+                    <img className="top-1" src={slotMachinePokemon(`articuno`)} alt="pokemon" />
+                    <img className="translate-down top-2" src={slotMachinePokemon(`bellsprout`)} alt="pokemon" />
+                    <img className="top-2" src={slotMachinePokemon(`bidoof`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`bulbasaur`)} alt="pokemon" />
+                    <img className="top-1" src={slotMachinePokemon(`charizard`)} alt="pokemon" />
+                    <img className="translate-down top-2" src={slotMachinePokemon(`charmander`)} alt="pokemon" />
+                    <img className="top-2" src={slotMachinePokemon(`claydol`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`diglett`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`ditto`)} alt="pokemon" />
+                    <img className="top-2" src={slotMachinePokemon(`dragonite`)} alt="pokemon" />
+                    <img className="translate-down top-2" src={slotMachinePokemon(`dratini`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`eevee`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`ekans`)} alt="pokemon" />
+                    <img className="translate-down top-2" src={slotMachinePokemon(`flareon`)} alt="pokemon" />
+                    <img className="top-2" src={slotMachinePokemon(`girafarig`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`hoothoot`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`jolteon`)} alt="pokemon" />
+                    <img className="translate-down top-2" src={slotMachinePokemon(`kabuto`)} alt="pokemon" />
+                    <img className="translate-down top-2" src={slotMachinePokemon(`kabutops`)} alt="pokemon" />
+                    <img  className="translate-down top-1"src={slotMachinePokemon(`lapras`)} alt="pokemon" />
                 </div>
 
                 <div className="slot-machine-bottom">
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
-                    <img src={slotMachinePokemon(`ledyba`)} alt="pokemon-image"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`ledyba`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`lickitung`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`meowth`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`mew`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`mewtwo`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`misdreavus`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`moltres`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`mrmime`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`omanyte`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`onix`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`pancham`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`pikachu`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`piplup`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`porygon`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`psyduck`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`sentret`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`skitty`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`slowpoke`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`snorlax`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`squirtle`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`tangela`)} alt="pokemon"/>
                 </div>
 
                 <div className="slot-machine-rollers">

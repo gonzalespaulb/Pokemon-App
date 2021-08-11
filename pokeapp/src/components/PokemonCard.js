@@ -16,6 +16,28 @@ const PokemonCard = ({
 
   const [isSelected, setIsSelected] = useState(false);
 
+
+  // ------------------------------------------------------------Pop in animation logic 
+  const [active, setActive] = useState(false);
+  const [firstHover, setFirstHover] = useState(false);
+
+  const applyStyles = (type) => {
+    let currStyle = `card-btn`;
+
+    if(firstHover) {
+        active ? currStyle = currStyle + ` card-btn-active ${type}-btn` : currStyle = currStyle + ` card-btn-inactive ${type}-btn`;
+    }
+    return currStyle;
+  }
+
+  const hoverMe = () => {
+    setActive(!active);
+    setFirstHover(true);
+  }
+
+  // ------------------------------------------------------------Pop in animation logic 
+
+
   const applyTypeColor = (type) => {
     return `card-${type}`;
   }
@@ -36,47 +58,62 @@ const PokemonCard = ({
   };
 
   return (
+    // Card container starts here
     <div
       className={!isSelected ? "card" : applyTypeColor(pokemon.types[0].type.name)}
       onClick={() => {
         pokemonPicker(pokemon);
-        setIsMoreInfo(false);
       }}
-      onMouseEnter={() => setIsSelected(true)}
-      onMouseLeave={() => setIsSelected(false)}
+      onMouseEnter={() => {
+        setIsSelected(true);
+        hoverMe();
+      }}
+      onMouseLeave={() => {
+        setIsSelected(false);
+        hoverMe();
+      }}
     >
+
       <div className="card-header">
         <div className="name">
           <h3>{makeUpperCase(pokemon.name)}</h3>
         </div>
       </div>
-      <div style={cardImage}></div>
 
+      {/* Card image starts */}
+      <div style={cardImage}>
+      {/* put buttons in here */}
+        <div className="card-btns-container">
+          <div className={applyStyles(`poke-value`)}>${pokemon.value}</div>
+          <div className={applyStyles(`poke-buy`)}
+              onClick={(e) => {
+                e.stopPropagation();
+                dispatch(buyPokemon(pokemon));
+              }}
+          >Buy</div>
+           {pokemon.quantity > 0 ? (
+            <div className={applyStyles(`poke-sell`)}
+              onClick={(e) => {
+                e.stopPropagation();
+                dispatch(sellPokemon(pokemon));
+              }}
+          >Sell</div>) : null}
+        </div>
+
+      </div>
+
+      <div className="type-id-container">
+        <div className="pokemon-quantity">
+          {pokemon.quantity > 0 ? <p>x{pokemon.quantity}</p> : ""}
+        </div>
       <div className="type-id">
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            dispatch(buyPokemon(pokemon));
-          }}
-        >
-          Buy
-        </button>
-
-        {pokemon.quantity > 0 ? (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              dispatch(sellPokemon(pokemon));
-            }}
-          >
-            Sell
-          </button>
-        ) : null}
         <div>{typeIconMapper(pokemon.types)}</div>
         <h3>#{id}</h3>
-        {pokemon.quantity > 0 ? <p>{pokemon.quantity}</p> : ""}
       </div>
+      </div>
+
     </div>
+    // Card container end
   );
 };
 
