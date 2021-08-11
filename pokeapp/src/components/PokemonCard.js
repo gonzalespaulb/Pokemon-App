@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
 import { gameMapper, typeIconMapper } from "../utilities/mappers";
 import { useState } from "react";
+import PokeDollarIcon from "../assets/uiIcons/pokeDollar.svg";
 
 const PokemonCard = ({
   id,
@@ -84,7 +85,7 @@ const PokemonCard = ({
       <div style={cardImage}>
       {/* put buttons in here */}
         <div className="card-btns-container">
-          <div className={applyStyles(`poke-value`)}>${pokemon.value}</div>
+          <div className={applyStyles(`poke-value`)}><img src={PokeDollarIcon} alt="poke dollar image" />{pokemon.value}</div>
           <div className={applyStyles(`poke-buy`)}
               onClick={(e) => {
                 e.stopPropagation();
