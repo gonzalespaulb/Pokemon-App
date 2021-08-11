@@ -201,6 +201,9 @@ export const Brain = () => {
                 setIsMoreInfo={setIsMoreInfo}
                 isMyPoke={isMyPoke}
                 isPokeDex={isPokeDex}
+                setIsBadgeSideBar={setIsBadgeSideBar}
+                setbadgeBtnActive1={setbadgeBtnActive1}
+                setbadgeBtnActive2={setbadgeBtnActive2}
               />
             }
           />
