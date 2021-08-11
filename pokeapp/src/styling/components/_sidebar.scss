@@ -13,6 +13,27 @@
         position: relative;
         height: 100%;
     }
+
+    .btn {
+      padding: .2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 25%;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: $card-background;
+      border: 1px solid $secondary-color;
+      margin-right: .4em;
+      color: $secondary-color;
+    }
+
+    .active{
+      background-color: $secondary-color !important;
+      color: black;
+      border: 1px solid black;
+  }
 } 
 
 //---------------------------------------------------------------------------DROPDOWN AND TYPEAHEAD
@@ -296,14 +317,4 @@
 
 //---------------------------------------------------------------------------BADGES
 
-.badge-containter {
-
-
-    .progress-bars {
-        background-color: #0000004b;
-        margin: 2%;
-        padding: 4% 8%;
-        border-radius: 10px;
-       }
-}
 

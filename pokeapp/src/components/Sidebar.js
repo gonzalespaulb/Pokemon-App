@@ -29,12 +29,15 @@ const SideBar = ({
   setIsMoreInfo,
   setSelectedPokemon,
   setIsBadgeSideBar,
+  setbadgeBtnActive1,
+  setbadgeBtnActive2,
+  badgeBtnActive1, 
+  badgeBtnActive2,
 }) => {
   const [showPokemon, setShowPokemon] = useState(false);
   const [pokeNameList, setPokeNameList] = useState([]);
 
   const [videoGame, setVideoGame] = useState(`No Game Selected`);
-
 
   // Endpoint. This is the string that will be used by the type ahead
   const [pokeSearch, setPokeSearch] = useState([]);
@@ -77,9 +80,28 @@ const SideBar = ({
     return (
       <>
         <div className="sidebar-container">
-          <button onClick={() => setIsBadgeSideBar(true)}>Badges</button>
+          <div
+            className={badgeBtnActive1 ? "btn active" : "btn"}
+            onClick={() => {
+              setbadgeBtnActive1(true);
+              setbadgeBtnActive2(false);
+              setIsBadgeSideBar(true);
+            }}
+          >
+            Badges
+          </div>
+          <div
+            className={badgeBtnActive2 ? "btn active" : "btn"}
+            onClick={() => {
+              setbadgeBtnActive1(false);
+              setbadgeBtnActive2(true);
+              setIsBadgeSideBar(false);
+            }}
+          >
+            Poke Info
+          </div>
 
-{/* ---------------------------------------------------------------------------------------------DROPDOWN */}
+          {/* ---------------------------------------------------------------------------------------------DROPDOWN */}
 
           <div className="sidebar-dropdown">
             <div
@@ -94,7 +116,8 @@ const SideBar = ({
                   enterSubmit(e);
                 }}
               >
-                <Typeahead className="typeahead rbt-item"
+                <Typeahead
+                  className="typeahead rbt-item"
                   id="basic-typeahead-single"
                   labelKey="name"
                   options={pokeNameList}
@@ -106,19 +129,19 @@ const SideBar = ({
                 />
 
                 <button
-                className="dropdown-arrow"
+                  className="dropdown-arrow"
                   onClick={() => {
                     updateSidebarPokemon(allPokemon, pokeSearch);
                   }}
                 >
-                   <img src={arrowIcon} alt="dropdown arrow" />
+                  <img src={arrowIcon} alt="dropdown arrow" />
                 </button>
               </div>
             </div>
             <div className="close-btn">x</div>
           </div>
 
-{/* ---------------------------------------------------------------------------------------------IMAGE */}
+          {/* ---------------------------------------------------------------------------------------------IMAGE */}
 
           <div className="sidebar-image" style={sideBarImageURL}>
             <div className="sidebar-value">
@@ -126,14 +149,14 @@ const SideBar = ({
             </div>
           </div>
 
-{/* ---------------------------------------------------------------------------------------------NAME AND ID */}
+          {/* ---------------------------------------------------------------------------------------------NAME AND ID */}
 
           <div className="sidebar-name-id">
             <h3>{makeUpperCase(selectedPokemon.name)}</h3>
             <h4>#{selectedPokemon.id}</h4>
           </div>
 
-{/* ---------------------------------------------------------------------------------------------TYPE AND WEAKNESS */}
+          {/* ---------------------------------------------------------------------------------------------TYPE AND WEAKNESS */}
 
           <div className="type-weakness">
             <div className="sidebar-type">
@@ -147,28 +170,27 @@ const SideBar = ({
             </div>
           </div>
 
-{/* ---------------------------------------------------------------------------------------------HEIGHT AND WEIGHT */}
+          {/* ---------------------------------------------------------------------------------------------HEIGHT AND WEIGHT */}
 
           <div className="height-weight">
-                <div className="height">
-                  <h4>Height:</h4>
-                  <h5>{selectedPokemon.height}</h5>
-                </div>
-                <div className="weight">
-                  <h4>Weight:</h4>
-                  <h5>{selectedPokemon.weight}</h5>
-                </div>
+            <div className="height">
+              <h4>Height:</h4>
+              <h5>{selectedPokemon.height}</h5>
+            </div>
+            <div className="weight">
+              <h4>Weight:</h4>
+              <h5>{selectedPokemon.weight}</h5>
+            </div>
           </div>
 
-{/* ---------------------------------------------------------------------------------------------ABILITIES */}
+          {/* ---------------------------------------------------------------------------------------------ABILITIES */}
 
           <div className="abilities">
-              <h4>Abilities:</h4>
-              {abilityMapper(selectedPokemon.abilities)}
+            <h4>Abilities:</h4>
+            {abilityMapper(selectedPokemon.abilities)}
           </div>
 
-
-{/* ---------------------------------------------------------------------------- MORE INFO START */}
+          {/* ---------------------------------------------------------------------------- MORE INFO START */}
 
           <div className="indices-container">
             <div>
@@ -176,16 +198,22 @@ const SideBar = ({
               <h5>{videoGame}</h5>
             </div>
             <div className="indices-grid">
-                {isMoreInfo ? gameMapper(selectedPokemon.games, setVideoGame) : null}
-                {!selectedPokemon.games.length && isMoreInfo ? (
-                  <p>This Pokemon has not been in any games</p>
-                ) : null}
+              {isMoreInfo
+                ? gameMapper(selectedPokemon.games, setVideoGame)
+                : null}
+              {!selectedPokemon.games.length && isMoreInfo ? (
+                <p>This Pokemon has not been in any games</p>
+              ) : null}
             </div>
           </div>
 
-{/* ---------------------------------------------------------------------------- BUY, SELL, AND MORE INFO BUTTON */}
+          {/* ---------------------------------------------------------------------------- BUY, SELL, AND MORE INFO BUTTON */}
 
-          <div className={!isMoreInfo ? "btn-container" : "btn-container-more-info"}>
+          <div
+            className={
+              !isMoreInfo ? "btn-container" : "btn-container-more-info"
+            }
+          >
             <div className="buy-sell-container">
               <button
                 className="buy-btn"
@@ -224,7 +252,6 @@ const SideBar = ({
                 </h4>
               )}
             </div>
-
           </div>
         </div>
       </>

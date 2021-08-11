@@ -20,6 +20,8 @@ export const Brain = () => {
   const [isMoreInfo, setIsMoreInfo] = useState(false);
   const [isPokeList, setIsPokeList] = useState(false);
   const [isBadgeSideBar, setIsBadgeSideBar] = useState(false);
+  const [badgeBtnActive1, setbadgeBtnActive1] = useState(false);
+  const [badgeBtnActive2, setbadgeBtnActive2] = useState(false);
 
   const resolvePokeList = async (pokeList) => {
     return Promise.all(pokeList);
@@ -155,6 +157,8 @@ export const Brain = () => {
               <Navigation
                 setIsPokeList={setIsPokeList}
                 setIsBadgeSideBar={setIsBadgeSideBar}
+                setbadgeBtnActive1={setbadgeBtnActive1}
+                setbadgeBtnActive2={setbadgeBtnActive2}
               />
             }
             FilterBar={
@@ -167,6 +171,10 @@ export const Brain = () => {
               <BadgeSideBar
                 setIsBadgeSideBar={setIsBadgeSideBar}
                 isBadgeSideBar={isBadgeSideBar}
+                badgeBtnActive1={badgeBtnActive1}
+                badgeBtnActive2={badgeBtnActive2}
+                setbadgeBtnActive1={setbadgeBtnActive1}
+                setbadgeBtnActive2={setbadgeBtnActive2}
               />
             }
             SideBar={
@@ -177,6 +185,11 @@ export const Brain = () => {
                 setIsMoreInfo={setIsMoreInfo}
                 setSelectedPokemon={setSelectedPokemon}
                 setIsBadgeSideBar={setIsBadgeSideBar}
+                setbadgeBtnActive1={setbadgeBtnActive1}
+                setbadgeBtnActive2={setbadgeBtnActive2}
+                badgeBtnActive1={badgeBtnActive1}
+                badgeBtnActive2={badgeBtnActive2}
+
               />
             }
             DigitalCardBinder={
@@ -196,6 +209,9 @@ export const Brain = () => {
             allPokemon={allPokemon}
             makeUpperCase={makeUpperCase}
             setIsPokeList={setIsPokeList}
+            setbadgeBtnActive1={setbadgeBtnActive1}
+            setbadgeBtnActive2={setbadgeBtnActive2}
+            setIsBadgeSideBar={setIsBadgeSideBar}
           />
         </Route>
       </div>
