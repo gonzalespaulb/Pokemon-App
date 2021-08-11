@@ -31,7 +31,7 @@ const SideBar = ({
   setIsBadgeSideBar,
   setbadgeBtnActive1,
   setbadgeBtnActive2,
-  badgeBtnActive1, 
+  badgeBtnActive1,
   badgeBtnActive2,
 }) => {
   const [showPokemon, setShowPokemon] = useState(false);
@@ -184,28 +184,30 @@ const SideBar = ({
           </div>
 
           {/* ---------------------------------------------------------------------------------------------ABILITIES */}
-
-          <div className="abilities">
-            <h4>Abilities:</h4>
-            {abilityMapper(selectedPokemon.abilities)}
-          </div>
+          {isMoreInfo ? (
+            <div className="abilities">
+              <h4>Abilities:</h4>
+              {abilityMapper(selectedPokemon.abilities)}
+            </div>
+          ) : null}
 
           {/* ---------------------------------------------------------------------------- MORE INFO START */}
-
-          <div className="indices-container">
-            <div>
-              <h4>Game Indices:</h4>
-              <h5>{videoGame}</h5>
+          {isMoreInfo ? (
+            <div className="indices-container">
+              <div>
+                <h4>Game Indices:</h4>
+                <h5>{videoGame}</h5>
+              </div>
+              <div className="indices-grid">
+                {isMoreInfo
+                  ? gameMapper(selectedPokemon.games, setVideoGame)
+                  : null}
+                {!selectedPokemon.games.length && isMoreInfo ? (
+                  <p>This Pokemon has not been in any games</p>
+                ) : null}
+              </div>
             </div>
-            <div className="indices-grid">
-              {isMoreInfo
-                ? gameMapper(selectedPokemon.games, setVideoGame)
-                : null}
-              {!selectedPokemon.games.length && isMoreInfo ? (
-                <p>This Pokemon has not been in any games</p>
-              ) : null}
-            </div>
-          </div>
+          ) : null}
 
           {/* ---------------------------------------------------------------------------- BUY, SELL, AND MORE INFO BUTTON */}
 
