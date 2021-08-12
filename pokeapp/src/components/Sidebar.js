@@ -30,8 +30,8 @@ const SideBar = ({
   setIsMoreInfo,
   setSelectedPokemon,
   setIsBadgeSideBar,
-  setbadgeBtnActive1,
-  setbadgeBtnActive2,
+  setBadgeBtnActive1,
+  setBadgeBtnActive2,
   badgeBtnActive1,
   badgeBtnActive2,
 }) => {
@@ -82,14 +82,14 @@ const SideBar = ({
       <>
         <div className="sidebar-container">
           <div className="button-container">
-          <SidebarNav
-            setIsBadgeSideBar={setIsBadgeSideBar}
-            setbadgeBtnActive1={setbadgeBtnActive1}
-            setbadgeBtnActive2={setbadgeBtnActive2}
-            badgeBtnActive1={badgeBtnActive1}
-            badgeBtnActive2={badgeBtnActive2}
-          />
-        </div>
+            <SidebarNav
+              setIsBadgeSideBar={setIsBadgeSideBar}
+              setBadgeBtnActive1={setBadgeBtnActive1}
+              setBadgeBtnActive2={setBadgeBtnActive2}
+              badgeBtnActive1={badgeBtnActive1}
+              badgeBtnActive2={badgeBtnActive2}
+            />
+          </div>
           {/* ---------------------------------------------------------------------------------------------DROPDOWN */}
 
           <div className="sidebar-dropdown">

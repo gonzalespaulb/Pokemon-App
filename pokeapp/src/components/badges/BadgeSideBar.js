@@ -5,8 +5,8 @@ import { SidebarNav } from "../SidebarNav";
 const BadgeSideBar = ({
   setIsBadgeSideBar,
   isBadgeSideBar,
-  setbadgeBtnActive1,
-  setbadgeBtnActive2,
+  setBadgeBtnActive1,
+  setBadgeBtnActive2,
   badgeBtnActive1,
   badgeBtnActive2,
 }) => {
@@ -24,8 +24,8 @@ const BadgeSideBar = ({
         <div className="button-container">
           <SidebarNav
             setIsBadgeSideBar={setIsBadgeSideBar}
-            setbadgeBtnActive1={setbadgeBtnActive1}
-            setbadgeBtnActive2={setbadgeBtnActive2}
+            setBadgeBtnActive1={setBadgeBtnActive1}
+            setBadgeBtnActive2={setBadgeBtnActive2}
             badgeBtnActive1={badgeBtnActive1}
             badgeBtnActive2={badgeBtnActive2}
           />
