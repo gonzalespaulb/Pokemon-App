@@ -8,6 +8,9 @@ import pokeball from "../assets/rollers/pokeball-roller.png";
 import { randomPoke } from "../utilities/randomizer";
 import { winPokemon } from "../redux/pokemonSlice";
 
+
+
+
 const NUMBER_OF_REEL_FACES = 20;
 
 const GamePage = ({
@@ -17,6 +20,8 @@ const GamePage = ({
   setbadgeBtnActive1,
   setbadgeBtnActive2,
   setIsBadgeSideBar,
+  setSelectedPokemon,
+  setIsMoreInfo,
 }) => {
   // ------------------------------------------------------------------------------------------------RANDOMIZER LOGIC START
 
@@ -29,6 +34,7 @@ const GamePage = ({
   const renderWonPokemons = (wonPokemons) => {
     return wonPokemons?.map((pokemon) => {
       return (
+
         <PokemonCard
           key={pokemon.id}
           pokemon={pokemon}
@@ -37,7 +43,21 @@ const GamePage = ({
           picture={pokemon.picture}
           makeUpperCase={makeUpperCase}
           types={pokemon.types}
+          setSelectedPokemon={setSelectedPokemon}
+          setIsMoreInfo={setIsMoreInfo}
+          setIsBadgeSideBar={setIsBadgeSideBar}
+          setbadgeBtnActive1={setbadgeBtnActive1}
+          setbadgeBtnActive2={setbadgeBtnActive2}
+          onClick={() => {
+            setbadgeBtnActive1(false);
+            setbadgeBtnActive2(true);
+            setSelectedPokemon(pokemon);
+            setIsBadgeSideBar(false);
+            setIsPokeDex(false);
+            setIsMyPoke(true);
+          }}
         />
+
       );
     });
   };

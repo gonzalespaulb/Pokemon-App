@@ -3,6 +3,9 @@ import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
 import { typeIconMapper } from "../utilities/mappers";
 import { useState } from "react";
 import PokeDollarIcon from "../assets/uiIcons/pokeDollar.svg";
+import React from "react";
+import { Link } from "react-router-dom";
+
 
 const PokemonCard = ({
   id,
@@ -20,31 +23,31 @@ const PokemonCard = ({
 
   const [isSelected, setIsSelected] = useState(false);
 
-
-  // ------------------------------------------------------------Pop in animation logic 
+  // ------------------------------------------------------------Pop in animation logic
   const [active, setActive] = useState(false);
   const [firstHover, setFirstHover] = useState(false);
 
   const applyStyles = (type) => {
     let currStyle = `card-btn`;
 
-    if(firstHover) {
-        active ? currStyle = currStyle + ` card-btn-active ${type}-btn` : currStyle = currStyle + ` card-btn-inactive ${type}-btn`;
+    if (firstHover) {
+      active
+        ? (currStyle = currStyle + ` card-btn-active ${type}-btn`)
+        : (currStyle = currStyle + ` card-btn-inactive ${type}-btn`);
     }
     return currStyle;
-  }
+  };
 
   const hoverMe = () => {
     setActive(!active);
     setFirstHover(true);
-  }
+  };
 
-  // ------------------------------------------------------------Pop in animation logic 
-
+  // ------------------------------------------------------------Pop in animation logic
 
   const applyTypeColor = (type) => {
     return `card-${type}`;
-  }
+  };
 
   const cardImage = {
     backgroundImage: `url(${pokemon?.picture})`,
@@ -63,8 +66,10 @@ const PokemonCard = ({
 
   return (
     // Card container starts here
-    <div
-      className={!isSelected ? "card" : applyTypeColor(pokemon.types[0].type.name)}
+    <Link to="/" style={{ textDecoration: "none" }}y
+      className={
+        !isSelected ? "card" : applyTypeColor(pokemon.types[0].type.name)
+      }
       onClick={() => {
         pokemonPicker(pokemon);
         setIsMoreInfo(false);
@@ -81,46 +86,59 @@ const PokemonCard = ({
         hoverMe();
       }}
     >
-
-      <div className="card-header">
-        <div className="name">
-          <h3>{makeUpperCase(pokemon.name)}</h3>
+       
+       <div className="card-header">
+          <div className="name">
+            <h3>{makeUpperCase(pokemon.name)}</h3>
+          </div>
         </div>
-      </div>
+  
 
-      {/* Card image starts */}
-      <div style={cardImage}>
-      {/* put buttons in here */}
-        <div className="card-btns-container">
-          <div className={applyStyles(`poke-value`)}><img src={PokeDollarIcon} alt="poke dollar image" />{pokemon.value}</div>
-          <div className={applyStyles(`poke-buy`)}
+
+        {/* Card image starts */}
+        <div style={cardImage}>
+          {/* put buttons in here */}
+          <div className="card-btns-container">
+            <div className={applyStyles(`poke-value`)}>
+              <img src={PokeDollarIcon} alt="poke dollar image" />
+              {pokemon.value}
+            </div>
+            <div
+              className={applyStyles(`poke-buy`)}
               onClick={(e) => {
+                e.preventDefault();
                 e.stopPropagation();
                 dispatch(buyPokemon(pokemon));
               }}
-          >Buy</div>
-           {pokemon.quantity > 0 ? (
-            <div className={applyStyles(`poke-sell`)}
-              onClick={(e) => {
-                e.stopPropagation();
-                dispatch(sellPokemon(pokemon));
-              }}
-          >Sell</div>) : null}
+            >
+              Buy
+            </div>
+            {pokemon.quantity > 0 ? (
+              <div
+                className={applyStyles(`poke-sell`)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  dispatch(sellPokemon(pokemon));
+                }}
+              >
+                Sell
+              </div>
+            ) : null}
+          </div>
         </div>
 
-      </div>
-
-      <div className="type-id-container">
-        <div className="pokemon-quantity">
-          {pokemon.quantity > 0 ? <p>x{pokemon.quantity}</p> : ""}
+        <div className="type-id-container">
+          <div className="pokemon-quantity">
+            {pokemon.quantity > 0 ? <p>x{pokemon.quantity}</p> : ""}
+          </div>
+          <div className="type-id">
+            <div>{typeIconMapper(pokemon.types)}</div>
+            <h3>#{id}</h3>
+          </div>
         </div>
-      <div className="type-id">
-        <div>{typeIconMapper(pokemon.types)}</div>
-        <h3>#{id}</h3>
-      </div>
-      </div>
 
-    </div>
+    </Link>
     // Card container end
   );
 };

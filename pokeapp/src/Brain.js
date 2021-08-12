@@ -216,6 +216,11 @@ export const Brain = () => {
             setIsPokeDex={setIsPokeDex}
             isPokeDex={isPokeDex}
             isMyPoke={isMyPoke}
+            setIsMoreInfo={setIsMoreInfo}
+            setIsBadgeSideBar={setIsBadgeSideBar}
+            setSelectedPokemon={setSelectedPokemon}
+            setbadgeBtnActive1={setbadgeBtnActive1}
+            setbadgeBtnActive2={setbadgeBtnActive2}
           />
         </Route>
       </div>
