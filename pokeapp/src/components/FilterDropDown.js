@@ -143,7 +143,10 @@ const FilterDropDown = ({
     return (
       <div
         name={sortTypeEnum}
-        onClick={() => addRemoveTypeFilter(sortTypeEnum)}
+        onClick={(event) => {
+          event.stopPropagation();
+          addRemoveTypeFilter(sortTypeEnum);
+        }}
         className={`filter-checkbox${
           selectedTypes.includes(sortTypeEnum)
             ? ` active-${applyTypeColor(type)}`
