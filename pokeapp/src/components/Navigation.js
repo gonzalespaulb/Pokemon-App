@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Navigation = ({ setIsMyPoke, setIsPokeDex, isMyPoke, isPokeDex }) => {
+const Navigation = ({ isMyPoke, isPokeDex, setIsMyPoke, setIsPokeDex }) => {
   const pokeDollars = useSelector((state) => state.pokemon.pokeDollars);
   return (
     <nav className="navigation">

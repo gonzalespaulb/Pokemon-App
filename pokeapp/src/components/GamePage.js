@@ -14,9 +14,11 @@ const GamePage = ({
   makeUpperCase,
   setIsMyPoke,
   setIsPokeDex,
-  setbadgeBtnActive1,
-  setbadgeBtnActive2,
+  setBadgeBtnActive1,
+  setBadgeBtnActive2,
   setIsBadgeSideBar,
+  setSelectedPokemon,
+  setIsMoreInfo,
 }) => {
   // ------------------------------------------------------------------------------------------------RANDOMIZER LOGIC START
 
@@ -25,18 +27,26 @@ const GamePage = ({
   const dispatch = useDispatch();
 
   const pokedex = useSelector((state) => state.pokemon.allPokemon);
+  const pokeDollars = useSelector((state) => state.pokemon.pokeDollars);
+
+  const gamePageOnClick = (pokemon) => {
+    setBadgeBtnActive1(false);
+    setBadgeBtnActive2(true);
+    setSelectedPokemon(pokemon);
+    setIsBadgeSideBar(false);
+    setIsPokeDex(false);
+    setIsMyPoke(true);
+    setIsMoreInfo(false);
+  };
 
   const renderWonPokemons = (wonPokemons) => {
     return wonPokemons?.map((pokemon) => {
       return (
         <PokemonCard
           key={pokemon.id}
-          pokemon={pokemon}
-          name={pokemon.name}
           id={pokemon.id}
-          picture={pokemon.picture}
           makeUpperCase={makeUpperCase}
-          types={pokemon.types}
+          clickHandler={gamePageOnClick}
         />
       );
     });
@@ -164,21 +174,33 @@ const partyController = (direction, groupNumber) => {
   return currStyle;
 }
 
+// ------------------------------------------------------------------------------------------------MONEY CHECKER
+
+const playGame = () => {
+  if(pokeDollars - 1000 > 0){
+    reelSetter(true);
+    setTimeout(() => winAPokemon(pokedex), 3400);
+  } else {
+    //going to add logic here on a seperate issue
+  }
+
+};
+
 // ------------------------------------------------------------------------------------------------JSX
 
     return (
-        <div className="gamepage-container">
-            <Navigation/>
-            <div className="game">
-              <div className="slot-machine"> 
+       
+    <div className="gamepage-container">
+      <Navigation setIsMyPoke={setIsMyPoke} setIsPokeDex={setIsPokeDex} />
+      <div className="game">
+        <div className="slot-machine">
+          <div className="blinker">
+            <div className="blinker-1 blinker-ani"></div>
+            <div className="blinker-2 blinker-ani"></div>
+            <div className="blinker-3 blinker-ani"></div>
+          </div>
 
-                <div className="blinker">
-                  <div className="blinker-1 blinker-ani"></div>
-                  <div className="blinker-2 blinker-ani"></div>
-                  <div className="blinker-3 blinker-ani"></div>
-                </div>
-
-                <div className="slot-machine-left">
+          <div className="slot-machine-left">
                   <img className={`translate-weezing ${partyController(`left`, 1)}`} src={slotMachinePokemon(`weezinggmax`)} alt="pokemon" />
                   <img className={partyController(`left`, 1)} src={slotMachinePokemon(`vaporeon`)} alt="pokemon" />
                   <img className={partyController(`left`, 2)}  src={slotMachinePokemon(`voltorb`)} alt="pokemon" />
@@ -236,38 +258,24 @@ const partyController = (direction, groupNumber) => {
                     <img className={partyController(`bottom`, 1)} src={slotMachinePokemon(`tangela`)} alt="pokemon"/>
                 </div>
 
-                <div className="slot-machine-rollers">
-                  <div className="roller">
-                    {roller1()}
-                  </div>
+          <div className="slot-machine-rollers">
+            <div className="roller">{roller1()}</div>
+            <div className="roller">{roller2()}</div>
+            <div className="roller">{roller3()}</div>
+          </div>
 
-                  <div className="roller">
-                    {roller2()}
-                  </div>
+          <div className="slot-machine-arm">
+            <div className="lever-sub-base"></div>
+            <div className="lever-base">
+              <div className={pullLever(`hole`)} />
 
-                  <div className="roller">
-                    {roller3()}
-                  </div>
-                </div>
-
-                <div className="slot-machine-arm">
-                  <div className="lever-sub-base"></div>
-                  <div className="lever-base">
-                    <div className={pullLever(`hole`)}/>
-                    <div className={pullLever(`stick`)}>
-                      <div 
-                        className="lever-ball"
-                        onClick={() => {
-                          reelSetter(true);
-                          setTimeout(() => winAPokemon(pokedex), 3400);
-                        }}
-                      >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
+              <div className={pullLever(`stick`)}>
+                <div
+                  className="lever-ball"
+                  onClick={() => {playGame()}}
+                ></div>
               </div>
+          </div>
 
               <div 
                 className="reset-btn"
@@ -278,11 +286,15 @@ const partyController = (direction, groupNumber) => {
                 <h2>Reset</h2>
               </div>
 
-            </div>
-            <div className="gamepage-card">
-              {wonPokemon.length ? renderWonPokemons(wonPokemon) : null}
-            </div>
+
+            
           </div>
+        </div>
+      </div>
+      <div className="gamepage-card">
+        {wonPokemon.length ? renderWonPokemons(wonPokemon) : null}
+      </div>
+    </div>
   );
 };
 
