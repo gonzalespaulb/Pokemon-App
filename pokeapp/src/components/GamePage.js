@@ -27,6 +27,7 @@ const GamePage = ({
   const dispatch = useDispatch();
 
   const pokedex = useSelector((state) => state.pokemon.allPokemon);
+  const pokeDollars = useSelector((state) => state.pokemon.pokeDollars);
 
   const gamePageOnClick = (pokemon) => {
     setBadgeBtnActive1(false);
@@ -147,6 +148,19 @@ const GamePage = ({
     }
     return currStyle;
   };
+
+  const playGame = () => {
+    if(pokeDollars - 1000 > 0){
+      setActive(!reel1);
+      setTimeout(() => setReel2(!reel2), 200);
+      setTimeout(() => setReel3(!reel3), 400);
+      setTimeout(() => winAPokemon(pokedex), 3400);
+    } else {
+      //going to add logic here on a seperate issue
+    }
+
+  };
+
   // ------------------------------------------------------------------------------------------------SLOT MACHINE LOGIC END
 
   return (
@@ -430,12 +444,7 @@ const GamePage = ({
               <div className={pullLever(`stick`)}>
                 <div
                   className="lever-ball"
-                  onClick={() => {
-                    setActive(!reel1);
-                    setTimeout(() => setReel2(!reel2), 200);
-                    setTimeout(() => setReel3(!reel3), 400);
-                    setTimeout(() => winAPokemon(pokedex), 3400);
-                  }}
+                  onClick={() => {playGame()}}
                 ></div>
               </div>
             </div>
