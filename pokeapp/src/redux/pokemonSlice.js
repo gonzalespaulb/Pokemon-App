@@ -7,7 +7,7 @@ export const pokemonSlice = createSlice({
   //initialize states
   initialState: {
     allPokemon: [],
-    pokeDollars: 1000000,
+    pokeDollars: 10000,
     allBadges: allBadges,
     bugBadgeCount: 0,
     darkBadgeCount: 0,
@@ -36,11 +36,12 @@ export const pokemonSlice = createSlice({
     },
 
     winPokemon: (state, action) => {
-      const pokeIndex = state.allPokemon.findIndex(
-        (element) => element.id === action.payload.id
-      );
-
-      state.allPokemon[pokeIndex].quantity++;
+        const pokeIndex = state.allPokemon.findIndex(
+          (element) => element.id === action.payload.id
+        );
+  
+        state.allPokemon[pokeIndex].quantity++;
+        state.pokeDollars = state.pokeDollars - 1000;
     },
     buyPokemon: (state, action) => {
       let type1 = action.payload.types[0].type.name; 

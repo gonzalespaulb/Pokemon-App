@@ -24,16 +24,16 @@ const sortAtoZ = (list) => {
 };
 
 const SideBar = ({
-  selectedPokemon,
-  makeUpperCase,
-  isMoreInfo,
-  setIsMoreInfo,
-  setSelectedPokemon,
-  setIsBadgeSideBar,
-  setbadgeBtnActive1,
-  setbadgeBtnActive2,
   badgeBtnActive1,
   badgeBtnActive2,
+  isMoreInfo,
+  makeUpperCase,
+  selectedPokemon,
+  setBadgeBtnActive1,
+  setBadgeBtnActive2,
+  setIsBadgeSideBar,
+  setIsMoreInfo,
+  setSelectedPokemon,
 }) => {
   const [showPokemon, setShowPokemon] = useState(false);
   const [pokeNameList, setPokeNameList] = useState([]);
@@ -82,14 +82,14 @@ const SideBar = ({
       <>
         <div className="sidebar-container">
           <div className="button-container">
-          <SidebarNav
-            setIsBadgeSideBar={setIsBadgeSideBar}
-            setbadgeBtnActive1={setbadgeBtnActive1}
-            setbadgeBtnActive2={setbadgeBtnActive2}
-            badgeBtnActive1={badgeBtnActive1}
-            badgeBtnActive2={badgeBtnActive2}
-          />
-        </div>
+            <SidebarNav
+              badgeBtnActive1={badgeBtnActive1}
+              badgeBtnActive2={badgeBtnActive2}
+              setBadgeBtnActive1={setBadgeBtnActive1}
+              setBadgeBtnActive2={setBadgeBtnActive2}
+              setIsBadgeSideBar={setIsBadgeSideBar}
+            />
+          </div>
           {/* ---------------------------------------------------------------------------------------------DROPDOWN */}
 
           <div className="sidebar-dropdown">

@@ -21,8 +21,8 @@ export const Brain = () => {
   const [isMyPoke, setIsMyPoke] = useState(false);
   const [isPokeDex, setIsPokeDex] = useState(true);
   const [isBadgeSideBar, setIsBadgeSideBar] = useState(false);
-  const [badgeBtnActive1, setbadgeBtnActive1] = useState(false);
-  const [badgeBtnActive2, setbadgeBtnActive2] = useState(false);
+  const [badgeBtnActive1, setBadgeBtnActive1] = useState(false);
+  const [badgeBtnActive2, setBadgeBtnActive2] = useState(false);
 
   const resolvePokeList = async (pokeList) => {
     return Promise.all(pokeList);
@@ -156,10 +156,10 @@ export const Brain = () => {
             isBadgeSideBar={isBadgeSideBar}
             Navigation={
               <Navigation
+                isMyPoke={isMyPoke}
+                isPokeDex={isPokeDex}
                 setIsMyPoke={setIsMyPoke}
                 setIsPokeDex={setIsPokeDex}
-                isPokeDex={isPokeDex}
-                isMyPoke={isMyPoke}
               />
             }
             FilterBar={
@@ -170,57 +170,52 @@ export const Brain = () => {
             }
             BadgeSideBar={
               <BadgeSideBar
-                setIsBadgeSideBar={setIsBadgeSideBar}
-                isBadgeSideBar={isBadgeSideBar}
                 badgeBtnActive1={badgeBtnActive1}
                 badgeBtnActive2={badgeBtnActive2}
-                setbadgeBtnActive1={setbadgeBtnActive1}
-                setbadgeBtnActive2={setbadgeBtnActive2}
+                isBadgeSideBar={isBadgeSideBar}
+                setBadgeBtnActive1={setBadgeBtnActive1}
+                setBadgeBtnActive2={setBadgeBtnActive2}
+                setIsBadgeSideBar={setIsBadgeSideBar}
               />
             }
             SideBar={
               <SideBar
-                selectedPokemon={selectedPokemon}
-                makeUpperCase={makeUpperCase}
-                isMoreInfo={isMoreInfo}
-                setIsMoreInfo={setIsMoreInfo}
-                setSelectedPokemon={setSelectedPokemon}
-                setIsBadgeSideBar={setIsBadgeSideBar}
-                setbadgeBtnActive1={setbadgeBtnActive1}
-                setbadgeBtnActive2={setbadgeBtnActive2}
                 badgeBtnActive1={badgeBtnActive1}
                 badgeBtnActive2={badgeBtnActive2}
+                isMoreInfo={isMoreInfo}
+                makeUpperCase={makeUpperCase}
+                selectedPokemon={selectedPokemon}
+                setBadgeBtnActive1={setBadgeBtnActive1}
+                setBadgeBtnActive2={setBadgeBtnActive2}
+                setIsBadgeSideBar={setIsBadgeSideBar}
+                setIsMoreInfo={setIsMoreInfo}
+                setSelectedPokemon={setSelectedPokemon}
               />
             }
             DigitalCardBinder={
               <DigitalCardBinder
                 allPokemonFiltered={allPokemonFiltered}
-                setSelectedPokemon={setSelectedPokemon}
-                setAllPokemonFiltered={setAllPokemonFiltered}
-                makeUpperCase={makeUpperCase}
-                setIsMoreInfo={setIsMoreInfo}
                 isMyPoke={isMyPoke}
-                isPokeDex={isPokeDex}
+                makeUpperCase={makeUpperCase}
+                setBadgeBtnActive1={setBadgeBtnActive1}
+                setBadgeBtnActive2={setBadgeBtnActive2}
                 setIsBadgeSideBar={setIsBadgeSideBar}
-                setbadgeBtnActive1={setbadgeBtnActive1}
-                setbadgeBtnActive2={setbadgeBtnActive2}
+                setIsMoreInfo={setIsMoreInfo}
+                setSelectedPokemon={setSelectedPokemon}
               />
             }
           />
         </Route>
         <Route path="/GamePage">
           <GamePage
-            allPokemon={allPokemon}
             makeUpperCase={makeUpperCase}
+            setBadgeBtnActive1={setBadgeBtnActive1}
+            setBadgeBtnActive2={setBadgeBtnActive2}
             setIsMyPoke={setIsMyPoke}
             setIsPokeDex={setIsPokeDex}
-            isPokeDex={isPokeDex}
-            isMyPoke={isMyPoke}
             setIsMoreInfo={setIsMoreInfo}
             setIsBadgeSideBar={setIsBadgeSideBar}
             setSelectedPokemon={setSelectedPokemon}
-            setbadgeBtnActive1={setbadgeBtnActive1}
-            setbadgeBtnActive2={setbadgeBtnActive2}
           />
         </Route>
       </div>
