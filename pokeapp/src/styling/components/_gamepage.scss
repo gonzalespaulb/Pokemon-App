@@ -17,8 +17,9 @@
 .slot-machine {
     height: 300px;
     width: 800px;
-    background-color: $secondary-color;
     position: relative;
+    border-radius: 10px;
+
 
     &-rollers {
         height: 100%;
@@ -26,6 +27,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        border-radius: 10px;
     }
 
     &-arm {
@@ -38,6 +40,78 @@
         justify-content: flex-start;
         align-items: center;
     }
+// ------------------------------------------------------------------------------------------------POKEMON WAVE CONTAINERS
+    &-left, 
+    &-top,
+    &-bottom {
+        position: absolute;
+        z-index: 5; 
+    }
+
+    &-left {
+        left: 0;
+        height: 300px;
+        width: 100px;
+        transform: translateX(0%) rotateZ(0deg); //
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .translate-weezing { transform: translateY(27%) translateX(30%); }
+        .translate-up { transform: translateY(-250%) translateX(30%); }
+    }
+
+    &-top {
+        top: 0;
+        width: 800px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+
+        .translate-down { transform: translateX(40%) translateY(23%); }
+    }
+
+    &-bottom {
+        bottom: 0;
+        width: 800px;
+        height: 100px;
+        transform: translateY(-100%) rotateZ(0deg);//
+        display: flex;
+    }
+}
+
+// ------------------------------------------------------------------------------------------------SLOT MACHINE BLINKER
+
+.blinker {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    z-index: 8;
+    display: flex;
+
+    &-1, &-2, &-3 {
+        width: 33.33%;
+        height: 100%;
+        opacity: 0;
+        border-radius: 10px;
+    }
+
+    &-1 {
+        background-color: $sell-btn;
+        animation-delay: 1s;
+    }
+
+    &-2 {
+        background-color: $pokedollar-color;
+        animation-delay: 0.5s;
+    }
+
+    &-3 {
+        background-color: $buy-btn;
+        animation-delay: 0s;
+    }
 }
 
 // ------------------------------------------------------------------------------------------------REEL STYLING
@@ -47,6 +121,7 @@
     height: 90%;
     background-color: #333333;
     overflow: hidden;
+    z-index: 10; //
 }
 
 .roller-img {
@@ -164,3 +239,88 @@
     100% { transform: translateY(-90%) scaleY(1); }
 }
 
+
+// ---------------------------------------------------------------------TOP WAVE
+
+.top-1, .top-2 {
+    margin-left: -75px;
+    height: 110%;
+    transform: translateX(40%) translateY(10%);
+    opacity: 0;
+
+    animation-name: top-wave;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+.top-1:nth-child(odd) {animation-delay: 0.5s;}
+.top-1:nth-child(even) {animation-delay: 0.7s;}
+.top-2:nth-child(odd) {animation-delay: 0.9s}
+.top-2:nth-child(even) {animation-delay: 0.3s}
+
+@keyframes top-wave {
+    0% {transform: translateX(40%)translateY(0%); opacity: 0;}
+    50% {transform: translateX(40%) translateY(-130%); opacity: 1;}
+    100% {transform: translateX(40%)translateY(00%); opacity: 0;}
+}
+
+// ---------------------------------------------------------------------LEFT WAVE
+
+.left-1, .left-2 {
+    margin-bottom: -45px;
+    transform: translateY(-5%) translateX(30%);
+    opacity: 0;
+
+    animation-name: left-wave;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+.left-1:nth-child(odd) {animation-delay: 0.5s;}
+.left-1:nth-child(even) {animation-delay: 0.7s;}
+.left-2:nth-child(odd) {animation-delay: 0.9s}
+.left-2:nth-child(even) {animation-delay: 0.3s}
+
+@keyframes left-wave {
+    0% {transform: translateY(-5%) translateX(0%); opacity: 0;}
+    50% {transform: translateY(-5%) translateX(-130%); opacity: 1;}
+    100% {transform: translateY(-5%) translateX(0%); opacity: 0;}
+}
+
+// ---------------------------------------------------------------------BOTTOM WAVE
+
+.bottom-1, .bottom-2 {
+    margin-left: -75px;
+    height: 110%;
+    transform: translateX(40%) translateY(0%); 
+    opacity: 0;
+
+    animation-name: bottom-wave;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+.bottom-1:nth-child(odd) {animation-delay: 0.5s;}
+.bottom-1:nth-child(even) {animation-delay: 0.7s;}
+.bottom-2:nth-child(odd) {animation-delay: 0.9s}
+.bottom-2:nth-child(even) {animation-delay: 0.3s}
+
+@keyframes bottom-wave {
+    0% {transform: translateX(40%)translateY(0%); opacity: 0;}
+    50% {transform: translateX(40%) translateY(180%); opacity: 1;}
+    100% {transform: translateX(40%)translateY(0%); opacity: 0;}
+}
+
+// ---------------------------------------------------------------------BLINKER-1
+
+.blinker-ani {
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blinker {
+    0%{opacity: 0;}
+    50%{opacity: 1;}
+    100%{opacity: 0;}
+}

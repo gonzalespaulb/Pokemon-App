@@ -61,6 +61,7 @@ import vaporeon from './vaporeon.png';
 import voltorb from './voltorb.png';
 
 import weezing from './weezing.png';
+import weezinggmax from './weezinggmax.png';
 import wobbuffet from './wobbuffet.png';
 
 import zangoose from './zangoose.png';
@@ -162,6 +163,8 @@ export const slotMachinePokemon = (pokemon) => {
             return voltorb;
         case `weezing`:
             return weezing;
+        case `weezinggmax`:
+            return weezinggmax;
         case `wobbuffet`:
             return wobbuffet;
         case `zangoose`:

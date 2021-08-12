@@ -136,56 +136,122 @@ const GamePage = ({
     if (reel1) {
       currStyle = currStyle + ` lever-${leverPart}-active`;
     }
-
     return currStyle;
   };
+// ------------------------------------------------------------------------------------------------SLOT MACHINE LOGIC END
 
-  // ------------------------------------------------------------------------------------------------SLOT MACHINE LOGIC END
+    return (
+        <div className="gamepage-container">
+            <Navigation/>
+            <div className="game">
+              <div className="slot-machine"> 
 
-  return (
-    <div className="gamepage-container">
-      <Navigation
-        setIsMyPoke={setIsMyPoke}
-        setIsPokeDex={setIsPokeDex}
-        setbadgeBtnActive1={setbadgeBtnActive1}
-        setbadgeBtnActive2={setbadgeBtnActive2}
-        setIsBadgeSideBar={setIsBadgeSideBar}
-      />
-      <div className="game">
-        <div className="slot-machine">
-          <div className="slot-machine-rollers">
-            <div className="roller">{roller1()}</div>
+                <div className="blinker">
+                  <div className="blinker-1 blinker-ani"></div>
+                  <div className="blinker-2 blinker-ani"></div>
+                  <div className="blinker-3 blinker-ani"></div>
+                </div>
 
-            <div className="roller">{roller2()}</div>
+                <div className="slot-machine-left">
+                  <img className="translate-weezing left-1" src={slotMachinePokemon(`weezinggmax`)} alt="pokemon" />
+                  <img className="left-1" src={slotMachinePokemon(`vaporeon`)} alt="pokemon" />
+                  <img className="left-2"  src={slotMachinePokemon(`voltorb`)} alt="pokemon" />
+                  <img className="left-2"  src={slotMachinePokemon(`weezing`)} alt="pokemon" />
+                  <img className="left-1"  src={slotMachinePokemon(`wobbuffet`)} alt="pokemon" />
+                  <img className="left-1"  src={slotMachinePokemon(`zangoose`)} alt="pokemon" />
+                  <img className="translate-up left-2" src={slotMachinePokemon(`zapdos`)} alt="pokemon" />
+                </div>
 
-            <div className="roller">{roller3()}</div>
-          </div>
+                <div className="slot-machine-top">
+                    <img className="top-1" src={slotMachinePokemon(`aerodactyl`)} alt="pokemon" />
+                    <img className="top-1" src={slotMachinePokemon(`articuno`)} alt="pokemon" />
+                    <img className="translate-down top-2" src={slotMachinePokemon(`bellsprout`)} alt="pokemon" />
+                    <img className="top-2" src={slotMachinePokemon(`bidoof`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`bulbasaur`)} alt="pokemon" />
+                    <img className="top-1" src={slotMachinePokemon(`charizard`)} alt="pokemon" />
+                    <img className="translate-down top-2" src={slotMachinePokemon(`charmander`)} alt="pokemon" />
+                    <img className="top-2" src={slotMachinePokemon(`claydol`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`diglett`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`ditto`)} alt="pokemon" />
+                    <img className="top-2" src={slotMachinePokemon(`dragonite`)} alt="pokemon" />
+                    <img className="translate-down top-2" src={slotMachinePokemon(`dratini`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`eevee`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`ekans`)} alt="pokemon" />
+                    <img className="translate-down top-2" src={slotMachinePokemon(`flareon`)} alt="pokemon" />
+                    <img className="top-2" src={slotMachinePokemon(`girafarig`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`hoothoot`)} alt="pokemon" />
+                    <img className="translate-down top-1" src={slotMachinePokemon(`jolteon`)} alt="pokemon" />
+                    <img className="translate-down top-2" src={slotMachinePokemon(`kabuto`)} alt="pokemon" />
+                    <img className="translate-down top-2" src={slotMachinePokemon(`kabutops`)} alt="pokemon" />
+                    <img  className="translate-down top-1"src={slotMachinePokemon(`lapras`)} alt="pokemon" />
+                </div>
 
-          <div className="slot-machine-arm">
-            <div className="lever-sub-base"></div>
-            <div className="lever-base">
-              <div className={pullLever(`hole`)} />
+                <div className="slot-machine-bottom">
+                    <img className="bottom-1" src={slotMachinePokemon(`ledyba`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`lickitung`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`meowth`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`mew`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`mewtwo`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`misdreavus`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`moltres`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`mrmime`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`omanyte`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`onix`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`pancham`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`pikachu`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`piplup`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`porygon`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`psyduck`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`sentret`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`skitty`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`slowpoke`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`snorlax`)} alt="pokemon"/>
+                    <img className="bottom-2" src={slotMachinePokemon(`squirtle`)} alt="pokemon"/>
+                    <img className="bottom-1" src={slotMachinePokemon(`tangela`)} alt="pokemon"/>
+                </div>
 
-              <div className={pullLever(`stick`)}>
-                <div
-                  className="lever-ball"
-                  onClick={() => {
-                    setActive(!reel1);
-                    setTimeout(() => setReel2(!reel2), 200);
-                    setTimeout(() => setReel3(!reel3), 400);
-                    setTimeout(() => winAPokemon(pokedex), 3400);
-                  }}
-                ></div>
+                <div className="slot-machine-rollers">
+                  <div className="roller">
+                    {roller1()}
+                  </div>
+
+                  <div className="roller">
+                    {roller2()}
+                  </div>
+
+                  <div className="roller">
+                    {roller3()}
+                  </div>
+                </div>
+
+                <div className="slot-machine-arm">
+                  <div className="lever-sub-base"></div>
+                  <div className="lever-base">
+                    
+                    <div className={pullLever(`hole`)}/>
+
+                    <div className={pullLever(`stick`)}>
+                      <div 
+                        className="lever-ball"
+                        onClick={() => {
+                          setActive(!reel1)
+                          setTimeout(() => setReel2(!reel2), 200);
+                          setTimeout(() => setReel3(!reel3), 400);
+                          setTimeout(() => winAPokemon(pokedex), 3400);
+                        }}
+                      >
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
               </div>
             </div>
+            <div className="gamepage-card">
+              {wonPokemon.length ? renderWonPokemons(wonPokemon) : null}
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div className="gamepage-card">
-        {wonPokemon.length ? renderWonPokemons(wonPokemon) : null}
-      </div>
-    </div>
   );
 };
 
