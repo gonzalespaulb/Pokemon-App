@@ -6,6 +6,7 @@ import PokeDollarIcon from "../assets/uiIcons/pokeDollar.svg";
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 const PokemonCard = ({
   id,
   setSelectedPokemon,
@@ -65,7 +66,7 @@ const PokemonCard = ({
 
   return (
     // Card container starts here
-    <div
+    <Link to="/" style={{ textDecoration: "none" }}y
       className={
         !isSelected ? "card" : applyTypeColor(pokemon.types[0].type.name)
       }
@@ -85,12 +86,14 @@ const PokemonCard = ({
         hoverMe();
       }}
     >
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <div className="card-header">
+       
+       <div className="card-header">
           <div className="name">
             <h3>{makeUpperCase(pokemon.name)}</h3>
           </div>
         </div>
+  
+
 
         {/* Card image starts */}
         <div style={cardImage}>
@@ -103,6 +106,7 @@ const PokemonCard = ({
             <div
               className={applyStyles(`poke-buy`)}
               onClick={(e) => {
+                e.preventDefault();
                 e.stopPropagation();
                 dispatch(buyPokemon(pokemon));
               }}
@@ -113,6 +117,7 @@ const PokemonCard = ({
               <div
                 className={applyStyles(`poke-sell`)}
                 onClick={(e) => {
+                  e.preventDefault();
                   e.stopPropagation();
                   dispatch(sellPokemon(pokemon));
                 }}
@@ -132,8 +137,8 @@ const PokemonCard = ({
             <h3>#{id}</h3>
           </div>
         </div>
-      </Link>
-    </div>
+
+    </Link>
     // Card container end
   );
 };

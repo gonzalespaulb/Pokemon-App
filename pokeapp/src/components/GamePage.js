@@ -8,6 +8,9 @@ import pokeball from "../assets/rollers/pokeball-roller.png";
 import { randomPoke } from "../utilities/randomizer";
 import { winPokemon } from "../redux/pokemonSlice";
 
+
+
+
 const NUMBER_OF_REEL_FACES = 20;
 
 const GamePage = ({
@@ -31,6 +34,7 @@ const GamePage = ({
   const renderWonPokemons = (wonPokemons) => {
     return wonPokemons?.map((pokemon) => {
       return (
+
         <PokemonCard
           key={pokemon.id}
           pokemon={pokemon}
@@ -53,6 +57,7 @@ const GamePage = ({
             setIsMyPoke(true);
           }}
         />
+
       );
     });
   };
