@@ -12,12 +12,19 @@
   position: relative;
 
   &-icon {
-    margin: 1em;
+    margin-right: 1em;
   }
 
   &-text {
     margin: 0.7em;
   }
+}
+
+.filter-bar-icon img {
+  margin: 7px 15px 0px 0px;
+  width: 25px;
+  height: 25px;
+  opacity: 1;
 }
 
 //--------------------------------------------------------------DROPDOWN ANIMATION START
