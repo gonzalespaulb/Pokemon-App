@@ -12,6 +12,7 @@ import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import arrowIcon from "../assets/uiIcons/down-arrow.svg";
+import { SidebarNav } from "./SidebarNav";
 
 const sortAtoZ = (list) => {
   const sortedAtoZ = list.sort((name1, name2) => {
@@ -29,12 +30,15 @@ const SideBar = ({
   setIsMoreInfo,
   setSelectedPokemon,
   setIsBadgeSideBar,
+  setbadgeBtnActive1,
+  setbadgeBtnActive2,
+  badgeBtnActive1,
+  badgeBtnActive2,
 }) => {
   const [showPokemon, setShowPokemon] = useState(false);
   const [pokeNameList, setPokeNameList] = useState([]);
 
   const [videoGame, setVideoGame] = useState(`No Game Selected`);
-
 
   // Endpoint. This is the string that will be used by the type ahead
   const [pokeSearch, setPokeSearch] = useState([]);
@@ -77,9 +81,16 @@ const SideBar = ({
     return (
       <>
         <div className="sidebar-container">
-          <button onClick={() => setIsBadgeSideBar(true)}>Badges</button>
-
-{/* ---------------------------------------------------------------------------------------------DROPDOWN */}
+          <div className="button-container">
+          <SidebarNav
+            setIsBadgeSideBar={setIsBadgeSideBar}
+            setbadgeBtnActive1={setbadgeBtnActive1}
+            setbadgeBtnActive2={setbadgeBtnActive2}
+            badgeBtnActive1={badgeBtnActive1}
+            badgeBtnActive2={badgeBtnActive2}
+          />
+        </div>
+          {/* ---------------------------------------------------------------------------------------------DROPDOWN */}
 
           <div className="sidebar-dropdown">
             <div
@@ -94,7 +105,8 @@ const SideBar = ({
                   enterSubmit(e);
                 }}
               >
-                <Typeahead className="typeahead rbt-item"
+                <Typeahead
+                  className="typeahead rbt-item"
                   id="basic-typeahead-single"
                   labelKey="name"
                   options={pokeNameList}
@@ -106,34 +118,37 @@ const SideBar = ({
                 />
 
                 <button
-                className="dropdown-arrow"
+                  className="dropdown-arrow"
                   onClick={() => {
                     updateSidebarPokemon(allPokemon, pokeSearch);
                   }}
                 >
-                   <img src={arrowIcon} alt="dropdown arrow" />
+                  <img src={arrowIcon} alt="dropdown arrow" />
                 </button>
               </div>
             </div>
             <div className="close-btn">x</div>
           </div>
 
-{/* ---------------------------------------------------------------------------------------------IMAGE */}
+          {/* ---------------------------------------------------------------------------------------------IMAGE */}
 
           <div className="sidebar-image" style={sideBarImageURL}>
             <div className="sidebar-value">
-              <h3>${selectedPokemon.value}</h3>
+              <h3>
+                <img src={PokeDollarIcon} alt="poke dollar image" />
+                {selectedPokemon.value}
+              </h3>
             </div>
           </div>
 
-{/* ---------------------------------------------------------------------------------------------NAME AND ID */}
+          {/* ---------------------------------------------------------------------------------------------NAME AND ID */}
 
           <div className="sidebar-name-id">
             <h3>{makeUpperCase(selectedPokemon.name)}</h3>
             <h4>#{selectedPokemon.id}</h4>
           </div>
 
-{/* ---------------------------------------------------------------------------------------------TYPE AND WEAKNESS */}
+          {/* ---------------------------------------------------------------------------------------------TYPE AND WEAKNESS */}
 
           <div className="type-weakness">
             <div className="sidebar-type">
@@ -147,45 +162,52 @@ const SideBar = ({
             </div>
           </div>
 
-{/* ---------------------------------------------------------------------------------------------HEIGHT AND WEIGHT */}
+          {/* ---------------------------------------------------------------------------------------------HEIGHT AND WEIGHT */}
 
           <div className="height-weight">
-                <div className="height">
-                  <h4>Height:</h4>
-                  <h5>{selectedPokemon.height}</h5>
-                </div>
-                <div className="weight">
-                  <h4>Weight:</h4>
-                  <h5>{selectedPokemon.weight}</h5>
-                </div>
+            <div className="height">
+              <h4>Height:</h4>
+              <h5>{selectedPokemon.height}</h5>
+            </div>
+            <div className="weight">
+              <h4>Weight:</h4>
+              <h5>{selectedPokemon.weight}</h5>
+            </div>
           </div>
 
-{/* ---------------------------------------------------------------------------------------------ABILITIES */}
-
-          <div className="abilities">
+          {/* ---------------------------------------------------------------------------------------------ABILITIES */}
+          {isMoreInfo ? (
+            <div className="abilities">
               <h4>Abilities:</h4>
               {abilityMapper(selectedPokemon.abilities)}
-          </div>
-
-
-{/* ---------------------------------------------------------------------------- MORE INFO START */}
-
-          <div className="indices-container">
-            <div>
-              <h4>Game Indices:</h4>
-              <h5>{videoGame}</h5>
             </div>
-            <div className="indices-grid">
-                {isMoreInfo ? gameMapper(selectedPokemon.games, setVideoGame) : null}
+          ) : null}
+
+          {/* ---------------------------------------------------------------------------- MORE INFO START */}
+          {isMoreInfo ? (
+            <div className="indices-container">
+              <div>
+                <h4>Game Indices:</h4>
+                <h5>{videoGame}</h5>
+              </div>
+              <div className="indices-grid">
+                {isMoreInfo
+                  ? gameMapper(selectedPokemon.games, setVideoGame)
+                  : null}
                 {!selectedPokemon.games.length && isMoreInfo ? (
                   <p>This Pokemon has not been in any games</p>
                 ) : null}
+              </div>
             </div>
-          </div>
+          ) : null}
 
-{/* ---------------------------------------------------------------------------- BUY, SELL, AND MORE INFO BUTTON */}
+          {/* ---------------------------------------------------------------------------- BUY, SELL, AND MORE INFO BUTTON */}
 
-          <div className={!isMoreInfo ? "btn-container" : "btn-container-more-info"}>
+          <div
+            className={
+              !isMoreInfo ? "btn-container" : "btn-container-more-info"
+            }
+          >
             <div className="buy-sell-container">
               <button
                 className="buy-btn"
@@ -224,7 +246,6 @@ const SideBar = ({
                 </h4>
               )}
             </div>
-
           </div>
         </div>
       </>

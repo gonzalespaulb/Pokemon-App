@@ -7,6 +7,7 @@ export const typeIconMapper = (types) => {
     return (
       <ToolTip key={index} content={typeObject.type.name}>
         <img
+          alt={`${typeObject.type.name} tool tip`}
           className="type-icons"
           src={typeIconMaker(typeObject.type.name)}
         />
@@ -44,7 +45,7 @@ export const weaknessIconMapper = (weaknesses) => {
   return weaknesses?.map((weakness, index) => {
     return (
       <ToolTip content={weakness.name} key={index}>
-        <img className="type-icons" src={typeIconMaker(weakness.name)} />
+        <img alt={`${weakness.name} icon`} className="type-icons" src={typeIconMaker(weakness.name)} />
       </ToolTip>
     );
   });

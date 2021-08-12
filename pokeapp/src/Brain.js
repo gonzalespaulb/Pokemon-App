@@ -18,8 +18,11 @@ export const Brain = () => {
   const [allPokemonFiltered, setAllPokemonFiltered] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState({});
   const [isMoreInfo, setIsMoreInfo] = useState(false);
-  const [isPokeList, setIsPokeList] = useState(false);
+  const [isMyPoke, setIsMyPoke] = useState(false);
+  const [isPokeDex, setIsPokeDex] = useState(true);
   const [isBadgeSideBar, setIsBadgeSideBar] = useState(false);
+  const [badgeBtnActive1, setbadgeBtnActive1] = useState(false);
+  const [badgeBtnActive2, setbadgeBtnActive2] = useState(false);
 
   const resolvePokeList = async (pokeList) => {
     return Promise.all(pokeList);
@@ -95,7 +98,7 @@ export const Brain = () => {
     //Combine all weaknesses into one array and remove duplicates
     foundWeaknesses.map((weaknessArray) => {
       //Maps over each weakness class
-      weaknessArray.map((weakness) => {
+      return weaknessArray.map((weakness) => {
         //Checking to see if the current weakness is already in the mergedweakness array
         if (
           !mergedWeaknesses.find(
@@ -153,8 +156,10 @@ export const Brain = () => {
             isBadgeSideBar={isBadgeSideBar}
             Navigation={
               <Navigation
-                setIsPokeList={setIsPokeList}
-                setIsBadgeSideBar={setIsBadgeSideBar}
+                setIsMyPoke={setIsMyPoke}
+                setIsPokeDex={setIsPokeDex}
+                isPokeDex={isPokeDex}
+                isMyPoke={isMyPoke}
               />
             }
             FilterBar={
@@ -167,6 +172,10 @@ export const Brain = () => {
               <BadgeSideBar
                 setIsBadgeSideBar={setIsBadgeSideBar}
                 isBadgeSideBar={isBadgeSideBar}
+                badgeBtnActive1={badgeBtnActive1}
+                badgeBtnActive2={badgeBtnActive2}
+                setbadgeBtnActive1={setbadgeBtnActive1}
+                setbadgeBtnActive2={setbadgeBtnActive2}
               />
             }
             SideBar={
@@ -177,6 +186,10 @@ export const Brain = () => {
                 setIsMoreInfo={setIsMoreInfo}
                 setSelectedPokemon={setSelectedPokemon}
                 setIsBadgeSideBar={setIsBadgeSideBar}
+                setbadgeBtnActive1={setbadgeBtnActive1}
+                setbadgeBtnActive2={setbadgeBtnActive2}
+                badgeBtnActive1={badgeBtnActive1}
+                badgeBtnActive2={badgeBtnActive2}
               />
             }
             DigitalCardBinder={
@@ -186,7 +199,11 @@ export const Brain = () => {
                 setAllPokemonFiltered={setAllPokemonFiltered}
                 makeUpperCase={makeUpperCase}
                 setIsMoreInfo={setIsMoreInfo}
-                isPokeList={isPokeList}
+                isMyPoke={isMyPoke}
+                isPokeDex={isPokeDex}
+                setIsBadgeSideBar={setIsBadgeSideBar}
+                setbadgeBtnActive1={setbadgeBtnActive1}
+                setbadgeBtnActive2={setbadgeBtnActive2}
               />
             }
           />
@@ -195,7 +212,10 @@ export const Brain = () => {
           <GamePage
             allPokemon={allPokemon}
             makeUpperCase={makeUpperCase}
-            setIsPokeList={setIsPokeList}
+            setIsMyPoke={setIsMyPoke}
+            setIsPokeDex={setIsPokeDex}
+            isPokeDex={isPokeDex}
+            isMyPoke={isMyPoke}
           />
         </Route>
       </div>

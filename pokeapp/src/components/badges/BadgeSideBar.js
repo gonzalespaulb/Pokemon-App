@@ -1,22 +1,36 @@
 import { Badge } from "./Badge";
 import { useSelector } from "react-redux";
+import { SidebarNav } from "../SidebarNav";
 
-const BadgeSideBar = ({ setIsBadgeSideBar, isBadgeSideBar }) => {
+const BadgeSideBar = ({
+  setIsBadgeSideBar,
+  isBadgeSideBar,
+  setbadgeBtnActive1,
+  setbadgeBtnActive2,
+  badgeBtnActive1,
+  badgeBtnActive2,
+}) => {
   const badges = useSelector((state) => state.pokemon.allBadges);
 
   const renderBadges = (badges) => {
     return badges?.map((badge) => {
-      return (
-        <div className="progress-bars" key={badge?.name}>
-          <Badge key={badge?.name} badge={badge} />
-        </div>
-      );
+      return <Badge key={badge?.name} badge={badge} />;
     });
   };
 
   return (
     <div className="sidebar">
-      <button onClick={() => setIsBadgeSideBar(false)}>PokeDex</button>
+      <div className="upper-section">
+        <div className="button-container">
+          <SidebarNav
+            setIsBadgeSideBar={setIsBadgeSideBar}
+            setbadgeBtnActive1={setbadgeBtnActive1}
+            setbadgeBtnActive2={setbadgeBtnActive2}
+            badgeBtnActive1={badgeBtnActive1}
+            badgeBtnActive2={badgeBtnActive2}
+          />
+        </div>
+      </div>
 
       <div className="badge-containter">
         {isBadgeSideBar ? renderBadges(badges) : null}

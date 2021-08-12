@@ -171,6 +171,7 @@ export const slotMachinePokemon = (pokemon) => {
             return zangoose;
         case `zapdos`:
             return zapdos;
+        default: break;
     }
 }
 

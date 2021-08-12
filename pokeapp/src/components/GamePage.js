@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
-import Navigation from './Navigation';
-import PokemonCard from './PokemonCard';
-import { useSelector, useDispatch } from 'react-redux';
-import {slotMachinePokemon} from '../assets/pokemons/index';
-import pikachu from '../assets/rollers/pikachu-roller.png';
-import pokeball from '../assets/rollers/pokeball-roller.png';
-import {randomPoke} from '../utilities/randomizer';
-import { winPokemon } from '../redux/pokemonSlice';
+import React, { useState } from "react";
+import Navigation from "./Navigation";
+import PokemonCard from "./PokemonCard";
+import { useSelector, useDispatch } from "react-redux";
+import { slotMachinePokemon } from "../assets/pokemons/index";
+import pikachu from "../assets/rollers/pikachu-roller.png";
+import pokeball from "../assets/rollers/pokeball-roller.png";
+import { randomPoke } from "../utilities/randomizer";
+import { winPokemon } from "../redux/pokemonSlice";
 
-const NUMBER_OF_REEL_FACES = 20; 
+const NUMBER_OF_REEL_FACES = 20;
 
-const GamePage = ({makeUpperCase, setIsPokeList}) => {
-
-// ------------------------------------------------------------------------------------------------RANDOMIZER LOGIC START
+const GamePage = ({
+  makeUpperCase,
+  setIsMyPoke,
+  setIsPokeDex,
+  setbadgeBtnActive1,
+  setbadgeBtnActive2,
+  setIsBadgeSideBar,
+}) => {
+  // ------------------------------------------------------------------------------------------------RANDOMIZER LOGIC START
 
   const [wonPokemon, setWonPokemon] = useState([]);
 
@@ -20,129 +26,123 @@ const GamePage = ({makeUpperCase, setIsPokeList}) => {
 
   const pokedex = useSelector((state) => state.pokemon.allPokemon);
 
-    const renderWonPokemons = (wonPokemons) => {
-        return wonPokemons?.map((pokemon) => {
-          return (
-            <PokemonCard
-              key={pokemon.id}
-              pokemon={pokemon}
-              name={pokemon.name}
-              id={pokemon.id}
-              picture={pokemon.picture}
-              makeUpperCase={makeUpperCase}
-              types={pokemon.types}
-            />
-          );
-        });
-      };
+  const renderWonPokemons = (wonPokemons) => {
+    return wonPokemons?.map((pokemon) => {
+      return (
+        <PokemonCard
+          key={pokemon.id}
+          pokemon={pokemon}
+          name={pokemon.name}
+          id={pokemon.id}
+          picture={pokemon.picture}
+          makeUpperCase={makeUpperCase}
+          types={pokemon.types}
+        />
+      );
+    });
+  };
 
   const winAPokemon = (pokeList) => {
-    if(!reel1) {
+    if (!reel1) {
       let randomPokemon = randomPoke(pokeList);
-      setWonPokemon([...wonPokemon, randomPokemon])
-      dispatch(winPokemon(randomPokemon))
+      setWonPokemon([...wonPokemon, randomPokemon]);
+      dispatch(winPokemon(randomPokemon));
     } else {
       return;
     }
-  }
+  };
 
-// ------------------------------------------------------------------------------------------------RANDOMIZER LOGIC END
+  // ------------------------------------------------------------------------------------------------RANDOMIZER LOGIC END
 
-// ------------------------------------------------------------------------------------------------SLOT MACHINE LOGIC START
+  // ------------------------------------------------------------------------------------------------SLOT MACHINE LOGIC START
 
   const [reel1, setActive] = useState(false);
-  const [reel2, setReel2] =useState(false);
-  const [reel3, setReel3] =useState(false);
+  const [reel2, setReel2] = useState(false);
+  const [reel3, setReel3] = useState(false);
 
-      const rollerStyle = {
-        backgroundImage: `url(${pikachu})`,
+  const rollerStyle = {
+    backgroundImage: `url(${pikachu})`,
+  };
+
+  const rollerStyle2 = {
+    backgroundImage: `url(${pokeball})`,
+  };
+
+  const roller1 = () => {
+    let reelStrip = [];
+    if (reel1) {
+      for (let current = 1; current <= NUMBER_OF_REEL_FACES; current++) {
+        reelStrip.push(
+          <React.Fragment key={current}>
+            <div style={rollerStyle} className="roller-img roller-ani" />
+            <div style={rollerStyle2} className="roller-img roller-ani" />
+          </React.Fragment>
+        );
       }
+    } else {
+      return (
+        <div className="reel-default">
+          <h1>Spin</h1>
+        </div>
+      );
+    }
+    return reelStrip;
+  };
 
-      const rollerStyle2 = {
-        backgroundImage: `url(${pokeball})`,
+  const roller2 = () => {
+    let reelStrip = [];
+    if (reel2) {
+      for (let current = 1; current <= NUMBER_OF_REEL_FACES; current++) {
+        reelStrip.push(
+          <React.Fragment key={current}>
+            <div style={rollerStyle} className="roller-img roller-ani" />
+            <div style={rollerStyle2} className="roller-img roller-ani" />
+          </React.Fragment>
+        );
       }
+    } else {
+      return (
+        <div className="reel-default">
+          <h1>To</h1>
+        </div>
+      );
+    }
+    return reelStrip;
+  };
 
-      const roller1 = () => {
-
-        let reelStrip = [];
-        if (reel1) {
-          for (let current = 1; current <= NUMBER_OF_REEL_FACES; current++ ) {
-            reelStrip.push(
-              <React.Fragment key={current}>
-                <div style={rollerStyle} className="roller-img roller-ani"/>
-                <div style={rollerStyle2} className="roller-img roller-ani"/>
-              </React.Fragment>
-            )
-          }  
-        } else {
-          return (
-            <div className="reel-default">
-              <h1>Spin</h1>
-            </div>
-          )
-        }
-        return reelStrip;
+  const roller3 = () => {
+    let reelStrip = [];
+    if (reel3) {
+      for (let current = 1; current <= NUMBER_OF_REEL_FACES; current++) {
+        reelStrip.push(
+          <React.Fragment key={current}>
+            <div style={rollerStyle} className="roller-img roller-ani" />
+            <div style={rollerStyle2} className="roller-img roller-ani" />
+          </React.Fragment>
+        );
       }
+    } else {
+      return (
+        <div className="reel-default">
+          <h1>Win!</h1>
+        </div>
+      );
+    }
+    return reelStrip;
+  };
 
-      const roller2 = () => {
-
-        let reelStrip = [];
-        if (reel2) {
-          for (let current = 1; current <= NUMBER_OF_REEL_FACES; current++ ) {
-            reelStrip.push(
-              <React.Fragment key={current}>
-                <div style={rollerStyle} className="roller-img roller-ani"/>
-                <div style={rollerStyle2} className="roller-img roller-ani"/>
-              </React.Fragment>
-            )
-          }
-        }else {
-          return (
-            <div className="reel-default">
-              <h1>To</h1>
-            </div>
-          )
-        }
-        return reelStrip;
-      }
-
-      const roller3 = () => {
-
-        let reelStrip = [];
-        if (reel3) {
-          for (let current = 1; current <= NUMBER_OF_REEL_FACES; current++ ) {
-            reelStrip.push(
-              <React.Fragment key={current}>
-                <div style={rollerStyle} className="roller-img roller-ani"/>
-                <div style={rollerStyle2} className="roller-img roller-ani"/>
-              </React.Fragment>
-            )
-          }
-        }else {
-          return (
-            <div className="reel-default">
-              <h1>Win!</h1>
-            </div>
-          )
-        }
-        return reelStrip;
-      }
-
-      const pullLever = (leverPart) => {
-
-        let currStyle = `lever-${leverPart}`
-        if(reel1) {
-          currStyle = currStyle + ` lever-${leverPart}-active`;
-        }
-
-        return currStyle;
-      }
-
+  const pullLever = (leverPart) => {
+    let currStyle = `lever-${leverPart}`;
+    if (reel1) {
+      currStyle = currStyle + ` lever-${leverPart}-active`;
+    }
+    return currStyle;
+  };
 // ------------------------------------------------------------------------------------------------SLOT MACHINE LOGIC END
 
     return (
         <div className="gamepage-container">
-            <Navigation setIsPokeList={setIsPokeList} />
+            <Navigation/>
             <div className="game">
               <div className="slot-machine"> 
 
@@ -244,18 +244,15 @@ const GamePage = ({makeUpperCase, setIsPokeList}) => {
                     </div>
 
                   </div>
-
                 </div>
-              </div>
 
+              </div>
             </div>
-            
             <div className="gamepage-card">
               {wonPokemon.length ? renderWonPokemons(wonPokemon) : null}
             </div>
-
-        </div>
-    )
-}
+          </div>
+  );
+};
 
 export default GamePage;
