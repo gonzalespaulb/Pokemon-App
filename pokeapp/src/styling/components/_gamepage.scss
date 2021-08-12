@@ -191,6 +191,27 @@
     }
 }
 
+// ------------------------------------------------------------------------------------------------RESET BUTTON
+
+.reset-btn {
+    padding: 20px;
+    transform: translateX(100%);
+    color: $secondary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border: 2px solid $secondary-color;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        color: $component-container;
+        border: 2px solid $secondary-color;
+        background-color: $secondary-color;
+    }
+}
+
 // ------------------------------------------------------------------------------------------------WON POKEMON GRID
 .gamepage-card {
     background-color: $component-container;
@@ -242,12 +263,17 @@
 
 // ---------------------------------------------------------------------TOP WAVE
 
-.top-1, .top-2 {
+.top-init, 
+.top-1, 
+.top-2 {
     margin-left: -75px;
     height: 110%;
     transform: translateX(40%) translateY(10%);
     opacity: 0;
+}
 
+.top-1, 
+.top-2 {
     animation-name: top-wave;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
@@ -266,11 +292,15 @@
 
 // ---------------------------------------------------------------------LEFT WAVE
 
-.left-1, .left-2 {
+.left-init,
+.left-1,
+.left-2 {
     margin-bottom: -45px;
     transform: translateY(-5%) translateX(30%);
     opacity: 0;
+}
 
+.left-1, .left-2 {
     animation-name: left-wave;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
@@ -289,12 +319,16 @@
 
 // ---------------------------------------------------------------------BOTTOM WAVE
 
-.bottom-1, .bottom-2 {
+.bottom-init,
+.bottom-1,
+.bottom-2 {
     margin-left: -75px;
     height: 110%;
     transform: translateX(40%) translateY(0%); 
     opacity: 0;
+}
 
+.bottom-1, .bottom-2 {
     animation-name: bottom-wave;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
