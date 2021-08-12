@@ -4,13 +4,13 @@ import { useSelector } from "react-redux";
 
 const DigitalCardBinder = ({
   allPokemonFiltered,
-  setSelectedPokemon,
   isMyPoke,
   makeUpperCase,
-  setIsMoreInfo,
-  setIsBadgeSideBar,
   setBadgeBtnActive1,
   setBadgeBtnActive2,
+  setSelectedPokemon,
+  setIsBadgeSideBar,
+  setIsMoreInfo,
 }) => {
   const myPokeList = useSelector((state) =>
     state.pokemon.allPokemon.filter((pokemon) => pokemon.quantity > 0)

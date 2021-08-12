@@ -3,12 +3,12 @@ import { useSelector } from "react-redux";
 import { SidebarNav } from "../SidebarNav";
 
 const BadgeSideBar = ({
-  setIsBadgeSideBar,
+  badgeBtnActive1,
+  badgeBtnActive2,
   isBadgeSideBar,
   setBadgeBtnActive1,
   setBadgeBtnActive2,
-  badgeBtnActive1,
-  badgeBtnActive2,
+  setIsBadgeSideBar,
 }) => {
   const badges = useSelector((state) => state.pokemon.allBadges);
 
