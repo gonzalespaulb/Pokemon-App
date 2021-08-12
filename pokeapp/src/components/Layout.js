@@ -1,6 +1,13 @@
 import React from "react";
 
-const Layout = ({ Navigation, FilterBar, SideBar, DigitalCardBinder, BadgeSideBar, isBadgeSideBar }) => {
+const Layout = ({
+  BadgeSideBar,
+  DigitalCardBinder,
+  FilterBar,
+  isBadgeSideBar,
+  Navigation,
+  SideBar,
+}) => {
   return (
     <div className="main-container">
       {Navigation}

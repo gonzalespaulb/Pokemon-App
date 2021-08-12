@@ -6,16 +6,7 @@ import PokeDollarIcon from "../assets/uiIcons/pokeDollar.svg";
 import React from "react";
 import { Link } from "react-router-dom";
 
-
-const PokemonCard = ({
-  id,
-  setSelectedPokemon,
-  makeUpperCase,
-  setIsMoreInfo,
-  setIsBadgeSideBar,
-  setbadgeBtnActive1,
-  setbadgeBtnActive2,
-}) => {
+const PokemonCard = ({ id, makeUpperCase, clickHandler }) => {
   const pokemon = useSelector((state) =>
     state.pokemon.allPokemon.find((pokemon) => pokemon.id === id)
   );
@@ -60,22 +51,16 @@ const PokemonCard = ({
     borderRadius: `10px`,
   };
 
-  const pokemonPicker = (pokemon) => {
-    setSelectedPokemon(pokemon);
-  };
-
   return (
     // Card container starts here
-    <Link to="/" style={{ textDecoration: "none" }}y
+    <Link
+      to="/"
+      style={{ textDecoration: "none" }}
       className={
         !isSelected ? "card" : applyTypeColor(pokemon.types[0].type.name)
       }
       onClick={() => {
-        pokemonPicker(pokemon);
-        setIsMoreInfo(false);
-        setIsBadgeSideBar(false);
-        setbadgeBtnActive1(false);
-        setbadgeBtnActive2(true);
+        clickHandler(pokemon);
       }}
       onMouseEnter={() => {
         setIsSelected(true);
@@ -86,58 +71,54 @@ const PokemonCard = ({
         hoverMe();
       }}
     >
-       
-       <div className="card-header">
-          <div className="name">
-            <h3>{makeUpperCase(pokemon.name)}</h3>
-          </div>
+      <div className="card-header">
+        <div className="name">
+          <h3>{makeUpperCase(pokemon.name)}</h3>
         </div>
-  
+      </div>
 
-
-        {/* Card image starts */}
-        <div style={cardImage}>
-          {/* put buttons in here */}
-          <div className="card-btns-container">
-            <div className={applyStyles(`poke-value`)}>
-              <img src={PokeDollarIcon} alt="poke dollar image" />
-              {pokemon.value}
-            </div>
+      {/* Card image starts */}
+      <div style={cardImage}>
+        {/* put buttons in here */}
+        <div className="card-btns-container">
+          <div className={applyStyles(`poke-value`)}>
+            <img src={PokeDollarIcon} alt="poke dollar image" />
+            {pokemon.value}
+          </div>
+          <div
+            className={applyStyles(`poke-buy`)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              dispatch(buyPokemon(pokemon));
+            }}
+          >
+            Buy
+          </div>
+          {pokemon.quantity > 0 ? (
             <div
-              className={applyStyles(`poke-buy`)}
+              className={applyStyles(`poke-sell`)}
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                dispatch(buyPokemon(pokemon));
+                dispatch(sellPokemon(pokemon));
               }}
             >
-              Buy
+              Sell
             </div>
-            {pokemon.quantity > 0 ? (
-              <div
-                className={applyStyles(`poke-sell`)}
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  dispatch(sellPokemon(pokemon));
-                }}
-              >
-                Sell
-              </div>
-            ) : null}
-          </div>
+          ) : null}
         </div>
+      </div>
 
-        <div className="type-id-container">
-          <div className="pokemon-quantity">
-            {pokemon.quantity > 0 ? <p>x{pokemon.quantity}</p> : ""}
-          </div>
-          <div className="type-id">
-            <div>{typeIconMapper(pokemon.types)}</div>
-            <h3>#{id}</h3>
-          </div>
+      <div className="type-id-container">
+        <div className="pokemon-quantity">
+          {pokemon.quantity > 0 ? <p>x{pokemon.quantity}</p> : ""}
         </div>
-
+        <div className="type-id">
+          <div>{typeIconMapper(pokemon.types)}</div>
+          <h3>#{id}</h3>
+        </div>
+      </div>
     </Link>
     // Card container end
   );

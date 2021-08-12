@@ -4,18 +4,25 @@ import { useSelector } from "react-redux";
 
 const DigitalCardBinder = ({
   allPokemonFiltered,
-  setSelectedPokemon,
   isMyPoke,
-  setAllPokemonFiltered,
   makeUpperCase,
-  setIsMoreInfo,
+  setBadgeBtnActive1,
+  setBadgeBtnActive2,
+  setSelectedPokemon,
   setIsBadgeSideBar,
-  setbadgeBtnActive1,
-  setbadgeBtnActive2,
+  setIsMoreInfo,
 }) => {
   const myPokeList = useSelector((state) =>
     state.pokemon.allPokemon.filter((pokemon) => pokemon.quantity > 0)
   );
+
+  const cardBinderClickHandler = (pokemon) => {
+    setSelectedPokemon(pokemon);
+    setIsMoreInfo(false);
+    setIsBadgeSideBar(false);
+    setBadgeBtnActive1(false);
+    setBadgeBtnActive2(true);
+  };
 
   const pokedexCardPrinter = () => {
     return allPokemonFiltered.map((pokemon) => {
@@ -23,13 +30,8 @@ const DigitalCardBinder = ({
         <PokemonCard
           key={pokemon.id}
           id={pokemon.id}
-          setSelectedPokemon={setSelectedPokemon}
-          setAllPokemonFiltered={setAllPokemonFiltered}
           makeUpperCase={makeUpperCase}
-          setIsMoreInfo={setIsMoreInfo}
-          setIsBadgeSideBar={setIsBadgeSideBar}
-          setbadgeBtnActive1={setbadgeBtnActive1}
-          setbadgeBtnActive2={setbadgeBtnActive2}
+          clickHandler={cardBinderClickHandler}
         />
       );
     });
@@ -40,17 +42,9 @@ const DigitalCardBinder = ({
       return (
         <PokemonCard
           key={pokemon.id}
-          pokemon={pokemon}
-          name={pokemon.name}
           id={pokemon.id}
-          picture={pokemon.picture}
-          types={pokemon.types}
-          setSelectedPokemon={setSelectedPokemon}
           makeUpperCase={makeUpperCase}
-          setIsMoreInfo={setIsMoreInfo}
-          setIsBadgeSideBar={setIsBadgeSideBar}
-          setbadgeBtnActive1={setbadgeBtnActive1}
-          setbadgeBtnActive2={setbadgeBtnActive2}
+          clickHandler={cardBinderClickHandler}
         />
       );
     });
