@@ -80,7 +80,3 @@ export const updateBadgeProgress = (badge, payload, type, count) => {
   }
   return({updatedBadge, count: count+1}); 
 };
-
-export const updateBadgeDegression = () => {
-  
-};
