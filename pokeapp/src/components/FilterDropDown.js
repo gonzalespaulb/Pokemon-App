@@ -154,7 +154,7 @@ const FilterDropDown = ({
         } 
           `}
       >
-        <h4>{type}</h4>
+        <h4 className="checkbox-font">{type}</h4>
       </div>
     );
   };
@@ -193,7 +193,7 @@ const FilterDropDown = ({
               setIsOption2(false);
             }}
           >
-            <h4>A-Z</h4>
+            <h4 className="checkbox-font-2">A-Z</h4>
           </div>
           <div
             className={
@@ -206,7 +206,7 @@ const FilterDropDown = ({
               setIsOption2(true);
             }}
           >
-            <h4>Z-A</h4>
+            <h4 className="checkbox-font-2">Z-A</h4>
           </div>
         </div>
       );
@@ -226,7 +226,7 @@ const FilterDropDown = ({
               setSortType(SortTypes.VALUE_LOW_TO_HIGH);
             }}
           >
-            <h4>Low to high</h4>
+            <h4 className="checkbox-font-2">Low to high</h4>
           </div>
           <div
             className={
@@ -239,7 +239,7 @@ const FilterDropDown = ({
               setSortType(SortTypes.VALUE_HIGH_TO_LOW);
             }}
           >
-            <h4>High to low</h4>
+            <h4 className="checkbox-font-2">High to low</h4>
           </div>
         </div>
       );
@@ -259,7 +259,7 @@ const FilterDropDown = ({
               setIsOption2(false);
             }}
           >
-            <h4>Low to high</h4>
+            <h4 className="checkbox-font-2">Low to high</h4>
           </div>
           <div
             className={
@@ -272,7 +272,7 @@ const FilterDropDown = ({
               setIsOption2(true);
             }}
           >
-            <h4>High to low</h4>
+            <h4 className="checkbox-font-2">High to low</h4>
           </div>
         </div>
       );
@@ -315,7 +315,7 @@ const FilterDropDown = ({
               setIsOption2(false);
             }}
           >
-            <h4>Alphabetical</h4>
+            <h4 className="checkbox-font-1">Alphabetical</h4>
           </div>
 
           <div
@@ -329,7 +329,7 @@ const FilterDropDown = ({
               setIsOption2(false);
             }}
           >
-            <h4>Value</h4>
+            <h4 className="checkbox-font-1">Value</h4>
           </div>
 
           <div
@@ -343,7 +343,7 @@ const FilterDropDown = ({
               setIsOption2(false);
             }}
           >
-            <h4>ID</h4>
+            <h4 className="checkbox-font-1">ID</h4>
           </div>
         </div>
 

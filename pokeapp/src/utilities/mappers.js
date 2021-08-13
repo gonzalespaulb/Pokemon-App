@@ -18,7 +18,7 @@ export const typeIconMapper = (types) => {
 
 export const abilityMapper = (abilities) => {
   return abilities?.map((abilityObject, index) => {
-    return <h5 key={index}>{abilityObject.ability.name}</h5>;
+    return <h5 className="sidebar-info-font" key={index}>{abilityObject.ability.name}</h5>;
   });
 };
 
