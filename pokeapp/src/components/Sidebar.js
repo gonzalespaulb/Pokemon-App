@@ -39,8 +39,6 @@ const SideBar = ({
   const [showPokemon, setShowPokemon] = useState(false);
   const [pokeNameList, setPokeNameList] = useState([]);
 
-  console.log(selectedPokemon)
-
   const [videoGame, setVideoGame] = useState("");
 
   // Endpoint. This is the string that will be used by the type ahead
