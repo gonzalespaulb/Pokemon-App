@@ -21,6 +21,7 @@ const GamePage = ({
   setIsBadgeSideBar,
   setIsMoreInfo,
   setSelectedPokemon,
+  triggerOn,
 }) => {
   // ------------------------------------------------------------------------------------------------RANDOMIZER LOGIC START
 
@@ -51,6 +52,7 @@ const GamePage = ({
           makeUpperCase={makeUpperCase}
           clickHandler={gamePageOnClick}
           wonPokemon={wonPokemon}
+          triggerOn={triggerOn}
         />
       );
     });

@@ -12,6 +12,7 @@ import { buyPokemon, sellPokemon } from "../redux/pokemonSlice";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import arrowIcon from "../assets/uiIcons/down-arrow.svg";
+import closeIcon from "../assets/uiIcons/close.svg";
 import { SidebarNav } from "./SidebarNav";
 
 const sortAtoZ = (list) => {
@@ -24,6 +25,7 @@ const sortAtoZ = (list) => {
 };
 
 const SideBar = ({
+  applyStyles,
   badgeBtnActive1,
   badgeBtnActive2,
   blinker,
@@ -35,6 +37,7 @@ const SideBar = ({
   setIsBadgeSideBar,
   setIsMoreInfo,
   setSelectedPokemon,
+  triggerOff,
 }) => {
   const [showPokemon, setShowPokemon] = useState(false);
   const [pokeNameList, setPokeNameList] = useState([]);
@@ -78,6 +81,7 @@ const SideBar = ({
     const sideBarImageURL = {
       backgroundImage: `url(${selectedPokemon.picture})`,
     };
+
 
     return (
       <>
@@ -128,7 +132,9 @@ const SideBar = ({
                 </button>
               </div>
             </div>
-            <div className="close-btn">x</div>
+            <div onClick={() => triggerOff()} className="close-btn">
+              <img className="close-icon" src={closeIcon} alt="close-icon" />
+            </div>
           </div>
 
           {/* ---------------------------------------------------------------------------------------------IMAGE */}
@@ -256,8 +262,10 @@ const SideBar = ({
     );
   };
 
+  
+
   return (
-    <div className="sidebar">
+    <div className={applyStyles(`sidebar`)}>
       {selectedPokemon.types ? sidebarInformation() : <p>Side Bar</p>}
     </div>
   );

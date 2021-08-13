@@ -12,6 +12,7 @@ const DigitalCardBinder = ({
   setSelectedPokemon,
   setIsBadgeSideBar,
   setIsMoreInfo,
+  triggerOn,
 }) => {
   const myPokeList = useSelector((state) =>
     state.pokemon.allPokemon.filter((pokemon) => pokemon.quantity > 0)
@@ -34,6 +35,7 @@ const DigitalCardBinder = ({
           id={pokemon.id}
           makeUpperCase={makeUpperCase}
           clickHandler={cardBinderClickHandler}
+          triggerOn={triggerOn}
         />
       );
     });

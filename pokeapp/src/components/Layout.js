@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 
 const Layout = ({
+  applyStyles,
   BadgeSideBar,
   DigitalCardBinder,
   FilterBar,
@@ -8,8 +9,10 @@ const Layout = ({
   Navigation,
   SideBar,
 }) => {
+
+
   return (
-    <div className="main-container">
+    <div className={applyStyles(`main-container`)}>
       {Navigation}
       {FilterBar}
       {!isBadgeSideBar ? SideBar : BadgeSideBar}

@@ -155,11 +155,35 @@ export const Brain = () => {
     init();
   }, []);
 
+const [firstClick, setFirstClick] = useState(false);
+const [active, setActive] = useState(false);
+
+  const applyStyles = (el) => {
+      let currStyle = `${el}`;
+
+      if(firstClick) {
+          if(active) return currStyle = currStyle + ` ${el}-active`;
+          if(!active) return currStyle = currStyle + ` ${el}-inactive`;
+      }
+
+      return currStyle;
+  }
+
+  const triggerOn = () => {
+      setFirstClick(true);
+      setActive(true);
+  }
+
+  const triggerOff = () => {
+      setActive(false);
+  }
+
   return (
     <Router>
       <div>
         <Route exact path="/">
           <Layout
+            applyStyles={applyStyles}
             isBadgeSideBar={isBadgeSideBar}
             Navigation={
               <Navigation
@@ -189,6 +213,7 @@ export const Brain = () => {
             }
             SideBar={
               <SideBar
+                applyStyles={applyStyles}
                 badgeBtnActive1={badgeBtnActive1}
                 badgeBtnActive2={badgeBtnActive2}
                 blinker={blinker}
@@ -200,6 +225,7 @@ export const Brain = () => {
                 setIsBadgeSideBar={setIsBadgeSideBar}
                 setIsMoreInfo={setIsMoreInfo}
                 setSelectedPokemon={setSelectedPokemon}
+                triggerOff={triggerOff}
               />
             }
             DigitalCardBinder={
@@ -213,6 +239,7 @@ export const Brain = () => {
                 setIsBadgeSideBar={setIsBadgeSideBar}
                 setIsMoreInfo={setIsMoreInfo}
                 setSelectedPokemon={setSelectedPokemon}
+                triggerOn={triggerOn}
               />
             }
           />
@@ -229,6 +256,7 @@ export const Brain = () => {
             setIsMoreInfo={setIsMoreInfo}
             setIsBadgeSideBar={setIsBadgeSideBar}
             setSelectedPokemon={setSelectedPokemon}
+            triggerOn={triggerOn}
           />
         </Route>
       </div>
