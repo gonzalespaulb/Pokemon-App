@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import coinLogo from "../assets/uiIcons/coingif.gif";
 
 const Navigation = ({ isMyPoke, isPokeDex, setIsMyPoke, setIsPokeDex, currencyDisplayRef }) => {
   const pokeDollars = useSelector((state) => state.pokemon.pokeDollars);
@@ -11,7 +12,7 @@ const Navigation = ({ isMyPoke, isPokeDex, setIsMyPoke, setIsPokeDex, currencyDi
     <nav className="navigation">
       <div className="navigation-logo">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <h4>Home</h4>
+          <img className="coin-logo" src={coinLogo} alt="spinning-coin" />
         </Link>
       </div>
       <div className="navigation-links">
