@@ -26,6 +26,7 @@ const sortAtoZ = (list) => {
 const SideBar = ({
   badgeBtnActive1,
   badgeBtnActive2,
+  blinker,
   isMoreInfo,
   makeUpperCase,
   selectedPokemon,
@@ -42,7 +43,7 @@ const SideBar = ({
 
   // Endpoint. This is the string that will be used by the type ahead
   const [pokeSearch, setPokeSearch] = useState([]);
-
+  const pokeDollars = useSelector((state) => state.pokemon.pokeDollars);
   const allPokemon = useSelector((state) => state.pokemon.allPokemon);
   const dispatch = useDispatch();
 
@@ -210,8 +211,11 @@ const SideBar = ({
           >
             <div className="buy-sell-container">
               <button
-                className="buy-btn"
+                className={"buy-btn"}
                 onClick={() => {
+                  if (pokeDollars - selectedPokemon.value < 0) {
+                    blinker();
+                  }
                   dispatch(buyPokemon(selectedPokemon));
                 }}
               >

@@ -6,10 +6,18 @@ import PokeDollarIcon from "../assets/uiIcons/pokeDollar.svg";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PokemonCard = ({ id, makeUpperCase, clickHandler }) => {
+const PokemonCard = ({
+  blinker,
+  clickHandler,
+  id,
+  makeUpperCase,
+  wonPokemon,
+}) => {
   const pokemon = useSelector((state) =>
     state.pokemon.allPokemon.find((pokemon) => pokemon.id === id)
   );
+
+  const pokeDollars = useSelector((state) => state.pokemon.pokeDollars);
   const dispatch = useDispatch();
 
   const [isSelected, setIsSelected] = useState(false);
@@ -88,6 +96,9 @@ const PokemonCard = ({ id, makeUpperCase, clickHandler }) => {
           <div
             className={applyStyles(`poke-buy`)}
             onClick={(e) => {
+              if (pokeDollars - pokemon.value < 0 || pokeDollars - wonPokemon?.value < 0) {
+                blinker();
+              }
               e.preventDefault();
               e.stopPropagation();
               dispatch(buyPokemon(pokemon));
@@ -111,8 +122,10 @@ const PokemonCard = ({ id, makeUpperCase, clickHandler }) => {
       </div>
 
       <div className="type-id-container">
-        <div className="pokemon-quantity">
-          {pokemon.quantity > 0 ? <p>x{pokemon.quantity}</p> : ""}
+        <div className={pokemon.quantity > 0 ? "pokeball" : "pokeball-hidden"}>
+          <div className="pokeball-top"></div>
+          <div className="pokeball-bottom"></div>
+          <h4>{pokemon.quantity > 0 ? `x${pokemon.quantity}` : ""}</h4>
         </div>
         <div className="type-id">
           <div>{typeIconMapper(pokemon.types)}</div>

@@ -6,10 +6,11 @@ const FilterDropDown = ({
   setAllPokemonFiltered,
   active,
   firstClick,
+  menuRef,
 }) => {
   const [sortType, setSortType] = useState(SortTypes.ID_LOW_TO_HIGH);
   const [selectedTypes, setSelectedTypes] = useState([]);
-  
+
   const [aToZ, setAToZ] = useState(false);
   const [pokeDollarValue, setPokeDollarValue] = useState(false);
   const [pokeID, setPokeID] = useState(false);
@@ -142,7 +143,10 @@ const FilterDropDown = ({
     return (
       <div
         name={sortTypeEnum}
-        onClick={() => addRemoveTypeFilter(sortTypeEnum)}
+        onClick={(event) => {
+          event.stopPropagation();
+          addRemoveTypeFilter(sortTypeEnum);
+        }}
         className={`filter-checkbox${
           selectedTypes.includes(sortTypeEnum)
             ? ` active-${applyTypeColor(type)}`
@@ -179,9 +183,11 @@ const FilterDropDown = ({
       return (
         <div className="sort-option-container">
           <div
-            className={isOption1 ? "sort-option-btn option-clicked" : "sort-option-btn"}
+            className={
+              isOption1 ? "sort-option-btn option-clicked" : "sort-option-btn"
+            }
             onClick={() => {
-              setSortType(SortTypes.A_TO_Z)
+              setSortType(SortTypes.A_TO_Z);
               setIsOption1(true);
               setIsOption2(false);
             }}
@@ -189,9 +195,11 @@ const FilterDropDown = ({
             <h4>A-Z</h4>
           </div>
           <div
-            className={isOption2 ? "sort-option-btn option-clicked" : "sort-option-btn"}
+            className={
+              isOption2 ? "sort-option-btn option-clicked" : "sort-option-btn"
+            }
             onClick={() => {
-              setSortType(SortTypes.Z_TO_A)
+              setSortType(SortTypes.Z_TO_A);
               setIsOption1(false);
               setIsOption2(true);
             }}
@@ -206,21 +214,26 @@ const FilterDropDown = ({
       return (
         <div className="sort-option-container">
           <div
-            className={isOption1 ? "sort-option-btn option-clicked" : "sort-option-btn"}
+            className={
+              isOption1 ? "sort-option-btn option-clicked" : "sort-option-btn"
+            }
             onClick={() => {
               setIsOption1(true);
               setIsOption2(false);
-              setSortType(SortTypes.VALUE_LOW_TO_HIGH)
+              setSortType(SortTypes.VALUE_LOW_TO_HIGH);
             }}
           >
             <h4>Low to high</h4>
           </div>
           <div
-            className={isOption2 ? "sort-option-btn option-clicked" : "sort-option-btn"}
+            className={
+              isOption2 ? "sort-option-btn option-clicked" : "sort-option-btn"
+            }
             onClick={() => {
               setIsOption1(false);
               setIsOption2(true);
-              setSortType(SortTypes.VALUE_HIGH_TO_LOW)}}
+              setSortType(SortTypes.VALUE_HIGH_TO_LOW);
+            }}
           >
             <h4>High to low</h4>
           </div>
@@ -232,9 +245,11 @@ const FilterDropDown = ({
       return (
         <div className="sort-option-container">
           <div
-           className={isOption1 ? "sort-option-btn option-clicked" : "sort-option-btn"}
+            className={
+              isOption1 ? "sort-option-btn option-clicked" : "sort-option-btn"
+            }
             onClick={() => {
-              setSortType(SortTypes.ID_LOW_TO_HIGH)
+              setSortType(SortTypes.ID_LOW_TO_HIGH);
               setIsOption1(true);
               setIsOption2(false);
             }}
@@ -242,9 +257,11 @@ const FilterDropDown = ({
             <h4>Low to high</h4>
           </div>
           <div
-         className={isOption2 ? "sort-option-btn option-clicked" : "sort-option-btn"}
+            className={
+              isOption2 ? "sort-option-btn option-clicked" : "sort-option-btn"
+            }
             onClick={() => {
-              setSortType(SortTypes.ID_HIGH_TO_LOW)
+              setSortType(SortTypes.ID_HIGH_TO_LOW);
               setIsOption1(false);
               setIsOption2(true);
             }}
@@ -257,7 +274,7 @@ const FilterDropDown = ({
   };
 
   return (
-    <div className={applyStyles(`filter-bar-dropdown`)}>
+    <div ref={menuRef} className={applyStyles(`filter-bar-dropdown`)}>
       <div className="checkbox-type">
         {checkboxEl(ElementTypes.BUG, `Bug`)}
         {checkboxEl(ElementTypes.DARK, `Dark`)}

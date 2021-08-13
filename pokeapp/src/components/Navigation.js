@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Navigation = ({ isMyPoke, isPokeDex, setIsMyPoke, setIsPokeDex }) => {
+const Navigation = ({ isMyPoke, isPokeDex, setIsMyPoke, setIsPokeDex, currencyDisplayRef }) => {
   const pokeDollars = useSelector((state) => state.pokemon.pokeDollars);
+
+
+
   return (
     <nav className="navigation">
       <div className="navigation-logo">
@@ -41,12 +44,12 @@ const Navigation = ({ isMyPoke, isPokeDex, setIsMyPoke, setIsPokeDex }) => {
             </Link>
           </div>
         </div>
-        <div className="coin-link">
+        <div className="coin-link" ref={currencyDisplayRef}>
           <div className="coin-link-total">
             <h4>${pokeDollars}</h4>
           </div>
           <div className="coin-link-earn">
-            <Link to="/GamePage" style={{ textDecoration: "none" }}>
+            <Link to="/GamePage" style={{ textDecoration: "none", color:"#CA9007" }}>
               <h4>Earn Coins</h4>
             </Link>
           </div>
