@@ -106,7 +106,7 @@ const PokemonCard = ({
           >
             Buy
           </div>
-          {pokemon.quantity > 0 ? (
+          {pokemon.quantity > 0 && active ?  (
             <div
               className={applyStyles(`poke-sell`)}
               onClick={(e) => {
