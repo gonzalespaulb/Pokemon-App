@@ -9,9 +9,9 @@ const DigitalCardBinder = ({
   makeUpperCase,
   setBadgeBtnActive1,
   setBadgeBtnActive2,
-  setSelectedPokemon,
   setIsBadgeSideBar,
   setIsMoreInfo,
+  setSelectedPokemon,
 }) => {
   const myPokeList = useSelector((state) =>
     state.pokemon.allPokemon.filter((pokemon) => pokemon.quantity > 0)

@@ -40,8 +40,6 @@ const SideBar = ({
   const [showPokemon, setShowPokemon] = useState(false);
   const [pokeNameList, setPokeNameList] = useState([]);
 
-  console.log(selectedPokemon)
-
   const [videoGame, setVideoGame] = useState("");
 
   // Endpoint. This is the string that will be used by the type ahead
@@ -261,8 +259,8 @@ const SideBar = ({
 
   return (
     <div className="sidebar">
-      {selectedPokemon.types ? sidebarInformation() : <p>Side Bar</p>}
-    </div>
+      {selectedPokemon.types ? sidebarInformation() : null}
+    </div> // add pokeball here
   );
 };
 
