@@ -8,6 +8,7 @@ import firered from "../assets/indices/firered.jpg";
 import gold from "../assets/indices/gold.png";
 import heartgold from "../assets/indices/heartgold.jpeg";
 import leafgreen from "../assets/indices/leafgreen.jpg";
+import omegaRuby from "../assets/indices/omegaRuby.png";
 import pearl from "../assets/indices/pearl.jpeg";
 import platinum from "../assets/indices/platinum.jpg";
 import red from "../assets/indices/red.jpg";
@@ -41,6 +42,8 @@ export const gameIndices = (game) => {
       return {title: `Heart Gold`, url: heartgold};
     case "leafgreen":
       return {title: `Leaf Green`, url: leafgreen};
+    case "omega-ruby":
+      return {title: `Omega Ruby`, url: omegaRuby};
     case "pearl":
       return {title: `Pearl`, url: pearl};
     case "platinum":
