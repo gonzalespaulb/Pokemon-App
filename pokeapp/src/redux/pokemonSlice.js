@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { allBadges } from "../components/badges/bagdeIcon";
 import { updateBadgeProgress } from "../components/badges/utils/allTypesHelper";
+import { toaster } from "../utilities/toast";
 
 export const pokemonSlice = createSlice({
   name: "pokemon",
@@ -89,9 +90,11 @@ export const pokemonSlice = createSlice({
             basicBadge.objectives.squirtleOwned &&
             basicBadge.objectives.charmanderOwned
           ) {
+            //Grants user badge completion
             basicBadge.currentProgress = basicBadge.progressTarget;
+            toaster(basicBadge.name);
           }
-        }
+        } 
         // <<----------------------------Basic Badge Logic End------------------------------->>
         // <<----------------------------Boulder Badge Logic Start------------------------------->>
 
@@ -128,6 +131,7 @@ export const pokemonSlice = createSlice({
             boulderBadge.objectives.gravelerOwned
           ) {
             boulderBadge.currentProgress = boulderBadge.progressTarget;
+            toaster(boulderBadge.name);
           }
         }
 
@@ -333,6 +337,7 @@ export const pokemonSlice = createSlice({
             glacierBadge.objectives.weavileOwned
           ) {
             glacierBadge.currentProgress = glacierBadge.progressTarget;
+            toaster(glacierBadge.name)
           }
         }
         // <<----------------------------Glacier Badge Logic End------------------------------->>
@@ -494,6 +499,7 @@ export const pokemonSlice = createSlice({
             rainbowBadge.objectives.typeFireOwned
           ) {
             rainbowBadge.currentProgress = rainbowBadge.progressTarget;
+            toaster(rainbowBadge.name);
           }
         }
         // <<----------------------------Rainbow Badge Logic End------------------------------->>
