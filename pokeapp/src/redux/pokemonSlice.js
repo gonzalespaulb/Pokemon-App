@@ -337,6 +337,7 @@ export const pokemonSlice = createSlice({
             glacierBadge.objectives.weavileOwned
           ) {
             glacierBadge.currentProgress = glacierBadge.progressTarget;
+            toaster(glacierBadge.name)
           }
         }
         // <<----------------------------Glacier Badge Logic End------------------------------->>
@@ -498,6 +499,7 @@ export const pokemonSlice = createSlice({
             rainbowBadge.objectives.typeFireOwned
           ) {
             rainbowBadge.currentProgress = rainbowBadge.progressTarget;
+            toaster(rainbowBadge.name);
           }
         }
         // <<----------------------------Rainbow Badge Logic End------------------------------->>
