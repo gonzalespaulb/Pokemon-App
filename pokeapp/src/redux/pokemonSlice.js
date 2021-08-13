@@ -7,7 +7,7 @@ export const pokemonSlice = createSlice({
   //initialize states
   initialState: {
     allPokemon: [],
-    pokeDollars: 1000,
+    pokeDollars: 10000,
     allBadges: allBadges,
     bugBadgeCount: 0,
     darkBadgeCount: 0,
@@ -36,21 +36,21 @@ export const pokemonSlice = createSlice({
     },
 
     winPokemon: (state, action) => {
-        const pokeIndex = state.allPokemon.findIndex(
-          (element) => element.id === action.payload.id
-        );
-  
-        state.allPokemon[pokeIndex].quantity++;
-        state.pokeDollars = state.pokeDollars - 1000;
+      const pokeIndex = state.allPokemon.findIndex(
+        (element) => element.id === action.payload.id
+      );
+
+      state.allPokemon[pokeIndex].quantity++;
+      state.pokeDollars = state.pokeDollars - 1000;
     },
     buyPokemon: (state, action) => {
-      let type1 = action.payload.types[0].type.name; 
-      let type2 = null; 
+      let type1 = action.payload.types[0].type.name;
+      let type2 = null;
 
-      if(action.payload.types.length > 1){
+      if (action.payload.types.length > 1) {
         type2 = action.payload.types[1].type.name;
       }
- 
+
       if (state.pokeDollars - action.payload.value >= 0) {
         //Finds the index of pokemon in the array that matches the id of the pokemon being updated
         const pokeIndex = state.allPokemon.findIndex(
@@ -602,7 +602,7 @@ export const pokemonSlice = createSlice({
         if (state.allPokemon[pokeIndex].quantity >= 1) {
           state.allPokemon[pokeIndex].quantity--;
           //User gets paid the pokemon's value
-          state.pokeDollars += action.payload.value;
+          state.pokeDollars += Math.floor(action.payload.value * 0.6);
         }
       }
     },
