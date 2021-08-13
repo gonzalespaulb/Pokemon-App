@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PokeDollarIcon from "../assets/uiIcons/pokeDollar.svg";
 
+
 import {
   typeIconMapper,
   abilityMapper,
@@ -266,7 +267,7 @@ const SideBar = ({
 
   return (
     <div className={applyStyles(`sidebar`)}>
-      {selectedPokemon.types ? sidebarInformation() : <p>Side Bar</p>}
+      {selectedPokemon.types ? sidebarInformation() : null}
     </div>
   );
 };

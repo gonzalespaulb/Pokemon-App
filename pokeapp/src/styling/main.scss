@@ -50,4 +50,17 @@ a:link {
 @import './layout/main-container';
 @import './layout/game-page-container';
 
+// ........................................................... Toastify
+.Toastify__progress-bar--dark {
+  background-color: $secondary-color !important;
+}
 
+.Toastify__toast--dark {
+  background-color: hsl(0, 0%, 11%) !important;
+  border-radius: 10px !important;
+  color: $secondary-color !important;
+}
+
+.Toastify__close-button {
+  color: $secondary-color !important;
+}

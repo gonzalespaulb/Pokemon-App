@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { allBadges } from "../components/badges/bagdeIcon";
 import { updateBadgeProgress } from "../components/badges/utils/allTypesHelper";
+import { toaster } from "../utilities/toast";
 
 export const pokemonSlice = createSlice({
   name: "pokemon",
@@ -66,7 +67,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Badge Reducer Logic Start------------------------------>>
         // <<----------------------------Basic Badge Logic Start------------------------------->>
         const basicBadgeIndex = state.allBadges.findIndex(
-          (badge) => badge.name === "BasicBadge"
+          (badge) => badge.name === "Basic Badge"
         );
         const basicBadge = state.allBadges[basicBadgeIndex];
         if (basicBadge.currentProgress !== basicBadge.progressTarget) {
@@ -89,14 +90,16 @@ export const pokemonSlice = createSlice({
             basicBadge.objectives.squirtleOwned &&
             basicBadge.objectives.charmanderOwned
           ) {
+            //Grants user badge completion
             basicBadge.currentProgress = basicBadge.progressTarget;
+            toaster(basicBadge.name);
           }
-        }
+        } 
         // <<----------------------------Basic Badge Logic End------------------------------->>
         // <<----------------------------Boulder Badge Logic Start------------------------------->>
 
         const boulderBadgeIndex = state.allBadges.findIndex(
-          (badge) => badge?.name === "BoulderBadge"
+          (badge) => badge?.name === "Boulder Badge"
         );
         const boulderBadge = state.allBadges[boulderBadgeIndex];
         if (boulderBadge.currentProgress !== boulderBadge.progressTarget) {
@@ -128,6 +131,7 @@ export const pokemonSlice = createSlice({
             boulderBadge.objectives.gravelerOwned
           ) {
             boulderBadge.currentProgress = boulderBadge.progressTarget;
+            toaster(boulderBadge.name);
           }
         }
 
@@ -135,7 +139,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Bug Badge Logic Start------------------------------->>
         if (type1 === "bug" || type2 === "bug") {
           const bugBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "BugBadge"
+            (badge) => badge.name === "Bug Badge"
           );
 
           let bugBadge = state.allBadges[bugBadgeIndex];
@@ -153,7 +157,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Dark Badge Logic Start------------------------------->>
         if (type1 === "dark" || type2 === "dark") {
           const darkBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "DarkBadge"
+            (badge) => badge.name === "Dark Badge"
           );
 
           let darkBadge = state.allBadges[darkBadgeIndex];
@@ -171,7 +175,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Dragon Badge Logic Start------------------------------->>
         if (type1 === "dragon" || type2 === "dragon") {
           const dragonBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "DragonBadge"
+            (badge) => badge.name === "Dragon Badge"
           );
 
           let dragonBadge = state.allBadges[dragonBadgeIndex];
@@ -189,7 +193,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Earth Badge Logic Start------------------------------->>
         if (type1 === "ground" || type2 === "ground") {
           const earthBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "EarthBadge"
+            (badge) => badge.name === "Earth Badge"
           );
 
           let earthBadge = state.allBadges[earthBadgeIndex];
@@ -207,7 +211,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Fairy Badge Logic Start------------------------------->>
         if (type1 === "fairy" || type2 === "fairy") {
           const fairyBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "FairyBadge"
+            (badge) => badge.name === "Fairy Badge"
           );
 
           let fairyBadge = state.allBadges[fairyBadgeIndex];
@@ -225,7 +229,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Feather Badge Logic Start------------------------------->>
         if (type1 === "flying" || type2 === "flying") {
           const featherBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "FeatherBadge"
+            (badge) => badge.name === "Feather Badge"
           );
 
           let featherBadge = state.allBadges[featherBadgeIndex];
@@ -243,7 +247,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Fighting Badge Logic Start------------------------------->>
         if (type1 === "fighting" || type2 === "fighting") {
           const fightingBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "FightingBadge"
+            (badge) => badge.name === "Fighting Badge"
           );
 
           let fightingBadge = state.allBadges[fightingBadgeIndex];
@@ -261,7 +265,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Fire Badge Logic Start------------------------------->>
         if (type1 === "fire" || type2 === "fire") {
           const fireBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "FireBadge"
+            (badge) => badge.name === "Fire Badge"
           );
 
           let fireBadge = state.allBadges[fireBadgeIndex];
@@ -279,7 +283,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Freeze Badge Logic Start------------------------------->>
         if (type1 === "ice" || type2 === "ice") {
           const freezeBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "FreezeBadge"
+            (badge) => badge.name === "Freeze Badge"
           );
 
           let freezeBadge = state.allBadges[freezeBadgeIndex];
@@ -297,7 +301,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Glacier Badge Logic Start------------------------------->>
 
         const glacierBadgeIndex = state.allBadges.findIndex(
-          (badge) => badge.name === "GlacierBadge"
+          (badge) => badge.name === "Glacier Badge"
         );
         const glacierBadge = state.allBadges[glacierBadgeIndex];
         if (glacierBadge.currentProgress !== glacierBadge.progressTarget) {
@@ -333,13 +337,14 @@ export const pokemonSlice = createSlice({
             glacierBadge.objectives.weavileOwned
           ) {
             glacierBadge.currentProgress = glacierBadge.progressTarget;
+            toaster(glacierBadge.name)
           }
         }
         // <<----------------------------Glacier Badge Logic End------------------------------->>
         // <<----------------------------Grass Badge Logic Start------------------------------->>
         if (type1 === "grass" || type2 === "grass") {
           const grassBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "GrassBadge"
+            (badge) => badge.name === "Grass Badge"
           );
 
           let grassBadge = state.allBadges[grassBadgeIndex];
@@ -357,7 +362,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Mineral Badge Logic Start------------------------------->>
         if (type1 === "steel" || type2 === "steel") {
           const mineralBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "MineralBadge"
+            (badge) => badge.name === "Mineral Badge"
           );
 
           let mineralBadge = state.allBadges[mineralBadgeIndex];
@@ -375,7 +380,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Plain Badge Logic Start------------------------------->>
         if (type1 === "normal" || type2 === "normal") {
           const plainBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "PlainBadge"
+            (badge) => badge.name === "Plain Badge"
           );
 
           let plainBadge = state.allBadges[plainBadgeIndex];
@@ -393,7 +398,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Psychic Badge Logic Start------------------------------->>
         if (type1 === "psychic" || type2 === "psychic") {
           const psychicBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "PsychicBadge"
+            (badge) => badge.name === "Psychic Badge"
           );
 
           let psychicBadge = state.allBadges[psychicBadgeIndex];
@@ -410,7 +415,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Psychic Badge Logic End------------------------------->>
         // <<----------------------------Rainbow Badge Logic Start------------------------------->>
         const rainbowBadgeIndex = state.allBadges.findIndex(
-          (badge) => badge.name === "RainbowBadge"
+          (badge) => badge.name === "Rainbow Badge"
         );
         const rainbowBadge = state.allBadges[rainbowBadgeIndex];
         if (rainbowBadge.currentProgress !== rainbowBadge.progressTarget) {
@@ -494,13 +499,14 @@ export const pokemonSlice = createSlice({
             rainbowBadge.objectives.typeFireOwned
           ) {
             rainbowBadge.currentProgress = rainbowBadge.progressTarget;
+            toaster(rainbowBadge.name);
           }
         }
         // <<----------------------------Rainbow Badge Logic End------------------------------->>
         // <<----------------------------Rock Badge Logic Start------------------------------->>
         if (type1 === "rock" || type2 === "rock") {
           const rockBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "RockBadge"
+            (badge) => badge.name === "Rock Badge"
           );
 
           let rockBadge = state.allBadges[rockBadgeIndex];
@@ -518,7 +524,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Soul Badge Logic Start------------------------------->>
         if (type1 === "ghost" || type2 === "ghost") {
           const soulBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "SoulBadge"
+            (badge) => badge.name === "Soul Badge"
           );
 
           let soulBadge = state.allBadges[soulBadgeIndex];
@@ -536,7 +542,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Toxic Badge Logic Start------------------------------->>
         if (type1 === "poison" || type2 === "poison") {
           const toxicBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "ToxicBadge"
+            (badge) => badge.name === "Toxic Badge"
           );
 
           let toxicBadge = state.allBadges[toxicBadgeIndex];
@@ -554,7 +560,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Voltage Badge Logic Start------------------------------->>
         if (type1 === "electric" || type2 === "electric") {
           const voltageBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "VoltageBadge"
+            (badge) => badge.name === "Voltage Badge"
           );
 
           let voltageBadge = state.allBadges[voltageBadgeIndex];
@@ -572,7 +578,7 @@ export const pokemonSlice = createSlice({
         // <<----------------------------Water Badge Logic Start------------------------------->>
         if (type1 === "water" || type2 === "water") {
           const waterBadgeIndex = state.allBadges.findIndex(
-            (badge) => badge.name === "WaterBadge"
+            (badge) => badge.name === "Water Badge"
           );
 
           let waterBadge = state.allBadges[waterBadgeIndex];

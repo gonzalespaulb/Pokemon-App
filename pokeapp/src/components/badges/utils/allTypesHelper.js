@@ -1,3 +1,5 @@
+import { toaster } from "../../../utilities/toast";
+
 export const updateBadgeProgress = (badge, payload, type, count) => {
 
     let updatedBadge = Object.assign({}, badge);
@@ -75,6 +77,7 @@ export const updateBadgeProgress = (badge, payload, type, count) => {
       }
       if (updatedBadge.objectives.hundredOwned) {
         updatedBadge.currentProgress = 10;
+        toaster(badge.name);
       }
     }
   }

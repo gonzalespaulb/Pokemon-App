@@ -10,6 +10,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { setPokeList } from "./redux/pokemonSlice";
 import { useSelector, useDispatch } from "react-redux";
 import BadgeSideBar from "./components/badges/BadgeSideBar";
+import { Slide, toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
+toast.configure()
 
 export const Brain = () => {
   const allPokemon = useSelector((state) => state.pokemon.allPokemon);
@@ -36,7 +41,10 @@ export const Brain = () => {
 
   const blinker = () => {
     currencyDisplayRef.current.className = "blink";
-      setTimeout(() => currencyDisplayRef.current.className = "coin-link", 1500)
+    setTimeout(
+      () => (currencyDisplayRef.current.className = "coin-link"),
+      1500
+    );
   };
 
   const getWeight = (weight) => {
@@ -180,6 +188,18 @@ const [active, setActive] = useState(false);
 
   return (
     <Router>
+      <ToastContainer
+        position="top-center"
+        transition={Slide}
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div>
         <Route exact path="/">
           <Layout

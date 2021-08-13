@@ -106,6 +106,7 @@
     border-radius: 10px 0px 0px 10px;
     padding-left: 10px;
     border: none;
+    background-color: $secondary-color;
   }
 
   #basic-typeahead-single {
@@ -139,11 +140,17 @@
     border-radius: 0px 10px 10px 0px;
     width: 50px;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $secondary-color;
+    border-left: 1px solid $base-color;
   }
 
   .dropdown-arrow img {
     height: 30%;
     transform: rotate(-90deg);
+    
   }
 
   .close-btn {
