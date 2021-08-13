@@ -258,8 +258,8 @@ const SideBar = ({
 
   return (
     <div className="sidebar">
-      {selectedPokemon.types ? sidebarInformation() : <p>Side Bar</p>}
-    </div>
+      {selectedPokemon.types ? sidebarInformation() : null}
+    </div> // add pokeball here
   );
 };
 

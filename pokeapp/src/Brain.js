@@ -36,7 +36,10 @@ export const Brain = () => {
 
   const blinker = () => {
     currencyDisplayRef.current.className = "blink";
-      setTimeout(() => currencyDisplayRef.current.className = "coin-link", 1500)
+    setTimeout(
+      () => (currencyDisplayRef.current.className = "coin-link"),
+      1500
+    );
   };
 
   const getWeight = (weight) => {
