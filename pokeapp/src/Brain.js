@@ -11,10 +11,11 @@ import { setPokeList } from "./redux/pokemonSlice";
 import { useSelector, useDispatch } from "react-redux";
 import BadgeSideBar from "./components/badges/BadgeSideBar";
 import { Slide, toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"
+import "react-toastify/dist/ReactToastify.css";
 
 
 toast.configure()
+
 export const Brain = () => {
   const allPokemon = useSelector((state) => state.pokemon.allPokemon);
   const dispatch = useDispatch();
