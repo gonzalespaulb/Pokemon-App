@@ -111,8 +111,10 @@ const PokemonCard = ({ id, makeUpperCase, clickHandler }) => {
       </div>
 
       <div className="type-id-container">
-        <div className="pokemon-quantity">
-          {pokemon.quantity > 0 ? <p>x{pokemon.quantity}</p> : ""}
+        <div className={pokemon.quantity > 0 ? "pokeball" : "pokeball-hidden"}>
+          <div className="pokeball-top"></div>
+          <div className="pokeball-bottom"></div>
+          <h4>{pokemon.quantity > 0 ? `x${pokemon.quantity}` : ""}</h4>
         </div>
         <div className="type-id">
           <div>{typeIconMapper(pokemon.types)}</div>
