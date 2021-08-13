@@ -68,7 +68,7 @@ import WaterBadge from "../../assets/badges/WaterBadge.png";
  */
 export const allBadges = [
   {
-    name: "BasicBadge",
+    name: "Basic Badge",
     icon: BasicBadge,
     progressTarget: 1,
     currentProgress: 0,
@@ -80,7 +80,7 @@ export const allBadges = [
     description: "You can achieve this badge by collecting the starting 3"
   },
   {
-    name: "BoulderBadge",
+    name: "Boulder Badge",
     icon: BoulderBadge,
     progressTarget: 1,
     currentProgress: 0,
@@ -94,7 +94,7 @@ export const allBadges = [
     description: "Brock is the original owner of this badge. Do you remember which Pokemon he had?"
   },
   {
-    name: "BugBadge",
+    name: "Bug Badge",
     icon: BugBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -113,7 +113,7 @@ export const allBadges = [
     description: "Eeeek, that is a lot of bugs, but you need them to collect this badge"
   },
   {
-    name: "DarkBadge",
+    name: "Dark Badge",
     icon: DarkBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -133,7 +133,7 @@ export const allBadges = [
     
   },
   {
-    name: "DragonBadge",
+    name: "Dragon Badge",
     icon: DragonBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -152,7 +152,7 @@ export const allBadges = [
     description: "Pretend that you are in Skyrim "
   },
   {
-    name: "EarthBadge",
+    name: "Earth Badge",
     icon: EarthBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -171,7 +171,7 @@ export const allBadges = [
     description: "You will need enough to move mountains"
   },
   {
-    name: "FairyBadge",
+    name: "Fairy Badge",
     icon: FairyBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -190,7 +190,7 @@ export const allBadges = [
     description: "Do you believe in fairies?"
   },
   {
-    name: "FeatherBadge",
+    name: "Feather Badge",
     icon: FeatherBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -209,7 +209,7 @@ export const allBadges = [
     description: "Collect enough to fly far far away"
   },
   {
-    name: "FightingBadge",
+    name: "Fighting Badge",
     icon: FightingBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -228,7 +228,7 @@ export const allBadges = [
     description: "You might have to throw a couple punches to get this one"
   },
   {
-    name: "FireBadge",
+    name: "Fire Badge",
     icon: FireBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -247,7 +247,7 @@ export const allBadges = [
     description: "Try not to set yourself on fire getting this one"
   },
   {
-    name: "FreezeBadge",
+    name: "Freeze Badge",
     icon: FreezeBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -266,7 +266,7 @@ export const allBadges = [
     description: "Chill out on your hunt to get this one"
   },
   {
-    name: "GlacierBadge",
+    name: "Glacier Badge",
     icon: GlacierBadge,
     progressTarget: 1,
     currentProgress: 0,
@@ -281,7 +281,7 @@ export const allBadges = [
     description: "Collect the pokemon that the 7th gym leader in Johto has"
   },
   {
-    name: "GrassBadge",
+    name: "Grass Badge",
     icon: GrassBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -300,7 +300,7 @@ export const allBadges = [
     description: "No you can't get this by mowing the lawn. Try looking around the tall grass for this one."
   },
   {
-    name: "MineralBadge",
+    name: "Mineral Badge",
     icon: MineralBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -319,7 +319,7 @@ export const allBadges = [
     description: "This is definitely the only badge you can steel."
   },
   {
-    name: "PlainBadge",
+    name: "Plain Badge",
     icon: PlainBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -338,7 +338,7 @@ export const allBadges = [
     description: "Collect enough and normally you would be able to achieve this badge."
   },
   {
-    name: "PsychicBadge",
+    name: "Psychic Badge",
     icon: PsychicBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -357,7 +357,7 @@ export const allBadges = [
     description: "You read my mind on this one."
   },
   {
-    name: "RainbowBadge",
+    name: "Rainbow Badge",
     icon: RainbowBadge,
     progressTarget: 1,
     currentProgress: 0,
@@ -384,7 +384,7 @@ export const allBadges = [
     description: "A little bit of everything, a colorful pokedex is a way to go."
   },
   {
-    name: "RockBadge",
+    name: "Rock Badge",
     icon: RockBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -403,7 +403,7 @@ export const allBadges = [
     description: `Don't bang your head too hard collecting this. Rock on!`
   },
   {
-    name: "SoulBadge",
+    name: "Soul Badge",
     icon: SoulBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -422,7 +422,7 @@ export const allBadges = [
     description: `A spooky one. This badge should give you goosebumps everytime yeah.`
   },
   {
-    name: "ToxicBadge",
+    name: "Toxic Badge",
     icon: ToxicBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -441,7 +441,7 @@ export const allBadges = [
     description: `A hazmat suit should probably be in your to buy list for this one.`
   },
   {
-    name: "VoltageBadge",
+    name: "Voltage Badge",
     icon: VoltageBadge,
     progressTarget: 10,
     currentProgress: 0,
@@ -460,7 +460,7 @@ export const allBadges = [
     description: `Careful collecting these, make sure you don't get shocked.`
   },
   {
-    name: "WaterBadge",
+    name: "Water Badge",
     icon: WaterBadge,
     progressTarget: 10,
     currentProgress: 0,
