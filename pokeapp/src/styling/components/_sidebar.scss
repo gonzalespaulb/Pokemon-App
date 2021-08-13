@@ -8,6 +8,7 @@
   color: $secondary-color;
   padding: 10px;
   overflow-y: auto;
+  opacity: 0;
 
 
     &-container {
@@ -36,6 +37,38 @@
       border: 1px solid black;
   }
 } 
+
+.sidebar-active {
+  animation-name: sidebar-in;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.sidebar-inactive {
+  animation-name: sidebar-out;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes sidebar-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes sidebar-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
 
 
 //---------------------------------------------------------------------------DROPDOWN AND TYPEAHEAD
@@ -125,6 +158,13 @@
     height: 90%;
     background-color: antiquewhite;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .close-icon {
+      height: 35%;
+    }
   }
 }
 
@@ -318,5 +358,8 @@
 }
 
 //---------------------------------------------------------------------------BADGES
+
+
+
 
 

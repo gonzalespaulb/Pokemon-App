@@ -12,6 +12,7 @@ const PokemonCard = ({
   id,
   makeUpperCase,
   wonPokemon,
+  triggerOn,
 }) => {
   const pokemon = useSelector((state) =>
     state.pokemon.allPokemon.find((pokemon) => pokemon.id === id)
@@ -69,6 +70,7 @@ const PokemonCard = ({
       }
       onClick={() => {
         clickHandler(pokemon);
+        triggerOn();
       }}
       onMouseEnter={() => {
         setIsSelected(true);

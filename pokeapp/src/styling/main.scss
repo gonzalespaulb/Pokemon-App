@@ -15,9 +15,23 @@
       }
 }
 
+a {
+  text-decoration: none;
+}
+
 a:visited {
   color: $secondary-color;
 }
+
+a:active {
+  color: $secondary-color !important;
+}
+
+a:link {
+  text-decoration: none;
+  color: $secondary-color !important;
+}
+
 
 
 // ........................................................... Components

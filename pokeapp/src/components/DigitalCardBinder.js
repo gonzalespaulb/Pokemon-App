@@ -11,6 +11,7 @@ const DigitalCardBinder = ({
   setBadgeBtnActive2,
   setIsBadgeSideBar,
   setIsMoreInfo,
+  triggerOn,
   setSelectedPokemon,
 }) => {
   const myPokeList = useSelector((state) =>
@@ -34,6 +35,7 @@ const DigitalCardBinder = ({
           id={pokemon.id}
           makeUpperCase={makeUpperCase}
           clickHandler={cardBinderClickHandler}
+          triggerOn={triggerOn}
         />
       );
     });

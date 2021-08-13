@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { SidebarNav } from "../SidebarNav";
 
 const BadgeSideBar = ({
+  applyStyles,
   badgeBtnActive1,
   badgeBtnActive2,
   isBadgeSideBar,
@@ -19,7 +20,7 @@ const BadgeSideBar = ({
   };
 
   return (
-    <div className="sidebar">
+    <div className={applyStyles(`sidebar`)}>
       <div className="upper-section">
         <div className="button-container">
           <SidebarNav
