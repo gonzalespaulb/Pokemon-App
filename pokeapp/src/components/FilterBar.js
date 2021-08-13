@@ -37,10 +37,10 @@ const FilterBar = ({ allPokemon, setAllPokemonFiltered }) => {
   });
 
   return (
-    <div ref={menuRef} className="filter-bar" onClick={toggle}>
+    <div ref={menuRef} className="filter-bar" >
       <h4 className="filter-bar-text">Filter</h4>
-      <div className="filter-bar-icon">
-        <img src={FilterIcon} alt="filter icon" />
+      <div className="filter-bar-icon" >
+        <img src={FilterIcon} alt="filter icon" onClick={toggle}/>
       </div>
       <FilterDropDown
         setActive={setActive}
