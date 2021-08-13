@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { allBadges } from "../components/badges/bagdeIcon";
 import { updateBadgeProgress } from "../components/badges/utils/allTypesHelper";
+import {toast} from "react-toastify";
 
 export const pokemonSlice = createSlice({
   name: "pokemon",
@@ -89,9 +90,19 @@ export const pokemonSlice = createSlice({
             basicBadge.objectives.squirtleOwned &&
             basicBadge.objectives.charmanderOwned
           ) {
+            //Grants user badge completion
             basicBadge.currentProgress = basicBadge.progressTarget;
+            toast.dark('Obtained Basic Badge', {
+              position: "top-center",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              });
           }
-        }
+        } 
         // <<----------------------------Basic Badge Logic End------------------------------->>
         // <<----------------------------Boulder Badge Logic Start------------------------------->>
 
