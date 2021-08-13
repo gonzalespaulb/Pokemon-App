@@ -186,7 +186,8 @@ const FilterDropDown = ({
             className={
               isOption1 ? "sort-option-btn option-clicked" : "sort-option-btn"
             }
-            onClick={() => {
+            onClick={(event) => {
+              event.stopPropagation();
               setSortType(SortTypes.A_TO_Z);
               setIsOption1(true);
               setIsOption2(false);
@@ -198,7 +199,8 @@ const FilterDropDown = ({
             className={
               isOption2 ? "sort-option-btn option-clicked" : "sort-option-btn"
             }
-            onClick={() => {
+            onClick={(event) => {
+              event.stopPropagation();
               setSortType(SortTypes.Z_TO_A);
               setIsOption1(false);
               setIsOption2(true);
@@ -217,7 +219,8 @@ const FilterDropDown = ({
             className={
               isOption1 ? "sort-option-btn option-clicked" : "sort-option-btn"
             }
-            onClick={() => {
+            onClick={(event) => {
+              event.stopPropagation();
               setIsOption1(true);
               setIsOption2(false);
               setSortType(SortTypes.VALUE_LOW_TO_HIGH);
@@ -229,7 +232,8 @@ const FilterDropDown = ({
             className={
               isOption2 ? "sort-option-btn option-clicked" : "sort-option-btn"
             }
-            onClick={() => {
+            onClick={(event) => {
+              event.stopPropagation();
               setIsOption1(false);
               setIsOption2(true);
               setSortType(SortTypes.VALUE_HIGH_TO_LOW);
@@ -248,7 +252,8 @@ const FilterDropDown = ({
             className={
               isOption1 ? "sort-option-btn option-clicked" : "sort-option-btn"
             }
-            onClick={() => {
+            onClick={(event) => {
+              event.stopPropagation();
               setSortType(SortTypes.ID_LOW_TO_HIGH);
               setIsOption1(true);
               setIsOption2(false);
@@ -260,7 +265,8 @@ const FilterDropDown = ({
             className={
               isOption2 ? "sort-option-btn option-clicked" : "sort-option-btn"
             }
-            onClick={() => {
+            onClick={(event) => {
+              event.stopPropagation();
               setSortType(SortTypes.ID_HIGH_TO_LOW);
               setIsOption1(false);
               setIsOption2(true);
@@ -274,7 +280,7 @@ const FilterDropDown = ({
   };
 
   return (
-    <div ref={menuRef} className={applyStyles(`filter-bar-dropdown`)}>
+    <div className={applyStyles(`filter-bar-dropdown`)}>
       <div className="checkbox-type">
         {checkboxEl(ElementTypes.BUG, `Bug`)}
         {checkboxEl(ElementTypes.DARK, `Dark`)}
@@ -300,7 +306,8 @@ const FilterDropDown = ({
         <div className="sort-type-container">
           <div
             className={aToZ ? "sort-btn clicked" : "sort-btn"}
-            onClick={() => {
+            onClick={(event) => {
+              event.stopPropagation();
               setPokeDollarValue(false);
               setAToZ(true);
               setPokeID(false);
@@ -313,7 +320,8 @@ const FilterDropDown = ({
 
           <div
             className={pokeDollarValue ? "sort-btn clicked" : "sort-btn"}
-            onClick={() => {
+            onClick={(event) => {
+              event.stopPropagation();
               setPokeDollarValue(true);
               setAToZ(false);
               setPokeID(false);
@@ -326,7 +334,8 @@ const FilterDropDown = ({
 
           <div
             className={pokeID ? "sort-btn clicked" : "sort-btn"}
-            onClick={() => {
+            onClick={(event) => {
+              event.stopPropagation();
               setPokeDollarValue(false);
               setAToZ(false);
               setPokeID(true);
