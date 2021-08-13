@@ -50,6 +50,7 @@
   }
 }
 
+.blink,
 .coin-link {
   margin-left: 1em;
   display: flex;
@@ -68,4 +69,24 @@
     border-radius: 8.2px;
     padding: 0 5px;
   }
+
 }
+
+.blink {
+  animation: blinker 1s linear infinite;
+  background-color: $sell-btn;
+}
+
+.blink h4 {
+  color: $icon-color;
+}
+
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+

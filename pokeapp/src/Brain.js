@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { getAllPokemon, getPokemonWeakness } from "./utilities/apiCall";
 import FilterBar from "./components/FilterBar";
 import DigitalCardBinder from "./components/DigitalCardBinder";
@@ -24,12 +24,19 @@ export const Brain = () => {
   const [badgeBtnActive1, setBadgeBtnActive1] = useState(false);
   const [badgeBtnActive2, setBadgeBtnActive2] = useState(false);
 
+  const currencyDisplayRef = useRef(null);
+
   const resolvePokeList = async (pokeList) => {
     return Promise.all(pokeList);
   };
 
   const makeUpperCase = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  const blinker = () => {
+    currencyDisplayRef.current.className = "blink";
+      setTimeout(() => currencyDisplayRef.current.className = "coin-link", 1500)
   };
 
   const getWeight = (weight) => {
@@ -156,6 +163,8 @@ export const Brain = () => {
             isBadgeSideBar={isBadgeSideBar}
             Navigation={
               <Navigation
+                blinker={blinker}
+                currencyDisplayRef={currencyDisplayRef}
                 isMyPoke={isMyPoke}
                 isPokeDex={isPokeDex}
                 setIsMyPoke={setIsMyPoke}
@@ -182,6 +191,7 @@ export const Brain = () => {
               <SideBar
                 badgeBtnActive1={badgeBtnActive1}
                 badgeBtnActive2={badgeBtnActive2}
+                blinker={blinker}
                 isMoreInfo={isMoreInfo}
                 makeUpperCase={makeUpperCase}
                 selectedPokemon={selectedPokemon}
@@ -195,6 +205,7 @@ export const Brain = () => {
             DigitalCardBinder={
               <DigitalCardBinder
                 allPokemonFiltered={allPokemonFiltered}
+                blinker={blinker}
                 isMyPoke={isMyPoke}
                 makeUpperCase={makeUpperCase}
                 setBadgeBtnActive1={setBadgeBtnActive1}
@@ -208,6 +219,8 @@ export const Brain = () => {
         </Route>
         <Route path="/GamePage">
           <GamePage
+            blinker={blinker}
+            currencyDisplayRef={currencyDisplayRef}
             makeUpperCase={makeUpperCase}
             setBadgeBtnActive1={setBadgeBtnActive1}
             setBadgeBtnActive2={setBadgeBtnActive2}
