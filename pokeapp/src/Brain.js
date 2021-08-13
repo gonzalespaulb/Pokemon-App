@@ -223,6 +223,7 @@ const [active, setActive] = useState(false);
             }
             BadgeSideBar={
               <BadgeSideBar
+                applyStyles={applyStyles}
                 badgeBtnActive1={badgeBtnActive1}
                 badgeBtnActive2={badgeBtnActive2}
                 isBadgeSideBar={isBadgeSideBar}
