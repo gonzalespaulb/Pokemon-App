@@ -32,7 +32,7 @@ const BadgeSideBar = ({
         </div>
       </div>
 
-      <div className="badge-containter">
+      <div className="badge-container">
         {isBadgeSideBar ? renderBadges(badges) : null}
       </div>
     </div>

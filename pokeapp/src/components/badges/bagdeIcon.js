@@ -77,6 +77,7 @@ export const allBadges = [
       squirtleOwned: false,
       charmanderOwned: false,
     },
+    description: "You can achieve this badge by collecting the starting 3"
   },
   {
     name: "BoulderBadge",
@@ -90,6 +91,7 @@ export const allBadges = [
       rhyhornOwned: false,
       gravelerOwned: false,
     },
+    description: "Brock is the original owner of this badge. Do you remember which Pokemon he had?"
   },
   {
     name: "BugBadge",
@@ -108,6 +110,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: "Eeeek, that is a lot of bugs, but you need them to collect this badge"
   },
   {
     name: "DarkBadge",
@@ -126,6 +129,8 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description:"You must adopt the darkness to collect this badge"
+    
   },
   {
     name: "DragonBadge",
@@ -144,6 +149,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: "Pretend that you are in Skyrim "
   },
   {
     name: "EarthBadge",
@@ -162,6 +168,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: "You will need enough to move mountains"
   },
   {
     name: "FairyBadge",
@@ -180,6 +187,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: "Do you believe in fairies?"
   },
   {
     name: "FeatherBadge",
@@ -198,6 +206,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: "Collect enough to fly far far away"
   },
   {
     name: "FightingBadge",
@@ -216,6 +225,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: "You might have to throw a couple punches to get this one"
   },
   {
     name: "FireBadge",
@@ -234,6 +244,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: "Try not to set yourself on fire getting this one"
   },
   {
     name: "FreezeBadge",
@@ -252,6 +263,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: "Chill out on your hunt to get this one"
   },
   {
     name: "GlacierBadge",
@@ -266,6 +278,7 @@ export const allBadges = [
       cloysterOwned: false,
       weavileOwned: false,
     },
+    description: "Collect the pokemon that the 7th gym leader in Johto has"
   },
   {
     name: "GrassBadge",
@@ -284,6 +297,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: "No you can't get this by mowing the lawn. Try looking around the tall grass for this one."
   },
   {
     name: "MineralBadge",
@@ -302,6 +316,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: "This is definitely the only badge you can steel."
   },
   {
     name: "PlainBadge",
@@ -320,6 +335,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: "Collect enough and normally you would be able to achieve this badge."
   },
   {
     name: "PsychicBadge",
@@ -338,6 +354,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: "You read my mind on this one."
   },
   {
     name: "RainbowBadge",
@@ -364,6 +381,7 @@ export const allBadges = [
       typeDragonOwned: false,
       typeFightingOwned: false,
     },
+    description: "A little bit of everything, a colorful pokedex is a way to go."
   },
   {
     name: "RockBadge",
@@ -382,6 +400,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: `Don't bang your head too hard collecting this. Rock on!`
   },
   {
     name: "SoulBadge",
@@ -400,6 +419,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: `A spooky one. This badge should give you goosebumps everytime yeah.`
   },
   {
     name: "ToxicBadge",
@@ -418,6 +438,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: `A hazmat suit should probably be in your to buy list for this one.`
   },
   {
     name: "VoltageBadge",
@@ -436,6 +457,7 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: `Careful collecting these, make sure you don't get shocked.`
   },
   {
     name: "WaterBadge",
@@ -454,5 +476,6 @@ export const allBadges = [
       ninetyOwned: false,
       hundredOwned: false,
     },
+    description: `Collect enough to start a lake. Who knows what you'll find in there.`
   },
 ];
