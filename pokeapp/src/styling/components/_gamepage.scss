@@ -1,0 +1,360 @@
+@import '../colorschemes/colors';
+@import '../typography/fonts';
+
+
+.game {
+    grid-area: 2 / 1 / 3 / 3;
+    background-color: $component-container;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+// ------------------------------------------------------------------------------------------------SLOT MACHINE PARENT CONTAINER
+
+.slot-machine {
+    height: 300px;
+    width: 800px;
+    position: relative;
+    border-radius: 10px;
+
+
+    &-rollers {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    &-arm {
+        height: 300px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translateX(100%);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+// ------------------------------------------------------------------------------------------------POKEMON WAVE CONTAINERS
+    &-left, 
+    &-top,
+    &-bottom {
+        position: absolute;
+        z-index: 5; 
+    }
+
+    &-left {
+        left: 0;
+        height: 300px;
+        width: 100px;
+        transform: translateX(0%) rotateZ(0deg); //
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .translate-weezing { transform: translateY(27%) translateX(30%); }
+        .translate-up { transform: translateY(-250%) translateX(30%); }
+    }
+
+    &-top {
+        top: 0;
+        width: 800px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+
+        .translate-down { transform: translateX(40%) translateY(23%); }
+    }
+
+    &-bottom {
+        bottom: 0;
+        width: 800px;
+        height: 100px;
+        transform: translateY(-100%) rotateZ(0deg);//
+        display: flex;
+    }
+}
+
+// ------------------------------------------------------------------------------------------------SLOT MACHINE BLINKER
+
+.blinker {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    z-index: 8;
+    display: flex;
+
+    &-1, &-2, &-3 {
+        width: 33.33%;
+        height: 100%;
+        opacity: 0;
+        border-radius: 10px;
+    }
+
+    &-1 {
+        background-color: $sell-btn;
+        animation-delay: 1s;
+    }
+
+    &-2 {
+        background-color: $pokedollar-color;
+        animation-delay: 0.5s;
+    }
+
+    &-3 {
+        background-color: $buy-btn;
+        animation-delay: 0s;
+    }
+}
+
+// ------------------------------------------------------------------------------------------------REEL STYLING
+
+.roller {
+    width: 30%;
+    height: 90%;
+    background-color: #333333;
+    overflow: hidden;
+    z-index: 10; //
+}
+
+.roller-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.reel-default {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+// ------------------------------------------------------------------------------------------------STICK AND HOLE IS NESTED IN LEVER BASE
+
+.lever-sub-base {
+    background-color: $more-info-btn;
+    width: 20px;
+    height: 150px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.lever-base {
+    background: $more-info-btn;
+    width: 20px;
+    height: 100px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    align-items: center;
+    position: relative;
+}
+
+// ------------------------------------------------------------------------------------------------STICK AND BALL STYLING
+
+.lever-hole {
+    width: 15px;
+    height: 15px;
+    background-color: $base-color;
+    border-radius: 50%;
+}
+
+.lever-stick {
+    height: 120px;
+    width: 10px;
+    background-color: $sell-btn;
+    position: absolute;
+    transform: translateY(-90%);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    .lever-ball {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: $buy-btn;
+        transform: translateY(-100%) translateX(-35%);
+    }
+}
+
+// ------------------------------------------------------------------------------------------------RESET BUTTON
+
+.reset-btn {
+    padding: 20px;
+    transform: translateX(100%);
+    color: $secondary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border: 2px solid $secondary-color;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        color: $component-container;
+        border: 2px solid $secondary-color;
+        background-color: $secondary-color;
+    }
+}
+
+// ------------------------------------------------------------------------------------------------WON POKEMON GRID
+.gamepage-card {
+    background-color: $component-container;
+    grid-area: 3 / 1 / 4 / 3;
+    border-radius: 10px;
+    color: $font-color;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 300px;
+    grid-gap: 10px;
+    padding: 10px;
+    overflow: scroll;
+}
+
+
+// ------------------------------------------------------------------------------------------------ANIMATION CONTROLS
+
+// animation: duration | easing-function | delay | iteration-count | direction | fill-mode | play-state | name
+
+.roller-ani {
+    animation: 3s ease 0s 1 normal forwards running roll-up;  
+}
+
+@keyframes roll-up {
+    0% { transform: translateY(0%); }
+    100% { transform: translateY(-900%); }
+}
+
+.lever-hole-active {
+    animation: 1s ease 0s 1 normal forwards running lever-hole-down;  
+}
+
+@keyframes lever-hole-down {
+    0% { transform: translateY(0%); }
+    50% { transform: translateY(200%); }
+    100% { transform: translateY(0%); }
+}
+
+.lever-stick-active  {
+    animation: 1s ease 0s 1 normal forwards running lever-stick-down;  
+}
+
+@keyframes lever-stick-down {
+    0% { transform: translateY(-90%) scaleY(1); }
+    50% { transform: translateY(-40%) scaleY(0.5); }
+    100% { transform: translateY(-90%) scaleY(1); }
+}
+
+
+// ---------------------------------------------------------------------TOP WAVE
+
+.top-init, 
+.top-1, 
+.top-2 {
+    margin-left: -75px;
+    height: 110%;
+    transform: translateX(40%) translateY(10%);
+    opacity: 0;
+}
+
+.top-1, 
+.top-2 {
+    animation-name: top-wave;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+.top-1:nth-child(odd) {animation-delay: 0.5s;}
+.top-1:nth-child(even) {animation-delay: 0.7s;}
+.top-2:nth-child(odd) {animation-delay: 0.9s}
+.top-2:nth-child(even) {animation-delay: 0.3s}
+
+@keyframes top-wave {
+    0% {transform: translateX(40%)translateY(0%); opacity: 0;}
+    50% {transform: translateX(40%) translateY(-130%); opacity: 1;}
+    100% {transform: translateX(40%)translateY(00%); opacity: 0;}
+}
+
+// ---------------------------------------------------------------------LEFT WAVE
+
+.left-init,
+.left-1,
+.left-2 {
+    margin-bottom: -45px;
+    transform: translateY(-5%) translateX(30%);
+    opacity: 0;
+}
+
+.left-1, .left-2 {
+    animation-name: left-wave;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+.left-1:nth-child(odd) {animation-delay: 0.5s;}
+.left-1:nth-child(even) {animation-delay: 0.7s;}
+.left-2:nth-child(odd) {animation-delay: 0.9s}
+.left-2:nth-child(even) {animation-delay: 0.3s}
+
+@keyframes left-wave {
+    0% {transform: translateY(-5%) translateX(0%); opacity: 0;}
+    50% {transform: translateY(-5%) translateX(-130%); opacity: 1;}
+    100% {transform: translateY(-5%) translateX(0%); opacity: 0;}
+}
+
+// ---------------------------------------------------------------------BOTTOM WAVE
+
+.bottom-init,
+.bottom-1,
+.bottom-2 {
+    margin-left: -75px;
+    height: 110%;
+    transform: translateX(40%) translateY(0%); 
+    opacity: 0;
+}
+
+.bottom-1, .bottom-2 {
+    animation-name: bottom-wave;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+.bottom-1:nth-child(odd) {animation-delay: 0.5s;}
+.bottom-1:nth-child(even) {animation-delay: 0.7s;}
+.bottom-2:nth-child(odd) {animation-delay: 0.9s}
+.bottom-2:nth-child(even) {animation-delay: 0.3s}
+
+@keyframes bottom-wave {
+    0% {transform: translateX(40%)translateY(0%); opacity: 0;}
+    50% {transform: translateX(40%) translateY(180%); opacity: 1;}
+    100% {transform: translateX(40%)translateY(0%); opacity: 0;}
+}
+
+// ---------------------------------------------------------------------BLINKER-1
+
+.blinker-ani {
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blinker {
+    0%{opacity: 0;}
+    50%{opacity: 1;}
+    100%{opacity: 0;}
+}

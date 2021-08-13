@@ -1,0 +1,117 @@
+@import '../colorschemes/colors';
+
+// Available font weights
+// 100, 200, 300, 400, 500, 600, 700, 800, 900
+
+
+// ------------------------------------------------------------NAVIGATION
+
+.nav-link-font {
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: $secondary-color;
+}
+
+.coin-link-font {
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+// ------------------------------------------------------------SIDEBAR
+
+.sidebar-nav-font-1 {
+    color: $secondary-color;
+    letter-spacing: 1px;
+}
+
+.sidebar-nav-font-2 {
+    color: $base-color;
+    letter-spacing: 1px;
+}
+
+.image-value-font {
+    letter-spacing: 1px;
+}
+
+.sidebar-name-font {
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 24px;
+    color: $secondary-color;
+}
+
+.sidebar-id-font {
+    letter-spacing: 1px;
+    font-size: 18px;
+    color: $secondary-color;
+}
+
+.sidebar-subheading-font {
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: $secondary-color;
+}
+
+.sidebar-info-font {
+    letter-spacing: 1px;
+    font-weight: 200;
+    font-size: 14px;
+    color: $secondary-color;
+}
+
+.sidebar-btn-font-1 {
+    letter-spacing: 1px;
+    color: $secondary-color;
+    font-weight: 500;
+}
+
+.sidebar-btn-font-2 {
+    letter-spacing: 1px;
+    color: $base-color;
+}
+
+// ------------------------------------------------------------POKEMON CARDS
+
+.card-name-font {
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.card-id-font {
+    letter-spacing: 1px;
+}
+
+.card-btn-font {
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.pokeball-font {
+    color: $base-color;
+}
+
+// ------------------------------------------------------------FILTER BAR
+
+.filter-bar-text {
+    letter-spacing: 1px;
+    color: $secondary-color;
+}
+
+.filter-icon {
+    fill: $secondary-color;
+}
+
+// ------------------------------------------------------------FILTER DROPDOWN
+
+.checkbox-font-1 {
+    letter-spacing: 0.5px;
+}
+
+.checkbox-font-2 {
+    letter-spacing: 0.5px;
+}
+
+.clicked {
+    color: $secondary-color;
+}

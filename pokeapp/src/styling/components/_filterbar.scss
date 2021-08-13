@@ -1,0 +1,221 @@
+@import "../colorschemes/colors";
+@import "../typography/fonts";
+
+.filter-bar {
+  background-color: $component-container;
+  grid-area: 2 / 2 / 3 / 3;
+  border-radius: 10px;
+  color: $font-color;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+
+  &-icon {
+    margin-right: 1em;
+  }
+
+  &-text {
+    margin: 0.7em;
+  }
+}
+
+.filter-bar-icon img {
+  margin: 7px 5px 0px 0px;
+  width: 25px;
+  height: 25px;
+  opacity: 1;
+}
+
+//--------------------------------------------------------------DROPDOWN ANIMATION START
+.filter-bar-dropdown,
+.filter-bar-dropdown-active,
+.filter-bar-dropdown-inactive {
+  background-color: $secondary-color;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 30;
+  border-radius: 10px;
+  padding: 10px;
+  overflow: hidden;
+}
+.filter-bar-dropdown {
+  transform: scaleY(0);
+  overflow: hidden;
+  opacity: 0;
+}
+
+.filter-bar-dropdown-active {
+  transform-origin: top right;
+  animation: 0.7s ease 0s 1 normal forwards running filter-dropdown-active;
+}
+
+.filter-bar-dropdown-inactive {
+  transform-origin: top right;
+  animation: 0.7s ease 0s 1 normal forwards running filter-dropdown-inactive;
+}
+
+@keyframes filter-dropdown-active {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes filter-dropdown-inactive {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+//---------------------------------------------------------------DROPDOWN ANIMATION END
+
+.active {
+  &-Fire {
+    color: white !important;
+    background-color: $fire;
+  }
+  &-Water {
+    color: white !important;
+    background-color: $water;
+  }
+  &-Bug {
+    color: white !important;
+    background-color: $bug;
+  }
+  &-Grass {
+    color: white !important;
+    background-color: $grass;
+  }
+  &-Fairy {
+    color: white !important;
+    background-color: $fairy;
+  }
+  &-Fighting {
+    color: white !important;
+    background-color: $fighting;
+  }
+  &-Dark {
+    color: white !important;
+    background-color: $dark;
+  }
+  &-Ice {
+    color: white !important;
+    background-color: $ice;
+  }
+  &-Normal {
+    color: white !important;
+    background-color: $normal;
+  }
+  &-Poison {
+    color: white !important;
+    background-color: $poison;
+  }
+  &-Electric {
+    color: white !important;
+    background-color: $electric;
+  }
+  &-Steel {
+    color: white !important;
+    background-color: $steel;
+  }
+  &-Dragon {
+    color: white !important;
+    background-color: $dragon;
+  }
+  &-Ghost {
+    color: white !important;
+    background-color: $ghost;
+  }
+  &-Psychic {
+    color: white !important;
+    background-color: $psychic;
+  }
+  &-Rock {
+    color: white !important;
+    background-color: $rock;
+  }
+  &-Flying {
+    color: white !important;
+    background-color: $flying;
+  }
+  &-Ground {
+    color: white !important;
+    background-color: $ground;
+  }
+}
+
+.inactive {
+  background-color: transparent;
+}
+
+.filter-checkbox,
+.sort-option-btn {
+  color: $component-container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  border: 2px solid $component-container;
+  border-radius: 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.sort-btn {
+  color: $component-container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  border: 2px solid $component-container;
+  border-radius: 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.option-clicked,
+.clicked {
+  background-color: $card !important;
+  color: $secondary-color !important;
+  letter-spacing: 0.5px;
+}
+
+.checkbox-type {
+  width: 500px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.sort-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+
+.sort-type-container {
+  display: flex;
+}
+
+.sort-option-btn {
+  margin-top: 20px;
+}
+
+.sort-option-container {
+  display: flex;
+}

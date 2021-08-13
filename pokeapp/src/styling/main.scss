@@ -1,0 +1,66 @@
+@import "./colorschemes/colors";
+@import "./typography/fonts";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+// ........................................................... General
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+        width: 0;
+      }
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: $secondary-color;
+}
+
+a:active {
+  color: $secondary-color !important;
+}
+
+a:link {
+  text-decoration: none;
+  color: $secondary-color !important;
+}
+
+
+
+// ........................................................... Components
+
+@import './components/filterbar';
+@import './components/navigation';
+@import './components/digital-card-binder';
+@import './components/sidebar';
+@import './components/tool-tip';
+@import './components/pokemon-card';
+@import './components/gamepage.scss';
+@import './components/badge-sidebar';
+
+// ........................................................... Layout
+
+@import './layout/main-container';
+@import './layout/game-page-container';
+
+// ........................................................... Toastify
+.Toastify__progress-bar--dark {
+  background-color: $secondary-color !important;
+}
+
+.Toastify__toast--dark {
+  background-color: hsl(0, 0%, 11%) !important;
+  border-radius: 10px !important;
+  color: $secondary-color !important;
+}
+
+.Toastify__close-button {
+  color: $secondary-color !important;
+}

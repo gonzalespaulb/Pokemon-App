@@ -1,0 +1,165 @@
+.filter-bar {
+  background-color: #333333;
+  grid-area: 2/2/3/3;
+  border-radius: 10px;
+  color: #ffffff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+.filter-bar-icon {
+  margin: 1em;
+}
+.filter-bar-text {
+  margin: 0.7em;
+}
+
+.filter-bar-dropdown,
+.filter-bar-dropdown-active,
+.filter-bar-dropdown-inactive {
+  background-color: #e3dac9;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 30;
+  border-radius: 10px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.filter-bar-dropdown {
+  transform: scaleY(0);
+  overflow: hidden;
+  opacity: 0;
+}
+
+.filter-bar-dropdown-active {
+  transform-origin: top right;
+  animation: 0.7s ease 0s 1 normal forwards running filter-dropdown-active;
+}
+
+.filter-bar-dropdown-inactive {
+  transform-origin: top right;
+  animation: 0.7s ease 0s 1 normal forwards running filter-dropdown-inactive;
+}
+
+@keyframes filter-dropdown-active {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes filter-dropdown-inactive {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+.active-Fire {
+  background-color: #FBA54C;
+}
+.active-Water {
+  background-color: #539DDF;
+}
+.active-Bug {
+  background-color: #92BC2C;
+}
+.active-Grass {
+  background-color: #5FBD58;
+}
+.active-Fairy {
+  background-color: #EE90E6;
+}
+.active-Fighting {
+  background-color: #D3425F;
+}
+.active-Dark {
+  background-color: #595761;
+}
+.active-Ice {
+  background-color: #57D6C1;
+}
+.active-Normal {
+  background-color: #A0A29F;
+}
+.active-Poison {
+  background-color: #B763CF;
+}
+.active-Electric {
+  background-color: #F2D94E;
+}
+.active-Steel {
+  background-color: #539DDF;
+}
+.active-Dragon {
+  background-color: #0C69C8;
+}
+.active-Ghost {
+  background-color: #5F6DBC;
+}
+.active-Psychic {
+  background-color: #FA8581;
+}
+.active-Rock {
+  background-color: #539DDF;
+}
+.active-Flying {
+  background-color: #A1BBEC;
+}
+.active-Ground {
+  background-color: #DA7C4D;
+}
+
+.inactive {
+  background-color: transparent;
+}
+
+.filter-checkbox,
+.sort-btn,
+.sort-option-btn {
+  color: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  border: 2px solid #333333;
+  border-radius: 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.checkbox-type {
+  width: 500px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.sort-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+
+.sort-type-container {
+  display: flex;
+}
+
+.sort-option-btn {
+  margin-top: 20px;
+}
+
+.sort-option-container {
+  display: flex;
+}
