@@ -135,7 +135,7 @@ const SideBar = ({
 
           <div className="sidebar-image" style={sideBarImageURL}>
             <div className="sidebar-value">
-              <h3>
+              <h3 className="image-value-font">
                 <img src={PokeDollarIcon} alt="poke dollar image" />
                 {selectedPokemon.value}
               </h3>
@@ -145,20 +145,20 @@ const SideBar = ({
           {/* ---------------------------------------------------------------------------------------------NAME AND ID */}
 
           <div className="sidebar-name-id">
-            <h3>{makeUpperCase(selectedPokemon.name)}</h3>
-            <h4>#{selectedPokemon.id}</h4>
+            <h3 className="sidebar-name-font">{makeUpperCase(selectedPokemon.name)}</h3>
+            <h4 className="sidebar-id-font">#{selectedPokemon.id}</h4>
           </div>
 
           {/* ---------------------------------------------------------------------------------------------TYPE AND WEAKNESS */}
 
           <div className="type-weakness">
             <div className="sidebar-type">
-              <h4>Type:</h4>
+              <h4 className="sidebar-subheading-font">Type:</h4>
               <div>{typeIconMapper(selectedPokemon.types)}</div>
             </div>
 
             <div className="sidebar-weakness">
-              <h4>Weaknesses:</h4>
+              <h4 className="sidebar-subheading-font">Weaknesses:</h4>
               <div>{weaknessIconMapper(selectedPokemon.weaknesses)}</div>
             </div>
           </div>
@@ -167,19 +167,19 @@ const SideBar = ({
 
           <div className="height-weight">
             <div className="height">
-              <h4>Height:</h4>
-              <h5>{selectedPokemon.height}</h5>
+              <h4 className="sidebar-subheading-font">Height:</h4>
+              <h5 className="sidebar-info-font">{selectedPokemon.height}</h5>
             </div>
             <div className="weight">
-              <h4>Weight:</h4>
-              <h5>{selectedPokemon.weight}</h5>
+              <h4  className="sidebar-subheading-font">Weight:</h4>
+              <h5 className="sidebar-info-font">{selectedPokemon.weight}</h5>
             </div>
           </div>
 
           {/* ---------------------------------------------------------------------------------------------ABILITIES */}
           {isMoreInfo ? (
             <div className="abilities">
-              <h4>Abilities:</h4>
+              <h4 className="sidebar-subheading-font">Abilities:</h4>
               {abilityMapper(selectedPokemon.abilities)}
             </div>
           ) : null}
@@ -188,8 +188,8 @@ const SideBar = ({
           {isMoreInfo ? (
             <div className="indices-container">
               <div>
-                <h4>Game Indices:</h4>
-                <h5>{videoGame}</h5>
+                <h4 className="sidebar-subheading-font">Game Indices:</h4>
+                <h5  className="sidebar-info-font">{videoGame}</h5>
               </div>
               <div className="indices-grid">
                 {isMoreInfo
@@ -219,7 +219,7 @@ const SideBar = ({
                   dispatch(buyPokemon(selectedPokemon));
                 }}
               >
-                <h4>Buy</h4>
+                <h4 className="sidebar-btn-font-1">Buy</h4>
               </button>
               <button
                 className="sell-btn"
@@ -227,13 +227,13 @@ const SideBar = ({
                   dispatch(sellPokemon(selectedPokemon));
                 }}
               >
-                <h4>Sell</h4>
+                <h4 className="sidebar-btn-font-1">Sell</h4>
               </button>
             </div>
 
             <div className="more-info-btn">
               {!isMoreInfo ? (
-                <h4
+                <h4  className="sidebar-btn-font"
                   onClick={() => {
                     setIsMoreInfo(true);
                   }}
@@ -241,7 +241,7 @@ const SideBar = ({
                   More Information
                 </h4>
               ) : (
-                <h4
+                <h4  className="sidebar-btn-font-2"
                   onClick={() => {
                     setIsMoreInfo(false);
                   }}

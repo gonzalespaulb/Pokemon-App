@@ -28,10 +28,6 @@
 
 .card-links {
   display: flex;
-
-  h4 {
-    color: $font-color;
-  }
 }
 
 .nav-link {
@@ -44,7 +40,7 @@
   .underline {
     width: 95%;
     height: 1px;
-    background-color: white;
+    background-color: $secondary-color;
     margin: auto;
     border-radius: 10px;
   }

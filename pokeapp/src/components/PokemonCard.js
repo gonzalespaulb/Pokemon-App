@@ -81,7 +81,7 @@ const PokemonCard = ({
     >
       <div className="card-header">
         <div className="name">
-          <h3>{makeUpperCase(pokemon.name)}</h3>
+          <h3 className="card-name-font">{makeUpperCase(pokemon.name)}</h3>
         </div>
       </div>
 
@@ -91,7 +91,7 @@ const PokemonCard = ({
         <div className="card-btns-container">
           <div className={applyStyles(`poke-value`)}>
             <img src={PokeDollarIcon} alt="poke dollar image" />
-            {pokemon.value}
+            <h4 className="card-btn-font">{pokemon.value}</h4>
           </div>
           <div
             className={applyStyles(`poke-buy`)}
@@ -104,7 +104,7 @@ const PokemonCard = ({
               dispatch(buyPokemon(pokemon));
             }}
           >
-            Buy
+            <h4 className="card-btn-font">Buy</h4>
           </div>
           {pokemon.quantity > 0 && active ?  (
             <div
@@ -115,7 +115,7 @@ const PokemonCard = ({
                 dispatch(sellPokemon(pokemon));
               }}
             >
-              Sell
+              <h4 className="card-btn-font">Sell</h4>
             </div>
           ) : null}
         </div>
@@ -125,11 +125,11 @@ const PokemonCard = ({
         <div className={pokemon.quantity > 0 ? "pokeball" : "pokeball-hidden"}>
           <div className="pokeball-top"></div>
           <div className="pokeball-bottom"></div>
-          <h4>{pokemon.quantity > 0 ? `x${pokemon.quantity}` : ""}</h4>
+          <h4 className="pokeball-font">{pokemon.quantity > 0 ? `x${pokemon.quantity}` : ""}</h4>
         </div>
         <div className="type-id">
           <div>{typeIconMapper(pokemon.types)}</div>
-          <h3>#{id}</h3>
+          <h3 className="card-id-font">#{id}</h3>
         </div>
       </div>
     </Link>

@@ -190,7 +190,8 @@
 .option-clicked,
 .clicked {
   background-color: $card !important;
-  color: white !important;
+  color: $secondary-color !important;
+  letter-spacing: 0.5px;
 }
 
 .checkbox-type {
