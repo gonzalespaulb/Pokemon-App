@@ -11,14 +11,16 @@ import { winPokemon } from "../redux/pokemonSlice";
 const NUMBER_OF_REEL_FACES = 20;
 
 const GamePage = ({
+  blinker,
+  currencyDisplayRef,
   makeUpperCase,
   setIsMyPoke,
   setIsPokeDex,
   setBadgeBtnActive1,
   setBadgeBtnActive2,
   setIsBadgeSideBar,
-  setSelectedPokemon,
   setIsMoreInfo,
+  setSelectedPokemon,
 }) => {
   // ------------------------------------------------------------------------------------------------RANDOMIZER LOGIC START
 
@@ -43,10 +45,12 @@ const GamePage = ({
     return wonPokemons?.map((pokemon) => {
       return (
         <PokemonCard
+          blinker={blinker}
           key={pokemon.id}
           id={pokemon.id}
           makeUpperCase={makeUpperCase}
           clickHandler={gamePageOnClick}
+          wonPokemon={wonPokemon}
         />
       );
     });
@@ -177,11 +181,11 @@ const partyController = (direction, groupNumber) => {
 // ------------------------------------------------------------------------------------------------MONEY CHECKER
 
 const playGame = () => {
-  if(pokeDollars - 1000 > 0){
+  if(pokeDollars - 1000 >= 0){
     reelSetter(true);
     setTimeout(() => winAPokemon(pokedex), 3400);
   } else {
-    //going to add logic here on a seperate issue
+    blinker();
   }
 
 };
@@ -191,7 +195,7 @@ const playGame = () => {
     return (
        
     <div className="gamepage-container">
-      <Navigation setIsMyPoke={setIsMyPoke} setIsPokeDex={setIsPokeDex} />
+      <Navigation currencyDisplayRef={currencyDisplayRef} setIsMyPoke={setIsMyPoke} setIsPokeDex={setIsPokeDex} />
       <div className="game">
         <div className="slot-machine">
           <div className="blinker">
@@ -270,10 +274,7 @@ const playGame = () => {
               <div className={pullLever(`hole`)} />
 
               <div className={pullLever(`stick`)}>
-                <div
-                  className="lever-ball"
-                  onClick={() => {playGame()}}
-                ></div>
+                <div className="lever-ball" onClick={() => playGame()}></div>
               </div>
           </div>
 

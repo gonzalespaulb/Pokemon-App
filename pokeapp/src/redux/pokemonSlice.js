@@ -7,7 +7,7 @@ export const pokemonSlice = createSlice({
   //initialize states
   initialState: {
     allPokemon: [],
-    pokeDollars: 10000,
+    pokeDollars: 1000,
     allBadges: allBadges,
     bugBadgeCount: 0,
     darkBadgeCount: 0,
@@ -51,7 +51,7 @@ export const pokemonSlice = createSlice({
         type2 = action.payload.types[1].type.name;
       }
  
-      if (state.pokeDollars - action.payload.value > 0) {
+      if (state.pokeDollars - action.payload.value >= 0) {
         //Finds the index of pokemon in the array that matches the id of the pokemon being updated
         const pokeIndex = state.allPokemon.findIndex(
           (element) => element.id === action.payload.id

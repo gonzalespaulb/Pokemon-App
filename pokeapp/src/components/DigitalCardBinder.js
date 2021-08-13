@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 const DigitalCardBinder = ({
   allPokemonFiltered,
+  blinker,
   isMyPoke,
   makeUpperCase,
   setBadgeBtnActive1,
@@ -28,6 +29,7 @@ const DigitalCardBinder = ({
     return allPokemonFiltered.map((pokemon) => {
       return (
         <PokemonCard
+          blinker={blinker}
           key={pokemon.id}
           id={pokemon.id}
           makeUpperCase={makeUpperCase}
@@ -41,6 +43,7 @@ const DigitalCardBinder = ({
     return myPokeList?.map((pokemon) => {
       return (
         <PokemonCard
+          blinker={blinker}
           key={pokemon.id}
           id={pokemon.id}
           makeUpperCase={makeUpperCase}
