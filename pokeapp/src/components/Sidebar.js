@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PokeDollarIcon from "../assets/uiIcons/pokeDollar.svg";
 
+
 import {
   typeIconMapper,
   abilityMapper,
@@ -39,7 +40,7 @@ const SideBar = ({
   const [showPokemon, setShowPokemon] = useState(false);
   const [pokeNameList, setPokeNameList] = useState([]);
 
-  const [videoGame, setVideoGame] = useState(`No Game Selected`);
+  const [videoGame, setVideoGame] = useState("");
 
   // Endpoint. This is the string that will be used by the type ahead
   const [pokeSearch, setPokeSearch] = useState([]);
@@ -189,14 +190,14 @@ const SideBar = ({
             <div className="indices-container">
               <div>
                 <h4>Game Indices:</h4>
-                <h5>{videoGame}</h5>
+                {videoGame.length > 1 ? <h5>{videoGame}</h5>: null}
               </div>
               <div className="indices-grid">
-                {isMoreInfo
+                {isMoreInfo && selectedPokemon.games.length > 0
                   ? gameMapper(selectedPokemon.games, setVideoGame)
                   : null}
                 {!selectedPokemon.games.length && isMoreInfo ? (
-                  <p>This Pokemon has not been in any games</p>
+                  <p>None</p>
                 ) : null}
               </div>
             </div>
@@ -258,8 +259,8 @@ const SideBar = ({
 
   return (
     <div className="sidebar">
-      {selectedPokemon.types ? sidebarInformation() : null}{" "}
-    </div> // add pokeball 
+      {selectedPokemon.types ? sidebarInformation() : null}
+    </div> 
   );
 };
 
