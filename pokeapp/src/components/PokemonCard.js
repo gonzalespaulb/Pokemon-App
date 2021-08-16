@@ -38,11 +38,6 @@ const PokemonCard = ({
     return currStyle;
   };
 
-  const hoverMe = () => {
-    setActive(!active);
-    setFirstHover(true);
-  };
-
   // ------------------------------------------------------------Pop in animation logic
 
   const applyTypeColor = (type) => {
@@ -59,6 +54,14 @@ const PokemonCard = ({
     height: `75%`,
     borderRadius: `10px`,
   };
+
+  const hoverMe = () => {
+    setActive(true);
+    setFirstHover(true);
+  };
+
+  const leaveHover = () => 
+    (setActive(false));
 
   return (
     // Card container starts here
@@ -78,7 +81,7 @@ const PokemonCard = ({
       }}
       onMouseLeave={() => {
         setIsSelected(false);
-        hoverMe();
+        leaveHover();
       }}
     >
       <div className="card-header">
