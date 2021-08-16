@@ -98,7 +98,10 @@ const PokemonCard = ({
           <div
             className={applyStyles(`poke-buy`)}
             onClick={(e) => {
-              if (pokeDollars - pokemon.value < 0 || pokeDollars - wonPokemon?.value < 0) {
+              if (
+                pokeDollars - pokemon.value < 0 ||
+                pokeDollars - wonPokemon?.value < 0
+              ) {
                 blinker();
               }
               e.preventDefault();
@@ -108,7 +111,7 @@ const PokemonCard = ({
           >
             <h4 className="card-btn-font">Buy</h4>
           </div>
-          {pokemon.quantity > 0 && active ?  (
+          {pokemon.quantity > 0 && active ? (
             <div
               className={applyStyles(`poke-sell`)}
               onClick={(e) => {
@@ -127,7 +130,15 @@ const PokemonCard = ({
         <div className={pokemon.quantity > 0 ? "pokeball" : "pokeball-hidden"}>
           <div className="pokeball-top"></div>
           <div className="pokeball-bottom"></div>
-          <h4 className="pokeball-font">{pokemon.quantity > 0 ? `x${pokemon.quantity}` : ""}</h4>
+          <h4
+            className={
+              pokemon.quantity >= 100
+                ? "pokeball-font-hundreds"
+                : "pokeball-font"
+            }
+          >
+            {pokemon.quantity > 0 ? `x${pokemon.quantity}` : ""}
+          </h4>
         </div>
         <div className="type-id">
           <div>{typeIconMapper(pokemon.types)}</div>

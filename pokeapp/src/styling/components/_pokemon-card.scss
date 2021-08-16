@@ -104,12 +104,15 @@
 .pokeball-hidden {
   position: relative;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  min-width: 25px;
+  min-height: 25px;
+  max-width: 25px;
+  max-height: 25px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 5px;
 
   &-top {
     background-color: $sell-btn;
@@ -127,8 +130,23 @@
   }
 
   h4 {
+    font-size: 13px;
     color: $quantity-color;
     z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+
+    &.pokeball-font-hundreds {
+      color: $quantity-color;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2px;
+      font-size: 11px;
+    }
   }
 }
 
