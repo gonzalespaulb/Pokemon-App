@@ -60,9 +60,8 @@ const PokemonCard = ({
     setFirstHover(true);
   };
 
-  const leaveHover = () => {
-    setActive(false);
-  };
+  const leaveHover = () => 
+    (setActive(false));
 
   return (
     // Card container starts here
