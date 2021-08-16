@@ -284,6 +284,14 @@
   cursor: pointer;
 }
 
+@media only screen and (max-height: 920px) {
+  .btn-container {
+    position: relative;
+    margin-top: 20px;
+  }
+}
+
+
 .btn-container-more-info {
   display: flex;
   flex-direction: column;
