@@ -240,7 +240,7 @@ const SideBar = ({
 
             <div className="more-info-btn">
               {!isMoreInfo ? (
-                <h4  className="sidebar-btn-font"
+                <h4  className="sidebar-btn-font-2"
                   onClick={() => {
                     setIsMoreInfo(true);
                   }}
