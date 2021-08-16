@@ -104,10 +104,8 @@
 .pokeball-hidden {
   position: relative;
   border-radius: 50%;
-  min-width: 25px;
-  min-height: 25px;
-  max-width: 25px;
-  max-height: 25px;
+  width: 25px;
+  height: 25px;
   overflow: hidden;
   display: flex;
   justify-content: center;
