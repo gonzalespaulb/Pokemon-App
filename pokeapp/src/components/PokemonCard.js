@@ -62,7 +62,6 @@ const PokemonCard = ({
 
   const leaveHover = () => 
     (setActive(false));
-  
   return (
     // Card container starts here
     <Link

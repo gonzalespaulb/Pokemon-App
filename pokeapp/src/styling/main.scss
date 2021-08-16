@@ -13,6 +13,9 @@
     ::-webkit-scrollbar {
         width: 0;
       }
+      :focus{
+        outline: none !important;
+      } 
 }
 
 a {
