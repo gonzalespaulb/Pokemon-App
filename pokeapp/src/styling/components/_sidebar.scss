@@ -103,20 +103,23 @@
     display: flex;
     align-items: center;
     width: 100%;
-    border-radius: 10px 0px 0px 10px;
+    border-top-left-radius: 10px;
     padding-left: 10px;
     border: none;
     background-color: $secondary-color;
+
   }
 
   #basic-typeahead-single {
-    background-color: #fff;
+    background-color: $secondary-color;
     text-align: left;
-    color: $base-color;
     display: block;
     position: absolute;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
+    border-top: 2px solid $base-color;
     overflow-y: scroll;
+    border: 1px solid $base-color
+
   }
 
   .rbt-menu {
@@ -129,6 +132,7 @@
       color: #262626;
       width: 100%;
       display: block;
+      color: $base-color !important;
     }
   }
 
