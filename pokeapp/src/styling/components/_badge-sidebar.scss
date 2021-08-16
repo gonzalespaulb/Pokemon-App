@@ -21,7 +21,7 @@
 
     .badge-btn-left,
     .badge-btn-right {
-      padding: .2em;
+      padding: 0.2em;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -31,7 +31,11 @@
       color: $secondary-color;
     }
 
-    .active{
+    .badge-btn-left {
+      padding: 10px;
+    }
+
+    .active {
       .underline {
         width: 95%;
         height: 1px;
@@ -39,7 +43,6 @@
         border-radius: 10px;
       }
     }
-
   }
 }
 
@@ -136,6 +139,6 @@
   }
 }
 
-.percent-complete{
+.percent-complete {
   color: $base-color;
 }
