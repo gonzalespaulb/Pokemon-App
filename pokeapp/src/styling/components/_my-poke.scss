@@ -1,0 +1,65 @@
+@import "../colorschemes/colors";
+@import "../typography/fonts";
+
+.my-poke-page {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ball-container {
+  background-color: white;
+  position: relative;
+  border-radius: 50%;
+  width: 25em;
+  height: 25em;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: .5;
+}
+
+.horiz-line {
+    background-color: white;
+    height: 15%;
+    width: 100%;
+    position: absolute;
+    border-radius: 5px;
+  }
+
+  .large-ball {
+    background-color: $sell-btn;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .medium-ball {
+    background-color: white;
+    position: absolute;
+    height: 60%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+  .small-ball {
+    background-color: $dark;
+    position: absolute;
+    height: 40%;
+    width: 40%;
+    border-radius: 50%;
+  }
+
+  .empty-state-text {
+      padding: 1.5em;
+  }
