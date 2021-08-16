@@ -32,9 +32,9 @@
     }
 
     .active{
-      background-color: $secondary-color !important;
-      color: black;
+      color: $secondary-color;
       border: 1px solid black;
+      
   }
 } 
 
@@ -278,13 +278,6 @@
   margin-top: 10px;
   text-align: center;
   cursor: pointer;
-}
-
-@media only screen and (max-height: 920px) {
-  .btn-container {
-    position: relative;
-    margin-top: 20px;
-  }
 }
 
 .btn-container-more-info {

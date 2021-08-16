@@ -14,6 +14,7 @@ export const SidebarNav = ({ setIsBadgeSideBar, setBadgeBtnActive1, setBadgeBtnA
       >
         {/* {badgeBtnActive1 ? "sidebar-nav-font-1" : "sidebar-nav-font-2"} */}
         <h4 className={!badgeBtnActive1 ? "sidebar-nav-font-1" : "sidebar-nav-font-2"}>Badges</h4>
+        <div className={badgeBtnActive1 ? "underline" : ""}/>
       </div>
       <div
         className={
@@ -26,6 +27,7 @@ export const SidebarNav = ({ setIsBadgeSideBar, setBadgeBtnActive1, setBadgeBtnA
         }}
       >
         <h4 className={badgeBtnActive1 ? "sidebar-nav-font-1" : "sidebar-nav-font-2"}>Poke Info</h4>
+        <div className={badgeBtnActive2 ? "underline" : ""}/>
       </div>
     </>
   );
