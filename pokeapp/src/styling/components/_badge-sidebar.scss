@@ -17,36 +17,32 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 10px 0;
+    margin-bottom: 20px;
 
     .badge-btn-left,
     .badge-btn-right {
-      padding: .2em;
+      padding: 0.2em;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 25%;
       border: none;
       cursor: pointer;
-      background-color: $card-background;
-      border: 1px solid $secondary-color;
       color: $secondary-color;
     }
 
-    .badge-btn-left{
-      border-radius: 10px 0 0 10px;
+    .badge-btn-left {
+      padding: 10px;
     }
 
-    .badge-btn-right{
-      border-radius: 0 10px 10px 0;
+    .active {
+      .underline {
+        width: 95%;
+        height: 1px;
+        background-color: $secondary-color;
+        border-radius: 10px;
+      }
     }
-
-    .active{
-        background-color: $secondary-color !important;
-        color: black;
-        border: 1px solid black;
-    }
-
   }
 }
 
@@ -143,6 +139,6 @@
   }
 }
 
-.percent-complete{
+.percent-complete {
   color: $base-color;
 }
