@@ -62,7 +62,6 @@ const PokemonCard = ({
 
   const leaveHover = () => {
     setActive(false);
-    setFirstHover(true);
   };
 
   return (
