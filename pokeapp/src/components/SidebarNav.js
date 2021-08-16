@@ -17,7 +17,6 @@ export const SidebarNav = ({
           setIsBadgeSideBar(true);
         }}
       >
-        {/* {badgeBtnActive1 ? "sidebar-nav-font-1" : "sidebar-nav-font-2"} */}
         <h4
           className={
             !badgeBtnActive1 ? "sidebar-nav-font-1" : "sidebar-nav-font-2"
