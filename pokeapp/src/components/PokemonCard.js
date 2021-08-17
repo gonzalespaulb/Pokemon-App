@@ -24,14 +24,14 @@ const PokemonCard = ({
   const [isSelected, setIsSelected] = useState(false);
 
   // ------------------------------------------------------------Pop in animation logic
-  const [active, setActive] = useState(false);
+  const [activeHover, setActiveHover] = useState(false);
   const [firstHover, setFirstHover] = useState(false);
 
   const applyStyles = (type) => {
     let currStyle = `card-btn`;
 
     if (firstHover) {
-      active
+      activeHover
         ? (currStyle = currStyle + ` card-btn-active ${type}-btn`)
         : (currStyle = currStyle + ` card-btn-inactive ${type}-btn`);
     }
@@ -56,12 +56,12 @@ const PokemonCard = ({
   };
 
   const hoverMe = () => {
-    setActive(true);
+    setActiveHover(true);
     setFirstHover(true);
   };
 
-  const leaveHover = () => 
-    (setActive(false));
+  const leaveHover = () => setActiveHover(false);
+
   return (
     // Card container starts here
     <Link
@@ -113,7 +113,7 @@ const PokemonCard = ({
           >
             <h4 className="card-btn-font">Buy</h4>
           </div>
-          {pokemon.quantity > 0 && active ? (
+          {pokemon.quantity > 0 && activeHover ? (
             <div
               className={applyStyles(`poke-sell`)}
               onClick={(e) => {
