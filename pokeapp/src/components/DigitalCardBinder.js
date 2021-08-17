@@ -31,10 +31,10 @@ const DigitalCardBinder = ({
       return (
         <PokemonCard
           blinker={blinker}
-          key={pokemon.id}
-          id={pokemon.id}
-          makeUpperCase={makeUpperCase}
           clickHandler={cardBinderClickHandler}
+          id={pokemon.id}
+          key={pokemon.id}
+          makeUpperCase={makeUpperCase}
           triggerOn={triggerOn}
         />
       );
@@ -42,21 +42,45 @@ const DigitalCardBinder = ({
   };
 
   const myPokeListCardPrinter = () => {
-    return myPokeList?.map((pokemon) => {
+    if (myPokeList.length) {
+      return myPokeList?.map((pokemon) => {
+        return (
+          <PokemonCard
+            blinker={blinker}
+            clickHandler={cardBinderClickHandler}
+            id={pokemon.id}
+            key={pokemon.id}
+            makeUpperCase={makeUpperCase}
+            triggerOn={triggerOn}
+          />
+        );
+      });
+    } else {
       return (
-        <PokemonCard
-          blinker={blinker}
-          key={pokemon.id}
-          id={pokemon.id}
-          makeUpperCase={makeUpperCase}
-          clickHandler={cardBinderClickHandler}
-        />
+        <div className="my-poke-page">
+          <h2 className="empty-state-text">You do not have any Pokemon</h2>
+          <div className="ball-container">
+            <div className="large-ball">
+              <div className="horiz-line"></div>
+              <div className="medium-ball">
+                <div className="small-ball"></div>
+              </div>
+            </div>
+          </div>
+          <h2 className="empty-state-text">Go Win or Buy Some!</h2>
+        </div>
       );
-    });
+    }
   };
 
   return (
-    <div className="digital-card-binder">
+    <div
+      className={
+        isMyPoke && !myPokeList.length
+          ? "digital-card-binder-empty"
+          : "digital-card-binder"
+      }
+    >
       {isMyPoke ? myPokeListCardPrinter() : pokedexCardPrinter()}
     </div>
   );

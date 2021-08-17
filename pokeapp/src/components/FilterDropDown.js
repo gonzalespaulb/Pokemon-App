@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import { SortTypes, ElementTypes } from "../utilities/enums";
 
 const FilterDropDown = ({
-  allPokemon,
-  setAllPokemonFiltered,
   active,
+  allPokemon,
   firstClick,
-  menuRef,
+  setAllPokemonFiltered,
 }) => {
   const [sortType, setSortType] = useState(SortTypes.ID_LOW_TO_HIGH);
   const [selectedTypes, setSelectedTypes] = useState([]);

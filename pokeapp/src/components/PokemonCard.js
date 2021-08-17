@@ -24,23 +24,18 @@ const PokemonCard = ({
   const [isSelected, setIsSelected] = useState(false);
 
   // ------------------------------------------------------------Pop in animation logic
-  const [active, setActive] = useState(false);
+  const [activeHover, setActiveHover] = useState(false);
   const [firstHover, setFirstHover] = useState(false);
 
   const applyStyles = (type) => {
     let currStyle = `card-btn`;
 
     if (firstHover) {
-      active
+      activeHover
         ? (currStyle = currStyle + ` card-btn-active ${type}-btn`)
         : (currStyle = currStyle + ` card-btn-inactive ${type}-btn`);
     }
     return currStyle;
-  };
-
-  const hoverMe = () => {
-    setActive(!active);
-    setFirstHover(true);
   };
 
   // ------------------------------------------------------------Pop in animation logic
@@ -60,6 +55,13 @@ const PokemonCard = ({
     borderRadius: `10px`,
   };
 
+  const hoverMe = () => {
+    setActiveHover(true);
+    setFirstHover(true);
+  };
+
+  const leaveHover = () => setActiveHover(false);
+
   return (
     // Card container starts here
     <Link
@@ -78,7 +80,7 @@ const PokemonCard = ({
       }}
       onMouseLeave={() => {
         setIsSelected(false);
-        hoverMe();
+        leaveHover();
       }}
     >
       <div className="card-header">
@@ -98,7 +100,10 @@ const PokemonCard = ({
           <div
             className={applyStyles(`poke-buy`)}
             onClick={(e) => {
-              if (pokeDollars - pokemon.value < 0 || pokeDollars - wonPokemon?.value < 0) {
+              if (
+                pokeDollars - pokemon.value < 0 ||
+                pokeDollars - wonPokemon?.value < 0
+              ) {
                 blinker();
               }
               e.preventDefault();
@@ -108,7 +113,7 @@ const PokemonCard = ({
           >
             <h4 className="card-btn-font">Buy</h4>
           </div>
-          {pokemon.quantity > 0 && active ?  (
+          {pokemon.quantity > 0 && activeHover ? (
             <div
               className={applyStyles(`poke-sell`)}
               onClick={(e) => {
@@ -127,7 +132,15 @@ const PokemonCard = ({
         <div className={pokemon.quantity > 0 ? "pokeball" : "pokeball-hidden"}>
           <div className="pokeball-top"></div>
           <div className="pokeball-bottom"></div>
-          <h4 className="pokeball-font">{pokemon.quantity > 0 ? `x${pokemon.quantity}` : ""}</h4>
+          <h4
+            className={
+              pokemon.quantity >= 100
+                ? "pokeball-font-hundreds"
+                : "pokeball-font"
+            }
+          >
+            {pokemon.quantity > 0 ? `x${pokemon.quantity}` : ""}
+          </h4>
         </div>
         <div className="type-id">
           <div>{typeIconMapper(pokemon.types)}</div>

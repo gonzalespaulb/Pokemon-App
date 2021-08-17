@@ -55,6 +55,29 @@ const SideBar = ({
     getPokenames(allPokemon);
   }, [allPokemon]);
 
+  const renderOwnedQuantity = () => {
+
+    const selectedPokemonSnapShot = allPokemon.find((pokemon)=> pokemon.id === selectedPokemon.id);
+    if (selectedPokemonSnapShot.quantity > 0){
+      return(
+        <div className="pokeball" >
+        <div className="pokeball-top"></div>
+        <div className="pokeball-bottom"></div>
+        <h4
+          className={
+            selectedPokemonSnapShot.quantity >= 100
+              ? "pokeball-font-hundreds"
+              : "pokeball-font"
+          }
+        >
+          {selectedPokemonSnapShot.quantity > 0 ? `x${selectedPokemonSnapShot.quantity}` : ""}
+        </h4>
+      </div>
+      )
+    }
+
+  };
+
   const getPokenames = (pokeList) => {
     const names = pokeList.map((pokemon) => {
       return pokemon.name;
@@ -149,10 +172,13 @@ const SideBar = ({
             </div>
           </div>
 
-          {/* ---------------------------------------------------------------------------------------------NAME AND ID */}
+          {/* ---------------------------------------------------------------------------------------------NAME, ID, AND QUANTITY */}
 
           <div className="sidebar-name-id">
+            <div style={{display:"flex"}}>
             <h3 className="sidebar-name-font">{makeUpperCase(selectedPokemon.name)}</h3>
+              {renderOwnedQuantity()}
+            </div>
             <h4 className="sidebar-id-font">#{selectedPokemon.id}</h4>
           </div>
 
@@ -240,7 +266,7 @@ const SideBar = ({
 
             <div className="more-info-btn">
               {!isMoreInfo ? (
-                <h4  className="sidebar-btn-font"
+                <h4  className="sidebar-btn-font-2"
                   onClick={() => {
                     setIsMoreInfo(true);
                   }}

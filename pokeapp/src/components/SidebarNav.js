@@ -1,7 +1,12 @@
 import React from "react";
 
-
-export const SidebarNav = ({ setIsBadgeSideBar, setBadgeBtnActive1, setBadgeBtnActive2, badgeBtnActive1, badgeBtnActive2 }) => {
+export const SidebarNav = ({
+  badgeBtnActive1,
+  badgeBtnActive2,
+  setIsBadgeSideBar,
+  setBadgeBtnActive1,
+  setBadgeBtnActive2,
+}) => {
   return (
     <>
       <div
@@ -12,8 +17,14 @@ export const SidebarNav = ({ setIsBadgeSideBar, setBadgeBtnActive1, setBadgeBtnA
           setIsBadgeSideBar(true);
         }}
       >
-        {/* {badgeBtnActive1 ? "sidebar-nav-font-1" : "sidebar-nav-font-2"} */}
-        <h4 className={!badgeBtnActive1 ? "sidebar-nav-font-1" : "sidebar-nav-font-2"}>Badges</h4>
+        <h4
+          className={
+            !badgeBtnActive1 ? "sidebar-nav-font-1" : "sidebar-nav-font-2"
+          }
+        >
+          Badges
+        </h4>
+        <div className={badgeBtnActive1 ? "underline" : ""} />
       </div>
       <div
         className={
@@ -25,7 +36,14 @@ export const SidebarNav = ({ setIsBadgeSideBar, setBadgeBtnActive1, setBadgeBtnA
           setIsBadgeSideBar(false);
         }}
       >
-        <h4 className={badgeBtnActive1 ? "sidebar-nav-font-1" : "sidebar-nav-font-2"}>Poke Info</h4>
+        <h4
+          className={
+            badgeBtnActive1 ? "sidebar-nav-font-1" : "sidebar-nav-font-2"
+          }
+        >
+          Poke Info
+        </h4>
+        <div className={badgeBtnActive2 ? "underline" : ""} />
       </div>
     </>
   );
