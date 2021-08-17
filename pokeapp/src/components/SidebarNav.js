@@ -1,11 +1,11 @@
 import React from "react";
 
 export const SidebarNav = ({
+  badgeBtnActive1,
+  badgeBtnActive2,
   setIsBadgeSideBar,
   setBadgeBtnActive1,
   setBadgeBtnActive2,
-  badgeBtnActive1,
-  badgeBtnActive2,
 }) => {
   return (
     <>
