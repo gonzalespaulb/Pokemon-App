@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import coinLogo from "../assets/uiIcons/coingif.gif";
@@ -13,11 +13,26 @@ const Navigation = ({
 }) => {
   const pokeDollars = useSelector((state) => state.pokemon.pokeDollars);
 
+  const [logo, setLogo] = useState(false);
+  const hoverInLogo = () => {
+    setLogo(true);
+  }
+
+  const hoverOutLogo = () => {
+    setLogo(false);
+  }
+
   return (
     <nav className="navigation">
       <div className="navigation-logo">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <img className="coin-logo" src={coinLogo} alt="spinning-coin" />
+          <h1
+            onMouseEnter={hoverInLogo}
+            onMouseLeave={hoverOutLogo}
+            className="logo-text"
+          >
+            {!logo ? `ポケパレス` : `poképalace`}
+          </h1>
         </Link>
       </div>
       <div className="navigation-links">
