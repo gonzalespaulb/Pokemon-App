@@ -31,10 +31,10 @@ const DigitalCardBinder = ({
       return (
         <PokemonCard
           blinker={blinker}
-          key={pokemon.id}
-          id={pokemon.id}
-          makeUpperCase={makeUpperCase}
           clickHandler={cardBinderClickHandler}
+          id={pokemon.id}
+          key={pokemon.id}
+          makeUpperCase={makeUpperCase}
           triggerOn={triggerOn}
         />
       );
@@ -47,10 +47,11 @@ const DigitalCardBinder = ({
         return (
           <PokemonCard
             blinker={blinker}
-            key={pokemon.id}
-            id={pokemon.id}
-            makeUpperCase={makeUpperCase}
             clickHandler={cardBinderClickHandler}
+            id={pokemon.id}
+            key={pokemon.id}
+            makeUpperCase={makeUpperCase}
+            triggerOn={triggerOn}
           />
         );
       });
