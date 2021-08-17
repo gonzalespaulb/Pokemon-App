@@ -26,6 +26,12 @@
   }
 }
 
+.poke-dollar-icon {
+  height: 14px;
+  padding-right: 3px;
+  padding-top: 1px;
+}
+
 .card-links {
   display: flex;
 }
@@ -52,7 +58,7 @@
   display: flex;
   border-radius: 10px;
   background-color: $pokedollar-color;
-  color: $font-color;
+  color: $base-color;
   align-items: baseline;
 
   &-total {
@@ -60,8 +66,7 @@
   }
 
   &-earn {
-    background-color: $font-color;
-    color: $pokedollar-color;
+    background-color: $secondary-color;
     border-radius: 8.2px;
     padding: 0 5px;
   }
