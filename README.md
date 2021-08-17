@@ -1,5 +1,5 @@
 ## Project Name and Description
-### PokePalace Casino
+### PokePalace 
 - The main objective of PokePalace Casino is to collect all the Pokemon and become rich. Badges will also be available while playing.  
 #### Features
 The main features include a slot machine and buying and selling Pokemon. Based on how many or what pokemons a user aquires, badges will be rewarded. These can thought of as achievements. The pokeInfo sidebar consists of a Pokedex. It will allow users to learn more information about each Pokemon. Users can track the progress of thier badges by using the badge sidebar. It will display the badge icon, progress bar, name, and a description. 
